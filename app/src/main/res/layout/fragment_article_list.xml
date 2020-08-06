@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.developerbreach.developerbreach.view.list.ArticleListViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.developerbreach.developerbreach.view.list.ArticleListFragment" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".view.list.ArticleListFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_article_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:liftOnScroll="true"
+            app:liftOnScrollTargetViewId="@id/articles_recycler_view"
+            tools:visibility="visible">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_article_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/min_toolbar_height"
+                android:paddingStart="@dimen/padding_16dp"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:navigationIcon="@drawable/ic_logo"
+                app:title="@string/article_toolbar_title"
+                app:titleTextAppearance="@style/TextAppearance.Article.Toolbar.ArticleList"
+                app:titleTextColor="@color/colorBrand"
+                tools:ignore="RtlSymmetry" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/articles_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="?actionBarSize"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:padding="@dimen/recycler_view_spacing_dimen"
+            android:scrollbars="none"
+            android:visibility="invisible"
+            app:bindArticleListFragmentReference="@{fragment}"
+            app:bindArticlesListData="@{viewModel}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:reverseLayout="true"
+            app:stackFromEnd="true"
+            tools:itemCount="6"
+            tools:listitem="@layout/item_article"
+            tools:visibility="visible" />
+
+        <include
+            android:id="@+id/include_brand_layout"
+            layout="@layout/fragment_branding"
+            android:visibility="invisible" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

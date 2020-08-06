@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.developerbreach.developerbreach.view.articleWebView.ArticleWebViewViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".view.articleWebView.ArticleWebViewFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_scroll_web_view_article"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <WebView
+                android:id="@+id/article_web_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:bindArticleWebViewClient="@{articleWebViewProgressBar}"
+                app:bindArticleWebViewUrl="@{viewModel.selectedWebViewArticle.urlLink}" />
+
+        </androidx.core.widget.NestedScrollView>
+
+        <ProgressBar
+            android:id="@+id/article_web_view_progress_bar"
+            style="@style/ProgressBar.Article.Material.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="@dimen/progress_bar_visible_margin"
+            tools:visibility="visible" />
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/article_web_view_bottom_app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            tools:menu="@menu/bottom_app_bar_menu" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_article_web_view"
+            style="@style/FloatingActionButton.Article.Common"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bindShareFabListener="@{viewModel.selectedWebViewArticle}"
+            app:layout_anchor="@id/article_web_view_bottom_app_bar"
+            app:srcCompat="@android:drawable/ic_menu_share" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

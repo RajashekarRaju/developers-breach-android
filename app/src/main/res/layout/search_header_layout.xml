@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="recyclerView"
+            type="androidx.recyclerview.widget.RecyclerView" />
+
+        <variable
+            name="viewModel"
+            type="com.developerbreach.developerbreach.view.search.SearchViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.developerbreach.developerbreach.view.search.SearchFragment" />
+
+        <variable
+            name="searchErrorText"
+            type="android.widget.TextView" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/search_header_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.5"
+            android:contentDescription="@string/search_button_content_description"
+            android:src="@drawable/ic_search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/article_search_edit_text"
+            style="@style/EditText.Article.Search.SearchBox"
+            android:layout_width="@dimen/match_constraints"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/layout_margin_24dp"
+            android:hint="@string/search_articles_hint"
+            android:paddingTop="@dimen/padding_8dp"
+            app:layout_constraintBottom_toBottomOf="@id/search_header_image_view"
+            app:layout_constraintStart_toEndOf="@id/search_header_image_view" />
+
+        <ImageView
+            android:id="@+id/clear_search_query_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/layout_margin_12dp"
+            android:alpha="0.5"
+            android:contentDescription="@string/clear_search_query_content_description"
+            android:src="@drawable/ic_close"
+            android:visibility="invisible"
+            app:bindClearSearchQueryData="@{articleSearchEditText}"
+            app:bindSearchErrorTextHeader="@{searchErrorText}"
+            app:bindSearchFragmentReferenceHeader="@{fragment}"
+            app:bindSearchRecyclerViewHeader="@{recyclerView}"
+            app:bindSearchViewModelHeader="@{viewModel}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="article"
+            type="com.developerbreach.developerbreach.model.Article" />
+
+        <variable
+            name="favoriteViewModel"
+            type="com.developerbreach.developerbreach.view.favorites.FavoritesViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.developerbreach.developerbreach.view.favorites.FavoritesFragment" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/favorite_item_card_view"
+        style="@style/CardView.Article.Item.List"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:transitionName="@{article.name}"
+        app:bindArticleItemTitleTransition="@{favoriteArticleTitleItemTextView}"
+        app:bindFavoriteToDetailClickListener="@{article}"
+        tools:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/favorite_article_thumbnail_item_image_view"
+                android:layout_width="@dimen/match_constraints"
+                android:layout_height="@dimen/match_constraints"
+                android:contentDescription="@string/article_banner_image_content_description"
+                android:scaleType="centerCrop"
+                app:bindFavoriteItemBanner="@{article.banner}"
+                app:layout_constraintDimensionRatio="3:2"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_height="@dimen/image_size_tools"
+                tools:layout_width="@dimen/image_size_tools"
+                tools:src="@drawable/ic_placeholder" />
+
+            <TextView
+                android:id="@+id/favorite_article_title_item_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/layout_margin_16dp"
+                android:fontFamily="@font/rubik"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                app:bindFavoriteItemTitle="@{article.name}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/favorite_article_thumbnail_item_image_view"
+                tools:text="@string/article_title_tools_text" />
+
+            <ImageView
+                android:id="@+id/remove_favorite_article_item_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_ripple"
+                android:contentDescription="@string/delete_favorite_button_content_description"
+                android:padding="@dimen/padding_16dp"
+                android:src="@drawable/ic_favorite_remove"
+                app:bindFavoriteFragmentModel="@{article}"
+                app:bindFavoriteViewModel="@{favoriteViewModel}"
+                app:bindImageViewFragment="@{fragment}"
+                app:bindItemCardView="@{favoriteItemCardView}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

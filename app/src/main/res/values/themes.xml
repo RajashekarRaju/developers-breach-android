@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.AppTheme" parent="@style/Theme.MaterialComponents.NoActionBar">
+        <item name="colorSurface">@color/surfaceColor</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorPrimaryVariant">@color/primaryVariantColor</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryVariantColor</item>
+        <item name="colorOnSurface">@color/onSurfaceColor</item>
+        <item name="colorOnPrimary">@color/onPrimaryColor</item>
+        <item name="colorOnSecondary">@color/onSecondaryColor</item>
+        <item name="bottomNavigationStyle">@style/BottomNavigationView.Article.Item.Appearance</item>
+    </style>
+</resources>

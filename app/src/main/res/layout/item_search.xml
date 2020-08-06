@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="article"
+            type="com.developerbreach.developerbreach.model.Article" />
+    </data>
+
+    <FrameLayout
+        android:id="@+id/search_item_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/article_name_search_item_text_view"
+            style="@style/TextAppearance.Article.Item.Search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_16dp"
+            android:paddingVertical="@dimen/padding_16dp"
+            android:text="@{article.name}"
+            android:transitionName="@{article.name}"
+            app:bindSearchToDetailListener="@{article}"
+            app:bindSearchItemViewGroup="@{searchItemParent}"
+            tools:text="@string/article_title_tools_text" />
+
+    </FrameLayout>
+
+</layout>

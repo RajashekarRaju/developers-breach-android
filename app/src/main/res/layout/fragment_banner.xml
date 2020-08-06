@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.developerbreach.developerbreach.view.banner.BannerViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".view.banner.BannerFragment">
+
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/banner_full_screen_photo_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/article_banner_image_content_description"
+            app:bindBannerWithZoom="@{viewModel.bannerUrl}"
+            app:bindCloseBannerFragment="@{closeBannerFragmentImageView}"
+            tools:src="@drawable/ic_placeholder" />
+
+        <ImageView
+            android:id="@+id/close_banner_fragment_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/close_banner_fragment_content_description"
+            android:padding="@dimen/padding_16dp"
+            android:src="@drawable/ic_close"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

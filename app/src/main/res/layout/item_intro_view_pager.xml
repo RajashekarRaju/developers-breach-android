@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="intro"
+            type="com.developerbreach.developerbreach.model.Intro" />
+
+        <variable
+            name="introViewPager2"
+            type="androidx.viewpager2.widget.ViewPager2" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@{intro.background}"
+        tools:background="@drawable/intro_first_gradient">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/hor_guideline_intro"
+            android:layout_width="@dimen/hor_guideline_width"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <TextView
+            android:id="@+id/intro_title_view_pager_item_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rubik_medium"
+            android:padding="@dimen/padding_16dp"
+            android:text="@{intro.title}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+            app:layout_constraintBottom_toTopOf="@id/hor_guideline_intro"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/app_name" />
+
+        <ImageView
+            android:id="@+id/intro_banner_view_pager_item_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginBottom="@dimen/layout_margin_16dp"
+            android:contentDescription="@string/intro_pager_first_banner_content_description"
+            android:src="@{intro.banner}"
+            app:layout_constraintBottom_toTopOf="@id/intro_title_view_pager_item_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:src="@drawable/ic_logo" />
+
+        <TextView
+            android:id="@+id/intro_subtitle_view_pager_item_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/rubik"
+            android:gravity="center"
+            android:padding="@dimen/padding_16dp"
+            android:text="@{intro.subtitle}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hor_guideline_intro"
+            tools:text="@string/intro_pager_first_subtitle_text" />
+
+        <TextView
+            android:id="@+id/next_item_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:alpha="0.5"
+            android:background="?attr/selectableItemBackground"
+            android:fontFamily="@font/rubik"
+            android:padding="@dimen/padding_8dp"
+            android:text="@string/next_intro_pager_text"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:bindHideIntroNextTextView="@{intro}"
+            app:bindNextIntroPagerListener="@{introViewPager2}"
+            app:bindSkipIntroPagerListener="@{skipIntroPagerTextView}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/hor_line_intro" />
+
+        <TextView
+            android:id="@+id/skip_intro_pager_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:alpha="0.5"
+            android:background="?attr/selectableItemBackground"
+            android:fontFamily="@font/rubik"
+            android:padding="@dimen/padding_8dp"
+            tools:text="@string/skip_intro_pager_text"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/hor_line_intro" />
+
+        <View
+            android:id="@+id/hor_line_intro"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintBottom_toTopOf="@id/next_item_text_view" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/next_item_text_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/next_item_text_view">
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/pager_background"
+                app:bindPagerFirstPositionViewer="@{intro.id}"
+                app:bindPagerSecondPositionViewer="@{introPagerPositionTwo}"
+                app:bindPagerThirdPositionViewer="@{introPagerPositionThree}"
+                app:bindPagerFourthPositionViewer="@{introPagerPositionFourth}"
+                tools:layout_height="12dp"
+                tools:layout_width="12dp" />
+
+            <View
+                android:id="@+id/intro_pager_position_two"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/pager_background" />
+
+            <View
+                android:id="@+id/intro_pager_position_three"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/pager_background" />
+
+            <View
+                android:id="@+id/intro_pager_position_fourth"
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/pager_background" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "186673513738",
+    "firebase_url": "https://fcm-developersbreach.firebaseio.com",
+    "project_id": "fcm-developersbreach",
+    "storage_bucket": "fcm-developersbreach.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186673513738:android:0c2838bcd991595fb2a6f3",
+        "android_client_info": {
+          "package_name": "com.developerbreach.developerbreach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "186673513738-gojlrk6dtrgalpfqe9gqjui1i7rb1b8c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwzSi_qKiHMWyXtEDbHeP30O5H2lZjmXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "186673513738-gojlrk6dtrgalpfqe9gqjui1i7rb1b8c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:186673513738:android:03e78861fa26ea56b2a6f3",
+        "android_client_info": {
+          "package_name": "com.developersbreach.developersbreach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "186673513738-gojlrk6dtrgalpfqe9gqjui1i7rb1b8c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwzSi_qKiHMWyXtEDbHeP30O5H2lZjmXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "186673513738-gojlrk6dtrgalpfqe9gqjui1i7rb1b8c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

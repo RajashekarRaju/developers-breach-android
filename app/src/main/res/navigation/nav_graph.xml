@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/articleListFragment">
+
+    <fragment
+        android:id="@+id/introFragment"
+        tools:layout="@layout/item_intro_view_pager"
+        android:name="com.developerbreach.developerbreach.view.intro.IntroFragment"
+        android:label="IntroFragment" >
+        <action
+            android:id="@+id/introToArticleListFragment"
+            app:destination="@id/articleListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/articleListFragment"
+        android:name="com.developerbreach.developerbreach.view.list.ArticleListFragment"
+        android:label="Articles"
+        tools:layout="@layout/fragment_article_list">
+        <action
+            android:id="@+id/articleListToDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.developerbreach.developerbreach.view.search.SearchFragment"
+        android:label="Search"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/searchToDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favoritesFragment"
+        android:name="com.developerbreach.developerbreach.view.favorites.FavoritesFragment"
+        android:label="fragment_favorites"
+        tools:layout="@layout/fragment_favorites">
+        <action
+            android:id="@+id/favoritesToDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/articleDetailFragment"
+        android:name="com.developerbreach.developerbreach.view.detail.ArticleDetailFragment"
+        android:label="Details"
+        tools:layout="@layout/fragment_article_detail">
+        <argument
+            android:name="articleDetailArgs"
+            app:argType="com.developerbreach.developerbreach.model.Article" />
+        <action
+            android:id="@+id/detailToArticleWebViewFragment"
+            app:destination="@id/articleWebViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+        <action
+            android:id="@+id/detailToBannerFragment"
+            app:destination="@id/bannerFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.developerbreach.developerbreach.view.settings.SettingsFragment"
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings">
+        <action
+            android:id="@+id/settingsToCommonWebViewFragment"
+            app:destination="@id/commonWebViewFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/settingsToIntroFragment"
+            app:destination="@id/introFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsCompatFragment"
+        android:name="com.developerbreach.developerbreach.view.settings.SettingsCompatFragment"
+        android:label="SettingsCompatFragment"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/commonWebViewFragment"
+        android:name="com.developerbreach.developerbreach.view.commonWebView.CommonWebViewFragment"
+        android:label="Common WebView Fragment"
+        tools:layout="@layout/fragment_common_web_view">
+        <argument
+            android:name="webViewFragmentArgs"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/articleWebViewFragment"
+        android:name="com.developerbreach.developerbreach.view.articleWebView.ArticleWebViewFragment"
+        android:label="ArticleWebViewFragment"
+        tools:layout="@layout/fragment_article_web_view">
+        <argument
+            android:name="articleDataArgs"
+            app:argType="com.developerbreach.developerbreach.model.Article" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bannerFragment"
+        android:name="com.developerbreach.developerbreach.view.banner.BannerFragment"
+        android:label="Banner Fragment"
+        tools:layout="@layout/fragment_banner">
+        <argument
+            android:name="bannerUrlLink"
+            app:argType="string" />
+    </fragment>
+
+</navigation>
