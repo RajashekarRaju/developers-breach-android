@@ -4,7 +4,6 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import androidx.lifecycle.Observer
 import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
@@ -24,7 +23,7 @@ fun RecyclerView.setArticleFragmentListData(
         viewModel: ArticleListViewModel,
         owner: ArticleListFragment
 ) {
-    viewModel.articles.observe(owner, Observer { articles ->
+    viewModel.articles.observe(owner, { articles ->
         val adapter = ArticleAdapter(viewModel, owner)
         // Pass list to adapter calling submitList since our adapter class extends to ListAdapter<>.
         adapter.submitList(articles)

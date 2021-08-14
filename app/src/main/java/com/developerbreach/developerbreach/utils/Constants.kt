@@ -39,4 +39,5 @@ const val ARTICLE_BANNER = "jetpack_featured_media_url"
 
 const val SCHEME_AUTHORITY = "https://developersbreach.com"
 const val APPEND_PATH = "wp-json/wp/v2"
+// ?per_page=21
 const val APPEND_ENDPOINT_POSTS = "posts"

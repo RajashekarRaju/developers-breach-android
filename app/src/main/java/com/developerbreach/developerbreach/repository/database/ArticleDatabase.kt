@@ -4,9 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.developerbreach.developerbreach.repository.database.dao.ArticleDao
 import com.developerbreach.developerbreach.repository.database.dao.FavoriteDao
-import com.developerbreach.developerbreach.repository.database.entity.ArticleEntity
 import com.developerbreach.developerbreach.repository.database.entity.FavoritesEntity
 import com.developerbreach.developerbreach.utils.DATABASE_NAME
 
@@ -18,7 +16,7 @@ import com.developerbreach.developerbreach.utils.DATABASE_NAME
  * a separate space folder for our app database.
  */
 @Database(
-        entities = [ArticleEntity::class, FavoritesEntity::class],
+        entities = [FavoritesEntity::class],
         version = 1,
         exportSchema = false)
 abstract class ArticleDatabase : RoomDatabase() {
@@ -26,7 +24,6 @@ abstract class ArticleDatabase : RoomDatabase() {
     /**
      * @return get access to all objects mapped to database.
      */
-    abstract val articleDao: ArticleDao
     abstract val favoriteDao: FavoriteDao
 }
 

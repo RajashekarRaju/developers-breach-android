@@ -1,8 +1,8 @@
 package com.developerbreach.developerbreach.repository.network
 
 import android.net.Uri
-import com.developerbreach.developerbreach.model.ArticleNetwork
-import com.developerbreach.developerbreach.model.NetworkArticlesContainer
+import android.util.Log
+import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.utils.*
 import java.io.IOException
 import java.io.InputStream
@@ -11,14 +11,14 @@ import java.net.URL
 import java.util.*
 
 
-fun getArticles(): NetworkArticlesContainer {
-    val articlesNetworkList: List<ArticleNetwork> = fetchArticleJsonData(articleResponse())
-    return NetworkArticlesContainer(articlesNetworkList)
+fun getArticles(): List<Article> {
+    return fetchArticleJsonData(articleResponse())
 }
 
 @Throws(IOException::class)
-private fun articleResponse(): String {
+fun articleResponse(): String {
     val uriString: String = articleBuilder()
+    Log.e("NetworkService", uriString)
     val requestUrl: URL = createUrl(uriString)!!
     return getResponseFromHttpUrl(requestUrl)
 }
