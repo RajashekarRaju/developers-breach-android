@@ -1,16 +1,16 @@
 package com.developerbreach.developerbreach.repository.network
 
-import com.developerbreach.developerbreach.model.ArticleNetwork
+import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.utils.*
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.*
 
 
-fun fetchArticleJsonData(response: String): List<ArticleNetwork> {
+fun fetchArticleJsonData(response: String): List<Article> {
 
     // Create a new ArrayList for adding articles into list.
-    val articlesNetworkList: MutableList<ArticleNetwork> = ArrayList()
+    val articlesNetworkList: MutableList<Article> = ArrayList()
 
     // Try to parse the SAMPLE_JSON_RESPONSE. If there's a problem with the way the JSON
     // is formatted, a JSONException exception object will be thrown.
@@ -56,7 +56,7 @@ fun fetchArticleJsonData(response: String): List<ArticleNetwork> {
             excerpt = jsonObjectExcerpt.getString(ARTICLE_EXCERPT)
         }
 
-        val articlesNetwork = ArticleNetwork(
+        val articlesNetwork = Article(
                 id,
                 articleId,
                 title!!,

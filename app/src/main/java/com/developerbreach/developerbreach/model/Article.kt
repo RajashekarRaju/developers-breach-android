@@ -1,18 +1,19 @@
 package com.developerbreach.developerbreach.model
 
 import android.os.Parcelable
+import androidx.lifecycle.Transformations
 import androidx.recyclerview.widget.DiffUtil
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Article(
-        val id: Int,
-        val articleId: Int,
-        val name: String,
-        val banner: String,
-        val postedDate: String,
-        val urlLink: String,
-        val excerpt: String
+    val id: Int,
+    val articleId: Int,
+    val name: String,
+    val banner: String,
+    val postedDate: String,
+    val urlLink: String,
+    val excerpt: String
 ) : Parcelable {
 
     /**
@@ -22,15 +23,15 @@ data class Article(
     companion object DiffCallback : DiffUtil.ItemCallback<Article>() {
 
         override fun areItemsTheSame(
-                oldItem: Article,
-                newItem: Article
+            oldItem: Article,
+            newItem: Article
         ): Boolean {
             return oldItem === newItem
         }
 
         override fun areContentsTheSame(
-                oldItem: Article,
-                newItem: Article
+            oldItem: Article,
+            newItem: Article
         ): Boolean {
             return oldItem.id == newItem.id
         }

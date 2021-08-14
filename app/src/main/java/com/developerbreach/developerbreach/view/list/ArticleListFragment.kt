@@ -2,6 +2,7 @@ package com.developerbreach.developerbreach.view.list
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,6 +38,8 @@ class ArticleListFragment : Fragment() {
         }
 
         viewModel = ViewModelProvider(this).get(ArticleListViewModel::class.java)
+
+        Log.e("Fragment", "onCreate")
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -53,16 +56,16 @@ class ArticleListFragment : Fragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        viewModel.isInternetAvailable.observe(viewLifecycleOwner, Observer { isInternetAvailable ->
+        viewModel.isInternetAvailable.observe(viewLifecycleOwner, { isInternetAvailable ->
             if (!isInternetAvailable) {
                 showSnackBar(getString(R.string.no_internet_connection), requireActivity())
             }
         })
 
-        viewModel.articles.observe(viewLifecycleOwner, Observer { articles ->
+        viewModel.articles.observe(viewLifecycleOwner, { articles ->
             if (articles.isNotEmpty()) {
                 binding.articlesRecyclerView.visibility = View.VISIBLE
                 binding.includeBrandLayout.root.visibility = View.GONE

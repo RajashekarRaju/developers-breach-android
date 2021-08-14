@@ -1,6 +1,6 @@
 package com.developerbreach.developerbreach.model
 
-import com.developerbreach.developerbreach.repository.database.entity.ArticleEntity
+import androidx.recyclerview.widget.DiffUtil
 
 data class NetworkArticlesContainer(val articlesNetworks: List<ArticleNetwork>)
 
@@ -12,18 +12,25 @@ data class ArticleNetwork(
         val postedDate: String,
         val urlLink: String,
         val excerpt: String
-)
+) {
+    /**
+     * Allows the RecyclerView to determine which items have changed when the list of [Article]
+     * has been updated.
+     */
+    companion object DiffCallback : DiffUtil.ItemCallback<ArticleNetwork>() {
 
-fun NetworkArticlesContainer.asDatabaseModel(): List<ArticleEntity> {
-    return articlesNetworks.map {
-        ArticleEntity(
-                id = it.id,
-                articleId = it.articleId,
-                name = it.name,
-                banner = it.banner,
-                postedDate = it.postedDate,
-                urlLink = it.urlLink,
-                excerpt = it.excerpt
-        )
+        override fun areItemsTheSame(
+            oldItem: ArticleNetwork,
+            newItem: ArticleNetwork
+        ): Boolean {
+            return oldItem === newItem
+        }
+
+        override fun areContentsTheSame(
+            oldItem: ArticleNetwork,
+            newItem: ArticleNetwork
+        ): Boolean {
+            return oldItem.id == newItem.id
+        }
     }
 }

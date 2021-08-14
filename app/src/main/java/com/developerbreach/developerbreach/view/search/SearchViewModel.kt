@@ -22,7 +22,7 @@ class SearchViewModel(
     private var viewModelJob = SupervisorJob()
     private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.IO)
 
-    private val _articles: LiveData<List<Article>> = repository.articles
+    private val _articles = MutableLiveData<List<Article>>()
     val articles: LiveData<List<Article>>
         get() = _articles
 
@@ -32,6 +32,7 @@ class SearchViewModel(
     init {
         viewModelScope.launch {
             searchableArticle = repository.searchableArticle()
+            _articles.postValue(repository.getArticlesData())
         }
     }
 
@@ -53,7 +54,7 @@ class SearchViewModel(
     private fun filterWithQuery(query: String) {
         val filterList = ArrayList<Article>()
         for (article: Article in searchableArticle) {
-            val formatTitle: String = article.name.toLowerCase(Locale.getDefault())
+            val formatTitle: String = article.name.lowercase(Locale.getDefault())
             if (formatTitle.contains(query)) {
                 filterList.add(article)
             }

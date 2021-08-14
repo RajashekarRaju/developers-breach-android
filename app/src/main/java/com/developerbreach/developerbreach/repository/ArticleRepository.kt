@@ -3,12 +3,13 @@ package com.developerbreach.developerbreach.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.developerbreach.developerbreach.model.Article
+import com.developerbreach.developerbreach.model.ArticleNetwork
 import com.developerbreach.developerbreach.model.NetworkArticlesContainer
-import com.developerbreach.developerbreach.model.asDatabaseModel
 import com.developerbreach.developerbreach.repository.database.ArticleDatabase
-import com.developerbreach.developerbreach.repository.database.entity.ArticleEntity
 import com.developerbreach.developerbreach.repository.database.entity.asDatabaseModel
 import com.developerbreach.developerbreach.repository.database.entity.asDomainModel
+import com.developerbreach.developerbreach.repository.network.articleResponse
+import com.developerbreach.developerbreach.repository.network.fetchArticleJsonData
 import com.developerbreach.developerbreach.repository.network.getArticles
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -16,24 +17,27 @@ import java.io.IOException
 
 
 class ArticleRepository(
-        private val database: ArticleDatabase
+    private val database: ArticleDatabase
 ) {
 
-    val articles: LiveData<List<Article>> =
-            Transformations.map(database.articleDao.loadAllArticles()) { articleEntityList ->
-                articleEntityList.asDomainModel()
-            }
+    suspend fun getArticlesData(): List<Article> {
+        val listData: List<Article>
+        withContext(Dispatchers.IO) {
+            listData = getArticles()
+        }
+        return listData
+    }
 
     val favorites: LiveData<List<Article>> =
-            Transformations.map(database.favoriteDao.loadAllFavorites()) { favoritesEntityList ->
-                favoritesEntityList.asDomainModel()
-            }
+        Transformations.map(database.favoriteDao.loadAllFavorites()) { favoritesEntityList ->
+            favoritesEntityList.asDomainModel()
+        }
 
     suspend fun refreshArticles() {
         withContext(Dispatchers.IO) {
             try {
-                val articlesList: NetworkArticlesContainer = getArticles()
-                database.articleDao.insertArticles(articlesList.asDatabaseModel())
+                val articlesList: List<Article> = getArticles()
+
             } catch (e: IOException) {
                 e.printStackTrace()
             }
@@ -41,7 +45,7 @@ class ArticleRepository(
     }
 
     suspend fun insertArticle(
-            article: Article
+        article: Article
     ) {
         withContext(Dispatchers.IO) {
             database.favoriteDao.insertFavoriteArticle(article.asDatabaseModel())
@@ -49,7 +53,7 @@ class ArticleRepository(
     }
 
     suspend fun deleteSelectedFavorite(
-            article: Article
+        article: Article
     ) {
         withContext(Dispatchers.IO) {
             database.favoriteDao.deleteFavoriteArticle(article.asDatabaseModel())
@@ -63,10 +67,9 @@ class ArticleRepository(
     }
 
     suspend fun searchableArticle(): List<Article> {
-        var searchableArticles = ArrayList<Article>()
+        var searchableArticles: List<Article>
         withContext(Dispatchers.IO) {
-            val articleEntity: List<ArticleEntity> = database.articleDao.getSearchableArticles()
-            searchableArticles = articleEntity.asDomainModel() as ArrayList<Article>
+            searchableArticles = getArticles()
         }
         return searchableArticles
     }
