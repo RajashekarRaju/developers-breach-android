@@ -1,12 +1,11 @@
 package com.developerbreach.developerbreach.view.list
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.developerbreach.developerbreach.model.Article
-import com.developerbreach.developerbreach.model.ArticleNetwork
+import com.developerbreach.developerbreach.model.Categories
 import com.developerbreach.developerbreach.repository.ArticleRepository
 import com.developerbreach.developerbreach.repository.database.getDatabaseInstance
 import com.developerbreach.developerbreach.repository.network.isNetworkConnected
@@ -36,6 +35,10 @@ class ArticleListViewModel constructor(
     val articles: LiveData<List<Article>>
         get() = _articles
 
+    private val _categories = MutableLiveData<List<Categories>>()
+    val categories: LiveData<List<Categories>>
+        get() = _categories
+
     init {
         // refreshArticlesData()
         _isInternetAvailable.value = isNetworkConnected(application.applicationContext)
@@ -45,7 +48,11 @@ class ArticleListViewModel constructor(
             val articlesData: List<Article> = repository.getArticlesData()
             _articles.postValue(articlesData)
             //Log.e("ViewModel", "Launch")
+        }
 
+        viewModelScope.launch {
+            val categoriesData = repository.getCategoriesData()
+            _categories.postValue(categoriesData)
         }
     }
 

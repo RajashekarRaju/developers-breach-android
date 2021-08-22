@@ -1,7 +1,6 @@
 package com.developerbreach.developerbreach.model
 
 import android.os.Parcelable
-import androidx.lifecycle.Transformations
 import androidx.recyclerview.widget.DiffUtil
 import kotlinx.parcelize.Parcelize
 
