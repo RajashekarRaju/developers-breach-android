@@ -7,6 +7,7 @@ import com.developerbreach.developerbreach.worker.ArticleRefreshWorker
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
 class DevelopersBreachApp : Application() {
@@ -16,6 +17,10 @@ class DevelopersBreachApp : Application() {
     override fun onCreate() {
         super.onCreate()
         delayedInit()
+
+        if (BuildConfig.DEBUG) {
+            Timber.plant(Timber.DebugTree())
+        }
     }
 
     private fun setupRecurringWork() {
