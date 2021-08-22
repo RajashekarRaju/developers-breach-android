@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.databinding.ItemArticleBinding
 import com.developerbreach.developerbreach.model.Article
-import com.developerbreach.developerbreach.model.ArticleNetwork
 import com.developerbreach.developerbreach.view.list.ArticleAdapter.ArticleViewHolder
 
 /**

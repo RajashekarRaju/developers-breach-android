@@ -1,8 +1,8 @@
 package com.developerbreach.developerbreach.repository.network
 
 import android.net.Uri
-import android.util.Log
 import com.developerbreach.developerbreach.model.Article
+import com.developerbreach.developerbreach.model.Categories
 import com.developerbreach.developerbreach.utils.*
 import java.io.IOException
 import java.io.InputStream
@@ -15,11 +15,21 @@ fun getArticles(): List<Article> {
     return fetchArticleJsonData(articleResponse())
 }
 
+fun getCategories(): List<Categories> {
+    return fetchCategoriesJsonData(categoryResponse())
+}
+
 @Throws(IOException::class)
 fun articleResponse(): String {
     val uriString: String = articleBuilder()
-    Log.e("NetworkService", uriString)
-    val requestUrl: URL = createUrl(uriString)!!
+    val requestUrl: URL = createUrl(uriString)
+    return getResponseFromHttpUrl(requestUrl)
+}
+
+@Throws(IOException::class)
+fun categoryResponse(): String {
+    val uriString: String = categoryBuilder()
+    val requestUrl: URL = createUrl(uriString)
     return getResponseFromHttpUrl(requestUrl)
 }
 
@@ -29,11 +39,20 @@ fun articleResponse(): String {
  *
  * https://developersbreach.com/wp-json/wp/v2/posts
  */
-private fun articleBuilder(): String {
+private fun articleBuilder(numberOfPostsPerPage: Int = 5): String {
     val baseUri: Uri = Uri.parse(SCHEME_AUTHORITY)
     val uriBuilder: Uri.Builder = baseUri.buildUpon()
     uriBuilder.appendPath(APPEND_PATH)
     uriBuilder.appendPath(APPEND_ENDPOINT_POSTS)
+    uriBuilder.appendQueryParameter(QUERY_PARAMETER_POSTS_PER_PAGE, numberOfPostsPerPage.toString())
+    return uriBuilder.build().toString()
+}
+
+private fun categoryBuilder(): String {
+    val baseUri: Uri = Uri.parse(SCHEME_AUTHORITY)
+    val uriBuilder: Uri.Builder = baseUri.buildUpon()
+    uriBuilder.appendPath(APPEND_PATH)
+    uriBuilder.appendPath("categories")
     return uriBuilder.build().toString()
 }
 
@@ -66,6 +85,6 @@ private fun getResponseFromHttpUrl(url: URL): String {
 /**
  * Returns new URL object from the given string URL.
  */
-private fun createUrl(stringUrl: String): URL? {
+private fun createUrl(stringUrl: String): URL {
     return URL(stringUrl)
 }

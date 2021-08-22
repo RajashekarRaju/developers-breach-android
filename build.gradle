@@ -3,7 +3,6 @@ buildscript {
 
     ext {
         kotlin_version = "1.5.21"
-        compose_version = '1.0.1'
     }
 
     repositories {
@@ -13,11 +12,11 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.0'
+        classpath 'com.android.tools.build:gradle:7.0.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
         // Firebase
-        classpath 'com.google.gms:google-services:4.3.9'
+        classpath 'com.google.gms:google-services:4.3.10'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -25,7 +24,9 @@ buildscript {
 }
 
 allprojects {
+
     repositories {
+
         google()
         jcenter()
         mavenCentral()
