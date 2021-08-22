@@ -3,14 +3,12 @@ package com.developerbreach.developerbreach.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.developerbreach.developerbreach.model.Article
-import com.developerbreach.developerbreach.model.ArticleNetwork
-import com.developerbreach.developerbreach.model.NetworkArticlesContainer
+import com.developerbreach.developerbreach.model.Categories
 import com.developerbreach.developerbreach.repository.database.ArticleDatabase
 import com.developerbreach.developerbreach.repository.database.entity.asDatabaseModel
 import com.developerbreach.developerbreach.repository.database.entity.asDomainModel
-import com.developerbreach.developerbreach.repository.network.articleResponse
-import com.developerbreach.developerbreach.repository.network.fetchArticleJsonData
 import com.developerbreach.developerbreach.repository.network.getArticles
+import com.developerbreach.developerbreach.repository.network.getCategories
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.IOException
@@ -24,6 +22,14 @@ class ArticleRepository(
         val listData: List<Article>
         withContext(Dispatchers.IO) {
             listData = getArticles()
+        }
+        return listData
+    }
+
+    suspend fun getCategoriesData(): List<Categories> {
+        val listData: List<Categories>
+        withContext(Dispatchers.IO) {
+            listData = getCategories()
         }
         return listData
     }
