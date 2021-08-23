@@ -11,5 +11,6 @@
         <item name="colorOnPrimary">@color/onPrimaryColor</item>
         <item name="colorOnSecondary">@color/onSecondaryColor</item>
         <item name="bottomNavigationStyle">@style/BottomNavigationView.Article.Item.Appearance</item>
+        <item name="android:statusBarColor">?attr/colorSurface</item>
     </style>
 </resources>
