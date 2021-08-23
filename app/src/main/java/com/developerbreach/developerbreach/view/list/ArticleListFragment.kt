@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.databinding.FragmentArticleListBinding
 import com.developerbreach.developerbreach.utils.showSnackBar
+import com.google.android.material.chip.Chip
 import java.util.concurrent.TimeUnit
 
 
@@ -66,7 +67,17 @@ class ArticleListFragment : Fragment() {
         })
 
         viewModel.categories.observe(viewLifecycleOwner, { categories ->
+            val chipList: List<Chip> = categories.map { shirtProperty ->
+                val chip = LayoutInflater.from(context).inflate(
+                    R.layout.choice_chip_standalone, binding.categoriesChipGroup, false) as Chip
+                chip.text = shirtProperty.categoryName
+                chip
+            }
 
+            binding.categoriesChipGroup.removeAllViews()
+            for (currentChip in chipList) {
+                binding.categoriesChipGroup.addView(currentChip)
+            }
         })
 
         viewModel.articles.observe(viewLifecycleOwner, { articles ->
