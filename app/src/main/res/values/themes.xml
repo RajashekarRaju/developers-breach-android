@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="Base.AppTheme" parent="@style/Theme.MaterialComponents.NoActionBar">
         <item name="colorSurface">@color/surfaceColor</item>
         <item name="colorPrimary">@color/primaryColor</item>
@@ -11,6 +12,15 @@
         <item name="colorOnPrimary">@color/onPrimaryColor</item>
         <item name="colorOnSecondary">@color/onSecondaryColor</item>
         <item name="bottomNavigationStyle">@style/BottomNavigationView.Article.Item.Appearance</item>
-        <item name="android:statusBarColor">?attr/colorSurface</item>
+        <item name="android:statusBarColor">@color/colorDarkBrand</item>
+        <item name="android:navigationBarColor">@color/colorDarkBrand</item>
     </style>
+
+    <style name="Main">
+        <item name="colorPrimary">@color/colorBrand</item>
+        <item name="colorSurface">@color/colorBrand</item>
+        <item name="colorOnSurface">@color/onSurfaceColor</item>
+        <item name="background">@color/colorDarkBrand</item>
+    </style>
+
 </resources>

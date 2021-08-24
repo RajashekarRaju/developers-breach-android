@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="surfaceColor">#121212</color>
-    <color name="primaryColor">#212121</color>
+    <color name="surfaceColor">#ffffff</color>
+    <color name="primaryColor">#607d8b</color>
     <color name="primaryDarkColor">#000000 </color>
     <color name="primaryVariantColor">#484848</color>
     <color name="secondaryColor">#236D8F</color>
     <color name="secondaryVariantColor">#44758C</color>
-    <color name="onSurfaceColor">#ffffff</color>
+    <color name="onSurfaceColor">#000000</color>
     <color name="onPrimaryColor">#ffffff</color>
     <color name="onSecondaryColor">#000000</color>
     <color name="colorBrand">#607d8b</color>
+    <color name="colorDarkBrand">#243B53</color>
 </resources>

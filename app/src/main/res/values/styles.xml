@@ -18,7 +18,7 @@
     </style>
 
     <style name="CardView.Article.Item.List" parent="Widget.MaterialComponents.CardView">
-        <item name="cardCornerRadius">0dp</item>
+        <item name="cardCornerRadius">8dp</item>
         <item name="cardElevation">8dp</item>
         <item name="strokeWidth">0dp</item>
     </style>
@@ -32,10 +32,6 @@
         <item name="android:textColor">?attr/colorOnPrimarySurface</item>
         <item name="buttonBarButtonStyle">?attr/selectableItemBackground</item>
         <item name="rippleColor">?attr/colorAccent</item>
-    </style>
-
-    <style name="TextAppearance.Article.Toolbar.ArticleList" parent="TextAppearance.MaterialComponents.Headline5">
-        <item name="fontFamily">@font/rubik_medium</item>
     </style>
 
     <style name="TextAppearance.Article.Toolbar.FavoriteList" parent="TextAppearance.MaterialComponents.Headline4">
@@ -97,6 +93,11 @@
         <item name="android:fontFamily">@font/rubik_medium</item>
         <item name="android:imeOptions">actionGo</item>
         <item name="android:inputType">text</item>
+    </style>
+
+    <style name="ChipTextAppearance" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/rubik_medium</item>
+        <item name="android:fontFamily">@font/rubik_medium</item>
     </style>
 
 </resources>
