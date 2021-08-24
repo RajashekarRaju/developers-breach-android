@@ -3,7 +3,7 @@ package com.developerbreach.developerbreach.view.settings
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
-import androidx.lifecycle.Observer
+import android.view.View
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
@@ -37,9 +37,9 @@ class SettingsCompatFragment : PreferenceFragmentCompat() {
         }
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel.findFavorites.observe(viewLifecycleOwner, Observer { articles ->
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.findFavorites.observe(viewLifecycleOwner, { articles ->
             if (articles.isNotEmpty()) {
                 deletePreference.isEnabled = true
             } else {

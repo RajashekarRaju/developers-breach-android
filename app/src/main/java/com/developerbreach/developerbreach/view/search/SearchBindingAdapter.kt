@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.databinding.BindingAdapter
-import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
@@ -30,7 +29,7 @@ fun RecyclerView.setSearchRecyclerViewData(
     // With variable viewModel start observing LiveData to this fragment by calling articles()
     // and observe changes for list of searchable article data.
     // articles() is externally exposed in ViewModel class to observe changes.
-    viewModel.articles.observe(viewLifecycleOwner, Observer { articleList ->
+    viewModel.articles.observe(viewLifecycleOwner, { articleList ->
         val adapter = SearchAdapter()
         // Pass list to adapter calling submitList since our adapter class extends to ListAdapter<>.
         adapter.submitList(articleList)
@@ -98,7 +97,7 @@ fun ImageView.setClearSearchQueryData(
                 clearImageView.visibility = View.INVISIBLE
             }
 
-            val formatQueryBeforeSearch = query.toString().toLowerCase(Locale.getDefault())
+            val formatQueryBeforeSearch = query.toString().lowercase(Locale.getDefault())
             filterSearchQuery(formatQueryBeforeSearch, viewModel, owner, recyclerView, searchTextError)
         }
 
@@ -125,7 +124,7 @@ private fun filterSearchQuery(
         recyclerView: RecyclerView,
         searchTextError: TextView) {
 
-    viewModel.filter(query).observe(viewLifecycleOwner, Observer { articleList ->
+    viewModel.filter(query).observe(viewLifecycleOwner, { articleList ->
         // Only perform this operation is query is valid.
         if (query.isNotEmpty()) {
             // Get our adapter

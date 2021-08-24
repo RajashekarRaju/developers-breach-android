@@ -22,16 +22,16 @@ class SettingsFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         binding = FragmentSettingsBinding.inflate(inflater)
         binding.lifecycleOwner = this
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         val fragment: SettingsCompatFragment = SettingsCompatFragment.newInstance(
-                viewModel, this, binding
+            viewModel, this, binding
         )
         val fragmentManager = childFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()

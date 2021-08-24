@@ -30,7 +30,7 @@ class ArticleDetailFragment : Fragment() {
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding: FragmentArticleDetailBinding = FragmentArticleDetailBinding.inflate(inflater)
         binding.viewModel = viewModel
         binding.executePendingBindings()

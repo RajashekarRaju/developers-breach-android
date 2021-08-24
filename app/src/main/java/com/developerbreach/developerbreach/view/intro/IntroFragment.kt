@@ -17,7 +17,7 @@ class IntroFragment : Fragment() {
     private lateinit var viewModel: IntroViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         binding = FragmentIntroBinding.inflate(inflater)
         return binding.root
     }

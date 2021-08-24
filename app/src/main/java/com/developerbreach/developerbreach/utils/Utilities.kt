@@ -11,14 +11,14 @@ import java.util.*
 
 
 fun capitalizeWord(title: String): String {
-    val splitTitle = title.toLowerCase(Locale.ROOT).split(" ".toRegex()).toTypedArray()
+    val splitTitle = title.lowercase(Locale.ROOT).split(" ".toRegex()).toTypedArray()
     val builder = StringBuilder()
     for (i in splitTitle.indices) {
         val currentWordInTitle = splitTitle[i]
         if (i > 0 && currentWordInTitle.isNotEmpty()) {
             builder.append(" ")
         }
-        val capitalTitle = (currentWordInTitle.substring(0, 1).toUpperCase(Locale.ROOT)
+        val capitalTitle = (currentWordInTitle.substring(0, 1).lowercase(Locale.ROOT)
                 + currentWordInTitle.substring(1))
         builder.append(capitalTitle)
     }

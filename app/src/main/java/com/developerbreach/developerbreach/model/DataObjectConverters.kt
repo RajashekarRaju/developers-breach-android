@@ -2,8 +2,6 @@ package com.developerbreach.developerbreach.model
 
 import androidx.recyclerview.widget.DiffUtil
 
-data class NetworkArticlesContainer(val articlesNetworks: List<ArticleNetwork>)
-
 data class ArticleNetwork(
         val id: Int,
         val articleId: Int,

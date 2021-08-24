@@ -24,7 +24,7 @@ class CommonWebViewFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         // Inflate the layout for this fragment
         val binding = FragmentCommonWebViewBinding.inflate(inflater)
         binding.viewModel = viewModel
