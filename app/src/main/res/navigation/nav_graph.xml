@@ -27,6 +27,9 @@
         <action
             android:id="@+id/articleListToDetailFragment"
             app:destination="@id/articleDetailFragment" />
+        <action
+            android:id="@+id/articlesToSearchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
 
     <fragment

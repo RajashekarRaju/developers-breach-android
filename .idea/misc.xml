@@ -4,17 +4,23 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/gradient_purple.xml" value="0.23333333333333334" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_post.xml" value="0.12604166666666666" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/choice_chip_standalone.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_article_detail.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_article_list.xml" value="0.22" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_banner.xml" value="0.1" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_branding.xml" value="0.10916919959473151" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_favorites.xml" value="0.18333333333333332" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_search.xml" value="0.21" />
-        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_article.xml" value="0.10916919959473151" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_article.xml" value="0.22" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_category.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_favorites.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_intro_view_pager.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_search.xml" value="0.10989583333333333" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/search_header_layout.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/menu/bottom_app_bar_menu.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/xml/preferences.xml" value="0.1671195652173913" />
       </map>
     </option>

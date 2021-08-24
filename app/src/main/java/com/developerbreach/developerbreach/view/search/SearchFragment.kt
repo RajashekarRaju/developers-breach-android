@@ -23,7 +23,7 @@ class SearchFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         // Get reference to binding and inflate this class layout.
         binding = FragmentSearchBinding.inflate(inflater)
         // Time taken for fragment to enter with transition

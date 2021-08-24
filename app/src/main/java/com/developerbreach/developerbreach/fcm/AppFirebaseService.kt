@@ -7,7 +7,6 @@ import android.content.Context
 import android.content.Intent
 import android.media.RingtoneManager
 import android.os.Build
-import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.view.controller.MainActivity

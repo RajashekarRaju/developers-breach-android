@@ -3,17 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="navController"
-            type="androidx.navigation.NavController" />
-
-        <variable
-            name="activity"
-            type="com.developerbreach.developerbreach.view.controller.MainActivity" />
-    </data>
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -28,16 +17,6 @@
             app:defaultNavHost="true"
             app:navGraph="@navigation/nav_graph"
             tools:ignore="FragmentTagUsage" />
-
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation_view"
-            style="@style/BottomNavigationView.Article.Item.Appearance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            app:bindMainActivityReference="@{activity}"
-            app:bindMainNavController="@{navController}"
-            app:menu="@menu/bottom_navigation_menu" />
 
     </FrameLayout>
 

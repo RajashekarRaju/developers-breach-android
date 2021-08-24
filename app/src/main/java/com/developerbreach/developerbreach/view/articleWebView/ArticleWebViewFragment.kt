@@ -37,7 +37,7 @@ class ArticleWebViewFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         // Get reference to binding and inflate this class layout.
         binding = FragmentArticleWebViewBinding.inflate(inflater)
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment.

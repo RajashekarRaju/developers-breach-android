@@ -5,7 +5,6 @@ import android.view.animation.Animation
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import androidx.lifecycle.Observer
 import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
@@ -26,7 +25,7 @@ fun RecyclerView.setFavoritesListData(
         owner: FavoritesFragment,
         noFavoritesFound: TextView
 ) {
-    viewModel.favorites.observe(owner, Observer { favorites ->
+    viewModel.favorites.observe(owner, { favorites ->
         val adapter = FavoritesAdapter(viewModel, owner)
         // Pass list to adapter calling submitList since our adapter class extends to ListAdapter<>.
         adapter.submitList(favorites)

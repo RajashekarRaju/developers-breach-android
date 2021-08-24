@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.util.concurrent.TimeUnit
 
+@Suppress("unused")
 class DevelopersBreachApp : Application() {
 
     private val applicationScope = CoroutineScope(Dispatchers.Default)

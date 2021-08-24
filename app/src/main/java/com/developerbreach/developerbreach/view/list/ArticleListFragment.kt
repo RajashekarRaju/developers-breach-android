@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.databinding.FragmentArticleListBinding
+import com.developerbreach.developerbreach.utils.RecyclerViewItemDecoration.Companion.setItemSpacing
 import com.developerbreach.developerbreach.utils.showSnackBar
 import com.google.android.material.chip.Chip
 import java.util.concurrent.TimeUnit
@@ -46,7 +47,7 @@ class ArticleListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentArticleListBinding.inflate(inflater, container, false)
-        //setItemSpacing(resources, binding.articlesRecyclerView)
+        setItemSpacing(resources, binding.articlesRecyclerView)
         // Time taken for fragment to enter with transition
         postponeEnterTransition(100L, TimeUnit.MILLISECONDS)
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment.
@@ -84,12 +85,16 @@ class ArticleListFragment : Fragment() {
             if (articles.isNotEmpty()) {
                 binding.articlesRecyclerView.visibility = View.VISIBLE
                 binding.includeBrandLayout.root.visibility = View.GONE
-                // binding.appbarArticleList.visibility = View.VISIBLE
             } else {
                 binding.articlesRecyclerView.visibility = View.GONE
-                // binding.appbarArticleList.visibility = View.GONE
                 binding.includeBrandLayout.root.visibility = View.VISIBLE
             }
         })
+
+        binding.searchContainerCard.setOnClickListener {
+            findNavController().navigate(
+                ArticleListFragmentDirections.articlesToSearchFragment()
+            )
+        }
     }
 }

@@ -29,7 +29,7 @@ class FavoritesFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         // Get reference to binding and inflate this class layout.
         binding = FragmentFavoritesBinding.inflate(inflater)
         // Set item decoration for items inside recycler view.

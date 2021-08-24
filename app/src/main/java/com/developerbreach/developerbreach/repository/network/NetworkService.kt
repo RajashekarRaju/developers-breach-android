@@ -39,7 +39,7 @@ fun categoryResponse(): String {
  *
  * https://developersbreach.com/wp-json/wp/v2/posts
  */
-private fun articleBuilder(numberOfPostsPerPage: Int = 5): String {
+private fun articleBuilder(numberOfPostsPerPage: Int = 15): String {
     val baseUri: Uri = Uri.parse(SCHEME_AUTHORITY)
     val uriBuilder: Uri.Builder = baseUri.buildUpon()
     uriBuilder.appendPath(APPEND_PATH)
