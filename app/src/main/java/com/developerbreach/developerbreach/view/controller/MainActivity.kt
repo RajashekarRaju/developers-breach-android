@@ -14,13 +14,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding: ActivityMainBinding =
-                DataBindingUtil.setContentView(this, R.layout.activity_main)
+        DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
 
         // NavigationController to set default NavHost as nav_host_fragment.
-        binding.navController = Navigation.findNavController(this, R.id.nav_host_fragment)
-        binding.activity = this
-        binding.executePendingBindings()
+        val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+
+        navController.addOnDestinationChangedListener { controller, destination, _ ->
+            onDestinationChanged(destination, this, controller)
+        }
+
         // Creates a notification channel based on version
         setNotificationChannel()
     }
@@ -31,8 +33,12 @@ class MainActivity : AppCompatActivity() {
             val channelId = getString(R.string.default_notification_channel_id)
             val channelName = getString(R.string.default_notification_channel_name)
             val notificationManager = getSystemService(NotificationManager::class.java)
-            notificationManager?.createNotificationChannel(NotificationChannel(channelId,
-                    channelName, NotificationManager.IMPORTANCE_LOW))
+            notificationManager?.createNotificationChannel(
+                NotificationChannel(
+                    channelId,
+                    channelName, NotificationManager.IMPORTANCE_LOW
+                )
+            )
         }
     }
 }
