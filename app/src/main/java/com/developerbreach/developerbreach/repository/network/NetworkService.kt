@@ -1,90 +1,34 @@
 package com.developerbreach.developerbreach.repository.network
 
-import android.net.Uri
 import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.model.Categories
-import com.developerbreach.developerbreach.utils.*
 import java.io.IOException
-import java.io.InputStream
-import java.net.HttpURLConnection
 import java.net.URL
-import java.util.*
 
 
 fun getArticles(): List<Article> {
-    return fetchArticleJsonData(articleResponse())
+    val response = NetworkResponse.articleResponse()
+    return JsonRemoteData.fetchArticleJsonData(response)
 }
 
 fun getCategories(): List<Categories> {
-    return fetchCategoriesJsonData(categoryResponse())
+    val response = NetworkResponse.categoryResponse()
+    return JsonRemoteData.fetchCategoriesJsonData(response)
 }
 
-@Throws(IOException::class)
-fun articleResponse(): String {
-    val uriString: String = articleBuilder()
-    val requestUrl: URL = createUrl(uriString)
-    return getResponseFromHttpUrl(requestUrl)
-}
+object NetworkResponse {
 
-@Throws(IOException::class)
-fun categoryResponse(): String {
-    val uriString: String = categoryBuilder()
-    val requestUrl: URL = createUrl(uriString)
-    return getResponseFromHttpUrl(requestUrl)
-}
+    @Throws(IOException::class)
+    fun articleResponse(): String {
+        val uriString: String = QueryBuilder.articleBuilder()
+        val requestUrl: URL = createUrl(uriString)
+        return getResponseFromHttpUrl(requestUrl)
+    }
 
-/**
- * Builds Uri used to fetch articles data from the server.
- * @return The String to use to query the articles data from the server.
- *
- * https://developersbreach.com/wp-json/wp/v2/posts
- */
-private fun articleBuilder(numberOfPostsPerPage: Int = 15): String {
-    val baseUri: Uri = Uri.parse(SCHEME_AUTHORITY)
-    val uriBuilder: Uri.Builder = baseUri.buildUpon()
-    uriBuilder.appendPath(APPEND_PATH)
-    uriBuilder.appendPath(APPEND_ENDPOINT_POSTS)
-    uriBuilder.appendQueryParameter(QUERY_PARAMETER_POSTS_PER_PAGE, numberOfPostsPerPage.toString())
-    return uriBuilder.build().toString()
-}
-
-private fun categoryBuilder(): String {
-    val baseUri: Uri = Uri.parse(SCHEME_AUTHORITY)
-    val uriBuilder: Uri.Builder = baseUri.buildUpon()
-    uriBuilder.appendPath(APPEND_PATH)
-    uriBuilder.appendPath("categories")
-    return uriBuilder.build().toString()
-}
-
-/**
- * This method returns the entire result from the HTTP response.
- *
- * @param url The URL to fetch the HTTP response from.
- * @return The contents of the HTTP response, null if no response
- * @throws IOException Related to network and stream reading
- */
-@Throws(IOException::class)
-private fun getResponseFromHttpUrl(url: URL): String {
-    val urlConnection: HttpURLConnection = url.openConnection() as HttpURLConnection
-    return try {
-        val `in`: InputStream = urlConnection.inputStream
-        val scanner = Scanner(`in`)
-        scanner.useDelimiter("\\A")
-        val hasInput: Boolean = scanner.hasNext()
-        var response: String? = null
-        if (hasInput) {
-            response = scanner.next()
-        }
-        scanner.close()
-        response
-    } finally {
-        urlConnection.disconnect()
-    }!!
-}
-
-/**
- * Returns new URL object from the given string URL.
- */
-private fun createUrl(stringUrl: String): URL {
-    return URL(stringUrl)
+    @Throws(IOException::class)
+    fun categoryResponse(): String {
+        val uriString: String = QueryBuilder.categoryBuilder()
+        val requestUrl: URL = createUrl(uriString)
+        return getResponseFromHttpUrl(requestUrl)
+    }
 }
