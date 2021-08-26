@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="options"
+            type="com.developerbreach.developerbreach.model.Options" />
+
+        <variable
+            name="fragment"
+            type="com.developerbreach.developerbreach.view.options.OptionsFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp"
+        tools:theme="@style/BottomSheetDialogTheme">
+
+        <ImageView
+            android:id="@+id/item_settings_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:setImageResource="@{options.optionsIcon}"
+            app:tint="?attr/colorPrimary"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/ic_settings" />
+
+        <TextView
+            android:id="@+id/item_settings_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="@{options.optionsTitle}"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="?attr/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/item_settings_image_view"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Settings" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
