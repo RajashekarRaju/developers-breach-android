@@ -1,15 +1,9 @@
 package com.developerbreach.developerbreach.view.list
 
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import androidx.navigation.NavDirections
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
-import androidx.transition.Fade
-import androidx.transition.TransitionManager
 import com.bumptech.glide.Glide
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.model.Article
@@ -20,8 +14,8 @@ import com.google.android.material.card.MaterialCardView
 
 @BindingAdapter("bindArticlesListData", "bindArticleListFragmentReference")
 fun RecyclerView.setArticleFragmentListData(
-        viewModel: ArticleListViewModel,
-        owner: ArticleListFragment
+    viewModel: ArticleListViewModel,
+    owner: ArticleListFragment
 ) {
     viewModel.articles.observe(owner, { articles ->
         val adapter = ArticleAdapter(viewModel, owner)
@@ -31,7 +25,6 @@ fun RecyclerView.setArticleFragmentListData(
         this.adapter = adapter
     })
 }
-
 
 /**
  * BindingAdapters for fragment class [ArticleListFragment].
@@ -46,7 +39,7 @@ fun RecyclerView.setArticleFragmentListData(
  */
 @BindingAdapter("bindArticleItemName")
 fun TextView.setArticleItemTitle(
-        title: String
+    title: String
 ) {
     this.text = capitalizeWord(title)
 }
@@ -54,7 +47,7 @@ fun TextView.setArticleItemTitle(
 
 @BindingAdapter("bindArticleItemBanner")
 fun ImageView.setArticleItemBanner(
-        imageUrl: String
+    imageUrl: String
 ) {
     Glide.with(this.context).load(imageUrl).into(this)
 }
@@ -62,38 +55,40 @@ fun ImageView.setArticleItemBanner(
 
 @BindingAdapter("bindArticleToDetailListener", "bindArticleItemTitleTransition")
 fun MaterialCardView.setArticleToDetailClickListener(
-        article: Article,
-        title: TextView
+    article: Article,
+    title: TextView
 ) {
     this.setOnClickListener {
-        val direction: NavDirections =
-                ArticleListFragmentDirections.articleListToDetailFragment(article)
-
-        val extras = FragmentNavigatorExtras(
-                this to article.name
-        )
-
-        TransitionManager.beginDelayedTransition(this, Fade())
-        title.visibility = View.GONE
-
-        findNavController().navigate(direction, extras)
+//        val direction: NavDirections =
+//            ArticleListFragmentDirections.articleListToDetailFragment(article)
+//
+//        val extras = FragmentNavigatorExtras(
+//            this to article.name
+//        )
+//
+//        TransitionManager.beginDelayedTransition(this, Fade())
+//        title.visibility = View.GONE
+//
+//        findNavController().navigate(direction, extras)
     }
 }
+//
 
-
-@BindingAdapter("bindArticleFragmentModel", "bindArticleViewModel",
-        "bindArticleListFragmentItemReference")
+@BindingAdapter(
+    "bindArticleFragmentModel", "bindArticleViewModel",
+    "bindArticleListFragmentItemReference"
+)
 fun ImageView.setAddArticleToFavoritesListener(
-        article: Article,
-        viewModel: ArticleListViewModel,
-        fragment: ArticleListFragment
+    article: Article,
+    viewModel: ArticleListViewModel,
+    fragment: ArticleListFragment
 ) {
     this.setImageResource(R.drawable.ic_favorite_add)
     this.setOnClickListener {
-        viewModel.insertFavorite(article)
+        // viewModel.insertFavorite(article)
         showSnackBar(
-                this.context.getString(R.string.snackbar_added_to_favorites_message),
-                fragment.requireActivity()
+            this.context.getString(R.string.snackbar_added_to_favorites_message),
+            fragment.requireActivity()
         )
     }
 }

@@ -18,8 +18,8 @@ class SearchAdapter : ListAdapter<Article, SearchViewHolder>(Article.DiffCallbac
     /**
      * @param binding binds each properties in [Article] list
      */(
-            // Get access to binding the views in layout
-            private val binding: ItemSearchBinding
+        // Get access to binding the views in layout
+        private val binding: ItemSearchBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(article: Article) {
             binding.article = article
@@ -55,7 +55,7 @@ class SearchAdapter : ListAdapter<Article, SearchViewHolder>(Article.DiffCallbac
         val inflater = LayoutInflater.from(parent.context)
         // Allow DataBinding to inflate the layout.
         val binding: ItemSearchBinding = ItemSearchBinding.inflate(
-                inflater, parent, false
+            inflater, parent, false
         )
         return SearchViewHolder(binding)
     }

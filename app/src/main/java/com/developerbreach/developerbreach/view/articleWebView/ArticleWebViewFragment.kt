@@ -36,8 +36,10 @@ class ArticleWebViewFragment : Fragment() {
         viewModel = ViewModelProvider(this, factory).get(ArticleWebViewViewModel::class.java)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         // Get reference to binding and inflate this class layout.
         binding = FragmentArticleWebViewBinding.inflate(inflater)
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment.
@@ -105,22 +107,23 @@ class ArticleWebViewFragment : Fragment() {
     }
 
     private fun materialAlertDialogBuilder(): AlertDialog {
-        return MaterialAlertDialogBuilder(requireContext(),
-                R.style.MaterialDialog_Article_Settings_Button)
-                .setTitle(R.string.search_query_dialog_title)
-                .setView(R.layout.search_edit_text)
-                .setPositiveButton(R.string.search_query_dialog_positive_button, null)
-                .setNegativeButton(R.string.search_query_dialog_negative_button, null)
-                .create()
+        return MaterialAlertDialogBuilder(
+            requireContext(),
+            R.style.MaterialDialog_Article_Settings_Button
+        )
+            .setTitle(R.string.search_query_dialog_title)
+            .setView(R.layout.search_edit_text)
+            .setPositiveButton(R.string.search_query_dialog_positive_button, null)
+            .setNegativeButton(R.string.search_query_dialog_negative_button, null)
+            .create()
     }
 
     private fun setPositiveDialogButtonListener(
-            dialog: DialogInterface
-            , alertDialog: AlertDialog
+        dialog: DialogInterface, alertDialog: AlertDialog
     ) {
         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
             val editText: TextInputEditText =
-                    alertDialog.findViewById(R.id.search_box_text_input_layout)!!
+                alertDialog.findViewById(R.id.search_box_text_input_layout)!!
 
             val query = editText.text.toString()
             if (query.isEmpty()) {
@@ -132,8 +135,8 @@ class ArticleWebViewFragment : Fragment() {
     }
 
     private fun setNegativeDialogButtonListener(
-            dialogInterface: DialogInterface,
-            dialog: AlertDialog
+        dialogInterface: DialogInterface,
+        dialog: AlertDialog
     ) {
         dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setOnClickListener {
             dialogInterface.dismiss()
@@ -141,8 +144,8 @@ class ArticleWebViewFragment : Fragment() {
     }
 
     private fun setListenerCloseDialog(
-            query: String,
-            dialog: DialogInterface
+        query: String,
+        dialog: DialogInterface
     ) {
         webView.findAllAsync(query)
         dialog.dismiss()
@@ -152,7 +155,10 @@ class ArticleWebViewFragment : Fragment() {
                 if (matchesFound >= 1) {
                     binding.articleWebViewBottomAppBar.replaceMenu(R.menu.web_view_menu)
                 } else if (matchesFound == 0) {
-                    showSnackBar(getString(R.string.no_matches_found_search_results), requireActivity())
+                    showSnackBar(
+                        getString(R.string.no_matches_found_search_results),
+                        requireActivity()
+                    )
                 }
             }
         }

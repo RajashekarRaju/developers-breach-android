@@ -12,7 +12,7 @@ import com.developerbreach.developerbreach.R
  */
 class RecyclerViewItemDecoration private constructor(
 // Variable of type int which gives equal spacing for all sides.
-        private val itemOffset: Int
+    private val itemOffset: Int
 ) : ItemDecoration() {
 
     /**
@@ -20,10 +20,10 @@ class RecyclerViewItemDecoration private constructor(
      * all 4 sides of the outRect for the result.
      */
     override fun getItemOffsets(
-            outRect: Rect,
-            view: View,
-            parent: RecyclerView,
-            state: RecyclerView.State
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State
     ) {
         super.getItemOffsets(outRect, view, parent, state)
         outRect[itemOffset, itemOffset, itemOffset] = itemOffset
@@ -32,10 +32,11 @@ class RecyclerViewItemDecoration private constructor(
     companion object {
 
         fun setItemSpacing(
-                resources: Resources,
-                recyclerView: RecyclerView
+            resources: Resources,
+            recyclerView: RecyclerView
         ) {
-            val spacingInPixels = resources.getDimensionPixelSize(R.dimen.recycler_view_spacing_dimen)
+            val spacingInPixels =
+                resources.getDimensionPixelSize(R.dimen.recycler_view_spacing_dimen)
             recyclerView.addItemDecoration(RecyclerViewItemDecoration(spacingInPixels))
         }
     }

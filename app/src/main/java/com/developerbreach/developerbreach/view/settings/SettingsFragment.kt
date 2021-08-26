@@ -21,8 +21,10 @@ class SettingsFragment : Fragment() {
         viewModel = ViewModelProvider(this, factory).get(SettingsViewModel::class.java)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = FragmentSettingsBinding.inflate(inflater)
         binding.lifecycleOwner = this
         return binding.root

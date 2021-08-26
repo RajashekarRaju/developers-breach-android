@@ -10,18 +10,18 @@ import com.developerbreach.developerbreach.view.favorites.FavoritesAdapter.Favor
 
 
 class FavoritesAdapter internal constructor(
-        private val viewModel: FavoritesViewModel,
-        private val fragment: FavoritesFragment
+    private val viewModel: FavoritesViewModel,
+    private val fragment: FavoritesFragment
 ) : ListAdapter<Article, FavoriteViewHolder>(Article.DiffCallback) {
 
     class FavoriteViewHolder(
-            // Get access to binding the views in layout
-            private val binding: ItemFavoritesBinding
+        // Get access to binding the views in layout
+        private val binding: ItemFavoritesBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(
-                article: Article,
-                viewModel: FavoritesViewModel,
-                fragment: FavoritesFragment
+            article: Article,
+            viewModel: FavoritesViewModel,
+            fragment: FavoritesFragment
         ) {
             binding.article = article
             binding.favoriteViewModel = viewModel
@@ -39,7 +39,7 @@ class FavoritesAdapter internal constructor(
         val inflater = LayoutInflater.from(parent.context)
         // Allow DataBinding to inflate the layout.
         val binding: ItemFavoritesBinding = ItemFavoritesBinding.inflate(
-                inflater, parent, false
+            inflater, parent, false
         )
         return FavoriteViewHolder(binding)
     }

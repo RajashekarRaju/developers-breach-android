@@ -18,8 +18,8 @@ class BannerViewModelFactory
  * @param bannerUrlString user selected Article's url to pass in [AndroidViewModel]
  */
 internal constructor(
-        private val application: Application,
-        private val bannerUrlString: String
+    private val application: Application,
+    private val bannerUrlString: String
 ) : ViewModelProvider.AndroidViewModelFactory(application) {
 
     /**

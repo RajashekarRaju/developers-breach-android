@@ -7,8 +7,8 @@ import com.developerbreach.developerbreach.utils.PASS_PREFERENCE_CONTACT_KEY
 import com.developerbreach.developerbreach.utils.PASS_PREFERENCE_DEVELOPER_KEY
 
 class CommonWebViewViewModel(
-        application: Application,
-        urlString: String
+    application: Application,
+    urlString: String
 ) : AndroidViewModel(application) {
 
     private lateinit var _webUrl: String

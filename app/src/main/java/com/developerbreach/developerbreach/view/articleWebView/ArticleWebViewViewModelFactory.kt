@@ -19,8 +19,8 @@ class ArticleWebViewViewModelFactory
  * @param article     a user selected Article object to pass in [AndroidViewModel]
  */
 internal constructor(
-        private val application: Application,
-        private val article: Article
+    private val application: Application,
+    private val article: Article
 ) : ViewModelProvider.AndroidViewModelFactory(application) {
 
     /**

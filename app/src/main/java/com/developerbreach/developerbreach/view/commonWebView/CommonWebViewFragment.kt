@@ -23,8 +23,10 @@ class CommonWebViewFragment : Fragment() {
         viewModel = ViewModelProvider(this, factory).get(CommonWebViewViewModel::class.java)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         // Inflate the layout for this fragment
         val binding = FragmentCommonWebViewBinding.inflate(inflater)
         binding.viewModel = viewModel
