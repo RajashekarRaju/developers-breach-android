@@ -1,9 +1,11 @@
 package com.developerbreach.developerbreach.repository
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.model.Categories
+import com.developerbreach.developerbreach.model.Options
 import com.developerbreach.developerbreach.repository.database.ArticleDatabase
 import com.developerbreach.developerbreach.repository.database.entity.asDatabaseModel
 import com.developerbreach.developerbreach.repository.database.entity.asDomainModel
@@ -14,7 +16,7 @@ import kotlinx.coroutines.withContext
 import java.io.IOException
 
 
-class ArticleRepository(
+class AppRepository(
     private val database: ArticleDatabase
 ) {
 
@@ -42,7 +44,7 @@ class ArticleRepository(
     suspend fun refreshArticles() {
         withContext(Dispatchers.IO) {
             try {
-                val articlesList: List<Article> = getArticles()
+                //val articlesList: List<Article> = getArticles()
 
             } catch (e: IOException) {
                 e.printStackTrace()
@@ -78,5 +80,9 @@ class ArticleRepository(
             searchableArticles = getArticles()
         }
         return searchableArticles
+    }
+
+    fun optionsList(context: Context): List<Options> {
+        return Options.addIntroData(context)
     }
 }
