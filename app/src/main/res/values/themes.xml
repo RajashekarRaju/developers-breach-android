@@ -23,4 +23,9 @@
         <item name="background">@color/colorDarkBrand</item>
     </style>
 
+    <style name="BottomSheetDialogTheme" parent="@style/BaseBottomSheetDialog" >
+        <item name="android:statusBarColor">@color/colorDarkBrand</item>
+        <item name="android:navigationBarColor">@color/colorDarkBrand</item>
+    </style>
+
 </resources>

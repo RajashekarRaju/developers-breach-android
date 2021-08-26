@@ -27,5 +27,6 @@
     <dimen name="padding_12dp">12dp</dimen>
     <dimen name="padding_8dp">8dp</dimen>
     <dimen name="match_constraints">0dp</dimen>
+    <dimen name="bottom_sheet_corner_radius">32dp</dimen>
 
 </resources>

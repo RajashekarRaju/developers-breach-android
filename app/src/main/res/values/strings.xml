@@ -2,17 +2,11 @@
     <string name="app_name">Developers Breach</string>
 
     <!--  App Toolbar Titles  -->
-    <string name="article_toolbar_title">DEVELOPERS BREACH</string>
     <string name="favorites_toolbar_title">FAVORITES</string>
     <string name="settings_toolbar_title">Settings</string>
     <string name="web_view_toolbar_title_contact">Contact</string>
     <string name="web_view_toolbar_title_github">GitHub</string>
 
-    <!--  MainActivity BottomNavigationMenu Titles  -->
-    <string name="bottom_navigation_menu_title_posts">Posts</string>
-    <string name="bottom_navigation_menu_title_search">Search</string>
-    <string name="bottom_navigation_menu_title_favorite">Favorites</string>
-    <string name="bottom_navigation_menu_title_settings">Settings</string>
 
     <!--  ArticleWebViewFragment Appbar Menu Items  -->
     <string name="bottom_appbar_menu_title_search">Search</string>
@@ -127,5 +121,26 @@
     <string name="skip_intro_pager_text">Skip</string>
     <string name="next_intro_pager_text">Next</string>
     <string name="end_intro_pager_text">Finish</string>
+    <string name="search_header_title">Search Articles</string>
+
+
+    <string name="categories_tag">Categories</string>
+    <string name="recent_posts_tag">Recent Posts</string>
+
+
+    <string name="item_options_favorites">Favorites</string>
+    <string name="item_options_search">Search</string>
+    <string name="item_options_authors">Authors</string>
+    <string name="item_options_settings">Settings</string>
+    <string name="item_options_about">About</string>
+
+
+    <string name="category_title_android">Android</string>
+    <string name="category_title_firebase">Firebase</string>
+    <string name="category_title_kotlin">Kotlin</string>
+    <string name="category_title_machine_learning">Machine Learning</string>
+    <string name="category_title_material_design">Material Design</string>
+    <string name="category_title_compose">Compose</string>
+    <string name="category_title_uncategorized">Uncategorized</string>
 
 </resources>
