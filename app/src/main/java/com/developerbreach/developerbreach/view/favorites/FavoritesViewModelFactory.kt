@@ -13,7 +13,7 @@ class FavoritesViewModelFactory
  * @param application parameter to pass in [AndroidViewModel]
  */
 internal constructor(
-        private val application: Application
+    private val application: Application
 ) : AndroidViewModelFactory(application) {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

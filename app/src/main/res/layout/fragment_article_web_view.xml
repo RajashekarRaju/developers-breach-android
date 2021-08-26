@@ -55,7 +55,8 @@
             android:layout_height="wrap_content"
             app:bindShareFabListener="@{viewModel.selectedWebViewArticle}"
             app:layout_anchor="@id/article_web_view_bottom_app_bar"
-            app:srcCompat="@android:drawable/ic_menu_share" />
+            app:srcCompat="@android:drawable/ic_menu_share"
+            tools:ignore="ContentDescription" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

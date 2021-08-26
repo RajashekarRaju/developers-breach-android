@@ -27,27 +27,27 @@ class DevelopersBreachApp : Application() {
     private fun setupRecurringWork() {
 
         val constraints = Constraints.Builder()
-                .setRequiredNetworkType(NetworkType.UNMETERED)
-                .apply {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                        setRequiresDeviceIdle(true)
-                    }
-                }.build()
+            .setRequiredNetworkType(NetworkType.UNMETERED)
+            .apply {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    setRequiresDeviceIdle(true)
+                }
+            }.build()
 
         // creates and executes the same work once a day.
         val repeatingRequest: PeriodicWorkRequest =
-                PeriodicWorkRequestBuilder<ArticleRefreshWorker>(1, TimeUnit.DAYS)
-                        .setConstraints(constraints)
-                        .build()
+            PeriodicWorkRequestBuilder<ArticleRefreshWorker>(1, TimeUnit.DAYS)
+                .setConstraints(constraints)
+                .build()
 
         /**
          * Create an instance for [WorkManager] with context and work properties which are
          * required by work manager do complete the task.
          */
         WorkManager.getInstance(applicationContext).enqueueUniquePeriodicWork(
-                ArticleRefreshWorker.WORKER_NAME,
-                ExistingPeriodicWorkPolicy.KEEP,
-                repeatingRequest
+            ArticleRefreshWorker.WORKER_NAME,
+            ExistingPeriodicWorkPolicy.KEEP,
+            repeatingRequest
         )
     }
 

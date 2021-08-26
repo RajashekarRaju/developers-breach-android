@@ -11,16 +11,16 @@ import com.developerbreach.developerbreach.model.Intro
 import com.developerbreach.developerbreach.view.intro.IntroViewPagerAdapter.*
 
 class IntroViewPagerAdapter(
-        private val introViewPager: ViewPager2
+    private val introViewPager: ViewPager2
 ) : ListAdapter<Intro, IntroViewHolder>(IntroDiffCallback) {
 
     class IntroViewHolder(
-            val binding: ItemIntroViewPagerBinding
+        val binding: ItemIntroViewPagerBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
-                intro: Intro,
-                introViewPager: ViewPager2
+            intro: Intro,
+            introViewPager: ViewPager2
         ) {
             binding.intro = intro
             binding.introViewPager2 = introViewPager
@@ -30,9 +30,9 @@ class IntroViewPagerAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IntroViewHolder {
         return IntroViewHolder(
-                ItemIntroViewPagerBinding.inflate(
-                        LayoutInflater.from(parent.context), parent, false
-                )
+            ItemIntroViewPagerBinding.inflate(
+                LayoutInflater.from(parent.context), parent, false
+            )
         )
     }
 

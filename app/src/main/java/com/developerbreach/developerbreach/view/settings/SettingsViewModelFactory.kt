@@ -14,8 +14,8 @@ class SettingsViewModelFactory
  * @param application parameter to pass in [AndroidViewModel]
  */
 internal constructor(
-        // Needs to to be passed as parameter for AndroidViewModel class.
-        private val application: Application
+    // Needs to to be passed as parameter for AndroidViewModel class.
+    private val application: Application
 ) : AndroidViewModelFactory(application) {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

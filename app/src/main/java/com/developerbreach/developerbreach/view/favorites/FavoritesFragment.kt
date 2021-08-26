@@ -28,8 +28,10 @@ class FavoritesFragment : Fragment() {
         viewModel = ViewModelProvider(this, factory).get(FavoritesViewModel::class.java)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         // Get reference to binding and inflate this class layout.
         binding = FragmentFavoritesBinding.inflate(inflater)
         // Set item decoration for items inside recycler view.

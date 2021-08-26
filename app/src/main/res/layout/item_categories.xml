@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="category"
+            type="com.developerbreach.developerbreach.model.Categories" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/item_category_parent_card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#222222"
+        app:cardCornerRadius="8dp"
+        app:cardUseCompatPadding="true"
+        tools:layout_gravity="center">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="4dp">
+
+            <ImageView
+                android:id="@+id/item_category_icon_image_view"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
+                app:bindItemCategoryIconImageView="@{category}"
+                app:bindItemCategoryParentCardView="@{itemCategoryParentCardView}"
+                app:bindItemCategoryTitleTextView="@{itemCategoryTitleTextView}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/item_category_title_text_view"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/ic_compose" />
+
+            <TextView
+                android:id="@+id/item_category_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="16dp"
+                android:text="@{category.categoryName}"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/item_category_icon_image_view"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Android" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

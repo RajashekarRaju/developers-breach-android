@@ -3,13 +3,13 @@ package com.developerbreach.developerbreach.model
 import androidx.recyclerview.widget.DiffUtil
 
 data class ArticleNetwork(
-        val id: Int,
-        val articleId: Int,
-        val name: String,
-        val banner: String,
-        val postedDate: String,
-        val urlLink: String,
-        val excerpt: String
+    val id: Int,
+    val articleId: Int,
+    val name: String,
+    val banner: String,
+    val postedDate: String,
+    val urlLink: String,
+    val excerpt: String
 ) {
     /**
      * Allows the RecyclerView to determine which items have changed when the list of [Article]

@@ -18,11 +18,11 @@ import android.os.Build
  * @return if false no network is available.
  */
 fun isNetworkConnected(
-        context: Context
+    context: Context
 ): Boolean {
 
     val manager: ConnectivityManager =
-            context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 
     return when {
 
@@ -30,7 +30,7 @@ fun isNetworkConnected(
 
             val activeNetwork: Network? = manager.activeNetwork
             val capabilities: NetworkCapabilities? =
-                    manager.getNetworkCapabilities(activeNetwork)
+                manager.getNetworkCapabilities(activeNetwork)
             capabilities != null &&
                     capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
         }

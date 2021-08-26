@@ -5,15 +5,15 @@ import androidx.work.CoroutineWorker
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.bumptech.glide.load.HttpException
-import com.developerbreach.developerbreach.repository.ArticleRepository
+import com.developerbreach.developerbreach.repository.AppRepository
 import com.developerbreach.developerbreach.repository.database.getDatabaseInstance
 
 /**
  * A class that performs work synchronously on a background thread provided by [Worker].
  */
 class ArticleRefreshWorker(
-        context: Context,
-        workerParams: WorkerParameters
+    context: Context,
+    workerParams: WorkerParameters
 ) : CoroutineWorker(context, workerParams) {
 
     companion object {
@@ -32,7 +32,7 @@ class ArticleRefreshWorker(
      */
     override suspend fun doWork(): Result {
         val database = getDatabaseInstance(applicationContext)
-        val repository = ArticleRepository(database)
+        val repository = AppRepository(database)
         try {
             // This task gets data from internet and adds them to database.
             // Also deletes any initial data found.

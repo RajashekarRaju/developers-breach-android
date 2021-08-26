@@ -28,87 +28,8 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
             tools:context=".view.list.ArticleListFragment">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/search_container_card"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:layout_marginHorizontal="@dimen/layout_margin_20dp"
-                android:layout_marginTop="8dp"
-                app:cardCornerRadius="@dimen/card_corner_radius_search_item"
-                app:cardElevation="@dimen/card_elevation_search_item"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/search_start_image_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:contentDescription="@string/search_button_content_description"
-                        android:src="@drawable/ic_search"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:tint="@color/colorDarkBrand" />
-
-                    <TextView
-                        android:id="@+id/article_search_text_view"
-                        android:layout_width="@dimen/match_constraints"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/layout_margin_24dp"
-                        android:text="@string/search_articles_hint"
-                        android:textAppearance="?attr/textAppearanceHeadline6"
-                        android:textColor="@color/colorDarkBrand"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toEndOf="@id/search_start_image_view"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/clear_search_query_text_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="@dimen/layout_margin_12dp"
-                        android:contentDescription="@string/clear_search_query_content_description"
-                        android:src="@drawable/ic_close"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:tint="@color/colorDarkBrand" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <HorizontalScrollView
-                android:id="@+id/horizontal_scroll_chips"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:scrollbars="none"
-                android:visibility="gone"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <com.google.android.material.chip.ChipGroup
-                    android:id="@+id/categories_chip_group"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:chipSpacingHorizontal="8dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:singleLine="true"
-                    app:singleSelection="true" />
-
-            </HorizontalScrollView>
-
             <TextView
-                android:id="@+id/selected_category_text_view"
+                android:id="@+id/recent_posts_tag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -116,28 +37,7 @@
                 android:text="Android"
                 android:textAppearance="?attr/textAppearanceHeadline5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/search_container_card"/>
-
-            <TextView
-                android:id="@+id/selected_category_tag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="Category"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="#919191"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/selected_category_text_view" />
-
-            <ImageView
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginEnd="20dp"
-                android:src="@drawable/ic_filter"
-                app:layout_constraintBottom_toBottomOf="@id/selected_category_tag"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/selected_category_text_view"
-                tools:ignore="ContentDescription" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/articles_recycler_view"
@@ -154,7 +54,7 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/selected_category_tag"
+                app:layout_constraintTop_toBottomOf="@id/recent_posts_tag"
                 app:reverseLayout="true"
                 app:stackFromEnd="true"
                 tools:itemCount="6"
@@ -162,11 +62,6 @@
                 tools:visibility="visible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <include
-            android:id="@+id/include_brand_layout"
-            layout="@layout/fragment_branding"
-            android:visibility="invisible" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

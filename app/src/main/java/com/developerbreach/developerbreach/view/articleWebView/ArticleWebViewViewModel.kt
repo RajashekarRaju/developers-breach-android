@@ -6,8 +6,8 @@ import com.developerbreach.developerbreach.model.Article
 
 
 class ArticleWebViewViewModel(
-        application: Application,
-        article: Article
+    application: Application,
+    article: Article
 ) : AndroidViewModel(application) {
 
     /**

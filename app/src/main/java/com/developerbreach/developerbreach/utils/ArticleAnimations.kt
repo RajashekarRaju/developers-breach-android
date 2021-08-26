@@ -23,16 +23,17 @@ fun startCircularEffect(rootView: View, cx: Int, cy: Int) {
     val finalRadius = hypot(cx.toDouble(), cy.toDouble()).toFloat()
     // create the animator for this view (the start radius is zero)
     val animator = ViewAnimationUtils.createCircularReveal(
-            rootView, cx, cy, 0f, finalRadius)
+        rootView, cx, cy, 0f, finalRadius
+    )
     // Starts the animation.
     animator.start()
 }
 
 fun itemViewAnimation(
-        context: Context,
-        view: View,
-        duration: Long,
-        animationProperty: Int
+    context: Context,
+    view: View,
+    duration: Long,
+    animationProperty: Int
 ): Animation {
     val animation = AnimationUtils.loadAnimation(context, animationProperty)
     animation.duration = duration

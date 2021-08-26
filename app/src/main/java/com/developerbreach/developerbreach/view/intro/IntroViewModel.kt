@@ -21,30 +21,34 @@ class IntroViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun addData(context: Context): List<Intro> = listOf(
-            Intro(1,
-                    context.getString(R.string.intro_pager_first_title_text),
-                    context.getString(R.string.intro_pager_first_subtitle_text),
-                    ContextCompat.getDrawable(context, R.drawable.ic_logo)!!,
-                    ContextCompat.getDrawable(context, R.drawable.intro_first_gradient)!!
-            ),
-            Intro(2,
-                    context.getString(R.string.intro_pager_second_title_text),
-                    context.getString(R.string.intro_pager_second_subtitle_text),
-                    ContextCompat.getDrawable(context, R.drawable.ic_feed)!!,
-                    ContextCompat.getDrawable(context, R.drawable.intro_second_gradient)!!
-            ),
-            Intro(3,
-                    context.getString(R.string.intro_pager_third_title_text),
-                    context.getString(R.string.intro_pager_third_subtitle_text),
-                    ContextCompat.getDrawable(context, R.drawable.ic_notifications)!!,
-                    ContextCompat.getDrawable(context, R.drawable.intro_third_gradient)!!
-            ),
-            Intro(4,
-                    context.getString(R.string.intro_pager_fourth_title_text),
-                    context.getString(R.string.intro_pager_fourth_subtitle_text),
-                    ContextCompat.getDrawable(context, R.drawable.ic_storage)!!,
-                    ContextCompat.getDrawable(context, R.drawable.intro_fourth_gradient)!!
-            )
+        Intro(
+            1,
+            context.getString(R.string.intro_pager_first_title_text),
+            context.getString(R.string.intro_pager_first_subtitle_text),
+            ContextCompat.getDrawable(context, R.drawable.ic_logo)!!,
+            ContextCompat.getDrawable(context, R.drawable.intro_first_gradient)!!
+        ),
+        Intro(
+            2,
+            context.getString(R.string.intro_pager_second_title_text),
+            context.getString(R.string.intro_pager_second_subtitle_text),
+            ContextCompat.getDrawable(context, R.drawable.ic_feed)!!,
+            ContextCompat.getDrawable(context, R.drawable.intro_second_gradient)!!
+        ),
+        Intro(
+            3,
+            context.getString(R.string.intro_pager_third_title_text),
+            context.getString(R.string.intro_pager_third_subtitle_text),
+            ContextCompat.getDrawable(context, R.drawable.ic_notifications)!!,
+            ContextCompat.getDrawable(context, R.drawable.intro_third_gradient)!!
+        ),
+        Intro(
+            4,
+            context.getString(R.string.intro_pager_fourth_title_text),
+            context.getString(R.string.intro_pager_fourth_subtitle_text),
+            ContextCompat.getDrawable(context, R.drawable.ic_storage)!!,
+            ContextCompat.getDrawable(context, R.drawable.intro_fourth_gradient)!!
+        )
     )
 
 }

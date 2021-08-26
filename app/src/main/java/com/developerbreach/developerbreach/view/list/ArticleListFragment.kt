@@ -1,18 +1,12 @@
 package com.developerbreach.developerbreach.view.list
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.databinding.FragmentArticleListBinding
 import com.developerbreach.developerbreach.utils.RecyclerViewItemDecoration.Companion.setItemSpacing
-import com.developerbreach.developerbreach.utils.showSnackBar
-import com.google.android.material.chip.Chip
 import java.util.concurrent.TimeUnit
 
 
@@ -20,27 +14,6 @@ class ArticleListFragment : Fragment() {
 
     private lateinit var binding: FragmentArticleListBinding
     private lateinit var viewModel: ArticleListViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val sharedPref = requireContext().getSharedPreferences(
-            getString(R.string.preference_intro_result_key), Context.MODE_PRIVATE
-        )
-
-        with(
-            sharedPref.getString(
-                getString(R.string.preference_intro_status_key),
-                getString(R.string.preference_intro_fragment_not_shown_value)
-            )
-        ) {
-            if (!this.equals(getString(R.string.preference_intro_fragment_shown_value))) {
-                findNavController().navigate(R.id.introFragment)
-            }
-        }
-
-        viewModel = ViewModelProvider(this).get(ArticleListViewModel::class.java)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -61,40 +34,12 @@ class ArticleListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.isInternetAvailable.observe(viewLifecycleOwner, { isInternetAvailable ->
-            if (!isInternetAvailable) {
-                showSnackBar(getString(R.string.no_internet_connection), requireActivity())
-            }
-        })
-
-        viewModel.categories.observe(viewLifecycleOwner, { categories ->
-            val chipList: List<Chip> = categories.map { shirtProperty ->
-                val chip = LayoutInflater.from(context).inflate(
-                    R.layout.choice_chip_standalone, binding.categoriesChipGroup, false) as Chip
-                chip.text = shirtProperty.categoryName
-                chip
-            }
-
-            binding.categoriesChipGroup.removeAllViews()
-            for (currentChip in chipList) {
-                binding.categoriesChipGroup.addView(currentChip)
-            }
-        })
-
         viewModel.articles.observe(viewLifecycleOwner, { articles ->
             if (articles.isNotEmpty()) {
                 binding.articlesRecyclerView.visibility = View.VISIBLE
-                binding.includeBrandLayout.root.visibility = View.GONE
             } else {
                 binding.articlesRecyclerView.visibility = View.GONE
-                binding.includeBrandLayout.root.visibility = View.VISIBLE
             }
         })
-
-        binding.searchContainerCard.setOnClickListener {
-            findNavController().navigate(
-                ArticleListFragmentDirections.articlesToSearchFragment()
-            )
-        }
     }
 }

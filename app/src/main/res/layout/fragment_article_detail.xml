@@ -137,7 +137,8 @@
             app:bindDetailViewModel="@{viewModel}"
             app:bindNavigateUpFromDetail="@{detailFragmentToolbar}"
             app:rippleColor="?attr/colorOnSecondary"
-            app:srcCompat="@drawable/ic_favorites" />
+            app:srcCompat="@drawable/ic_favorites"
+            tools:ignore="ContentDescription" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

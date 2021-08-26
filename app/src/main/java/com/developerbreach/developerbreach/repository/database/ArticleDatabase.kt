@@ -16,9 +16,10 @@ import com.developerbreach.developerbreach.utils.DATABASE_NAME
  * a separate space folder for our app database.
  */
 @Database(
-        entities = [FavoritesEntity::class],
-        version = 1,
-        exportSchema = false)
+    entities = [FavoritesEntity::class],
+    version = 1,
+    exportSchema = false
+)
 abstract class ArticleDatabase : RoomDatabase() {
 
     /**
@@ -39,12 +40,12 @@ fun getDatabaseInstance(context: Context): ArticleDatabase {
     synchronized(ArticleDatabase::class.java) {
         if (!::INSTANCE.isInitialized) {
             INSTANCE = Room.databaseBuilder(
-                    context.applicationContext,
-                    ArticleDatabase::class.java,
-                    DATABASE_NAME
+                context.applicationContext,
+                ArticleDatabase::class.java,
+                DATABASE_NAME
             )
-                    .fallbackToDestructiveMigration()
-                    .build()
+                .fallbackToDestructiveMigration()
+                .build()
         }
     }
     return INSTANCE

@@ -9,8 +9,8 @@ import com.github.chrisbanes.photoview.PhotoView
 
 @BindingAdapter("bindBannerWithZoom", "bindCloseBannerFragment")
 fun PhotoView.setBannerWithZoom(
-        bannerUrlString: String,
-        closeFragmentImageView: ImageView
+    bannerUrlString: String,
+    closeFragmentImageView: ImageView
 ) {
     Glide.with(this.context).load(bannerUrlString).into(this)
 

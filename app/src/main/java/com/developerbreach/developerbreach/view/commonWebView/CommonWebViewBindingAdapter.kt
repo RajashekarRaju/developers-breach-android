@@ -12,7 +12,7 @@ import androidx.navigation.findNavController
 
 @BindingAdapter("bindCommonWebViewToolBar")
 fun Toolbar.setCommonWebViewToolBar(
-        viewModel: CommonWebViewViewModel
+    viewModel: CommonWebViewViewModel
 ) {
     this.title = viewModel.toolBarTitle
     this.setNavigationOnClickListener {
@@ -22,8 +22,8 @@ fun Toolbar.setCommonWebViewToolBar(
 
 @BindingAdapter("bindCommonWebViewClient", "bindCommonWebViewUrl")
 fun WebView.setCommonWebViewClient(
-        progressBar: ProgressBar,
-        viewModel: CommonWebViewViewModel
+    progressBar: ProgressBar,
+    viewModel: CommonWebViewViewModel
 ) {
     this.loadUrl(viewModel.webUrl)
     this.webViewClient = object : WebViewClient() {

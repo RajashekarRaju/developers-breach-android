@@ -7,8 +7,8 @@ import androidx.lifecycle.MutableLiveData
 
 
 internal class BannerViewModel(
-        application: Application,
-        bannerUrlString: String
+    application: Application,
+    bannerUrlString: String
 ) : AndroidViewModel(application) {
 
     /**

@@ -15,8 +15,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 @SuppressLint("SetJavaScriptEnabled")
 @BindingAdapter("bindArticleWebViewClient", "bindArticleWebViewUrl")
 fun WebView.setArticleWebViewClient(
-        progressBar: ProgressBar,
-        selectedArticleWebUrl: String
+    progressBar: ProgressBar,
+    selectedArticleWebUrl: String
 ) {
     this.loadUrl(selectedArticleWebUrl)
     val webSettings = this.settings
@@ -37,7 +37,7 @@ fun WebView.setArticleWebViewClient(
 
 @BindingAdapter("bindShareFabListener")
 fun FloatingActionButton.setFabClickListener(
-        article: Article
+    article: Article
 ) {
     this.setOnClickListener {
         // Create new sharable intent.

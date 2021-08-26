@@ -11,12 +11,14 @@ import com.developerbreach.developerbreach.model.Intro
 import com.developerbreach.developerbreach.utils.convertToDp
 
 
-@BindingAdapter("bindNextIntroPagerListener", "bindSkipIntroPagerListener",
-        "bindHideIntroNextTextView")
+@BindingAdapter(
+    "bindNextIntroPagerListener", "bindSkipIntroPagerListener",
+    "bindHideIntroNextTextView"
+)
 fun TextView.setNextItemClickListener(
-        viewPager: ViewPager2,
-        skipIntroTextView: TextView,
-        intro: Intro
+    viewPager: ViewPager2,
+    skipIntroTextView: TextView,
+    intro: Intro
 ) {
     val nextIntroTextView = this
 
@@ -74,13 +76,15 @@ fun TextView.setNextItemClickListener(
 }
 
 
-@BindingAdapter("bindPagerFirstPositionViewer", "bindPagerSecondPositionViewer",
-        "bindPagerThirdPositionViewer", "bindPagerFourthPositionViewer")
+@BindingAdapter(
+    "bindPagerFirstPositionViewer", "bindPagerSecondPositionViewer",
+    "bindPagerThirdPositionViewer", "bindPagerFourthPositionViewer"
+)
 fun View.setPagerFirstPositionViewer(
-        currentId: Int,
-        secondViewer: View,
-        thirdViewer: View,
-        fourthViewer: View
+    currentId: Int,
+    secondViewer: View,
+    thirdViewer: View,
+    fourthViewer: View
 ) {
     when (currentId) {
         1 -> {
@@ -110,16 +114,20 @@ fun View.setPagerFirstPositionViewer(
 private fun TextView.navigateToArticleListFragment(nextIntroTextView: TextView) {
     val context: Context = nextIntroTextView.context
 
-    with(context.getSharedPreferences(
+    with(
+        context.getSharedPreferences(
             context.getString(R.string.preference_intro_result_key),
-            Context.MODE_PRIVATE).edit()
+            Context.MODE_PRIVATE
+        ).edit()
     ) {
         putString(
-                context.getString(R.string.preference_intro_status_key),
-                context.getString(R.string.preference_intro_fragment_shown_value)
+            context.getString(R.string.preference_intro_status_key),
+            context.getString(R.string.preference_intro_fragment_shown_value)
         )
         commit()
     }
 
-    findNavController().navigate(R.id.introToArticleListFragment)
+    findNavController().navigate(
+        IntroFragmentDirections.introToHome()
+    )
 }

@@ -28,15 +28,15 @@ class ArticleAdapter
  */
 internal constructor(
 
-        /**
-         * This adapter class requires associated [ArticleListFragment] fragment with viewModel
-         * [ArticleListViewModel] class to get access for binding objects inside recyclerView items,
-         * by creating setters in layout.
-         *
-         * @see [R.layout.item_article], declares setters and variables.
-         */
-        private val viewModel: ArticleListViewModel,
-        private val fragment: ArticleListFragment
+    /**
+     * This adapter class requires associated [ArticleListFragment] fragment with viewModel
+     * [ArticleListViewModel] class to get access for binding objects inside recyclerView items,
+     * by creating setters in layout.
+     *
+     * @see [R.layout.item_article], declares setters and variables.
+     */
+    private val viewModel: ArticleListViewModel,
+    private val fragment: ArticleListFragment
 ) : ListAdapter<Article, ArticleViewHolder>(Article.DiffCallback) {
 
     /**
@@ -47,7 +47,7 @@ internal constructor(
     /**
      * @param binding binds each properties in [Article] list
      */(
-            private val binding: ItemArticleBinding
+        private val binding: ItemArticleBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         /**
@@ -56,9 +56,9 @@ internal constructor(
          * @param viewModel call setter for viewModel
          */
         fun bind(
-                article: Article,
-                viewModel: ArticleListViewModel,
-                fragment: ArticleListFragment
+            article: Article,
+            viewModel: ArticleListViewModel,
+            fragment: ArticleListFragment
         ) {
             binding.article = article
             binding.viewModel = viewModel
@@ -95,7 +95,7 @@ internal constructor(
         val inflater = LayoutInflater.from(parent.context)
         // Allow DataBinding to inflate the layout.
         val binding: ItemArticleBinding = ItemArticleBinding.inflate(
-                inflater, parent, false
+            inflater, parent, false
         )
         return ArticleViewHolder(binding)
     }

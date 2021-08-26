@@ -20,8 +20,10 @@ class BannerFragment : Fragment() {
         viewModel = ViewModelProvider(this, factory).get(BannerViewModel::class.java)
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         // Inflate the layout for this fragment
         val binding: FragmentBannerBinding = FragmentBannerBinding.inflate(inflater)
         binding.viewModel = viewModel

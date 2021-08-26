@@ -3,9 +3,9 @@ package com.developerbreach.developerbreach.model
 import android.graphics.drawable.Drawable
 
 data class Intro(
-        val id: Int,
-        val title: String,
-        val subtitle: String,
-        val banner: Drawable,
-        val background: Drawable
+    val id: Int,
+    val title: String,
+    val subtitle: String,
+    val banner: Drawable,
+    val background: Drawable
 )

@@ -5,16 +5,16 @@
     <application
         android:name="com.developerbreach.developerbreach.DevelopersBreachApp"
         android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Base.AppTheme"
-        android:icon="@mipmap/ic_launcher">
+        android:theme="@style/Base.AppTheme">
 
         <activity
             android:name="com.developerbreach.developerbreach.view.controller.MainActivity"
-            android:theme="@style/Base.AppTheme"
-            android:exported="false">
+            android:exported="true"
+            android:theme="@style/Base.AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
