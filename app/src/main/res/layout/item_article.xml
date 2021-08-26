@@ -26,6 +26,7 @@
         android:transitionName="@{article.name}"
         app:bindArticleItemTitleTransition="@{articleTitleItemTextView}"
         app:bindArticleToDetailListener="@{article}"
+        app:cardBackgroundColor="#ffffff"
         tools:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -54,7 +55,8 @@
                 android:layout_margin="@dimen/layout_margin_16dp"
                 android:fontFamily="@font/rubik"
                 android:gravity="center"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="#000000"
                 app:bindArticleItemName="@{article.name}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
