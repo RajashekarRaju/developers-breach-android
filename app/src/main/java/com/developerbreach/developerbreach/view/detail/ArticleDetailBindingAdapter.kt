@@ -17,13 +17,13 @@ import com.google.android.material.snackbar.Snackbar
 
 @BindingAdapter("bindCollapsingBannerImage")
 fun ImageView.setImageResource(
-        urlString: String
+    urlString: String
 ) {
     Glide.with(this.context).load(urlString).into(this)
 
     this.setOnClickListener {
         val direction: NavDirections =
-                ArticleDetailFragmentDirections.detailToBannerFragment(urlString)
+            ArticleDetailFragmentDirections.detailToBanner(urlString)
         findNavController().navigate(direction)
     }
 }
@@ -31,12 +31,12 @@ fun ImageView.setImageResource(
 
 @BindingAdapter("bindButtonWebView")
 fun Button.setButtonWebView(
-        article: Article
+    article: Article
 ) {
     this.text = this.context.getString(R.string.open_article_button_text)
     this.setOnClickListener {
         val action: NavDirections =
-                ArticleDetailFragmentDirections.detailToArticleWebViewFragment(article)
+            ArticleDetailFragmentDirections.detailToArticleWebView(article)
         findNavController().navigate(action)
     }
 }
@@ -45,7 +45,7 @@ fun Button.setButtonWebView(
 @SuppressLint("SetTextI18n")
 @BindingAdapter("bindAuthorAndData")
 fun TextView.setAuthorAndDate(
-        date: String
+    date: String
 ) {
     val formatDate: String = date.dropLast(9)
     val author: String = this.context.getString(R.string.author_name_tools_text)
@@ -55,7 +55,7 @@ fun TextView.setAuthorAndDate(
 
 @BindingAdapter("bindArticleExcerpt")
 fun TextView.setArticleExcerpt(
-        excerpt: String
+    excerpt: String
 ) {
     val formatExcerpt: String = excerpt.drop(3).dropLast(5)
     this.text = formatExcerpt
@@ -64,15 +64,15 @@ fun TextView.setArticleExcerpt(
 
 @BindingAdapter("bindDetailViewModel", "bindNavigateUpFromDetail")
 fun FloatingActionButton.setDetailFab(
-        viewModel: ArticleDetailViewModel,
-        toolbar: Toolbar
+    viewModel: ArticleDetailViewModel,
+    toolbar: Toolbar
 ) {
     this.setOnClickListener { view ->
         viewModel.insertFavorite(viewModel.selectedArticle)
         Snackbar.make(
-                view,
-                this.context.getString(R.string.snackbar_added_to_favorites_message),
-                Snackbar.LENGTH_SHORT
+            view,
+            this.context.getString(R.string.snackbar_added_to_favorites_message),
+            Snackbar.LENGTH_SHORT
         ).show()
     }
 

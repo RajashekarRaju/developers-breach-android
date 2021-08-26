@@ -26,9 +26,9 @@ class SettingsCompatFragment : PreferenceFragmentCompat() {
         private lateinit var binding: FragmentSettingsBinding
 
         fun newInstance(
-                settingsViewModel: SettingsViewModel,
-                settingsFragment: SettingsFragment,
-                fragmentSettingsBinding: FragmentSettingsBinding
+            settingsViewModel: SettingsViewModel,
+            settingsFragment: SettingsFragment,
+            fragmentSettingsBinding: FragmentSettingsBinding
         ): SettingsCompatFragment {
             viewModel = settingsViewModel
             fragment = settingsFragment
@@ -68,7 +68,7 @@ class SettingsCompatFragment : PreferenceFragmentCompat() {
         val contactPreference: Preference = findPreference("ContactFormKey")!!
         contactPreference.onPreferenceClickListener = Preference.OnPreferenceClickListener {
             val directions: NavDirections = SettingsFragmentDirections
-                    .settingsToCommonWebViewFragment("Contact")
+                .settingsToCommonWebView("Contact")
             findNavController().navigate(directions)
             true
         }
@@ -76,40 +76,45 @@ class SettingsCompatFragment : PreferenceFragmentCompat() {
         val githubPreference: Preference = findPreference("DeveloperProjectKey")!!
         githubPreference.onPreferenceClickListener = Preference.OnPreferenceClickListener {
             val directions: NavDirections = SettingsFragmentDirections
-                    .settingsToCommonWebViewFragment("Developer")
+                .settingsToCommonWebView("Developer")
             findNavController().navigate(directions)
-            true
-        }
-
-        val aboutPreference: Preference = findPreference("AboutProjectKey")!!
-        aboutPreference.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            navigateToIntroFragment()
             true
         }
     }
 
     private fun showArticleRefreshDialog() {
-        val dialog = MaterialAlertDialogBuilder(requireContext, R.style.MaterialDialog_Article_Settings_Button)
+        val dialog = MaterialAlertDialogBuilder(
+            requireContext,
+            R.style.MaterialDialog_Article_Settings_Button
+        )
         dialog.setTitle(getString(R.string.refresh_article_dialog_title))
         dialog.setIcon(R.drawable.ic_refresh)
         dialog.setMessage(getString(R.string.refresh_article_dialog_message))
-        dialog.setPositiveButton(R.string.refresh_article_dialog_positive_button, RefreshArticlesButton())
+        dialog.setPositiveButton(
+            R.string.refresh_article_dialog_positive_button,
+            RefreshArticlesButton()
+        )
         dialog.setNegativeButton(R.string.refresh_article_dialog_negative_button, DismissDialog())
         dialog.show()
     }
 
     private fun showArticleDeleteDialog() {
-        val dialog = MaterialAlertDialogBuilder(requireContext, R.style.MaterialDialog_Article_Settings_Button)
+        val dialog = MaterialAlertDialogBuilder(
+            requireContext,
+            R.style.MaterialDialog_Article_Settings_Button
+        )
         dialog.setTitle(getString(R.string.delete_article_dialog_title))
         dialog.setIcon(R.drawable.ic_delete_all)
         dialog.setMessage(getString(R.string.delete_article_dialog_message))
-        dialog.setPositiveButton(getString(R.string.delete_article_dialog_positive_button), DeleteArticlesButton())
-        dialog.setNegativeButton(getString(R.string.delete_article_dialog_negative_button), DismissDialog())
+        dialog.setPositiveButton(
+            getString(R.string.delete_article_dialog_positive_button),
+            DeleteArticlesButton()
+        )
+        dialog.setNegativeButton(
+            getString(R.string.delete_article_dialog_negative_button),
+            DismissDialog()
+        )
         dialog.show()
-    }
-
-    private fun navigateToIntroFragment() {
-        findNavController().navigate(R.id.settingsToIntroFragment)
     }
 
 //    private fun showAboutAppDialog() {
@@ -123,7 +128,10 @@ class SettingsCompatFragment : PreferenceFragmentCompat() {
         override fun onClick(dialog: DialogInterface, which: Int) {
             if (isNetworkConnected(requireContext)) {
                 viewModel.refreshData()
-                showSnackBar(getString(R.string.snackbar_refresh_articles_message), fragment.requireActivity())
+                showSnackBar(
+                    getString(R.string.snackbar_refresh_articles_message),
+                    fragment.requireActivity()
+                )
             } else {
                 showSnackBar(getString(R.string.no_internet_connection), fragment.requireActivity())
             }
@@ -134,8 +142,8 @@ class SettingsCompatFragment : PreferenceFragmentCompat() {
         override fun onClick(dialog: DialogInterface, which: Int) {
             viewModel.deleteAllArticles()
             showSnackBar(
-                    requireContext.getString(R.string.snackbar_delete_articles_message),
-                    fragment.requireActivity()
+                requireContext.getString(R.string.snackbar_delete_articles_message),
+                fragment.requireActivity()
             )
             deletePreference.isEnabled = false
             deletePreference.icon.alpha = 50

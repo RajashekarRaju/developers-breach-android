@@ -23,8 +23,8 @@ import java.util.*
 
 @BindingAdapter("bindSearchRecyclerViewData", "bindSearchFragmentReference")
 fun RecyclerView.setSearchRecyclerViewData(
-        viewModel: SearchViewModel,
-        viewLifecycleOwner: SearchFragment
+    viewModel: SearchViewModel,
+    viewLifecycleOwner: SearchFragment
 ) {
     // With variable viewModel start observing LiveData to this fragment by calling articles()
     // and observe changes for list of searchable article data.
@@ -41,17 +41,17 @@ fun RecyclerView.setSearchRecyclerViewData(
 
 @BindingAdapter("bindSearchToDetailListener", "bindSearchItemViewGroup")
 fun TextView.setSearchToDetailListener(
-        article: Article,
-        frameLayout: FrameLayout
+    article: Article,
+    frameLayout: FrameLayout
 ) {
     val textView = this
     textView.setOnClickListener {
 
         itemViewAnimation(
-                context = textView.context,
-                view = textView,
-                duration = 250L,
-                animationProperty = R.anim.fade_enter_anim
+            context = textView.context,
+            view = textView,
+            duration = 250L,
+            animationProperty = R.anim.fade_enter_anim
         ).setAnimationListener(object : Animation.AnimationListener {
 
             override fun onAnimationEnd(p0: Animation?) {
@@ -65,27 +65,29 @@ fun TextView.setSearchToDetailListener(
 }
 
 private fun navigateOnAnimationCompleted(
-        article: Article,
-        frameLayout: FrameLayout,
-        textView: TextView,
-        navController: NavController
+    article: Article,
+    frameLayout: FrameLayout,
+    textView: TextView,
+    navController: NavController
 ) {
     TransitionManager.beginDelayedTransition(frameLayout, Fade())
     navController.navigate(
-            SearchFragmentDirections.searchToDetailFragment(article),
-            FragmentNavigatorExtras(textView to article.name)
+        SearchFragmentDirections.searchToDetail(article),
+        FragmentNavigatorExtras(textView to article.name)
     )
 }
 
 
-@BindingAdapter("bindClearSearchQueryData", "bindSearchViewModelHeader",
-        "bindSearchFragmentReferenceHeader", "bindSearchRecyclerViewHeader", "bindSearchErrorTextHeader")
+@BindingAdapter(
+    "bindClearSearchQueryData", "bindSearchViewModelHeader",
+    "bindSearchFragmentReferenceHeader", "bindSearchRecyclerViewHeader", "bindSearchErrorTextHeader"
+)
 fun ImageView.setClearSearchQueryData(
-        editText: AppCompatEditText,
-        viewModel: SearchViewModel,
-        owner: SearchFragment,
-        recyclerView: RecyclerView,
-        searchTextError: TextView
+    editText: AppCompatEditText,
+    viewModel: SearchViewModel,
+    owner: SearchFragment,
+    recyclerView: RecyclerView,
+    searchTextError: TextView
 ) {
     val clearImageView = this
     editText.addTextChangedListener(object : TextWatcher {
@@ -98,7 +100,13 @@ fun ImageView.setClearSearchQueryData(
             }
 
             val formatQueryBeforeSearch = query.toString().lowercase(Locale.getDefault())
-            filterSearchQuery(formatQueryBeforeSearch, viewModel, owner, recyclerView, searchTextError)
+            filterSearchQuery(
+                formatQueryBeforeSearch,
+                viewModel,
+                owner,
+                recyclerView,
+                searchTextError
+            )
         }
 
         override fun afterTextChanged(p0: Editable?) {}
@@ -118,11 +126,12 @@ fun ImageView.setClearSearchQueryData(
  * the new data.
  */
 private fun filterSearchQuery(
-        query: String,
-        viewModel: SearchViewModel,
-        viewLifecycleOwner: SearchFragment,
-        recyclerView: RecyclerView,
-        searchTextError: TextView) {
+    query: String,
+    viewModel: SearchViewModel,
+    viewLifecycleOwner: SearchFragment,
+    recyclerView: RecyclerView,
+    searchTextError: TextView
+) {
 
     viewModel.filter(query).observe(viewLifecycleOwner, { articleList ->
         // Only perform this operation is query is valid.
@@ -142,9 +151,9 @@ private fun filterSearchQuery(
  * @param articleList contains list data of searchable articles.
  */
 private fun toggleRecyclerView(
-        articleList: List<Article?>,
-        recyclerView: RecyclerView,
-        searchTextError: TextView
+    articleList: List<Article?>,
+    recyclerView: RecyclerView,
+    searchTextError: TextView
 ) {
     // If no items are available, hide the recyclerView and show not found text error.
     if (articleList.isEmpty()) {
