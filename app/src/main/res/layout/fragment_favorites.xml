@@ -34,7 +34,7 @@
                 app:layout_scrollFlags="scroll|enterAlways"
                 app:title="@string/favorites_toolbar_title"
                 app:titleTextAppearance="@style/TextAppearance.Article.Toolbar.FavoriteList"
-                app:titleTextColor="@color/colorBrand"
+                app:titleTextColor="@color/colorOnBackground"
                 tools:ignore="RtlSymmetry" />
 
         </com.google.android.material.appbar.AppBarLayout>

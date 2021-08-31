@@ -19,14 +19,14 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
-        style="@style/CardView.Article.Item.List"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Main"
-        app:cardBackgroundColor="#ffffff"
         android:transitionName="@{article.name}"
         app:bindRecentArticleItemTitleTransition="@{articleTitleItemTextView}"
         app:bindRecentArticleToDetailListener="@{article}"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:strokeWidth="0dp"
         tools:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -40,7 +40,7 @@
                 android:contentDescription="@string/article_banner_image_content_description"
                 android:scaleType="centerCrop"
                 app:bindRecentArticleItemBanner="@{article.banner}"
-                app:layout_constraintDimensionRatio="3:2"
+                app:layout_constraintDimensionRatio="3:1.5"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -55,8 +55,8 @@
                 android:layout_margin="@dimen/layout_margin_16dp"
                 android:fontFamily="@font/rubik"
                 android:gravity="center"
-                android:textColor="#000000"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                android:textColor="?attr/colorOnSurface"
                 app:bindRecentArticleItemName="@{article.name}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +74,8 @@
                 app:bindRecentArticleListFragmentItemReference="@{fragment}"
                 app:bindRecentArticleViewModel="@{viewModel}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="?attr/colorOnSurface" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

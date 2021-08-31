@@ -14,10 +14,11 @@
         android:id="@+id/item_category_parent_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#222222"
+        app:cardBackgroundColor="?attr/colorSecondary"
         app:cardCornerRadius="8dp"
         app:cardUseCompatPadding="true"
-        tools:layout_gravity="center">
+        tools:layout_gravity="center"
+        tools:theme="@style/HomeTheme">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
@@ -48,6 +49,7 @@
                 android:paddingEnd="16dp"
                 android:text="@{category.categoryName}"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textColor="?attr/colorOnSecondary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/item_category_icon_image_view"
