@@ -19,7 +19,7 @@
         android:layout_height="match_parent"
         android:background="?attr/background"
         android:fitsSystemWindows="true"
-        android:theme="@style/Main"
+        android:theme="@style/MainTheme"
         tools:context=".view.list.ArticleListFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
