@@ -1,13 +1,64 @@
 package com.developerbreach.developerbreach.repository.network
 
 import com.developerbreach.developerbreach.model.Article
+import com.developerbreach.developerbreach.model.Authors
 import com.developerbreach.developerbreach.model.Categories
 import com.developerbreach.developerbreach.utils.*
 import org.json.JSONArray
 import org.json.JSONObject
-import java.util.*
+import kotlin.collections.ArrayList
 
 object JsonRemoteData {
+
+    fun fetchAuthorsJsonData(response: String): List<Authors> {
+
+        val authorsList: MutableList<Authors> = ArrayList()
+
+        val baseJsonArray = JSONArray(response)
+
+        for (i: Int in 0 until baseJsonArray.length()) {
+            val baseJsonObject: JSONObject = baseJsonArray.getJSONObject(i)
+
+            var authorId = 0
+            if (baseJsonObject.has("id")) {
+                authorId = baseJsonObject.getInt("id")
+            }
+
+            var authorName: String = CHECK_WITH_EMPTY_ASSERTION
+            if (baseJsonObject.has("name")) {
+                authorName = baseJsonObject.getString("name")
+            }
+
+            var description: String = CHECK_WITH_EMPTY_ASSERTION
+            if (baseJsonObject.has("description")) {
+                description = baseJsonObject.getString("description")
+            }
+
+            var authorPostsLinkUrl: String = CHECK_WITH_EMPTY_ASSERTION
+            if (baseJsonObject.has("link")) {
+                authorPostsLinkUrl = baseJsonObject.getString("link")
+            }
+
+            val avatarsJsonObject = baseJsonObject.getJSONObject("avatar_urls")
+
+            var authorAvatarUrl: String = CHECK_WITH_EMPTY_ASSERTION
+            if (avatarsJsonObject.has("96")) {
+                authorAvatarUrl = avatarsJsonObject.getString("96")
+            }
+
+            authorsList.add(
+                Authors(
+                    authorId,
+                    authorName,
+                    description,
+                    authorPostsLinkUrl,
+                    authorAvatarUrl
+                )
+            )
+        }
+
+        return authorsList
+    }
 
     fun fetchCategoriesJsonData(response: String): List<Categories> {
 
