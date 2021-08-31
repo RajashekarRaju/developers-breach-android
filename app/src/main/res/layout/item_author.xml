@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="author"
+            type="com.developerbreach.developerbreach.model.Authors" />
+
+        <variable
+            name="viewModel"
+            type="com.developerbreach.developerbreach.view.authors.AuthorsViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.developerbreach.developerbreach.view.authors.AuthorsFragment" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/CardView.Article.Item.List"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/MainTheme"
+        tools:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/item_author_avatar_image_view"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/ic_placeholder" />
+
+            <TextView
+                android:id="@+id/item_author_name_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/layout_margin_16dp"
+                android:fontFamily="@font/rubik"
+                android:text="@{author.authorName}"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                app:layout_constraintBottom_toTopOf="@id/item_author_launch_image_view"
+                app:layout_constraintStart_toEndOf="@id/item_author_avatar_image_view"
+                app:layout_constraintTop_toTopOf="@id/item_author_avatar_image_view"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="Rajasekhar" />
+
+            <ImageView
+                android:id="@+id/item_author_launch_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/background_ripple"
+                android:src="@drawable/ic_launch"
+                app:layout_constraintBottom_toBottomOf="@id/item_author_avatar_image_view"
+                app:layout_constraintStart_toStartOf="@id/item_author_name_text_view"
+                app:layout_constraintTop_toBottomOf="@id/item_author_name_text_view"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/item_author_description_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/rubik"
+                android:text="@{author.description}"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintStart_toStartOf="@id/item_author_avatar_image_view"
+                app:layout_constraintTop_toBottomOf="@id/item_author_avatar_image_view"
+                tools:text="@string/author_description" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
