@@ -144,6 +144,28 @@
         android:id="@+id/optionsFragment"
         android:name="com.developerbreach.developerbreach.view.options.OptionsFragment"
         android:label="Options"
-        tools:layout="@layout/fragment_options" />
+        tools:layout="@layout/fragment_options" >
+        <action
+            android:id="@+id/optionsToAuthors"
+            app:destination="@id/authorsFragment" />
+        <action
+            android:id="@+id/optionsToFavorites"
+            app:destination="@id/favoritesFragment" />
+        <action
+            android:id="@+id/optionsToSearch"
+            app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/optionsToSettings"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/optionsToIntro"
+            app:destination="@id/introFragment" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/authorsFragment"
+        tools:layout="@layout/fragment_authors"
+        android:name="com.developerbreach.developerbreach.view.authors.AuthorsFragment"
+        android:label="AuthorsFragment" />
 
 </navigation>
