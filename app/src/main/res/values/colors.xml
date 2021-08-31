@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="surfaceColor">#ffffff</color>
-    <color name="primaryColor">#607d8b</color>
-    <color name="primaryDarkColor">#243B53</color>
-    <color name="primaryVariantColor">#484848</color>
-    <color name="secondaryColor">#236D8F</color>
-    <color name="secondaryVariantColor">#44758C</color>
-    <color name="onSurfaceColor">#000000</color>
+    <color name="primaryColor">#236D8F</color>
+    <color name="primaryDarkColor">#123A4C</color>
     <color name="onPrimaryColor">#ffffff</color>
-    <color name="onSecondaryColor">#000000</color>
-    <color name="colorBrand">#607d8b</color>
-    <color name="colorDarkBrand">#243B53</color>
 
-    <!--        <item name="red" type="color">#E57373</item>-->
-    <!--        <item name="pink" type="color">#F06292</item>-->
-    <!--        <item name="blue" type="color">#7986CB</item>-->
-    <!--        <item name="green" type="color">#AED581</item>-->
-    <!--        <item name="orange" type="color">#FFB74D</item>-->
-    <!--        <item name="deep_orange" type="color">#FF8A65</item>-->
+    <color name="secondaryColor">#DFDFDF</color>
+    <color name="onSecondaryColor">#123A4C</color>
+
+    <color name="surfaceColor">#112132</color>
+    <color name="onSurfaceColor">#ffffff</color>
+
+<!--    <color name="colorBrand">#236D8F</color>-->
+
+    <color name="colorBackground">#fafafa</color>
+    <color name="colorOnBackground">#000000</color>
 
 </resources>
