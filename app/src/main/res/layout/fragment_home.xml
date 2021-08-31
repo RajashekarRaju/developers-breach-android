@@ -17,9 +17,9 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/background"
         android:fitsSystemWindows="true"
-        android:theme="@style/Main"
+        android:theme="@style/HomeTheme"
+        android:background="?attr/background"
         tools:context=".view.home.HomeFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -88,7 +88,7 @@
                 app:reverseLayout="true"
                 app:stackFromEnd="true"
                 tools:itemCount="6"
-                tools:listitem="@layout/item_article"
+                tools:listitem="@layout/item_recent_articles"
                 tools:visibility="visible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -103,7 +103,7 @@
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:layout_gravity="bottom"
-            app:backgroundTint="?attr/colorPrimaryDark"
+            app:backgroundTint="?attr/background"
             app:fabAlignmentMode="center"
             app:hideOnScroll="true">
 

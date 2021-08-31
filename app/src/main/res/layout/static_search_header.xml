@@ -9,9 +9,10 @@
     android:layout_marginVertical="12dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="0dp"
+    app:cardBackgroundColor="?attr/colorSecondary"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    tools:showIn="@layout/fragment_article_list">
+    tools:showIn="@layout/fragment_home">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -25,7 +26,7 @@
             android:alpha="0.8"
             android:text="@string/search_header_title"
             android:textAppearance="?attr/textAppearanceSubtitle1"
-            android:textColor="?attr/colorOnPrimary"
+            android:textColor="?attr/colorOnSecondary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +41,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="?attr/colorOnPrimary"
+            app:tint="?attr/colorOnSecondary"
             tools:ignore="ContentDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

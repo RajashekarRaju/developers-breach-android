@@ -8,23 +8,12 @@
         <variable
             name="navController"
             type="androidx.navigation.NavController" />
-
-        <variable
-            name="fragment"
-            type="com.developerbreach.developerbreach.view.options.OptionsFragment" />
-
-        <variable
-            name="viewModel"
-            type="com.developerbreach.developerbreach.view.options.OptionsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
-        tools:background="?attr/background"
-        tools:context=".view.options.OptionsFragment"
-        tools:theme="@style/Main">
+        android:paddingBottom="16dp">
 
         <ImageView
             android:id="@+id/collapse_options_fragment_image_view"
@@ -37,7 +26,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed"
-            app:tint="?attr/colorPrimary"
+            app:tint="?attr/colorOnBackground"
             tools:ignore="ContentDescription" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -67,7 +56,7 @@
                 android:layout_marginStart="24dp"
                 android:text="@string/app_name"
                 android:textAppearance="?attr/textAppearanceHeadline5"
-                android:textColor="?attr/colorPrimary"
+                android:textColor="?attr/colorOnBackground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/header_logo_image_view"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -79,8 +68,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:bindOptionsFragmentReference="@{fragment}"
-            app:bindOptionsListData="@{viewModel.optionsList}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/account_container"

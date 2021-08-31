@@ -143,4 +143,12 @@
     <string name="category_title_compose">Compose</string>
     <string name="category_title_uncategorized">Uncategorized</string>
 
+
+    <string name="author_description">
+        I’m Rajasekhar working on my startup Developers Breach. I’m a Programmer who loves
+        Android development, Creating content, Kotlin enthusiast and Engineering graduate. Learns
+        from open source community and always happy to assist someone with my work. I spend most
+        of time training and mentoring students who are absolute beginners in android.
+    </string>
+
 </resources>

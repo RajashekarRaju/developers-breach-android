@@ -26,7 +26,6 @@
 
         <TextView
             android:id="@+id/textView_title"
-            style="@style/TextAppearance.Article.Logo.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/layout_margin_6dp"

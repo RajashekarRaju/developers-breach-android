@@ -6,7 +6,7 @@ import com.developerbreach.developerbreach.model.Options
 import com.developerbreach.developerbreach.repository.AppRepository
 import com.developerbreach.developerbreach.repository.database.getDatabaseInstance
 
-class OptionsViewModel constructor(
+class OptionsViewModel(
     application: Application
 ) : AndroidViewModel(application) {
 

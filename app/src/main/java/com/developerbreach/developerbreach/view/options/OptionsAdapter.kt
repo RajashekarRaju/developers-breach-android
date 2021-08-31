@@ -10,18 +10,22 @@ import com.developerbreach.developerbreach.model.Options
 import com.developerbreach.developerbreach.view.options.OptionsAdapter.*
 
 class OptionsAdapter(
-    private val fragment: OptionsFragment,
+    private val clickListener: OnClickListener
 ) : ListAdapter<Options, OptionsViewHolder>(OptionsDiffCallback) {
 
-    class OptionsViewHolder(private val binding: ItemOptionsBinding) :
-        RecyclerView.ViewHolder(binding.root) {
+    class OptionsViewHolder(
+        private val binding: ItemOptionsBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
             options: Options,
-            fragment: OptionsFragment,
+            clickListener: OnClickListener
         ) {
             binding.options = options
-            binding.fragment = fragment
+            binding.itemOptionsParent.setOnClickListener {
+                clickListener.onOptionsItemClick(options)
+            }
+
             binding.executePendingBindings()
         }
     }
@@ -38,7 +42,15 @@ class OptionsAdapter(
 
     override fun onBindViewHolder(holder: OptionsViewHolder, position: Int) {
         val options: Options = getItem(position)
-        holder.bind(options, fragment)
+        holder.bind(options, clickListener)
+    }
+
+    class OnClickListener(
+        val clickListener: (options: Options) -> Unit
+    ) {
+        fun onOptionsItemClick(options: Options) {
+            clickListener(options)
+        }
     }
 
     companion object OptionsDiffCallback : DiffUtil.ItemCallback<Options>() {

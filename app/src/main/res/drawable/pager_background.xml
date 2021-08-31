@@ -2,4 +2,4 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:innerRadius="8dp"
     android:shape="oval"
-    android:tint="@color/colorBrand" />
+    android:tint="@color/colorBackground" />

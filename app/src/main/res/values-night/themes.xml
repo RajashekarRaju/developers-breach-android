@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <style name="Base.AppTheme" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar">
 
@@ -7,17 +7,18 @@
         <item name="colorPrimaryDark">@color/primaryDarkColor</item>
         <item name="colorOnPrimary">@color/onPrimaryColor</item>
 
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorOnSecondary">@color/onSecondaryColor</item>
+
         <item name="colorSurface">@color/surfaceColor</item>
         <item name="colorOnSurface">@color/onSurfaceColor</item>
 
         <item name="background">@color/colorBackground</item>
-        <!-- <item name="android:background">@color/colorBackground</item>-->
         <item name="colorOnBackground">@color/colorOnBackground</item>
+        <!-- <item name="android:background">@color/colorBackground</item>-->
 
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
-        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+        <item name="android:statusBarColor">@color/colorBackground</item>
+        <item name="android:navigationBarColor">@color/colorBackground</item>
     </style>
 
     <style name="HomeTheme">
@@ -27,6 +28,7 @@
         <item name="background">@color/colorBackground</item>
         <item name="colorOnBackground">@color/colorOnBackground</item>
         <!-- <item name="android:background">@color/colorBackground</item>-->
+        <item name="android:navigationBarColor">@color/secondaryColor</item>
     </style>
 
     <style name="MainTheme">

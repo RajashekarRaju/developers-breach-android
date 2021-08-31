@@ -4,12 +4,14 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.developerbreach.developerbreach.model.Article
+import com.developerbreach.developerbreach.model.Authors
 import com.developerbreach.developerbreach.model.Categories
 import com.developerbreach.developerbreach.model.Options
 import com.developerbreach.developerbreach.repository.database.ArticleDatabase
 import com.developerbreach.developerbreach.repository.database.entity.asDatabaseModel
 import com.developerbreach.developerbreach.repository.database.entity.asDomainModel
 import com.developerbreach.developerbreach.repository.network.getArticles
+import com.developerbreach.developerbreach.repository.network.getAuthors
 import com.developerbreach.developerbreach.repository.network.getCategories
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -32,6 +34,14 @@ class AppRepository(
         val listData: List<Categories>
         withContext(Dispatchers.IO) {
             listData = getCategories()
+        }
+        return listData
+    }
+
+    suspend fun getAuthorsData(): List<Authors> {
+        val listData: List<Authors>
+        withContext(Dispatchers.IO) {
+            listData = getAuthors()
         }
         return listData
     }

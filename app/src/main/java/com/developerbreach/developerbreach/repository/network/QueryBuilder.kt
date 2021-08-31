@@ -37,4 +37,15 @@ object QueryBuilder {
         uriBuilder.appendPath("categories")
         return uriBuilder.build().toString()
     }
+
+    /**
+     * https://developersbreach.com/wp-json/wp/v2/{users}
+     */
+    fun authorBuilder(): String {
+        val baseUri: Uri = Uri.parse(SCHEME_AUTHORITY)
+        val uriBuilder: Uri.Builder = baseUri.buildUpon()
+        uriBuilder.appendPath(APPEND_PATH)
+        uriBuilder.appendPath("users")
+        return uriBuilder.build().toString()
+    }
 }

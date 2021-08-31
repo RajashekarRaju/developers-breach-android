@@ -19,14 +19,15 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
-        style="@style/CardView.Article.Item.List"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/Main"
         android:transitionName="@{article.name}"
         app:bindArticleItemTitleTransition="@{articleTitleItemTextView}"
         app:bindArticleToDetailListener="@{article}"
-        app:cardBackgroundColor="#ffffff"
+        app:cardBackgroundColor="?attr/colorSurface"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:strokeWidth="0dp"
         tools:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
