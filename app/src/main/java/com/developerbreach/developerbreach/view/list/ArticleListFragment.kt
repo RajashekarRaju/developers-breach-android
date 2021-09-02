@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.developerbreach.developerbreach.databinding.FragmentArticleListBinding
 import com.developerbreach.developerbreach.utils.RecyclerViewItemDecoration.Companion.setItemSpacing
+import com.developerbreach.developerbreach.view.category.CategoryAdapter
 import java.util.concurrent.TimeUnit
 
 
@@ -40,6 +41,11 @@ class ArticleListFragment : Fragment() {
             } else {
                 binding.articlesRecyclerView.visibility = View.GONE
             }
+        })
+
+        viewModel.categories.observe(viewLifecycleOwner, { categories ->
+            val adapter = CategoryAdapter(categories)
+            binding.categorySelectRecyclerView.adapter = adapter
         })
     }
 }

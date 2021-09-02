@@ -35,6 +35,11 @@ class ArticleListViewModel constructor(
             val articlesData: List<Article> = repository.getArticlesData()
             _articles.postValue(articlesData)
         }
+
+        viewModelScope.launch {
+            val categoriesData = repository.getCategoriesData()
+            _categories.postValue(categoriesData)
+        }
     }
 
     override fun onCleared() {
