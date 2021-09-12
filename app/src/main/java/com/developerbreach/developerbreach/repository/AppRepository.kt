@@ -93,6 +93,6 @@ class AppRepository(
     }
 
     fun optionsList(context: Context): List<Options> {
-        return Options.addIntroData(context)
+        return Options.addOptionsData(context)
     }
 }

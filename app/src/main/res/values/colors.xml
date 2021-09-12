@@ -15,4 +15,8 @@
     <color name="colorBackground">#fafafa</color>
     <color name="colorOnBackground">#000000</color>
 
+    <color name="colorLowWave">#9A9A9A</color>
+    <color name="colorMidWave">#D6D6D6</color>
+    <color name="colorHighWave">#FFFFFF</color>
+
 </resources>

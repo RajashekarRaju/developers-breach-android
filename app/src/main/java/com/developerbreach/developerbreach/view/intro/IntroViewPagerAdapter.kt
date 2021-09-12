@@ -23,7 +23,7 @@ class IntroViewPagerAdapter(
             introViewPager: ViewPager2
         ) {
             binding.intro = intro
-            binding.introViewPager2 = introViewPager
+            binding.introViewPager = introViewPager
             binding.executePendingBindings()
         }
     }
@@ -47,7 +47,7 @@ class IntroViewPagerAdapter(
         }
 
         override fun areContentsTheSame(oldItem: Intro, newItem: Intro): Boolean {
-            return oldItem.title == newItem.title
+            return oldItem.id == newItem.id
         }
     }
 }

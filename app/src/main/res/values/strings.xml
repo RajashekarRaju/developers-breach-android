@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Developers Breach</string>
+    <string name="app_name">DevelopersBreach</string>
 
     <!--  App Toolbar Titles  -->
     <string name="favorites_toolbar_title">FAVORITES</string>
@@ -110,17 +110,22 @@
     <string name="intro_pager_second_title_text">Dynamic Feed</string>
     <string name="intro_pager_third_title_text">Content Update</string>
     <string name="intro_pager_fourth_title_text">Offline Support</string>
+
     <!--  IntroFragment ViewPager Subtitle's  -->
-    <string name="intro_pager_first_subtitle_text">Welcome !</string>
-    <string name="intro_pager_second_subtitle_text">Updates feed regularly from cloud.</string>
-    <string name="intro_pager_third_subtitle_text">Receive notifications for new articles, Manage
-        and bookmark feed.</string>
-    <string name="intro_pager_fourth_subtitle_text">Explore all articles completely offline, refresh
-        app data in settings any time.</string>
+    <string name="intro_pager_first_subtitle_text">
+        Our motive is to promote use of technology, development to solve challenges.
+    </string>
+    <string name="intro_pager_second_subtitle_text">
+        We are building small scale apps for businesses and to teach students.
+    </string>
+    <string name="intro_pager_third_subtitle_text">
+        We actively contribute to open source which creates impact for learners and developers.
+    </string>
+    <string name="intro_pager_fourth_subtitle_text">
+        This app outlines all content and articles feed we actively creating on our website.
+    </string>
+
     <!--  IntroFragment ViewPager clickable text's  -->
-    <string name="skip_intro_pager_text">Skip</string>
-    <string name="next_intro_pager_text">Next</string>
-    <string name="end_intro_pager_text">Finish</string>
     <string name="search_header_title">Search Articles</string>
 
 

@@ -22,7 +22,7 @@
         style="@style/CardView.Article.Item.List"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/MainTheme"
+        android:theme="@style/AppTheme.MainTheme"
         tools:cardUseCompatPadding="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,7 +45,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/layout_margin_16dp"
-                android:fontFamily="@font/rubik"
                 android:text="@{author.authorName}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 app:layout_constraintBottom_toTopOf="@id/item_author_launch_image_view"
@@ -71,7 +70,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:fontFamily="@font/rubik"
                 android:text="@{author.description}"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 app:layout_constraintStart_toStartOf="@id/item_author_avatar_image_view"

@@ -13,8 +13,7 @@
 
         <activity
             android:name="com.developerbreach.developerbreach.view.controller.MainActivity"
-            android:exported="true"
-            android:theme="@style/Base.AppTheme">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
