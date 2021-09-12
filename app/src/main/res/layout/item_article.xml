@@ -54,7 +54,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/layout_margin_16dp"
-                android:fontFamily="@font/rubik"
                 android:gravity="center"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                 android:textColor="#000000"
