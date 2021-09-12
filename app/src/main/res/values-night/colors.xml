@@ -15,4 +15,8 @@
     <color name="colorBackground">#09111B</color>
     <color name="colorOnBackground">#fafafa</color>
 
+    <color name="colorLowWave">#2264ab</color>
+    <color name="colorMidWave">#184a7e</color>
+    <color name="colorHighWave">#09111b</color>
+
 </resources>

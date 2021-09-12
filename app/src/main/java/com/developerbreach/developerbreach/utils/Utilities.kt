@@ -52,6 +52,7 @@ fun View.convertToDp(value: Float): Int {
         .toInt()
 }
 
+// TODO Remove deprecated code
 fun showStatusBar(activity: Activity) {
     @Suppress("DEPRECATION")
     activity.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
