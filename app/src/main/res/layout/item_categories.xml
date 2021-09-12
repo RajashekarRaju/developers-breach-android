@@ -18,7 +18,7 @@
         app:cardCornerRadius="8dp"
         app:cardUseCompatPadding="true"
         tools:layout_gravity="center"
-        tools:theme="@style/HomeTheme">
+        tools:theme="@style/AppTheme.HomeTheme">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
