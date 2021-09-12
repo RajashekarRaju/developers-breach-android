@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         val navController = Navigation.findNavController(this, R.id.nav_host_fragment)
 
         navController.addOnDestinationChangedListener { controller, destination, _ ->
-            onDestinationChanged(destination, this, controller)
+            onDestinationChanged(destination, controller)
         }
 
         // Creates a notification channel based on version
