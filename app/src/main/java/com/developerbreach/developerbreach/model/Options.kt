@@ -11,7 +11,7 @@ data class Options(
 
     companion object {
 
-        fun addIntroData(
+        fun addOptionsData(
             context: Context,
         ): List<Options> = listOf(
             Options(1, context.getString(R.string.item_options_favorites), R.drawable.ic_favorite_add),
