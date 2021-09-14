@@ -6,19 +6,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.databinding.FragmentHomeBinding
 import com.developerbreach.developerbreach.utils.RecyclerViewItemDecoration.Companion.setItemSpacing
 import com.developerbreach.developerbreach.utils.showSnackBar
-import com.developerbreach.developerbreach.view.category.CategoryAdapter
+import com.developerbreach.developerbreach.controller.AppNavDirections
 import java.util.concurrent.TimeUnit
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
-    private lateinit var viewModel: HomeViewModel
+    private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,11 +34,9 @@ class HomeFragment : Fragment() {
             )
         ) {
             if (!this.equals(getString(R.string.preference_intro_fragment_shown_value))) {
-                findNavController().navigate(R.id.introFragment)
+                AppNavDirections(findNavController()).homeToIntro()
             }
         }
-
-        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -50,9 +48,8 @@ class HomeFragment : Fragment() {
         // Time taken for fragment to enter with transition
         postponeEnterTransition(100L, TimeUnit.MILLISECONDS)
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment.
-        binding.fragment = this
-        binding.viewModel = viewModel
         binding.lifecycleOwner = this
+        binding.viewModel = viewModel
         binding.executePendingBindings()
         return binding.root
     }
@@ -66,11 +63,6 @@ class HomeFragment : Fragment() {
             }
         })
 
-        viewModel.categories.observe(viewLifecycleOwner, { categories ->
-            val adapter = CategoryAdapter(categories)
-            binding.categoriesRecyclerView.adapter = adapter
-        })
-
         viewModel.articles.observe(viewLifecycleOwner, { articles ->
             if (articles.isNotEmpty()) {
                 binding.recentPostsRecyclerView.visibility = View.VISIBLE
@@ -82,15 +74,11 @@ class HomeFragment : Fragment() {
         })
 
         binding.searchContainerCard.setOnClickListener {
-            findNavController().navigate(
-                HomeFragmentDirections.homeToSearch()
-            )
+            AppNavDirections(findNavController()).homeToSearch()
         }
 
         binding.expandBottomAppbarImageView.setOnClickListener {
-            findNavController().navigate(
-                HomeFragmentDirections.homeToOptions()
-            )
+            AppNavDirections(findNavController()).homeToOptions()
         }
     }
 }

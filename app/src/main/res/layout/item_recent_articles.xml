@@ -8,14 +8,6 @@
         <variable
             name="article"
             type="com.developerbreach.developerbreach.model.Article" />
-
-        <variable
-            name="viewModel"
-            type="com.developerbreach.developerbreach.view.home.HomeViewModel" />
-
-        <variable
-            name="fragment"
-            type="com.developerbreach.developerbreach.view.home.HomeFragment" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -24,6 +16,7 @@
         android:transitionName="@{article.name}"
         app:bindRecentArticleItemTitleTransition="@{articleTitleItemTextView}"
         app:bindRecentArticleToDetailListener="@{article}"
+        app:cardBackgroundColor="?attr/colorSecondary"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
         app:strokeWidth="0dp"
@@ -38,7 +31,6 @@
                 android:layout_width="@dimen/match_constraints"
                 android:layout_height="@dimen/match_constraints"
                 android:contentDescription="@string/article_banner_image_content_description"
-                android:scaleType="centerCrop"
                 app:bindRecentArticleItemBanner="@{article.banner}"
                 app:layout_constraintDimensionRatio="3:1.5"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -46,6 +38,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:layout_height="@dimen/image_size_tools"
                 tools:layout_width="@dimen/image_size_tools"
+                tools:scaleType="centerCrop"
                 tools:src="@drawable/ic_placeholder" />
 
             <TextView
@@ -54,27 +47,13 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/layout_margin_16dp"
                 android:gravity="center"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-                android:textColor="?attr/colorOnSurface"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:textColor="?attr/colorOnSecondary"
                 app:bindRecentArticleItemName="@{article.name}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/article_thumbnail_item_image_view"
                 tools:text="@string/article_title_tools_text" />
-
-            <ImageView
-                android:id="@+id/add_favorite_article_item_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/background_ripple"
-                android:contentDescription="@string/add_favorite_button_content_description"
-                android:padding="@dimen/padding_16dp"
-                app:bindRecentArticleFragmentModel="@{article}"
-                app:bindRecentArticleListFragmentItemReference="@{fragment}"
-                app:bindRecentArticleViewModel="@{viewModel}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="?attr/colorOnSurface" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
