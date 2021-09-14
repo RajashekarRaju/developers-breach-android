@@ -6,11 +6,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.BindingAdapter
-import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.model.Article
+import com.developerbreach.developerbreach.controller.AppNavDirections
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
@@ -22,9 +22,7 @@ fun ImageView.setImageResource(
     Glide.with(this.context).load(urlString).into(this)
 
     this.setOnClickListener {
-        val direction: NavDirections =
-            ArticleDetailFragmentDirections.detailToBanner(urlString)
-        findNavController().navigate(direction)
+        AppNavDirections(findNavController()).detailToBanner(urlString)
     }
 }
 
@@ -35,9 +33,7 @@ fun Button.setButtonWebView(
 ) {
     this.text = this.context.getString(R.string.open_article_button_text)
     this.setOnClickListener {
-        val action: NavDirections =
-            ArticleDetailFragmentDirections.detailToArticleWebView(article)
-        findNavController().navigate(action)
+        AppNavDirections(findNavController()).detailToArticleWebView(article)
     }
 }
 

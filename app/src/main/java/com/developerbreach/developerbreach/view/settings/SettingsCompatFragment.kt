@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
 import android.view.View
-import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -12,6 +11,7 @@ import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.databinding.FragmentSettingsBinding
 import com.developerbreach.developerbreach.repository.network.isNetworkConnected
 import com.developerbreach.developerbreach.utils.showSnackBar
+import com.developerbreach.developerbreach.controller.AppNavDirections
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class SettingsCompatFragment : PreferenceFragmentCompat() {
@@ -67,17 +67,13 @@ class SettingsCompatFragment : PreferenceFragmentCompat() {
 
         val contactPreference: Preference = findPreference("ContactFormKey")!!
         contactPreference.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            val directions: NavDirections = SettingsFragmentDirections
-                .settingsToCommonWebView("Contact")
-            findNavController().navigate(directions)
+            AppNavDirections(findNavController()).settingsToCommonWebView("Contact")
             true
         }
 
         val githubPreference: Preference = findPreference("DeveloperProjectKey")!!
         githubPreference.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            val directions: NavDirections = SettingsFragmentDirections
-                .settingsToCommonWebView("Developer")
-            findNavController().navigate(directions)
+            AppNavDirections(findNavController()).settingsToCommonWebView("Developer")
             true
         }
     }

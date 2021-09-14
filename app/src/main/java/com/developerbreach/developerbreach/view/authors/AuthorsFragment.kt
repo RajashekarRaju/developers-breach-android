@@ -24,20 +24,9 @@ class AuthorsFragment : Fragment() {
         // Time taken for fragment to enter with transition
         postponeEnterTransition(100L, TimeUnit.MILLISECONDS)
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment.
-        binding.fragment = this
-        binding.viewModel = viewModel
         binding.lifecycleOwner = this
+        binding.viewModel = viewModel
         binding.executePendingBindings()
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        viewModel.authors.observe(viewLifecycleOwner, { authors ->
-            val adapter = AuthorsAdapter(viewModel)
-            adapter.submitList(authors)
-            binding.authorsRecyclerView.adapter = adapter
-        })
     }
 }

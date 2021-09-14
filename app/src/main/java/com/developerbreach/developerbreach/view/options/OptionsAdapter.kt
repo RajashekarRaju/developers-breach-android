@@ -10,7 +10,7 @@ import com.developerbreach.developerbreach.model.Options
 import com.developerbreach.developerbreach.view.options.OptionsAdapter.*
 
 class OptionsAdapter(
-    private val clickListener: OnClickListener
+    private val fragment: OptionsFragment
 ) : ListAdapter<Options, OptionsViewHolder>(OptionsDiffCallback) {
 
     class OptionsViewHolder(
@@ -19,13 +19,10 @@ class OptionsAdapter(
 
         fun bind(
             options: Options,
-            clickListener: OnClickListener
+            fragment: OptionsFragment
         ) {
             binding.options = options
-            binding.itemOptionsParent.setOnClickListener {
-                clickListener.onOptionsItemClick(options)
-            }
-
+            binding.fragment = fragment
             binding.executePendingBindings()
         }
     }
@@ -42,15 +39,7 @@ class OptionsAdapter(
 
     override fun onBindViewHolder(holder: OptionsViewHolder, position: Int) {
         val options: Options = getItem(position)
-        holder.bind(options, clickListener)
-    }
-
-    class OnClickListener(
-        val clickListener: (options: Options) -> Unit
-    ) {
-        fun onOptionsItemClick(options: Options) {
-            clickListener(options)
-        }
+        holder.bind(options, fragment)
     }
 
     companion object OptionsDiffCallback : DiffUtil.ItemCallback<Options>() {

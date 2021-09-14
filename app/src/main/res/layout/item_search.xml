@@ -24,8 +24,8 @@
             android:paddingVertical="@dimen/padding_16dp"
             android:text="@{article.name}"
             android:transitionName="@{article.name}"
-            app:bindSearchToDetailListener="@{article}"
             app:bindSearchItemViewGroup="@{searchItemParent}"
+            app:bindSearchToDetailListener="@{article}"
             tools:text="@string/article_title_tools_text" />
 
     </FrameLayout>

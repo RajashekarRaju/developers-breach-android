@@ -8,6 +8,10 @@
         <variable
             name="options"
             type="com.developerbreach.developerbreach.model.Options" />
+
+        <variable
+            name="fragment"
+            type="com.developerbreach.developerbreach.view.options.OptionsFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,7 +19,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="8dp"
-        android:paddingVertical="8dp">
+        android:paddingVertical="8dp"
+        app:bindOptionsFragmentReference="@{fragment}"
+        app:bindOptionsItemClickListener="@{options.optionsId}">
 
         <ImageView
             android:id="@+id/item_settings_image_view"

@@ -5,9 +5,7 @@ import android.view.animation.Animation
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import androidx.navigation.NavDirections
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.Fade
 import androidx.transition.TransitionManager
@@ -15,6 +13,7 @@ import com.bumptech.glide.Glide
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.utils.*
+import com.developerbreach.developerbreach.controller.AppNavDirections
 import com.google.android.material.card.MaterialCardView
 
 
@@ -64,17 +63,10 @@ fun MaterialCardView.setFavoriteToDetailClickListener(
     title: TextView
 ) {
     this.setOnClickListener {
-        val direction: NavDirections =
-            FavoritesFragmentDirections.favoritesToDetail(article)
-
-        val extras = FragmentNavigatorExtras(
-            this to article.name
-        )
-
         TransitionManager.beginDelayedTransition(this, Fade())
         title.visibility = View.GONE
 
-        findNavController().navigate(direction, extras)
+        AppNavDirections(findNavController()).favoritesToDetail(article, this)
     }
 }
 

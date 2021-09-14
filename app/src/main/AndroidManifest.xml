@@ -12,7 +12,7 @@
         android:theme="@style/Base.AppTheme">
 
         <activity
-            android:name="com.developerbreach.developerbreach.view.controller.MainActivity"
+            android:name="com.developerbreach.developerbreach.controller.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

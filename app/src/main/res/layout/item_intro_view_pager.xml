@@ -15,6 +15,7 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parent_intro_item_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@{intro.background}"
@@ -78,6 +79,7 @@
             android:padding="@dimen/padding_8dp"
             android:src="@drawable/ic_done"
             android:visibility="invisible"
+            app:bindIntroItemLayoutParent="@{parentIntroItemLayout}"
             app:bindFinishIntroVisibility="@{intro.id}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

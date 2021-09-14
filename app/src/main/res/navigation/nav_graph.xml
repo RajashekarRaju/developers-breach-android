@@ -30,12 +30,6 @@
             android:id="@+id/homeToOptions"
             app:destination="@id/optionsFragment" />
         <action
-            android:id="@+id/homeToFavorites"
-            app:destination="@id/favoritesFragment" />
-        <action
-            android:id="@+id/homeToSettings"
-            app:destination="@id/settingsFragment" />
-        <action
             android:id="@+id/homeToArticleList"
             app:destination="@id/articleListFragment" />
     </fragment>
@@ -44,7 +38,11 @@
         android:id="@+id/articleListFragment"
         android:name="com.developerbreach.developerbreach.view.list.ArticleListFragment"
         android:label="Articles"
-        tools:layout="@layout/fragment_article_list" />
+        tools:layout="@layout/fragment_article_list">
+        <action
+            android:id="@+id/articleListToDetail"
+            app:destination="@id/articleDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/searchFragment"
@@ -144,7 +142,7 @@
         android:id="@+id/optionsFragment"
         android:name="com.developerbreach.developerbreach.view.options.OptionsFragment"
         android:label="Options"
-        tools:layout="@layout/fragment_options" >
+        tools:layout="@layout/fragment_options">
         <action
             android:id="@+id/optionsToAuthors"
             app:destination="@id/authorsFragment" />
@@ -164,8 +162,8 @@
 
     <fragment
         android:id="@+id/authorsFragment"
-        tools:layout="@layout/fragment_authors"
         android:name="com.developerbreach.developerbreach.view.authors.AuthorsFragment"
-        android:label="AuthorsFragment" />
+        android:label="AuthorsFragment"
+        tools:layout="@layout/fragment_authors" />
 
 </navigation>
