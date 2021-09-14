@@ -84,14 +84,6 @@ class AppRepository(
         }
     }
 
-    suspend fun searchableArticle(): List<Article> {
-        var searchableArticles: List<Article>
-        withContext(Dispatchers.IO) {
-            searchableArticles = getArticles()
-        }
-        return searchableArticles
-    }
-
     fun optionsList(context: Context): List<Options> {
         return Options.addOptionsData(context)
     }

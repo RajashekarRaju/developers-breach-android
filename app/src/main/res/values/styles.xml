@@ -17,13 +17,9 @@
         <item name="rippleColor">?attr/colorAccent</item>
     </style>
 
-    <style name="TextAppearance.Article.Toolbar.FavoriteList" parent="TextAppearance.MaterialComponents.Headline4">
-        <item name="fontFamily">@font/poppins_medium</item>
-    </style>
-
     <style name="TextAppearance.Article.Result.Error" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="fontFamily">@font/poppins_medium</item>
-        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
         <item name="android:visibility">invisible</item>
     </style>
 
@@ -63,7 +59,7 @@
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:fontFamily">@font/poppins_medium</item>
-        <item name="android:textColor">?attr/colorOnPrimarySurface</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
     </style>
 
     <style name="EditText.Article.Search.SearchBox" parent="TextAppearance.MaterialComponents.Headline6">

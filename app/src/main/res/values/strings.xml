@@ -105,12 +105,6 @@
     <string name="preference_intro_fragment_shown_value">Intro Fragment Shown</string>
     <string name="preference_intro_fragment_not_shown_value">Intro Fragment Not Shown</string>
 
-    <!--  IntroFragment ViewPager Title's  -->
-    <string name="intro_pager_first_title_text">DevelopersBreach</string>
-    <string name="intro_pager_second_title_text">Dynamic Feed</string>
-    <string name="intro_pager_third_title_text">Content Update</string>
-    <string name="intro_pager_fourth_title_text">Offline Support</string>
-
     <!--  IntroFragment ViewPager Subtitle's  -->
     <string name="intro_pager_first_subtitle_text">
         Our motive is to promote use of technology, development to solve challenges.
@@ -155,5 +149,7 @@
         from open source community and always happy to assist someone with my work. I spend most
         of time training and mentoring students who are absolute beginners in android.
     </string>
+    <string name="android_tag">Android</string>
+    <string name="authors_tag">Authors</string>
 
 </resources>

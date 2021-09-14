@@ -9,7 +9,6 @@
     <dimen name="card_elevation_search_item">16dp</dimen>
     <dimen name="detail_appbar_layout_height">278dp</dimen>
 
-    <dimen name="min_toolbar_height">80dp</dimen>
     <dimen name="progress_bar_visible_margin">49dp</dimen>
     <dimen name="image_size_tools">200dp</dimen>
     <dimen name="brand_logo_size">200dp</dimen>
