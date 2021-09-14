@@ -8,6 +8,14 @@
         <variable
             name="navController"
             type="androidx.navigation.NavController" />
+
+        <variable
+            name="viewModel"
+            type="com.developerbreach.developerbreach.view.options.OptionsViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.developerbreach.developerbreach.view.options.OptionsFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -68,6 +76,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            app:bindOptionsFragmentReference="@{fragment}"
+            app:bindOptionsListData="@{viewModel.optionsList}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/account_container"

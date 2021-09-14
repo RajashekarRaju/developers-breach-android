@@ -8,10 +8,6 @@
         <variable
             name="viewModel"
             type="com.developerbreach.developerbreach.view.list.ArticleListViewModel" />
-
-        <variable
-            name="fragment"
-            type="com.developerbreach.developerbreach.view.list.ArticleListFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:text="Android"
+            android:text="@string/android_tag"
             android:textAppearance="?attr/textAppearanceHeadline5"
             app:layout_constraintBottom_toTopOf="@id/category_filter_image_view"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,9 +39,9 @@
             android:backgroundTint="#222222"
             android:padding="4dp"
             android:src="@drawable/ic_filter"
-            app:layout_constraintTop_toBottomOf="@id/current_posts_tag"
             app:layout_constraintBottom_toTopOf="@id/category_filter_image_view"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/current_posts_tag"
             tools:ignore="ContentDescription" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -56,6 +52,7 @@
             android:layout_marginVertical="8dp"
             android:orientation="horizontal"
             android:scrollbars="none"
+            app:bindArticlesCategoryListData="@{viewModel.categories}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="@id/category_filter_image_view"
             app:layout_constraintStart_toEndOf="@id/category_filter_image_view"
@@ -74,8 +71,7 @@
             android:orientation="vertical"
             android:scrollbars="none"
             android:visibility="invisible"
-            app:bindArticleListFragmentReference="@{fragment}"
-            app:bindArticlesListData="@{viewModel}"
+            app:bindArticlesListData="@{viewModel.articles}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/category_select_recycler_view"

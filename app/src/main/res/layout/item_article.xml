@@ -8,14 +8,6 @@
         <variable
             name="article"
             type="com.developerbreach.developerbreach.model.Article" />
-
-        <variable
-            name="viewModel"
-            type="com.developerbreach.developerbreach.view.list.ArticleListViewModel" />
-
-        <variable
-            name="fragment"
-            type="com.developerbreach.developerbreach.view.list.ArticleListFragment" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -24,7 +16,7 @@
         android:transitionName="@{article.name}"
         app:bindArticleItemTitleTransition="@{articleTitleItemTextView}"
         app:bindArticleToDetailListener="@{article}"
-        app:cardBackgroundColor="?attr/colorSurface"
+        app:cardBackgroundColor="?attr/colorSecondary"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
         app:strokeWidth="0dp"
@@ -41,7 +33,7 @@
                 android:contentDescription="@string/article_banner_image_content_description"
                 android:scaleType="centerCrop"
                 app:bindArticleItemBanner="@{article.banner}"
-                app:layout_constraintDimensionRatio="3:2"
+                app:layout_constraintDimensionRatio="3:1.5"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -55,26 +47,13 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/layout_margin_16dp"
                 android:gravity="center"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                android:textColor="#000000"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:textColor="?attr/colorOnSecondary"
                 app:bindArticleItemName="@{article.name}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/article_thumbnail_item_image_view"
                 tools:text="@string/article_title_tools_text" />
-
-            <ImageView
-                android:id="@+id/add_favorite_article_item_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/background_ripple"
-                android:contentDescription="@string/add_favorite_button_content_description"
-                android:padding="@dimen/padding_16dp"
-                app:bindArticleFragmentModel="@{article}"
-                app:bindArticleListFragmentItemReference="@{fragment}"
-                app:bindArticleViewModel="@{viewModel}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

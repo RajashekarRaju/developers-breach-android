@@ -1,29 +1,45 @@
 package com.developerbreach.developerbreach.view.list
 
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.Fade
+import androidx.transition.TransitionManager
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.developerbreach.developerbreach.R
+import com.developerbreach.developerbreach.controller.AppNavDirections
 import com.developerbreach.developerbreach.model.Article
+import com.developerbreach.developerbreach.model.Categories
 import com.developerbreach.developerbreach.utils.capitalizeWord
-import com.developerbreach.developerbreach.utils.showSnackBar
+import com.developerbreach.developerbreach.view.category.CategoryAdapter
 import com.google.android.material.card.MaterialCardView
 
 
-@BindingAdapter("bindArticlesListData", "bindArticleListFragmentReference")
+@BindingAdapter("bindArticlesListData")
 fun RecyclerView.setArticleFragmentListData(
-    viewModel: ArticleListViewModel,
-    owner: ArticleListFragment
+    list: List<Article>
 ) {
-    viewModel.articles.observe(owner, { articles ->
-        val adapter = ArticleAdapter(viewModel, owner)
-        // Pass list to adapter calling submitList since our adapter class extends to ListAdapter<>.
-        adapter.submitList(articles)
-        // Set adapter with recyclerView.
-        this.adapter = adapter
-    })
+    val adapter = ArticleAdapter()
+    // Pass list to adapter calling submitList since our adapter class extends to ListAdapter<>.
+    adapter.submitList(list)
+    // Set adapter with recyclerView.
+    this.adapter = adapter
+}
+
+
+@BindingAdapter("bindArticlesCategoryListData")
+fun RecyclerView.setArticlesCategoryListData(
+    list: List<Categories>?,
+) {
+    val adapter = CategoryAdapter()
+    adapter.submitList(list)
+    this.adapter = adapter
 }
 
 /**
@@ -49,7 +65,14 @@ fun TextView.setArticleItemTitle(
 fun ImageView.setArticleItemBanner(
     imageUrl: String
 ) {
-    Glide.with(this.context).load(imageUrl).into(this)
+    val requestOptions = RequestOptions().transform(
+        CenterCrop(),
+        RoundedCorners(20)
+    )
+    Glide.with(this.context)
+        .load(imageUrl)
+        .apply(requestOptions)
+        .into(this)
 }
 
 
@@ -59,36 +82,9 @@ fun MaterialCardView.setArticleToDetailClickListener(
     title: TextView
 ) {
     this.setOnClickListener {
-//        val direction: NavDirections =
-//            ArticleListFragmentDirections.articleListToDetailFragment(article)
-//
-//        val extras = FragmentNavigatorExtras(
-//            this to article.name
-//        )
-//
-//        TransitionManager.beginDelayedTransition(this, Fade())
-//        title.visibility = View.GONE
-//
-//        findNavController().navigate(direction, extras)
-    }
-}
-//
+        TransitionManager.beginDelayedTransition(this, Fade())
+        title.visibility = View.GONE
 
-@BindingAdapter(
-    "bindArticleFragmentModel", "bindArticleViewModel",
-    "bindArticleListFragmentItemReference"
-)
-fun ImageView.setAddArticleToFavoritesListener(
-    article: Article,
-    viewModel: ArticleListViewModel,
-    fragment: ArticleListFragment
-) {
-    this.setImageResource(R.drawable.ic_favorite_add)
-    this.setOnClickListener {
-        // viewModel.insertFavorite(article)
-        showSnackBar(
-            this.context.getString(R.string.snackbar_added_to_favorites_message),
-            fragment.requireActivity()
-        )
+        AppNavDirections(findNavController()).articlesListToDetail(article, this)
     }
 }

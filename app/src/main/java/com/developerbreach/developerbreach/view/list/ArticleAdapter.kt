@@ -19,25 +19,7 @@ import com.developerbreach.developerbreach.view.list.ArticleAdapter.ArticleViewH
  * Views inside recyclerView items are bind in class ArticleListBindingAdapter with layout
  * reference to [R.layout.item_article]
  */
-class ArticleAdapter
-/**
- * @param viewModel takes associated viewModel.
- * @see Article.DiffCallback is a utility class that calculates the
- * difference between two lists and outputs a list of update operations that converts the first
- * list into the second one.
- */
-internal constructor(
-
-    /**
-     * This adapter class requires associated [ArticleListFragment] fragment with viewModel
-     * [ArticleListViewModel] class to get access for binding objects inside recyclerView items,
-     * by creating setters in layout.
-     *
-     * @see [R.layout.item_article], declares setters and variables.
-     */
-    private val viewModel: ArticleListViewModel,
-    private val fragment: ArticleListFragment
-) : ListAdapter<Article, ArticleViewHolder>(Article.DiffCallback) {
+class ArticleAdapter : ListAdapter<Article, ArticleViewHolder>(Article.DiffCallback) {
 
     /**
      * ArticleViewHolder class creates child view Article properties.
@@ -53,16 +35,11 @@ internal constructor(
         /**
          * @param article   pass object to set article for binding. This binding is accessed from
          * layout xml [R.layout.item_article]
-         * @param viewModel call setter for viewModel
          */
         fun bind(
             article: Article,
-            viewModel: ArticleListViewModel,
-            fragment: ArticleListFragment
         ) {
             binding.article = article
-            binding.viewModel = viewModel
-            binding.fragment = fragment
             // Force DataBinding to execute binding views immediately.
             binding.executePendingBindings()
         }
@@ -79,7 +56,7 @@ internal constructor(
      */
     override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val article = getItem(position)
-        holder.bind(article, viewModel, fragment)
+        holder.bind(article)
     }
 
     /**
