@@ -1,4 +1,4 @@
-package com.developerbreach.developerbreach.view.controller
+package com.developerbreach.developerbreach.controller
 
 import androidx.core.content.ContextCompat
 import androidx.navigation.NavController

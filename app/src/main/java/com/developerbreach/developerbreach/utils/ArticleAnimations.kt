@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewAnimationUtils
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import com.developerbreach.developerbreach.view.controller.MainActivity
+import com.developerbreach.developerbreach.controller.MainActivity
 import kotlin.math.hypot
 
 /**

@@ -1,4 +1,4 @@
-package com.developerbreach.developerbreach.view.controller
+package com.developerbreach.developerbreach.controller
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
