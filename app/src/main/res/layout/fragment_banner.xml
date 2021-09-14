@@ -8,6 +8,10 @@
         <variable
             name="viewModel"
             type="com.developerbreach.developerbreach.view.banner.BannerViewModel" />
+
+        <variable
+            name="navController"
+            type="androidx.navigation.NavController" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,18 +26,22 @@
             android:layout_height="match_parent"
             android:contentDescription="@string/article_banner_image_content_description"
             app:bindBannerWithZoom="@{viewModel.bannerUrl}"
-            app:bindCloseBannerFragment="@{closeBannerFragmentImageView}"
             tools:src="@drawable/ic_placeholder" />
 
         <ImageView
             android:id="@+id/close_banner_fragment_image_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/circle_bg"
+            android:backgroundTint="?attr/colorSecondary"
             android:contentDescription="@string/close_banner_fragment_content_description"
-            android:padding="@dimen/padding_16dp"
+            android:onClick="@{() -> navController.navigateUp()}"
+            android:padding="8dp"
             android:src="@drawable/ic_close"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorOnSecondary" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
