@@ -4,13 +4,15 @@ import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.model.Intro
 import com.developerbreach.developerbreach.utils.convertToDp
-import com.developerbreach.developerbreach.view.controller.AppNavDirections
+import com.developerbreach.developerbreach.controller.AppNavDirections
+import com.developerbreach.developerbreach.utils.startCircularEffect
 import timber.log.Timber
 
 
@@ -24,9 +26,10 @@ fun ViewPager2.setIntroListData(
 }
 
 
-@BindingAdapter("bindFinishIntroVisibility")
+@BindingAdapter("bindFinishIntroVisibility", "bindIntroItemLayoutParent")
 fun ImageView.setFinishIntroVisibility(
-    introId: Int
+    introId: Int,
+    parent: ConstraintLayout
 ) {
     if (introId == 4) {
         this.visibility = View.VISIBLE
@@ -37,7 +40,7 @@ fun ImageView.setFinishIntroVisibility(
     }
 
     this.setOnClickListener {
-        navigateToArticleListFragment()
+        navigateToArticleListFragment(parent)
     }
 }
 
@@ -116,7 +119,9 @@ private fun setCurrentViewPosition(currentView: View) {
     currentView.layoutParams.width = currentView.convertToDp(8.toFloat())
 }
 
-private fun ImageView.navigateToArticleListFragment() {
+private fun ImageView.navigateToArticleListFragment(
+    parent: ConstraintLayout
+) {
 
     with(
         context.getSharedPreferences(
@@ -131,5 +136,6 @@ private fun ImageView.navigateToArticleListFragment() {
         commit()
     }
 
+    startCircularEffect(parent, parent.right, parent.top)
     AppNavDirections(findNavController()).introToHome()
 }

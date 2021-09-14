@@ -14,66 +14,58 @@
             type="com.developerbreach.developerbreach.view.favorites.FavoritesViewModel" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
-        tools:context=".view.favorites.FavoritesFragment">
+        android:background="?attr/background"
+        android:theme="@style/AppTheme.HomeTheme">
 
-        <com.google.android.material.appbar.AppBarLayout
+        <TextView
+            android:id="@+id/favorites_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="monospace"
+            android:text="@string/favorites_toolbar_title"
+            android:textSize="36sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/favorites_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:liftOnScroll="true"
-            app:liftOnScrollTargetViewId="@id/favorites_recycler_view">
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:padding="@dimen/recycler_view_spacing_dimen"
+            android:scrollbars="none"
+            app:bindFavoriteFragmentReference="@{fragment}"
+            app:bindFavoritesListData="@{viewModel}"
+            app:bindFavoritesNotFoundText="@{noFavoritesFoundText}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/favorites_tag"
+            app:reverseLayout="true"
+            app:stackFromEnd="true"
+            tools:itemCount="6"
+            tools:listitem="@layout/item_favorites" />
 
-            <androidx.appcompat.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="@dimen/min_toolbar_height"
-                android:paddingStart="@dimen/padding_16dp"
-                app:layout_scrollFlags="scroll|enterAlways"
-                app:title="@string/favorites_toolbar_title"
-                app:titleTextAppearance="@style/TextAppearance.Article.Toolbar.FavoriteList"
-                app:titleTextColor="@color/colorOnBackground"
-                tools:ignore="RtlSymmetry" />
-
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <TextView
+            android:id="@+id/no_favorites_found_text"
+            style="@style/TextAppearance.Article.Result.Error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginBottom="?actionBarSize"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:text="@string/no_favorites_found"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="invisible" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/favorites_recycler_view"
-                app:bindFavoritesListData="@{viewModel}"
-                app:bindFavoriteFragmentReference="@{fragment}"
-                app:bindFavoritesNotFoundText="@{noFavoritesFoundText}"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:orientation="vertical"
-                android:padding="@dimen/recycler_view_spacing_dimen"
-                android:scrollbars="none"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:reverseLayout="true"
-                app:stackFromEnd="true"
-                tools:itemCount="6"
-                tools:listitem="@layout/item_favorites" />
-
-            <TextView
-                android:id="@+id/no_favorites_found_text"
-                style="@style/TextAppearance.Article.Result.Error"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="?actionBarSize"
-                android:text="@string/no_favorites_found"
-                tools:visibility="invisible" />
-
-        </FrameLayout>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
