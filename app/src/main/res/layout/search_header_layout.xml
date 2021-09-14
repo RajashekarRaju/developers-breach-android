@@ -14,39 +14,38 @@
             type="com.developerbreach.developerbreach.view.search.SearchViewModel" />
 
         <variable
-            name="fragment"
-            type="com.developerbreach.developerbreach.view.search.SearchFragment" />
-
-        <variable
             name="searchErrorText"
             type="android.widget.TextView" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="?attr/actionBarSize">
 
         <ImageView
-            android:id="@+id/search_header_image_view"
+            android:id="@+id/search_fragment_up_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:alpha="0.5"
             android:contentDescription="@string/search_button_content_description"
-            android:src="@drawable/ic_search"
+            android:src="@drawable/ic_up_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorOnBackground" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/article_search_edit_text"
             style="@style/EditText.Article.Search.SearchBox"
-            android:layout_width="@dimen/match_constraints"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/layout_margin_24dp"
+            android:layout_marginTop="4dp"
             android:hint="@string/search_articles_hint"
-            android:paddingTop="@dimen/padding_8dp"
-            app:layout_constraintBottom_toBottomOf="@id/search_header_image_view"
-            app:layout_constraintStart_toEndOf="@id/search_header_image_view" />
+            app:layout_constraintBottom_toBottomOf="@id/search_fragment_up_button"
+            app:layout_constraintStart_toEndOf="@id/search_fragment_up_button"
+            app:layout_constraintTop_toTopOf="@id/search_fragment_up_button" />
 
         <ImageView
             android:id="@+id/clear_search_query_text_view"
@@ -55,17 +54,25 @@
             android:layout_marginEnd="@dimen/layout_margin_12dp"
             android:alpha="0.5"
             android:contentDescription="@string/clear_search_query_content_description"
-            android:src="@drawable/ic_close"
-            android:visibility="invisible"
+            android:src="@drawable/ic_search"
+            android:visibility="visible"
             app:bindClearSearchQueryData="@{articleSearchEditText}"
             app:bindSearchErrorTextHeader="@{searchErrorText}"
-            app:bindSearchFragmentReferenceHeader="@{fragment}"
             app:bindSearchRecyclerViewHeader="@{recyclerView}"
-            app:bindSearchViewModelHeader="@{viewModel}"
+            app:bindSearchViewModelHeader="@{viewModel.articles}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorOnBackground"
             tools:visibility="visible" />
+
+        <View
+            android:id="@+id/hor_line_search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:alpha="0.1"
+            android:background="?attr/colorOnBackground"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

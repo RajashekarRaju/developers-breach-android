@@ -11,8 +11,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
-import java.util.*
-import kotlin.collections.ArrayList
 
 class SearchViewModel(
     application: Application
@@ -26,40 +24,10 @@ class SearchViewModel(
     val articles: LiveData<List<Article>>
         get() = _articles
 
-    private lateinit var searchableArticle: List<Article>
-    private val filteredList = MutableLiveData<List<Article>>()
-
     init {
         viewModelScope.launch {
-            searchableArticle = repository.searchableArticle()
             _articles.postValue(repository.getArticlesData())
         }
-    }
-
-    /**
-     * @param query get user query and perform search operation using onQueryChanged() method
-     * using the return value of liveData object from [.getSearchList].
-     * @return return matching search results internally.
-     */
-    fun filter(query: String): LiveData<List<Article>> {
-        filterWithQuery(query)
-        return filteredList
-    }
-
-    /**
-     * We run search query on existing database in background thread and return those values.
-     *
-     * @param query contains query given by user in editText field.
-     */
-    private fun filterWithQuery(query: String) {
-        val filterList = ArrayList<Article>()
-        for (article: Article in searchableArticle) {
-            val formatTitle: String = article.name.lowercase(Locale.getDefault())
-            if (formatTitle.contains(query)) {
-                filterList.add(article)
-            }
-        }
-        filteredList.value = filterList
     }
 
     override fun onCleared() {

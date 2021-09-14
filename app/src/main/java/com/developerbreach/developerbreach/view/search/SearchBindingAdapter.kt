@@ -11,31 +11,25 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.databinding.BindingAdapter
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.Fade
 import androidx.transition.TransitionManager
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.utils.itemViewAnimation
+import com.developerbreach.developerbreach.controller.AppNavDirections
 import java.util.*
 
 
-@BindingAdapter("bindSearchRecyclerViewData", "bindSearchFragmentReference")
+@BindingAdapter("bindSearchRecyclerViewData")
 fun RecyclerView.setSearchRecyclerViewData(
-    viewModel: SearchViewModel,
-    viewLifecycleOwner: SearchFragment
+    list: List<Article>?
 ) {
-    // With variable viewModel start observing LiveData to this fragment by calling articles()
-    // and observe changes for list of searchable article data.
-    // articles() is externally exposed in ViewModel class to observe changes.
-    viewModel.articles.observe(viewLifecycleOwner, { articleList ->
-        val adapter = SearchAdapter()
-        // Pass list to adapter calling submitList since our adapter class extends to ListAdapter<>.
-        adapter.submitList(articleList)
-        // Set adapter with recyclerView.
-        this.adapter = adapter
-    })
+    val adapter = SearchAdapter()
+    // Pass list to adapter calling submitList since our adapter class extends to ListAdapter<>.
+    adapter.submitList(list)
+    // Set adapter with recyclerView.
+    this.adapter = adapter
 }
 
 
@@ -71,21 +65,17 @@ private fun navigateOnAnimationCompleted(
     navController: NavController
 ) {
     TransitionManager.beginDelayedTransition(frameLayout, Fade())
-    navController.navigate(
-        SearchFragmentDirections.searchToDetail(article),
-        FragmentNavigatorExtras(textView to article.name)
-    )
+    AppNavDirections(navController).searchToDetail(article, textView)
 }
 
 
 @BindingAdapter(
     "bindClearSearchQueryData", "bindSearchViewModelHeader",
-    "bindSearchFragmentReferenceHeader", "bindSearchRecyclerViewHeader", "bindSearchErrorTextHeader"
+    "bindSearchRecyclerViewHeader", "bindSearchErrorTextHeader"
 )
 fun ImageView.setClearSearchQueryData(
     editText: AppCompatEditText,
-    viewModel: SearchViewModel,
-    owner: SearchFragment,
+    filteredList: List<Article>?,
     recyclerView: RecyclerView,
     searchTextError: TextView
 ) {
@@ -102,8 +92,7 @@ fun ImageView.setClearSearchQueryData(
             val formatQueryBeforeSearch = query.toString().lowercase(Locale.getDefault())
             filterSearchQuery(
                 formatQueryBeforeSearch,
-                viewModel,
-                owner,
+                filteredList,
                 recyclerView,
                 searchTextError
             )
@@ -127,31 +116,49 @@ fun ImageView.setClearSearchQueryData(
  */
 private fun filterSearchQuery(
     query: String,
-    viewModel: SearchViewModel,
-    viewLifecycleOwner: SearchFragment,
+    unFilteredList: List<Article>?,
     recyclerView: RecyclerView,
     searchTextError: TextView
 ) {
 
-    viewModel.filter(query).observe(viewLifecycleOwner, { articleList ->
-        // Only perform this operation is query is valid.
-        if (query.isNotEmpty()) {
-            // Get our adapter
-            val adapter = SearchAdapter()
-            // Set adapter to recyclerView and call submitList with articles fragment observes.
-            adapter.submitList(articleList)
-            recyclerView.adapter = adapter
-            // Change behaviour of recyclerView based on data available.
-            toggleRecyclerView(articleList, recyclerView, searchTextError)
+    if (query.isNotEmpty()) {
+        val filterList = onFilterChanged(query, unFilteredList)
+        attachAdapter(filterList, recyclerView)
+        toggleRecyclerView(filterList, recyclerView, searchTextError)
+    } else if (query.isEmpty()) {
+        attachAdapter(unFilteredList, recyclerView)
+    }
+}
+
+/**
+ * @param query get user query and perform search operation using onQueryChanged() method
+ * using the return value of liveData object from [.getSearchList].
+ * @return return matching search results internally.
+ */
+private fun onFilterChanged(query: String, list: List<Article>?): List<Article> {
+    val filteredList = ArrayList<Article>()
+    if (list != null) {
+        for (article in list) {
+            val formatTitle: String = article.name.lowercase(Locale.getDefault())
+            if (formatTitle.contains(query)) {
+                filteredList.add(article)
+            }
         }
-    })
+    }
+    return filteredList
+}
+
+private fun attachAdapter(list: List<Article>?, recyclerView: RecyclerView) {
+    val adapter = SearchAdapter()
+    adapter.submitList(list)
+    recyclerView.adapter = adapter
 }
 
 /**
  * @param articleList contains list data of searchable articles.
  */
 private fun toggleRecyclerView(
-    articleList: List<Article?>,
+    articleList: List<Article>,
     recyclerView: RecyclerView,
     searchTextError: TextView
 ) {
