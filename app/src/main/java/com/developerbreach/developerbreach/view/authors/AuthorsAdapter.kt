@@ -4,38 +4,27 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.developerbreach.developerbreach.databinding.ItemAuthorBinding
 import com.developerbreach.developerbreach.model.Authors
 import com.developerbreach.developerbreach.view.authors.AuthorsAdapter.AuthorsViewHolder
 
-class AuthorsAdapter internal constructor(
-    private val viewModel: AuthorsViewModel,
-) : ListAdapter<Authors, AuthorsViewHolder>(Authors.DiffCallback) {
+class AuthorsAdapter: ListAdapter<Authors, AuthorsViewHolder>(Authors.DiffCallback) {
 
     class AuthorsViewHolder(
         private val binding: ItemAuthorBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
-            authors: Authors,
-            viewModel: AuthorsViewModel,
+            authors: Authors
         ) {
             binding.author = authors
-            binding.viewModel = viewModel
-
-            Glide.with(binding.itemAuthorAvatarImageView.context)
-                .load(authors.authorAvatarUrl)
-                .circleCrop()
-                .into(binding.itemAuthorAvatarImageView)
-
             binding.executePendingBindings()
         }
     }
 
     override fun onBindViewHolder(holder: AuthorsViewHolder, position: Int) {
         val author = getItem(position)
-        holder.bind(author, viewModel)
+        holder.bind(author)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AuthorsViewHolder {

@@ -8,22 +8,15 @@
         <variable
             name="author"
             type="com.developerbreach.developerbreach.model.Authors" />
-
-        <variable
-            name="viewModel"
-            type="com.developerbreach.developerbreach.view.authors.AuthorsViewModel" />
-
-        <variable
-            name="fragment"
-            type="com.developerbreach.developerbreach.view.authors.AuthorsFragment" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
         style="@style/CardView.Article.Item.List"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.MainTheme"
-        tools:cardUseCompatPadding="true">
+        app:cardBackgroundColor="?attr/colorSecondary"
+        tools:cardUseCompatPadding="true"
+        tools:theme="@style/AppTheme.MainTheme">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -34,7 +27,7 @@
                 android:id="@+id/item_author_avatar_image_view"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:scaleType="centerCrop"
+                app:bindAuthorProfileImage="@{author.authorAvatarUrl}"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ContentDescription"
@@ -47,6 +40,7 @@
                 android:layout_marginStart="@dimen/layout_margin_16dp"
                 android:text="@{author.authorName}"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textColor="?attr/colorOnSecondary"
                 app:layout_constraintBottom_toTopOf="@id/item_author_launch_image_view"
                 app:layout_constraintStart_toEndOf="@id/item_author_avatar_image_view"
                 app:layout_constraintTop_toTopOf="@id/item_author_avatar_image_view"
@@ -72,6 +66,7 @@
                 android:layout_marginTop="8dp"
                 android:text="@{author.description}"
                 android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="?attr/colorOnSecondary"
                 app:layout_constraintStart_toStartOf="@id/item_author_avatar_image_view"
                 app:layout_constraintTop_toBottomOf="@id/item_author_avatar_image_view"
                 tools:text="@string/author_description" />

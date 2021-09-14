@@ -8,10 +8,6 @@
         <variable
             name="viewModel"
             type="com.developerbreach.developerbreach.view.authors.AuthorsViewModel" />
-
-        <variable
-            name="fragment"
-            type="com.developerbreach.developerbreach.view.authors.AuthorsFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:text="Authors"
+            android:text="@string/authors_tag"
             android:textAppearance="?attr/textAppearanceHeadline5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -42,6 +38,7 @@
             android:clipToPadding="false"
             android:orientation="vertical"
             android:scrollbars="none"
+            app:bindAuthorsListData="@{viewModel.authors}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/authors_tag"
