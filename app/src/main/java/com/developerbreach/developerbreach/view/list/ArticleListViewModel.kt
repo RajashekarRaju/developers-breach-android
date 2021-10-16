@@ -23,22 +23,30 @@ class ArticleListViewModel constructor(
     private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
     private val _articles = MutableLiveData<List<Article>>()
-    val articles: LiveData<List<Article>>
+    val articlesByCategory: LiveData<List<Article>>
         get() = _articles
 
     private val _categories = MutableLiveData<List<Categories>>()
     val categories: LiveData<List<Categories>>
         get() = _categories
 
-    init {
-        viewModelScope.launch {
-            val articlesData: List<Article> = repository.getArticlesData()
-            _articles.postValue(articlesData)
-        }
+    private val _selectedCategoryName = MutableLiveData<String>()
+    val selectedCategoryName: LiveData<String>
+        get() = _selectedCategoryName
 
+    init {
         viewModelScope.launch {
             val categoriesData = repository.getCategoriesData()
             _categories.postValue(categoriesData)
+        }
+    }
+
+    fun getArticlesBasedOnCategoryId(
+        category: Categories
+    ) {
+        viewModelScope.launch {
+            _articles.postValue(repository.getArticlesByCategoryId(category.categoryId))
+            _selectedCategoryName.postValue(category.categoryName)
         }
     }
 
