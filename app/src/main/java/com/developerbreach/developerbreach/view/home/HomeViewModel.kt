@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.developerbreach.developerbreach.model.Article
-import com.developerbreach.developerbreach.model.Categories
 import com.developerbreach.developerbreach.repository.AppRepository
 import com.developerbreach.developerbreach.repository.database.getDatabaseInstance
 import com.developerbreach.developerbreach.repository.network.isNetworkConnected
@@ -30,21 +29,12 @@ class HomeViewModel constructor(
     val articles: LiveData<List<Article>>
         get() = _articles
 
-    private val _categories = MutableLiveData<List<Categories>>()
-    val categories: LiveData<List<Categories>>
-        get() = _categories
-
     init {
         _isInternetAvailable.value = isNetworkConnected(application.applicationContext)
 
         viewModelScope.launch {
             val articlesData: List<Article> = repository.getArticlesData()
             _articles.postValue(articlesData)
-        }
-
-        viewModelScope.launch {
-            val categoriesData = repository.getCategoriesData()
-            _categories.postValue(categoriesData)
         }
     }
 

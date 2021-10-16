@@ -16,8 +16,6 @@ import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.utils.capitalizeWord
 import com.developerbreach.developerbreach.controller.AppNavDirections
-import com.developerbreach.developerbreach.model.Categories
-import com.developerbreach.developerbreach.view.category.CategoryAdapter
 import com.developerbreach.developerbreach.view.list.ArticleAdapter
 import com.developerbreach.developerbreach.view.list.ArticleListFragment
 import com.google.android.material.card.MaterialCardView
@@ -28,16 +26,6 @@ fun RecyclerView.setRecentArticleFragmentListData(
     list: List<Article>?,
 ) {
     val adapter = RecentArticlesAdapter()
-    adapter.submitList(list)
-    this.adapter = adapter
-}
-
-
-@BindingAdapter("bindHomeCategoryListData")
-fun RecyclerView.setHomeCategoryListData(
-    list: List<Categories>?,
-) {
-    val adapter = CategoryAdapter()
     adapter.submitList(list)
     this.adapter = adapter
 }
