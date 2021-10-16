@@ -23,7 +23,6 @@
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar_common_web_view"
-                style="@style/Widget.MaterialComponents.Toolbar.Primary"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:bindCommonWebViewToolBar="@{viewModel}"
@@ -41,7 +40,7 @@
             <WebView
                 android:id="@+id/fragment_common_web_view_content"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="200dp"
                 app:bindCommonWebViewClient="@{fragmentCommonWebViewProgressBar}"
                 app:bindCommonWebViewUrl="@{viewModel}" />
 

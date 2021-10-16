@@ -8,7 +8,6 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
 import androidx.databinding.BindingAdapter
-import com.developerbreach.developerbreach.model.Article
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
@@ -37,7 +36,7 @@ fun WebView.setArticleWebViewClient(
 
 @BindingAdapter("bindShareFabListener")
 fun FloatingActionButton.setFabClickListener(
-    article: Article
+    articleUrlLink: String
 ) {
     this.setOnClickListener {
         // Create new sharable intent.
@@ -46,8 +45,7 @@ fun FloatingActionButton.setFabClickListener(
         sharingIntent.type = "text/plain"
         // Format the data which we send to other apps.
         val body = """
-                ${article.name}
-                ${article.urlLink}
+                $articleUrlLink
                 """.trimIndent()
         sharingIntent.putExtra(Intent.EXTRA_TEXT, body)
         // Start the intent.

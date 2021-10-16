@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:bindArticleWebViewClient="@{articleWebViewProgressBar}"
-                app:bindArticleWebViewUrl="@{viewModel.selectedWebViewArticle.urlLink}" />
+                app:bindArticleWebViewUrl="@{viewModel.articleUrlLink}" />
 
         </androidx.core.widget.NestedScrollView>
 
@@ -53,7 +53,7 @@
             style="@style/FloatingActionButton.Article.Common"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:bindShareFabListener="@{viewModel.selectedWebViewArticle}"
+            app:bindShareFabListener="@{viewModel.articleUrlLink}"
             app:layout_anchor="@id/article_web_view_bottom_app_bar"
             app:srcCompat="@android:drawable/ic_menu_share"
             tools:ignore="ContentDescription" />
