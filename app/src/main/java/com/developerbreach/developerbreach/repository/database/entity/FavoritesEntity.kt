@@ -5,30 +5,34 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.utils.*
+import com.developerbreach.developerbreach.utils.DatabaseProperties.ColumnFavorites
 
-@Entity(tableName = DATABASE_ENTITY_TABLE_FAVORITES)
+@Entity(tableName = DatabaseProperties.EntityTable.FAVORITES)
 data class FavoritesEntity constructor(
 
-    @ColumnInfo(name = COLUMN_FAVORITE_BASE_ID)
+    @ColumnInfo(name = ColumnFavorites.BASE_ID)
     val id: Int,
 
     @PrimaryKey
-    @ColumnInfo(name = COLUMN_FAVORITE_ID)
+    @ColumnInfo(name = ColumnFavorites.ID)
     val articleId: Int,
 
-    @ColumnInfo(name = COLUMN_FAVORITE_NAME)
+    @ColumnInfo(name = ColumnFavorites.AUTHOR_ID)
+    val authorId: Int,
+
+    @ColumnInfo(name = ColumnFavorites.NAME)
     val name: String,
 
-    @ColumnInfo(name = COLUMN_FAVORITE_BANNER)
+    @ColumnInfo(name = ColumnFavorites.BANNER)
     val banner: String,
 
-    @ColumnInfo(name = COLUMN_FAVORITE_POSTED_DATE)
+    @ColumnInfo(name = ColumnFavorites.POSTED_DATE)
     val postedDate: String,
 
-    @ColumnInfo(name = COLUMN_FAVORITE_URL_LINK)
+    @ColumnInfo(name = ColumnFavorites.URL_LINK)
     val urlLink: String,
 
-    @ColumnInfo(name = COLUMN_FAVORITE_EXCERPT)
+    @ColumnInfo(name = ColumnFavorites.EXCERPT)
     val excerpt: String
 )
 
@@ -37,6 +41,7 @@ fun List<FavoritesEntity>.asDomainModel(): List<Article> {
         Article(
             id = it.id,
             articleId = it.articleId,
+            authorId = it.authorId,
             name = it.name,
             banner = it.banner,
             postedDate = it.postedDate,
@@ -50,6 +55,7 @@ fun Article.asDatabaseModel(): FavoritesEntity {
     return FavoritesEntity(
         id = this.id,
         articleId = this.articleId,
+        authorId = this.authorId,
         name = this.name,
         banner = this.banner,
         postedDate = this.postedDate,
