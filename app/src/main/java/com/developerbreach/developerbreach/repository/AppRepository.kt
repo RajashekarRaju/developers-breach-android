@@ -10,9 +10,8 @@ import com.developerbreach.developerbreach.model.Options
 import com.developerbreach.developerbreach.repository.database.ArticleDatabase
 import com.developerbreach.developerbreach.repository.database.entity.asDatabaseModel
 import com.developerbreach.developerbreach.repository.database.entity.asDomainModel
+import com.developerbreach.developerbreach.repository.network.*
 import com.developerbreach.developerbreach.repository.network.getArticles
-import com.developerbreach.developerbreach.repository.network.getAuthors
-import com.developerbreach.developerbreach.repository.network.getCategories
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.IOException
@@ -38,10 +37,28 @@ class AppRepository(
         return listData
     }
 
+    suspend fun getArticlesByCategoryId(
+        categoryId: Int
+    ): List<Article> {
+        val listData: List<Article>
+        withContext(Dispatchers.IO) {
+            listData = getArticlesByCategory(categoryId)
+        }
+        return listData
+    }
+
     suspend fun getAuthorsData(): List<Authors> {
         val listData: List<Authors>
         withContext(Dispatchers.IO) {
             listData = getAuthors()
+        }
+        return listData
+    }
+
+    suspend fun getAuthorDataById(authorId: Int): Pair<String, String> {
+        val listData: Pair<String, String>
+        withContext(Dispatchers.IO) {
+            listData = getAuthorById(authorId)
         }
         return listData
     }
