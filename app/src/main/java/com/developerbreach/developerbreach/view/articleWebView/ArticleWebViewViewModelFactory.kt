@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.developerbreach.developerbreach.model.Article
 
 
 /**
@@ -16,11 +15,11 @@ class ArticleWebViewViewModelFactory
  * Creates a [ViewModelProvider.AndroidViewModelFactory]
  *
  * @param application parameter to pass in [AndroidViewModel]
- * @param article     a user selected Article object to pass in [AndroidViewModel]
+ * @param articleUrlLink a user selected Article object to pass in [AndroidViewModel]
  */
 internal constructor(
     private val application: Application,
-    private val article: Article
+    private val articleUrlLink: String
 ) : ViewModelProvider.AndroidViewModelFactory(application) {
 
     /**
@@ -31,7 +30,7 @@ internal constructor(
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ArticleWebViewViewModel::class.java)) {
-            return ArticleWebViewViewModel(application, article) as T
+            return ArticleWebViewViewModel(application, articleUrlLink) as T
         }
         throw IllegalArgumentException("Cannot create Instance for ArticleWebViewViewModel class")
     }

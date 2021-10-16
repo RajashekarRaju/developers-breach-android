@@ -5,8 +5,6 @@
     <dimen name="recycler_view_spacing_dimen">10dp</dimen>
 
     <!--  item_article, favorite, search  -->
-    <dimen name="card_corner_radius_search_item">8dp</dimen>
-    <dimen name="card_elevation_search_item">16dp</dimen>
     <dimen name="detail_appbar_layout_height">278dp</dimen>
 
     <dimen name="progress_bar_visible_margin">49dp</dimen>
@@ -19,7 +17,6 @@
     <dimen name="layout_margin_28dp">28dp</dimen>
     <dimen name="layout_margin_24dp">24dp</dimen>
     <dimen name="layout_margin_16dp">16dp</dimen>
-    <dimen name="layout_margin_20dp">20dp</dimen>
     <dimen name="layout_margin_4dp">4dp</dimen>
     <dimen name="layout_margin_6dp">6dp</dimen>
     <dimen name="padding_16dp">16dp</dimen>

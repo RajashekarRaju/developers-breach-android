@@ -4,11 +4,35 @@ import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.model.Authors
 import com.developerbreach.developerbreach.model.Categories
 import com.developerbreach.developerbreach.utils.*
+import com.developerbreach.developerbreach.utils.JsonProperty.Values
 import org.json.JSONArray
 import org.json.JSONObject
 import kotlin.collections.ArrayList
 
+private const val ASSERT_EMPTY_ASSERTION: String = ""
+
 object JsonRemoteData {
+
+    fun fetchAuthorDataById(
+        response: String
+    ): Pair<String, String> {
+
+        val jsonObject = JSONObject(response)
+
+        var authorName: String = ASSERT_EMPTY_ASSERTION
+        if (jsonObject.has(Values.NAME)) {
+            authorName = jsonObject.getString(Values.NAME)
+        }
+
+        val avatarsJsonObject = jsonObject.getJSONObject(JsonProperty.Objects.AVATAR_URLS)
+
+        var authorAvatarUrl: String = ASSERT_EMPTY_ASSERTION
+        if (avatarsJsonObject.has(Values.AUTHOR_AVATAR_HIGH_RES)) {
+            authorAvatarUrl = avatarsJsonObject.getString(Values.AUTHOR_AVATAR_HIGH_RES)
+        }
+
+        return Pair(authorName, authorAvatarUrl)
+    }
 
     fun fetchAuthorsJsonData(response: String): List<Authors> {
 
@@ -20,30 +44,31 @@ object JsonRemoteData {
             val baseJsonObject: JSONObject = baseJsonArray.getJSONObject(i)
 
             var authorId = 0
-            if (baseJsonObject.has("id")) {
-                authorId = baseJsonObject.getInt("id")
+            if (baseJsonObject.has(Values.ID)) {
+                authorId = baseJsonObject.getInt(Values.ID)
             }
 
-            var authorName: String = CHECK_WITH_EMPTY_ASSERTION
-            if (baseJsonObject.has("name")) {
-                authorName = baseJsonObject.getString("name")
+            var authorName: String = ASSERT_EMPTY_ASSERTION
+            if (baseJsonObject.has(Values.NAME)) {
+                authorName = baseJsonObject.getString(Values.NAME)
             }
 
-            var description: String = CHECK_WITH_EMPTY_ASSERTION
-            if (baseJsonObject.has("description")) {
-                description = baseJsonObject.getString("description")
+            var description: String = ASSERT_EMPTY_ASSERTION
+            if (baseJsonObject.has(Values.DESCRIPTION)) {
+                description = baseJsonObject.getString(Values.DESCRIPTION)
             }
 
-            var authorPostsLinkUrl: String = CHECK_WITH_EMPTY_ASSERTION
-            if (baseJsonObject.has("link")) {
-                authorPostsLinkUrl = baseJsonObject.getString("link")
+            var authorPostsLinkUrl: String = ASSERT_EMPTY_ASSERTION
+            if (baseJsonObject.has(Values.POST_URL)) {
+                authorPostsLinkUrl = baseJsonObject.getString(Values.POST_URL)
             }
 
-            val avatarsJsonObject = baseJsonObject.getJSONObject("avatar_urls")
+            val avatarsJsonObject = baseJsonObject.getJSONObject(JsonProperty.Objects.AVATAR_URLS)
 
-            var authorAvatarUrl: String = CHECK_WITH_EMPTY_ASSERTION
-            if (avatarsJsonObject.has("96")) {
-                authorAvatarUrl = avatarsJsonObject.getString("96")
+            var authorAvatarUrl: String = ASSERT_EMPTY_ASSERTION
+            if (avatarsJsonObject.has(Values.AUTHOR_AVATAR_HIGH_RES)) {
+                authorAvatarUrl =
+                    avatarsJsonObject.getString(Values.AUTHOR_AVATAR_HIGH_RES)
             }
 
             authorsList.add(
@@ -71,13 +96,13 @@ object JsonRemoteData {
             val baseJsonObject: JSONObject = baseJsonArray.getJSONObject(i)
 
             var categoryId = 0
-            if (baseJsonObject.has("id")) {
-                categoryId = baseJsonObject.getInt("id")
+            if (baseJsonObject.has(Values.ID)) {
+                categoryId = baseJsonObject.getInt(Values.ID)
             }
 
-            var categoryName: String = CHECK_WITH_EMPTY_ASSERTION
-            if (baseJsonObject.has("name")) {
-                categoryName = baseJsonObject.getString("name")
+            var categoryName: String = ASSERT_EMPTY_ASSERTION
+            if (baseJsonObject.has(Values.NAME)) {
+                categoryName = baseJsonObject.getString(Values.NAME)
             }
 
             categoriesList.add(Categories(categoryId, categoryName))
@@ -101,44 +126,50 @@ object JsonRemoteData {
         for (i: Int in 0 until baseJsonArray.length()) {
             val baseJsonObject: JSONObject = baseJsonArray.getJSONObject(i)
 
-            val jsonObjectTitle = baseJsonObject.getJSONObject(JSON_OBJECT_TITLE)
-            val jsonObjectExcerpt = baseJsonObject.getJSONObject(JSON_OBJECT_EXCERPT)
+            val jsonObjectTitle = baseJsonObject.getJSONObject(JsonProperty.Objects.TITLE)
+            val jsonObjectExcerpt = baseJsonObject.getJSONObject(JsonProperty.Objects.EXCERPT)
 
             val id: Int = baseJsonArray.length() - i
 
             var articleId = 0
-            if (baseJsonObject.has(ARTICLE_ID)) {
-                articleId = baseJsonObject.getInt(ARTICLE_ID)
+            if (baseJsonObject.has(Values.ID)) {
+                articleId = baseJsonObject.getInt(Values.ID)
             }
 
-            var banner: String = CHECK_WITH_EMPTY_ASSERTION
-            if (baseJsonObject.has(ARTICLE_BANNER)) {
-                banner = baseJsonObject.getString(ARTICLE_BANNER)
+            var authorId = 0
+            if (baseJsonObject.has(Values.AUTHOR_ID)) {
+                authorId = baseJsonObject.getInt(Values.AUTHOR_ID)
             }
 
-            var title: String = CHECK_WITH_EMPTY_ASSERTION
-            if (jsonObjectTitle.has(ARTICLE_TITLE)) {
-                title = jsonObjectTitle.getString(ARTICLE_TITLE)
+            var banner: String = ASSERT_EMPTY_ASSERTION
+            if (baseJsonObject.has(Values.BANNER)) {
+                banner = baseJsonObject.getString(Values.BANNER)
             }
 
-            var postedDate: String = CHECK_WITH_EMPTY_ASSERTION
-            if (baseJsonObject.has(ARTICLE_POSTED_DATE)) {
-                postedDate = baseJsonObject.getString(ARTICLE_POSTED_DATE)
+            var title: String = ASSERT_EMPTY_ASSERTION
+            if (jsonObjectTitle.has(Values.TITLE)) {
+                title = jsonObjectTitle.getString(Values.TITLE)
             }
 
-            var urlLink: String = CHECK_WITH_EMPTY_ASSERTION
-            if (baseJsonObject.has(ARTICLE_URL_LINK)) {
-                urlLink = baseJsonObject.getString(ARTICLE_URL_LINK)
+            var postedDate: String = ASSERT_EMPTY_ASSERTION
+            if (baseJsonObject.has(Values.POSTED_DATE)) {
+                postedDate = baseJsonObject.getString(Values.POSTED_DATE)
             }
 
-            var excerpt: String = CHECK_WITH_EMPTY_ASSERTION
-            if (jsonObjectExcerpt.has(ARTICLE_EXCERPT)) {
-                excerpt = jsonObjectExcerpt.getString(ARTICLE_EXCERPT)
+            var urlLink: String = ASSERT_EMPTY_ASSERTION
+            if (baseJsonObject.has(Values.URL_LINK)) {
+                urlLink = baseJsonObject.getString(Values.URL_LINK)
+            }
+
+            var excerpt: String = ASSERT_EMPTY_ASSERTION
+            if (jsonObjectExcerpt.has(Values.EXCERPT)) {
+                excerpt = jsonObjectExcerpt.getString(Values.EXCERPT)
             }
 
             val articlesNetwork = Article(
                 id,
                 articleId,
+                authorId,
                 title,
                 banner,
                 postedDate,

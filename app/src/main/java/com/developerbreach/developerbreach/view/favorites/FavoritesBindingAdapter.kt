@@ -4,12 +4,16 @@ import android.view.View
 import android.view.animation.Animation
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.transition.Fade
 import androidx.transition.TransitionManager
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.utils.*
@@ -18,41 +22,33 @@ import com.google.android.material.card.MaterialCardView
 
 
 @BindingAdapter(
-    "bindFavoritesListData", "bindFavoriteFragmentReference",
-    "bindFavoritesNotFoundText"
+    "bindFavoritesListData", "bindFavoritesNotFoundText"
 )
 fun RecyclerView.setFavoritesListData(
-    viewModel: FavoritesViewModel,
-    owner: FavoritesFragment,
-    noFavoritesFound: TextView
+    list: List<Article>?,
+    noFavoritesFound: ImageView
 ) {
-    viewModel.favorites.observe(owner, { favorites ->
-        val adapter = FavoritesAdapter(viewModel, owner)
-        // Pass list to adapter calling submitList since our adapter class extends to ListAdapter<>.
-        adapter.submitList(favorites)
-        // Set adapter with recyclerView.
-        this.adapter = adapter
-        // Change behaviour of recyclerView based on data available.
-        toggleRecyclerView(favorites, noFavoritesFound, this)
-    })
+    val adapter = FavoritesAdapter()
+    adapter.submitList(list)
+    this.adapter = adapter
+    toggleRecyclerView(list, noFavoritesFound, this)
 }
 
 /**
  * @param favorites contains list data of favorites.
  */
 private fun toggleRecyclerView(
-    favorites: List<Article>,
-    noFavoritesFoundText: TextView,
+    favorites: List<Article>?,
+    noFavoritesFoundImage: ImageView,
     recyclerView: RecyclerView
 ) {
     // If no items are available, hide the recyclerView and show not found text error.
-    if (favorites.isEmpty()) {
+    if (favorites?.isEmpty() == true) {
         recyclerView.visibility = View.INVISIBLE
-        noFavoritesFoundText.visibility = View.VISIBLE
-        // If items available, show recyclerView hide error textView.
+        noFavoritesFoundImage.visibility = View.VISIBLE
     } else {
         recyclerView.visibility = View.VISIBLE
-        noFavoritesFoundText.visibility = View.INVISIBLE
+        noFavoritesFoundImage.visibility = View.INVISIBLE
     }
 }
 
@@ -75,7 +71,14 @@ fun MaterialCardView.setFavoriteToDetailClickListener(
 fun ImageView.setFavoriteItemBanner(
     imageUrl: String
 ) {
-    Glide.with(this.context).load(imageUrl).into(this)
+    val requestOptions = RequestOptions().transform(
+        CenterCrop(),
+        RoundedCorners(20)
+    )
+    Glide.with(this.context)
+        .load(imageUrl)
+        .apply(requestOptions)
+        .into(this)
 }
 
 
@@ -88,14 +91,12 @@ fun TextView.setFavoriteItemTitle(
 
 
 @BindingAdapter(
-    "bindFavoriteFragmentModel", "bindFavoriteViewModel",
-    "bindItemCardView", "bindImageViewFragment"
+    "bindFavoriteFragmentModel", "bindFavoriteViewModel", "bindItemCardView"
 )
 fun ImageView.bindDeleteFavoriteClickListener(
     article: Article,
     viewModel: FavoritesViewModel,
     cardView: MaterialCardView,
-    fragment: FavoritesFragment
 ) {
     this.setOnClickListener {
         // Create a simple fade out animation to let user know the selected article has been
@@ -105,26 +106,25 @@ fun ImageView.bindDeleteFavoriteClickListener(
             R.anim.fade_exit_anim
         )
         startCircularEffect(cardView, cardView.right, cardView.top)
-        deleteAfterAnimation(this, animation, viewModel, fragment, article)
+        deleteAfterAnimation(this, animation, viewModel, article)
     }
 }
-
 
 private fun deleteAfterAnimation(
     imageView: ImageView,
     cardFadeOutAnimation: Animation,
     viewModel: FavoritesViewModel,
-    fragment: FavoritesFragment,
     article: Article
 ) {
     // Attach a listener and perform delete operation.
     cardFadeOutAnimation.setAnimationListener(object : Animation.AnimationListener {
         override fun onAnimationEnd(animation: Animation) {
             viewModel.deleteArticle(article)
-            showSnackBar(
+            Toast.makeText(
+                imageView.context,
                 imageView.context.getString(R.string.snackbar_removed_favorite_message),
-                fragment.requireActivity()
-            )
+                Toast.LENGTH_SHORT
+            ).show()
         }
 
         override fun onAnimationStart(animation: Animation) {}

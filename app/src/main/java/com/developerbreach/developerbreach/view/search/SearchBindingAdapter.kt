@@ -26,9 +26,7 @@ fun RecyclerView.setSearchRecyclerViewData(
     list: List<Article>?
 ) {
     val adapter = SearchAdapter()
-    // Pass list to adapter calling submitList since our adapter class extends to ListAdapter<>.
     adapter.submitList(list)
-    // Set adapter with recyclerView.
     this.adapter = adapter
 }
 
@@ -120,7 +118,6 @@ private fun filterSearchQuery(
     recyclerView: RecyclerView,
     searchTextError: TextView
 ) {
-
     if (query.isNotEmpty()) {
         val filterList = onFilterChanged(query, unFilteredList)
         attachAdapter(filterList, recyclerView)
@@ -135,7 +132,9 @@ private fun filterSearchQuery(
  * using the return value of liveData object from [.getSearchList].
  * @return return matching search results internally.
  */
-private fun onFilterChanged(query: String, list: List<Article>?): List<Article> {
+private fun onFilterChanged(
+    query: String, list: List<Article>?
+): List<Article> {
     val filteredList = ArrayList<Article>()
     if (list != null) {
         for (article in list) {
@@ -148,7 +147,10 @@ private fun onFilterChanged(query: String, list: List<Article>?): List<Article> 
     return filteredList
 }
 
-private fun attachAdapter(list: List<Article>?, recyclerView: RecyclerView) {
+private fun attachAdapter(
+    list: List<Article>?,
+    recyclerView: RecyclerView
+) {
     val adapter = SearchAdapter()
     adapter.submitList(list)
     recyclerView.adapter = adapter
@@ -170,5 +172,17 @@ private fun toggleRecyclerView(
     } else {
         recyclerView.visibility = View.VISIBLE
         searchTextError.visibility = View.INVISIBLE
+    }
+}
+
+
+@BindingAdapter("bindSearchEmptyStateImage")
+fun ImageView.setSearchEmptyStateImage(
+    listSize: Int?
+) {
+    if (listSize == 0) {
+        this.visibility = View.VISIBLE
+    } else {
+        this.visibility = View.GONE
     }
 }

@@ -1,15 +1,12 @@
 package com.developerbreach.developerbreach.view.detail
 
-import android.annotation.SuppressLint
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
 import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.developerbreach.developerbreach.R
-import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.controller.AppNavDirections
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -29,23 +26,40 @@ fun ImageView.setImageResource(
 
 @BindingAdapter("bindButtonWebView")
 fun Button.setButtonWebView(
-    article: Article
+    articleUrlLink: String
 ) {
     this.text = this.context.getString(R.string.open_article_button_text)
     this.setOnClickListener {
-        AppNavDirections(findNavController()).detailToArticleWebView(article)
+        AppNavDirections(findNavController()).detailToArticleWebView(articleUrlLink)
     }
 }
 
 
-@SuppressLint("SetTextI18n")
-@BindingAdapter("bindAuthorAndData")
-fun TextView.setAuthorAndDate(
-    date: String
+@BindingAdapter("bindArticleDetailDatePosted")
+fun TextView.setArticleDetailDatePosted(
+    datePosted: String
 ) {
-    val formatDate: String = date.dropLast(9)
-    val author: String = this.context.getString(R.string.author_name_tools_text)
-    this.text = "$author  |  $formatDate"
+    val formatDate: String = datePosted.dropLast(9)
+    this.text = formatDate
+}
+
+
+@BindingAdapter(
+    "bindArticleAuthorDetailImage",
+    "bindArticleAuthorTitle"
+)
+fun ImageView.setArticleAuthorDetailImage(
+    authorData: Pair<String, String>?,
+    authorTextView: TextView
+) {
+    val authorName = authorData?.first
+    authorTextView.text = authorName
+
+    val authorAvatarUrl = authorData?.second
+    Glide.with(this.context)
+        .load(authorAvatarUrl)
+        .circleCrop()
+        .into(this)
 }
 
 
@@ -58,21 +72,16 @@ fun TextView.setArticleExcerpt(
 }
 
 
-@BindingAdapter("bindDetailViewModel", "bindNavigateUpFromDetail")
+@BindingAdapter("bindDetailViewModel")
 fun FloatingActionButton.setDetailFab(
     viewModel: ArticleDetailViewModel,
-    toolbar: Toolbar
 ) {
     this.setOnClickListener { view ->
-        viewModel.insertFavorite(viewModel.selectedArticle)
+        viewModel.insertFavorite(viewModel.article)
         Snackbar.make(
             view,
             this.context.getString(R.string.snackbar_added_to_favorites_message),
             Snackbar.LENGTH_SHORT
         ).show()
-    }
-
-    toolbar.setNavigationOnClickListener {
-        findNavController().navigateUp()
     }
 }

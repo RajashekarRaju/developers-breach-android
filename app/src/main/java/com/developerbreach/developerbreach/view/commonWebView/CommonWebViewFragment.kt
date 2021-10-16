@@ -28,9 +28,10 @@ class CommonWebViewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        val binding = FragmentCommonWebViewBinding.inflate(inflater)
-        binding.viewModel = viewModel
+        val binding = FragmentCommonWebViewBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+        binding.executePendingBindings()
         return binding.root
     }
 }

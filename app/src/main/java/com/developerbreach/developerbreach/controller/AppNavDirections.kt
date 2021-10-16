@@ -47,6 +47,10 @@ class AppNavDirections(
         navController.navigate(R.id.introFragment)
     }
 
+    fun homeToArticleList() {
+        navController.navigate(HomeFragmentDirections.homeToArticleList())
+    }
+
     /** SearchFragment **/
 
     fun searchToDetail(article: Article, view: TextView) {
@@ -76,8 +80,8 @@ class AppNavDirections(
 
     /** DetailFragment **/
 
-    fun detailToArticleWebView(article: Article) {
-        navController.navigate(ArticleDetailFragmentDirections.detailToArticleWebView(article))
+    fun detailToArticleWebView(articleUrlLink: String) {
+        navController.navigate(ArticleDetailFragmentDirections.detailToArticleWebView(articleUrlLink))
     }
 
     fun detailToBanner(bannerUrl: String) {

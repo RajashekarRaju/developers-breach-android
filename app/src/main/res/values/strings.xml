@@ -2,7 +2,7 @@
     <string name="app_name">DevelopersBreach</string>
 
     <!--  App Toolbar Titles  -->
-    <string name="favorites_toolbar_title">FAVORITES</string>
+    <string name="favorites_toolbar_title">Favorites</string>
     <string name="settings_toolbar_title">Settings</string>
     <string name="web_view_toolbar_title_contact">Contact</string>
     <string name="web_view_toolbar_title_github">GitHub</string>
@@ -123,7 +123,6 @@
     <string name="search_header_title">Search Articles</string>
 
 
-    <string name="categories_tag">Categories</string>
     <string name="recent_posts_tag">Recent Posts</string>
 
 
@@ -151,5 +150,7 @@
     </string>
     <string name="android_tag">Android</string>
     <string name="authors_tag">Authors</string>
+    <string name="view_all_tag">View All</string>
+    <string name="category_tag">Select category</string>
 
 </resources>

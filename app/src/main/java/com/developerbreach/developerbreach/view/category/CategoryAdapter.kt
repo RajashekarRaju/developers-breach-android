@@ -7,17 +7,22 @@ import androidx.recyclerview.widget.RecyclerView
 import com.developerbreach.developerbreach.databinding.ItemCategoriesBinding
 import com.developerbreach.developerbreach.model.Categories
 import com.developerbreach.developerbreach.view.category.CategoryAdapter.CategoryViewHolder
+import com.developerbreach.developerbreach.view.list.ArticleListViewModel
 
-class CategoryAdapter : ListAdapter<Categories, CategoryViewHolder>(Categories.DiffCallback) {
+class CategoryAdapter(
+    private val viewModel: ArticleListViewModel
+) : ListAdapter<Categories, CategoryViewHolder>(Categories.DiffCallback) {
 
     class CategoryViewHolder(
         private val binding: ItemCategoriesBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(
-            categories: Categories
+            categories: Categories,
+            viewModel: ArticleListViewModel
         ) {
             binding.category = categories
+            binding.viewModel = viewModel
             binding.executePendingBindings()
         }
     }
@@ -36,6 +41,6 @@ class CategoryAdapter : ListAdapter<Categories, CategoryViewHolder>(Categories.D
 
     override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
         val categories: Categories = getItem(position)
-        holder.bind(categories)
+        holder.bind(categories, viewModel)
     }
 }

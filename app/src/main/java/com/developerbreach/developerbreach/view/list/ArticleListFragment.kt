@@ -22,6 +22,7 @@ class ArticleListFragment : Fragment() {
     ): View {
         binding = FragmentArticleListBinding.inflate(inflater, container, false)
         setItemSpacing(resources, binding.articlesRecyclerView)
+        setItemSpacing(resources, binding.categorySelectRecyclerView)
         // Time taken for fragment to enter with transition
         postponeEnterTransition(100L, TimeUnit.MILLISECONDS)
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment.
@@ -29,17 +30,5 @@ class ArticleListFragment : Fragment() {
         binding.viewModel = viewModel
         binding.executePendingBindings()
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        viewModel.articles.observe(viewLifecycleOwner, { articles ->
-            if (articles.isNotEmpty()) {
-                binding.articlesRecyclerView.visibility = View.VISIBLE
-            } else {
-                binding.articlesRecyclerView.visibility = View.GONE
-            }
-        })
     }
 }

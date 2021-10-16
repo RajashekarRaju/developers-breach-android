@@ -4,9 +4,36 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.model.Categories
+import com.developerbreach.developerbreach.view.list.ArticleListViewModel
 import com.google.android.material.card.MaterialCardView
+
+
+@BindingAdapter(
+    "bindItemCategoryParentListener",
+    "bindArticleListViewModel"
+)
+fun MaterialCardView.setItemCategoryParentListener(
+    category: Categories,
+    viewModel: ArticleListViewModel,
+) {
+    this.setOnClickListener {
+        viewModel.getArticlesBasedOnCategoryId(category)
+    }
+}
+
+
+@BindingAdapter("bindArticlesCategoryListData", "bindArticleListViewModel")
+fun RecyclerView.setArticlesCategoryListData(
+    list: List<Categories>?,
+    viewModel: ArticleListViewModel
+) {
+    val adapter = CategoryAdapter(viewModel)
+    adapter.submitList(list)
+    this.adapter = adapter
+}
 
 
 @BindingAdapter(
@@ -24,7 +51,7 @@ fun ImageView.setItemCategoryIconImageView(
         context.getString(R.string.category_title_android) -> icon = R.drawable.ic_android
         context.getString(R.string.category_title_firebase) -> icon = R.drawable.ic_firebase
         context.getString(R.string.category_title_kotlin) -> icon = R.drawable.ic_kotlin
-        context.getString(R.string.category_title_machine_learning) -> icon = R.drawable.ic_machine_learning
+        context.getString(R.string.category_title_machine_learning) -> icon = R.drawable.ic_ml
         context.getString(R.string.category_title_material_design) -> icon = R.drawable.ic_mdc
         context.getString(R.string.category_title_compose) -> icon = R.drawable.ic_compose
         context.getString(R.string.category_title_uncategorized) -> {

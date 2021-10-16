@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.developerbreach.developerbreach.repository.database.dao.FavoriteDao
 import com.developerbreach.developerbreach.repository.database.entity.FavoritesEntity
-import com.developerbreach.developerbreach.utils.DATABASE_NAME
+import com.developerbreach.developerbreach.utils.DatabaseProperties
 
 /**
  * Let room know this is class for database by annotating with [Database] and class should be
@@ -42,7 +42,7 @@ fun getDatabaseInstance(context: Context): ArticleDatabase {
             INSTANCE = Room.databaseBuilder(
                 context.applicationContext,
                 ArticleDatabase::class.java,
-                DATABASE_NAME
+                DatabaseProperties.NAME
             )
                 .fallbackToDestructiveMigration()
                 .build()

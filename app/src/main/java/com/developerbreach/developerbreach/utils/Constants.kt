@@ -1,51 +1,76 @@
 package com.developerbreach.developerbreach.utils
 
-const val DATABASE_NAME: String = "articles.db"
-const val DATABASE_ENTITY_TABLE_ARTICLE = "articles_table"
-const val DATABASE_ENTITY_TABLE_FAVORITES = "favorites_table"
 
-const val COLUMN_ARTICLE_BASE_ID = "article_base_id"
-const val COLUMN_ARTICLE_ID = "article_id"
-const val COLUMN_ARTICLE_NAME = "article_title"
-const val COLUMN_ARTICLE_BANNER = "article_banner"
-const val COLUMN_ARTICLE_POSTED_DATE = "article_posted_date"
-const val COLUMN_ARTICLE_URL_LINK = "article_url_link"
-const val COLUMN_ARTICLE_EXCERPT = "article_excerpt"
+object DatabaseProperties {
 
-const val COLUMN_FAVORITE_BASE_ID = "favorite_base_id"
-const val COLUMN_FAVORITE_ID = "favorite_id"
-const val COLUMN_FAVORITE_NAME = "favorite_title"
-const val COLUMN_FAVORITE_BANNER = "favorite_banner"
-const val COLUMN_FAVORITE_POSTED_DATE = "favorite_posted_date"
-const val COLUMN_FAVORITE_URL_LINK = "favorite_url_link"
-const val COLUMN_FAVORITE_EXCERPT = "favorite_excerpt"
+    const val NAME: String = "articles.db"
 
-const val CHECK_WITH_EMPTY_ASSERTION: String = ""
+    object EntityTable {
+        // const val ARTICLE = "articles_table"
+        const val FAVORITES = "favorites_table"
+    }
 
+    object ColumnFavorites {
+        const val BASE_ID = "favorite_base_id"
+        const val ID = "favorite_id"
+        const val AUTHOR_ID = "author_id"
+        const val NAME = "favorite_title"
+        const val BANNER = "favorite_banner"
+        const val POSTED_DATE = "favorite_posted_date"
+        const val URL_LINK = "favorite_url_link"
+        const val EXCERPT = "favorite_excerpt"
+    }
 
-const val PASS_PREFERENCE_CONTACT_KEY: String = "Contact"
-const val PASS_PREFERENCE_DEVELOPER_KEY: String = "Developer"
+    // object ColumnArticles {
+    //     const val BASE_ID = "article_base_id"
+    //     const val ID = "article_id"
+    //     const val NAME = "article_title"
+    //     const val BANNER = "article_banner"
+    //     const val POSTED_DATE = "article_posted_date"
+    //     const val URL_LINK = "article_url_link"
+    //     const val EXCERPT = "article_excerpt"
+    // }
+}
 
+object JsonProperty {
 
-const val JSON_OBJECT_TITLE = "title"
-const val JSON_OBJECT_EXCERPT = "excerpt"
+    object Objects {
+        const val TITLE = "title"
+        const val EXCERPT = "excerpt"
+        const val AVATAR_URLS = "avatar_urls"
+    }
 
-const val ARTICLE_ID = "id"
-const val ARTICLE_TITLE = "rendered"
-const val ARTICLE_POSTED_DATE = "date"
-const val ARTICLE_URL_LINK = "link"
-const val ARTICLE_EXCERPT = "rendered"
-const val ARTICLE_BANNER = "jetpack_featured_media_url"
+    object Values {
+        const val ID = "id"
+        const val AUTHOR_ID = "author"
+        const val TITLE = "rendered"
+        const val POSTED_DATE = "date"
+        const val URL_LINK = "link"
+        const val EXCERPT = "rendered"
+        const val BANNER = "jetpack_featured_media_url"
+        const val NAME = "name"
+        const val DESCRIPTION = "description"
+        const val POST_URL = "link"
+        const val AUTHOR_AVATAR_HIGH_RES = "96"
+    }
+}
+
+object Preferences {
+    const val CONTACT_KEY: String = "Contact"
+    const val DEVELOPER_KEY: String = "Developer"
+}
 
 const val SCHEME_AUTHORITY = "https://developersbreach.com"
 const val APPEND_PATH = "wp-json/wp/v2"
+const val APPEND_USERS_PATH = "users"
 
 // ?per_page=21
 const val APPEND_ENDPOINT_POSTS = "posts"
 const val QUERY_PARAMETER_POSTS_PER_PAGE = "per_page"
+const val QUERY_PARAMETER_POSTS_BY_CATEGORY = "categories"
 
 // Get multiple articles by id's
-const val ARTICLES_ID = "https://developersbreach.com/wp-json/wp/v2/posts?include=8432,7787"
+// const val ARTICLES_ID = "https://developersbreach.com/wp-json/wp/v2/posts?include=8432,7787"
 
 // Get categories list
-const val CATEGORIES = "https://developersbreach.com/wp-json/wp/v2/categories"
+// const val CATEGORIES = "https://developersbreach.com/wp-json/wp/v2/categories"

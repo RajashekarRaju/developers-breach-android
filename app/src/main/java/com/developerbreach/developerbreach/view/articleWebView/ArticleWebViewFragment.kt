@@ -31,8 +31,8 @@ class ArticleWebViewFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val articleArgs = ArticleWebViewFragmentArgs.fromBundle(requireArguments()).articleDataArgs
-        val factory = ArticleWebViewViewModelFactory(requireActivity().application, articleArgs)
+        val articleUrlLink = ArticleWebViewFragmentArgs.fromBundle(requireArguments()).articleUrlLink
+        val factory = ArticleWebViewViewModelFactory(requireActivity().application, articleUrlLink)
         viewModel = ViewModelProvider(this, factory).get(ArticleWebViewViewModel::class.java)
     }
 
@@ -43,11 +43,11 @@ class ArticleWebViewFragment : Fragment() {
         // Get reference to binding and inflate this class layout.
         binding = FragmentArticleWebViewBinding.inflate(inflater)
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment.
+        binding.lifecycleOwner = this
         webView = binding.articleWebView
         binding.viewModel = viewModel
-        binding.lifecycleOwner = this
-        binding.executePendingBindings()
         setWebViewMenu()
+        binding.executePendingBindings()
         return binding.root
     }
 

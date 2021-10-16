@@ -80,5 +80,9 @@ class HomeFragment : Fragment() {
         binding.expandBottomAppbarImageView.setOnClickListener {
             AppNavDirections(findNavController()).homeToOptions()
         }
+
+        binding.viewAllPostsTextView.setOnClickListener {
+            AppNavDirections(findNavController()).homeToArticleList()
+        }
     }
 }

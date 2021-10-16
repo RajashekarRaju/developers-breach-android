@@ -15,31 +15,55 @@ import com.bumptech.glide.request.RequestOptions
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.controller.AppNavDirections
 import com.developerbreach.developerbreach.model.Article
-import com.developerbreach.developerbreach.model.Categories
 import com.developerbreach.developerbreach.utils.capitalizeWord
-import com.developerbreach.developerbreach.view.category.CategoryAdapter
 import com.google.android.material.card.MaterialCardView
 
 
-@BindingAdapter("bindArticlesListData")
-fun RecyclerView.setArticleFragmentListData(
-    list: List<Article>
+@BindingAdapter("bindArticlesListDataByCategory")
+fun RecyclerView.setArticleListDataByCategory(
+    list: List<Article>?
 ) {
     val adapter = ArticleAdapter()
     // Pass list to adapter calling submitList since our adapter class extends to ListAdapter<>.
     adapter.submitList(list)
     // Set adapter with recyclerView.
     this.adapter = adapter
+
+    if (list?.isNotEmpty() == true) {
+        this.visibility = View.VISIBLE
+    } else {
+        this.visibility = View.GONE
+    }
 }
 
 
-@BindingAdapter("bindArticlesCategoryListData")
-fun RecyclerView.setArticlesCategoryListData(
-    list: List<Categories>?,
+@BindingAdapter("bindSelectedCategoryText")
+fun TextView.setSelectedCategoryText(
+    categoryName: String?
 ) {
-    val adapter = CategoryAdapter()
-    adapter.submitList(list)
-    this.adapter = adapter
+    if (categoryName.isNullOrEmpty()) {
+        this.text = this.resources.getString(R.string.category_tag)
+    } else {
+        this.text = categoryName
+    }
+}
+
+
+@BindingAdapter("bindSelectedCategoryIcon")
+fun ImageView.setSelectedCategoryIcon(
+    categoryName: String?
+) {
+    var icon = 0
+    when (categoryName) {
+        context.getString(R.string.category_title_android) -> icon = R.drawable.ic_android
+        context.getString(R.string.category_title_firebase) -> icon = R.drawable.ic_firebase
+        context.getString(R.string.category_title_kotlin) -> icon = R.drawable.ic_kotlin
+        context.getString(R.string.category_title_machine_learning) -> icon = R.drawable.ic_ml
+        context.getString(R.string.category_title_material_design) -> icon = R.drawable.ic_mdc
+        context.getString(R.string.category_title_compose) -> icon = R.drawable.ic_compose
+        context.getString(R.string.category_title_uncategorized) -> this.visibility = View.GONE
+    }
+    this.setImageResource(icon)
 }
 
 /**
@@ -81,10 +105,22 @@ fun MaterialCardView.setArticleToDetailClickListener(
     article: Article,
     title: TextView
 ) {
-    this.setOnClickListener {
-        TransitionManager.beginDelayedTransition(this, Fade())
+    val card = this
+    card.setOnClickListener {
+        TransitionManager.beginDelayedTransition(card, Fade())
         title.visibility = View.GONE
+        AppNavDirections(findNavController()).articlesListToDetail(article, card)
+    }
+}
 
-        AppNavDirections(findNavController()).articlesListToDetail(article, this)
+
+@BindingAdapter("bindArticlesEmptyStateImage")
+fun ImageView.setArticlesEmptyStateImage(
+    listSize: Int?
+) {
+    if (listSize == 0) {
+        this.visibility = View.VISIBLE
+    } else {
+        this.visibility = View.GONE
     }
 }

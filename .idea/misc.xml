@@ -18,6 +18,7 @@
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_favorite_add.xml" value="0.23148148148148148" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_favorite_remove.xml" value="0.240625" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_favorites.xml" value="0.240625" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_favorites_background.xml" value="0.240625" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_feed.xml" value="0.12604166666666666" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_filter.xml" value="0.240625" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_find_bottom.xml" value="0.23148148148148148" />
@@ -31,11 +32,13 @@
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_machine_learning.xml" value="0.240625" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_mdc.xml" value="0.240625" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_mobile_apps.xml" value="0.21574074074074073" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_no_articles_state.xml" value="0.22870370370370371" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_notifications.xml" value="0.240625" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_one_pager_intro.xml" value="0.240625" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_placeholder.xml" value="0.23148148148148148" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_post.xml" value="0.12604166666666666" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_refresh.xml" value="0.240625" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_search_bg.xml" value="0.22777777777777777" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_settings.xml" value="0.23148148148148148" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_storage.xml" value="0.12604166666666666" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/ic_three_pager_intro.xml" value="0.240625" />
@@ -44,27 +47,31 @@
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/intro_first_gradient.xml" value="0.12604166666666666" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/drawable/pager_background.xml" value="0.134375" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/card_layout.xml" value="0.22" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/choice_chip_standalone.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_article_detail.xml" value="0.10989583333333333" />
-        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_article_list.xml" value="0.22" />
-        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_article_web_view.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_article_detail.xml" value="0.21" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_article_list.xml" value="0.18" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_article_web_view.xml" value="0.21" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_authors.xml" value="0.20092592592592592" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_banner.xml" value="0.22" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_branding.xml" value="0.21" />
-        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_favorites.xml" value="0.18333333333333332" />
-        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_home.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_common_web_view.xml" value="0.18796296296296297" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_favorites.xml" value="0.20971867007672634" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_home.xml" value="0.1" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_intro.xml" value="0.21296296296296297" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_options.xml" value="0.22" />
-        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_search.xml" value="0.21" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_search.xml" value="0.18" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/fragment_settings.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_article.xml" value="0.22" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_author.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_categories.xml" value="0.18" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_categories.xml" value="0.22" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_category.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_favorites.xml" value="0.10989583333333333" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_favorites.xml" value="0.21" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_intro_view_pager.xml" value="0.21" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_options.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_recent_articles.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/item_search.xml" value="0.21" />
+        <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/search_edit_text.xml" value="0.18518518518518517" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/search_header_layout.xml" value="0.21" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/layout/static_search_header.xml" value="0.22" />
         <entry key="..\:/Users/Shashank/AndroidStudioProjects/DeveloperBreach-Release/app/src/main/res/menu/bottom_app_bar_menu.xml" value="0.22447916666666667" />
