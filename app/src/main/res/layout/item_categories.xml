@@ -8,22 +8,29 @@
         <variable
             name="category"
             type="com.developerbreach.developerbreach.model.Categories" />
+
+        <variable
+            name="viewModel"
+            type="com.developerbreach.developerbreach.view.list.ArticleListViewModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/item_category_parent_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:bindArticleListViewModel="@{viewModel}"
+        app:bindItemCategoryParentListener="@{category}"
         app:cardBackgroundColor="?attr/colorSecondary"
         app:cardCornerRadius="8dp"
-        app:cardUseCompatPadding="true"
         tools:layout_gravity="center"
+        tools:layout_marginEnd="16dp"
         tools:theme="@style/AppTheme.HomeTheme">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingVertical="4dp">
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="8dp">
 
             <ImageView
                 android:id="@+id/item_category_icon_image_view"
@@ -38,13 +45,12 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ContentDescription"
-                tools:src="@drawable/ic_compose" />
+                tools:src="@drawable/ic_kotlin" />
 
             <TextView
                 android:id="@+id/item_category_title_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingVertical="8dp"
                 android:paddingStart="12dp"
                 android:paddingEnd="16dp"
                 android:text="@{category.categoryName}"
