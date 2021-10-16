@@ -6,66 +6,86 @@
     <data>
 
         <variable
-            name="fragment"
-            type="com.developerbreach.developerbreach.view.favorites.FavoritesFragment" />
+            name="navController"
+            type="androidx.navigation.NavController" />
 
         <variable
             name="viewModel"
             type="com.developerbreach.developerbreach.view.favorites.FavoritesViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="?attr/background"
+        android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.HomeTheme">
 
-        <TextView
-            android:id="@+id/favorites_tag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="monospace"
-            android:text="@string/favorites_toolbar_title"
-            android:textSize="36sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/favorites_recycler_view"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:orientation="vertical"
-            android:padding="@dimen/recycler_view_spacing_dimen"
-            android:scrollbars="none"
-            app:bindFavoriteFragmentReference="@{fragment}"
-            app:bindFavoritesListData="@{viewModel}"
-            app:bindFavoritesNotFoundText="@{noFavoritesFoundText}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/favorites_tag"
-            app:reverseLayout="true"
-            app:stackFromEnd="true"
-            tools:itemCount="6"
-            tools:listitem="@layout/item_favorites" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/no_favorites_found_text"
-            style="@style/TextAppearance.Article.Result.Error"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="?actionBarSize"
-            android:text="@string/no_favorites_found"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:visibility="invisible" />
+            <ImageView
+                android:id="@+id/search_fragment_up_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:alpha="0.7"
+                android:contentDescription="@string/search_button_content_description"
+                android:onClick="@{() -> navController.navigateUp()}"
+                android:src="@drawable/ic_up_button"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="?attr/colorOnBackground" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/favorites_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/favorites_toolbar_title"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:textColor="?attr/colorOnBackground"
+                app:layout_constraintBottom_toBottomOf="@id/search_fragment_up_button"
+                app:layout_constraintStart_toEndOf="@id/search_fragment_up_button"
+                app:layout_constraintTop_toTopOf="@id/search_fragment_up_button" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/favorites_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:padding="@dimen/recycler_view_spacing_dimen"
+                android:scrollbars="none"
+                android:visibility="visible"
+                app:bindFavoritesListData="@{viewModel.favorites}"
+                app:bindFavoritesNotFoundText="@{searchBackgroundImageView}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/favorites_tag"
+                app:reverseLayout="true"
+                app:stackFromEnd="true"
+                tools:itemCount="6"
+                tools:listitem="@layout/item_favorites"
+                tools:visibility="invisible" />
+
+            <ImageView
+                android:id="@+id/search_background_image_view"
+                android:layout_width="240dp"
+                android:layout_height="240dp"
+                android:src="@drawable/ic_favorites_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

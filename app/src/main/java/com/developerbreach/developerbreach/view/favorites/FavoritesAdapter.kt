@@ -9,30 +9,23 @@ import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.view.favorites.FavoritesAdapter.FavoriteViewHolder
 
 
-class FavoritesAdapter internal constructor(
-    private val viewModel: FavoritesViewModel,
-    private val fragment: FavoritesFragment
-) : ListAdapter<Article, FavoriteViewHolder>(Article.DiffCallback) {
+class FavoritesAdapter : ListAdapter<Article, FavoriteViewHolder>(Article.DiffCallback) {
 
     class FavoriteViewHolder(
         // Get access to binding the views in layout
         private val binding: ItemFavoritesBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(
-            article: Article,
-            viewModel: FavoritesViewModel,
-            fragment: FavoritesFragment
+            article: Article
         ) {
             binding.article = article
-            binding.favoriteViewModel = viewModel
-            binding.fragment = fragment
             binding.executePendingBindings()
         }
     }
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
-        val favoritesEntity = getItem(position)
-        holder.bind(favoritesEntity, viewModel, fragment)
+        val favorites = getItem(position)
+        holder.bind(favorites)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
@@ -43,5 +36,4 @@ class FavoritesAdapter internal constructor(
         )
         return FavoriteViewHolder(binding)
     }
-
 }
