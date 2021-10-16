@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.developerbreach.developerbreach.databinding.FragmentArticleDetailBinding
 import com.google.android.material.transition.MaterialContainerTransform
 
@@ -31,10 +32,11 @@ class ArticleDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding: FragmentArticleDetailBinding = FragmentArticleDetailBinding.inflate(inflater)
-        binding.viewModel = viewModel
-        binding.executePendingBindings()
+        val binding = FragmentArticleDetailBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+        binding.navController = findNavController()
+        binding.executePendingBindings()
         return binding.root
     }
 }
