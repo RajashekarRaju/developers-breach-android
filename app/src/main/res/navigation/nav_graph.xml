@@ -89,6 +89,16 @@
     </fragment>
 
     <fragment
+        android:id="@+id/articleWebViewFragment"
+        android:name="com.developerbreach.developerbreach.view.articleWebView.ArticleWebViewFragment"
+        android:label="ArticleWebView"
+        tools:layout="@layout/fragment_article_web_view">
+        <argument
+            android:name="articleUrlLink"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
         android:id="@+id/settingsFragment"
         android:name="com.developerbreach.developerbreach.view.settings.SettingsFragment"
         android:label="Settings"
@@ -116,16 +126,6 @@
         <argument
             android:name="webViewFragmentArgs"
             app:argType="string" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/articleWebViewFragment"
-        android:name="com.developerbreach.developerbreach.view.articleWebView.ArticleWebViewFragment"
-        android:label="ArticleWebView"
-        tools:layout="@layout/fragment_article_web_view">
-        <argument
-            android:name="articleDataArgs"
-            app:argType="com.developerbreach.developerbreach.model.Article" />
     </fragment>
 
     <fragment
