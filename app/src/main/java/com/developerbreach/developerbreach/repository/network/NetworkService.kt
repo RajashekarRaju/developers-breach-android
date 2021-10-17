@@ -3,6 +3,7 @@ package com.developerbreach.developerbreach.repository.network
 import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.model.Authors
 import com.developerbreach.developerbreach.model.Categories
+import com.developerbreach.developerbreach.model.Search
 import java.io.IOException
 import java.net.URL
 
@@ -10,6 +11,11 @@ import java.net.URL
 fun getArticles(): List<Article> {
     val response = NetworkResponse.articleResponse()
     return JsonRemoteData.fetchArticleJsonData(response)
+}
+
+fun getSearchableArticles(): List<Search> {
+    val response = NetworkResponse.searchResponse()
+    return JsonRemoteData.fetchSearchableArticlesJsonData(response)
 }
 
 fun getArticlesByCategory(
@@ -40,7 +46,14 @@ object NetworkResponse {
 
     @Throws(IOException::class)
     fun articleResponse(): String {
-        val uriString: String = QueryBuilder.articleBuilder()
+        val uriString: String = QueryBuilder.articleBuilder(8)
+        val requestUrl: URL = createUrl(uriString)
+        return getResponseFromHttpUrl(requestUrl)
+    }
+
+    @Throws(IOException::class)
+    fun searchResponse(): String {
+        val uriString: String = QueryBuilder.articleBuilder(28)
         val requestUrl: URL = createUrl(uriString)
         return getResponseFromHttpUrl(requestUrl)
     }

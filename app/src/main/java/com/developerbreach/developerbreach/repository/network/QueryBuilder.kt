@@ -15,12 +15,25 @@ object QueryBuilder {
      * https://developersbreach.com/wp-json/wp/v2/{posts}
      * [numberOfPostsPerPage] updates list with new content.
      */
-    fun articleBuilder(numberOfPostsPerPage: Int = 5): String {
+    fun articleBuilder(numberOfPostsPerPage: Int): String {
         val baseUri: Uri = Uri.parse(SCHEME_AUTHORITY)
         val uriBuilder: Uri.Builder = baseUri.buildUpon()
         uriBuilder.appendPath(APPEND_PATH)
         uriBuilder.appendPath(APPEND_ENDPOINT_POSTS)
         uriBuilder.appendQueryParameter(QUERY_PARAMETER_POSTS_PER_PAGE, "$numberOfPostsPerPage")
+        return uriBuilder.build().toString()
+    }
+
+    /**
+     * https://developersbreach.com/wp-json/wp/v2/posts?include={10920}
+     * [articleId] updates list with new content.
+     */
+    fun articleByIdBuilder(articleId: Int): String {
+        val baseUri: Uri = Uri.parse(SCHEME_AUTHORITY)
+        val uriBuilder: Uri.Builder = baseUri.buildUpon()
+        uriBuilder.appendPath(APPEND_PATH)
+        uriBuilder.appendPath(APPEND_ENDPOINT_POSTS)
+        uriBuilder.appendQueryParameter(QUERY_PARAMETER_POST_INCLUDE_ID, "$articleId")
         return uriBuilder.build().toString()
     }
 

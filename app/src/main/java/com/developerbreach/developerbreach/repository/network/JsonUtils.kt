@@ -3,6 +3,7 @@ package com.developerbreach.developerbreach.repository.network
 import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.model.Authors
 import com.developerbreach.developerbreach.model.Categories
+import com.developerbreach.developerbreach.model.Search
 import com.developerbreach.developerbreach.utils.*
 import com.developerbreach.developerbreach.utils.JsonProperty.Values
 import org.json.JSONArray
@@ -176,6 +177,39 @@ object JsonRemoteData {
                 urlLink,
                 excerpt
             )
+            articlesNetworkList.add(articlesNetwork)
+        }
+
+        return articlesNetworkList
+    }
+
+    fun fetchSearchableArticlesJsonData(response: String): List<Search> {
+
+        // Create a new ArrayList for adding articles into list.
+        val articlesNetworkList: MutableList<Search> = ArrayList()
+
+        // Try to parse the SAMPLE_JSON_RESPONSE. If there's a problem with the way the JSON
+        // is formatted, a JSONException exception object will be thrown.
+        // Catch the exception so the app doesn't crash, and print the error message to the logs.
+        // Create a JSONArray from the json response string.
+        val baseJsonArray = JSONArray(response)
+
+        for (i: Int in 0 until baseJsonArray.length()) {
+            val baseJsonObject: JSONObject = baseJsonArray.getJSONObject(i)
+
+            val jsonObjectTitle = baseJsonObject.getJSONObject(JsonProperty.Objects.TITLE)
+
+            var articleId = 0
+            if (baseJsonObject.has(Values.ID)) {
+                articleId = baseJsonObject.getInt(Values.ID)
+            }
+
+            var title: String = ASSERT_EMPTY_ASSERTION
+            if (jsonObjectTitle.has(Values.TITLE)) {
+                title = jsonObjectTitle.getString(Values.TITLE)
+            }
+
+            val articlesNetwork = Search(articleId, title)
             articlesNetworkList.add(articlesNetwork)
         }
 

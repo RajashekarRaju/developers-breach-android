@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <variable
-            name="article"
-            type="com.developerbreach.developerbreach.model.Article" />
+            name="search"
+            type="com.developerbreach.developerbreach.model.Search" />
     </data>
 
     <FrameLayout
@@ -15,6 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!--        app:bindSearchToDetailListener="@{article}"-->
+        <!--        app:bindSearchItemViewGroup="@{searchItemParent}"-->
         <TextView
             android:id="@+id/article_name_search_item_text_view"
             style="@style/TextAppearance.Article.Item.Search"
@@ -22,10 +23,8 @@
             android:layout_height="wrap_content"
             android:paddingHorizontal="@dimen/padding_16dp"
             android:paddingVertical="@dimen/padding_16dp"
-            android:text="@{article.name}"
-            android:transitionName="@{article.name}"
-            app:bindSearchItemViewGroup="@{searchItemParent}"
-            app:bindSearchToDetailListener="@{article}"
+            android:text="@{search.name}"
+            android:transitionName="@{search.name}"
             tools:text="@string/article_title_tools_text" />
 
     </FrameLayout>
