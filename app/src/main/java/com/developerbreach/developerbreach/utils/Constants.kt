@@ -68,6 +68,7 @@ const val APPEND_USERS_PATH = "users"
 const val APPEND_ENDPOINT_POSTS = "posts"
 const val QUERY_PARAMETER_POSTS_PER_PAGE = "per_page"
 const val QUERY_PARAMETER_POSTS_BY_CATEGORY = "categories"
+const val QUERY_PARAMETER_POST_INCLUDE_ID = "include"
 
 // Get multiple articles by id's
 // const val ARTICLES_ID = "https://developersbreach.com/wp-json/wp/v2/posts?include=8432,7787"
