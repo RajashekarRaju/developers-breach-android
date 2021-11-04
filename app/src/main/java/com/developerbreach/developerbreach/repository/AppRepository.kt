@@ -26,6 +26,16 @@ class AppRepository(
         return listData
     }
 
+    suspend fun getArticlesDetailData(
+        articleId: Int
+    ): ArticleDetail {
+        val data: ArticleDetail
+        withContext(Dispatchers.IO) {
+            data = getArticleDetails(articleId)
+        }
+        return data
+    }
+
     suspend fun getSearchableArticlesData(): List<Search> {
         val listData: List<Search>
         withContext(Dispatchers.IO) {
@@ -84,7 +94,7 @@ class AppRepository(
         }
     }
 
-    suspend fun insertArticle(
+    suspend fun insertArticleToFavorites(
         article: Article
     ) {
         withContext(Dispatchers.IO) {
@@ -97,12 +107,6 @@ class AppRepository(
     ) {
         withContext(Dispatchers.IO) {
             database.favoriteDao.deleteFavoriteArticle(article.asDatabaseModel())
-        }
-    }
-
-    suspend fun deleteAllFavorites() {
-        withContext(Dispatchers.IO) {
-            database.favoriteDao.deleteAllFavorites()
         }
     }
 

@@ -30,7 +30,4 @@ interface FavoriteDao {
      */
     @Query("DELETE FROM FAVORITES_TABLE")
     fun deleteAllFavorites()
-
-    @get:Query("SELECT * FROM FAVORITES_TABLE")
-    val favoriteList: List<FavoritesEntity>
 }

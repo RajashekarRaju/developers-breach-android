@@ -25,7 +25,7 @@ class FavoritesFragment : Fragment() {
         val factory = FavoritesViewModelFactory(application)
         // Assign and get class ViewModel and pass fragment owner and factory to create instance
         // by calling ViewModelProviders.
-        viewModel = ViewModelProvider(this, factory).get(FavoritesViewModel::class.java)
+        viewModel = ViewModelProvider(this, factory)[FavoritesViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -37,7 +37,7 @@ class FavoritesFragment : Fragment() {
         // Set item decoration for items inside recycler view.
         setItemSpacing(resources, binding.favoritesRecyclerView)
         // Time taken for fragment to enter with transition
-        postponeEnterTransition(100L, TimeUnit.MILLISECONDS)
+        postponeEnterTransition(300L, TimeUnit.MILLISECONDS)
         binding.lifecycleOwner = this
         // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment.
         binding.viewModel = viewModel
