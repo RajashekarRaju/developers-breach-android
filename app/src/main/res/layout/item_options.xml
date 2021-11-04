@@ -18,10 +18,12 @@
         android:id="@+id/item_options_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="8dp"
+        android:background="?selectableItemBackground"
         android:paddingVertical="8dp"
+        android:paddingStart="32dp"
         app:bindOptionsFragmentReference="@{fragment}"
-        app:bindOptionsItemClickListener="@{options.optionsId}">
+        app:bindOptionsItemClickListener="@{options.optionsId}"
+        tools:ignore="RtlSymmetry">
 
         <ImageView
             android:id="@+id/item_settings_image_view"
@@ -40,12 +42,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
+            android:layout_marginTop="4dp"
             android:text="@{options.optionsTitle}"
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:textColor="?attr/colorOnBackground"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/item_settings_image_view"
             app:layout_constraintStart_toEndOf="@id/item_settings_image_view"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/item_settings_image_view"
             tools:text="Settings" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
