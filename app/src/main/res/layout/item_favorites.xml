@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:transitionName="@{article.name}"
         app:bindArticleItemTitleTransition="@{favoriteArticleTitleItemTextView}"
-        app:bindFavoriteToDetailClickListener="@{article}"
+        app:bindFavoriteToDetailClickListener="@{article.articleId}"
         app:cardBackgroundColor="?attr/colorSecondary"
         tools:cardUseCompatPadding="true">
 
@@ -64,7 +64,7 @@
                 android:background="@drawable/background_ripple"
                 android:contentDescription="@string/delete_favorite_button_content_description"
                 android:padding="@dimen/padding_16dp"
-                android:src="@drawable/ic_favorite_remove"
+                android:src="@drawable/ic_favorite_add"
                 app:bindFavoriteFragmentModel="@{article}"
                 app:bindFavoriteViewModel="@{viewModel}"
                 app:bindItemCardView="@{favoriteItemCardView}"

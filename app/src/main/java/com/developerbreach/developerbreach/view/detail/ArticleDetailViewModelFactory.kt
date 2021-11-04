@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory
-import com.developerbreach.developerbreach.model.Article
 
 /**
  * A AndroidViewModelFactory for creating a instance of [ArticleDetailViewModel]
@@ -16,11 +15,11 @@ class ArticleDetailViewModelFactory
  * Creates a [ViewModelProvider.AndroidViewModelFactory]
  *
  * @param application parameter to pass in [AndroidViewModel]
- * @param article     a user selected Article object to pass in [AndroidViewModel]
+ * @param articleId     a user selected Article object to pass in [AndroidViewModel]
  */
 internal constructor(
     private val application: Application,
-    private val article: Article
+    private val articleId: Int
 ) : AndroidViewModelFactory(application) {
 
     /**
@@ -29,9 +28,9 @@ internal constructor(
      * @return returns the ViewModel class with passing parameters if instance is created.
      */
     @Suppress("unchecked_cast")
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ArticleDetailViewModel::class.java)) {
-            return ArticleDetailViewModel(application, article) as T
+            return ArticleDetailViewModel(application, articleId) as T
         }
         throw IllegalArgumentException("Cannot create Instance for ArticleDetailViewModel class")
     }

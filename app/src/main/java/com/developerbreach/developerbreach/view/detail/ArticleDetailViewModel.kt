@@ -5,6 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.developerbreach.developerbreach.model.Article
+import com.developerbreach.developerbreach.model.ArticleDetail
 import com.developerbreach.developerbreach.repository.AppRepository
 import com.developerbreach.developerbreach.repository.database.getDatabaseInstance
 import kotlinx.coroutines.CoroutineScope
@@ -12,9 +13,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 
+
 class ArticleDetailViewModel(
     application: Application,
-    val article: Article
+    val articleId: Int
 ) : AndroidViewModel(application) {
 
     private val repository = AppRepository(getDatabaseInstance(application))
@@ -25,17 +27,29 @@ class ArticleDetailViewModel(
     val authorData: LiveData<Pair<String, String>>
         get() = _authorData
 
-    // val selectedArticle = article
+    private val _articleDetailData = MutableLiveData<ArticleDetail>()
+    val articleDetailData: LiveData<ArticleDetail>
+        get() = _articleDetailData
+
+    private lateinit var articleData: ArticleDetail
 
     init {
         viewModelScope.launch {
-            _authorData.postValue(repository.getAuthorDataById(article.authorId))
+            articleData = repository.getArticlesDetailData(articleId)
+            _articleDetailData.postValue(articleData)
+            _authorData.postValue(repository.getAuthorDataById(articleData.authorId))
         }
     }
 
-    fun insertFavorite(article: Article) {
+    fun insertFavorite() {
         viewModelScope.launch {
-            repository.insertArticle(article)
+            repository.insertArticleToFavorites(
+                Article(
+                    articleData.articleId,
+                    articleData.name,
+                    articleData.banner
+                )
+            )
         }
     }
 

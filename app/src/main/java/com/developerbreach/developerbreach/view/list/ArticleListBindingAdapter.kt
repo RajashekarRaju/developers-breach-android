@@ -102,14 +102,14 @@ fun ImageView.setArticleItemBanner(
 
 @BindingAdapter("bindArticleToDetailListener", "bindArticleItemTitleTransition")
 fun MaterialCardView.setArticleToDetailClickListener(
-    article: Article,
+    articleId: Int,
     title: TextView
 ) {
     val card = this
     card.setOnClickListener {
         TransitionManager.beginDelayedTransition(card, Fade())
         title.visibility = View.GONE
-        AppNavDirections(findNavController()).articlesListToDetail(article, card)
+        AppNavDirections(findNavController()).articlesListToDetail(articleId, card)
     }
 }
 
