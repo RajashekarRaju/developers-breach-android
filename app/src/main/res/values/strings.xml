@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DevelopersBreach</string>
+    <string name="app_name">Developers Breach</string>
 
     <!--  App Toolbar Titles  -->
     <string name="favorites_toolbar_title">Favorites</string>
@@ -16,9 +16,6 @@
     <string name="bottom_appbar_menu_title_find_top">Top</string>
     <string name="bottom_appbar_menu_title_find_bottom">Bottom</string>
 
-    <!--  FavoriteFragment  -->
-    <string name="no_favorites_found">No Favorites Found</string>
-
     <!--  SearchFragment  -->
     <string name="search_articles_hint">Search Articles</string>
     <string name="no_search_results_found">No Results Found</string>
@@ -34,8 +31,6 @@
     <!--  App Snackbar Message's  -->
     <string name="snackbar_added_to_favorites_message">Added to Favorites</string>
     <string name="snackbar_removed_favorite_message">Removed From Favorites</string>
-    <string name="snackbar_refresh_articles_message">Refresh Completed</string>
-    <string name="snackbar_delete_articles_message">Deleted All Articles</string>
 
     <!--  Show no internet text  -->
     <string name="no_internet_connection">No Internet</string>
@@ -46,36 +41,16 @@
 
     <!--  SettingsFragment Preferences  -->
     <!--  Category Title  -->
-    <string name="preference_category_title_article">Articles</string>
     <string name="preference_category_title_contact">Contact</string>
     <string name="preference_category_title_developer">Developer</string>
-    <string name="preference_article_title_about">About</string>
     <!--  Preference Article Summary -->
-    <string name="preference_summary_article_refresh">Keeps updated with new data from server.</string>
-    <string name="preference_summary_article_delete">This will delete all your favorite articles.</string>
     <string name="preference_summary_article_contact">Submit email on what article i should write next.</string>
-    <string name="preference_summary_article_developer">Articles wrote by me here are available as open source, take a look at it.</string>
-    <string name="preference_summary_article_about">See what this app is about.</string>
+    <string name="preference_summary_article_developer">I have open sourced this app into github repository, take a look at it.</string>
     <!--  Preference Article Title -->
-    <!--  Theme List Preference Dialog Title  -->
-    <string name="preference_article_title_refresh">Refresh</string>
-    <string name="preference_article_title_contact">Open Submit Form</string>
-    <string name="preference_article_title_developer">Open Github</string>
 
     <!--  Dialog Article Titles  -->
-    <string name="preference_article_title_delete">Delete Favorites</string>
-    <string name="refresh_article_dialog_title">Refresh Favorites ?</string>
-    <string name="refresh_article_dialog_message">Choosing Refresh Will Remove All Article Data And
-        Updates With New Data. Perform this Only Once A Day.</string>
-    <string name="refresh_article_dialog_positive_button">Refresh</string>
-    <string name="refresh_article_dialog_negative_button">Cancel</string>
     <string name="no_matches_found_search_results">No matches found.</string>
 
-    <!--  Dialog Delete Article  -->
-    <string name="delete_article_dialog_title">Delete Favorites ?</string>
-    <string name="delete_article_dialog_message">Choosing Delete Will Remove All Your Favorite Articles.</string>
-    <string name="delete_article_dialog_positive_button">Delete</string>
-    <string name="delete_article_dialog_negative_button">Cancel</string>
 
     <!--  Firebase  -->
     <string name="default_notification_channel_id">fcm_default_channel</string>
@@ -85,7 +60,7 @@
     <string name="article_image_content_description">Article Image</string>
     <string name="add_favorite_button_content_description">Add Article To Favorites Button</string>
     <string name="delete_favorite_button_content_description">Delete Article From Favorites Button</string>
-    <string name="search_button_content_description">Static Article Search Button</string>
+    <string name="up_button_content_description">Navigate to previous screen</string>
     <string name="article_banner_image_content_description">Banner of the article</string>
     <string name="close_banner_fragment_content_description">Button to close banner fragment</string>
     <string name="app_brand_logo_content_description">Logo of the app</string>
@@ -141,14 +116,6 @@
     <string name="category_title_compose">Compose</string>
     <string name="category_title_uncategorized">Uncategorized</string>
 
-
-    <string name="author_description">
-        I’m Rajasekhar working on my startup Developers Breach. I’m a Programmer who loves
-        Android development, Creating content, Kotlin enthusiast and Engineering graduate. Learns
-        from open source community and always happy to assist someone with my work. I spend most
-        of time training and mentoring students who are absolute beginners in android.
-    </string>
-    <string name="android_tag">Android</string>
     <string name="authors_tag">Authors</string>
     <string name="view_all_tag">View All</string>
     <string name="category_tag">Select category</string>
