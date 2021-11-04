@@ -20,7 +20,7 @@
         android:layout_height="match_parent"
         android:background="?attr/background"
         android:fitsSystemWindows="true"
-        android:transitionName="@{viewModel.article.name}"
+        android:transitionName="@{Integer.toString(viewModel.articleId)}"
         tools:context=".view.details.ArticleDetailFragment">
 
         <com.google.android.material.appbar.AppBarLayout
@@ -47,7 +47,7 @@
                     android:contentDescription="@string/article_image_content_description"
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
-                    app:bindCollapsingBannerImage="@{viewModel.article.banner}"
+                    app:bindCollapsingBannerImage="@{viewModel.articleDetailData.banner}"
                     app:layout_collapseMode="parallax"
                     tools:layout_gravity="center"
                     tools:layout_height="@dimen/image_size_tools"
@@ -113,7 +113,7 @@
                     android:gravity="center"
                     android:textAppearance="?attr/textAppearanceSubtitle1"
                     android:textColor="?attr/colorOnBackground"
-                    app:bindArticleDetailDatePosted="@{viewModel.article.postedDate}"
+                    app:bindArticleDetailDatePosted="@{viewModel.articleDetailData.postedDate}"
                     app:layout_constraintBottom_toTopOf="@id/article_detail_title_item_text_view"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/layout_margin_12dp"
                     android:gravity="center"
-                    android:text="@{viewModel.article.name}"
+                    android:text="@{viewModel.articleDetailData.name}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/article_detail_posted_date_text_view"
@@ -140,7 +140,7 @@
                     android:layout_marginTop="@dimen/layout_margin_28dp"
                     android:gravity="center"
                     android:textAppearance="?attr/textAppearanceHeadline6"
-                    app:bindArticleExcerpt="@{viewModel.article.excerpt}"
+                    app:bindArticleExcerpt="@{viewModel.articleDetailData.excerpt}"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/article_detail_title_item_text_view"
@@ -148,11 +148,10 @@
 
                 <Button
                     android:id="@+id/open_web_view_button"
-                    style="@style/Button.Article.Detail.WebView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/layout_margin_24dp"
-                    app:bindButtonWebView="@{viewModel.article.urlLink}"
+                    app:bindButtonWebView="@{viewModel.articleDetailData.urlLink}"
                     app:icon="@drawable/ic_launch"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -166,14 +165,14 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/article_detail_fab"
-            style="@style/FloatingActionButton.Article.Common"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/layout_margin_16dp"
+            android:contentDescription="@string/add_favorite_button_content_description"
+            android:src="@drawable/ic_favorite_add"
             app:bindDetailViewModel="@{viewModel}"
-            app:rippleColor="?attr/colorOnSecondary"
-            app:srcCompat="@drawable/ic_favorites"
-            tools:ignore="ContentDescription" />
+            app:rippleColor="?attr/colorOnSecondary" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
