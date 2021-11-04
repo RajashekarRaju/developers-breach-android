@@ -6,30 +6,14 @@ object DatabaseProperties {
     const val NAME: String = "articles.db"
 
     object EntityTable {
-        // const val ARTICLE = "articles_table"
         const val FAVORITES = "favorites_table"
     }
 
     object ColumnFavorites {
-        const val BASE_ID = "favorite_base_id"
         const val ID = "favorite_id"
-        const val AUTHOR_ID = "author_id"
         const val NAME = "favorite_title"
         const val BANNER = "favorite_banner"
-        const val POSTED_DATE = "favorite_posted_date"
-        const val URL_LINK = "favorite_url_link"
-        const val EXCERPT = "favorite_excerpt"
     }
-
-    // object ColumnArticles {
-    //     const val BASE_ID = "article_base_id"
-    //     const val ID = "article_id"
-    //     const val NAME = "article_title"
-    //     const val BANNER = "article_banner"
-    //     const val POSTED_DATE = "article_posted_date"
-    //     const val URL_LINK = "article_url_link"
-    //     const val EXCERPT = "article_excerpt"
-    // }
 }
 
 object JsonProperty {
@@ -49,7 +33,6 @@ object JsonProperty {
         const val EXCERPT = "rendered"
         const val BANNER = "jetpack_featured_media_url"
         const val NAME = "name"
-        const val DESCRIPTION = "description"
         const val POST_URL = "link"
         const val AUTHOR_AVATAR_HIGH_RES = "96"
     }

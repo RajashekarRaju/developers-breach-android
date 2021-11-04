@@ -6,14 +6,9 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Article(
-    val id: Int,
     val articleId: Int,
-    val authorId: Int,
     val name: String,
-    val banner: String,
-    val postedDate: String,
-    val urlLink: String,
-    val excerpt: String
+    val banner: String
 ) : Parcelable {
 
     /**
@@ -33,7 +28,7 @@ data class Article(
             oldItem: Article,
             newItem: Article
         ): Boolean {
-            return oldItem.id == newItem.id
+            return oldItem.articleId == newItem.articleId
         }
     }
 }

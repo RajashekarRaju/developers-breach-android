@@ -16,7 +16,6 @@ import androidx.transition.Fade
 import androidx.transition.TransitionManager
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.controller.AppNavDirections
-import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.model.Search
 import com.developerbreach.developerbreach.utils.itemViewAnimation
 import java.util.*
@@ -34,7 +33,7 @@ fun RecyclerView.setSearchRecyclerViewData(
 
 @BindingAdapter("bindSearchToDetailListener", "bindSearchItemViewGroup")
 fun TextView.setSearchToDetailListener(
-    article: Article,
+    articleId: Int,
     frameLayout: FrameLayout
 ) {
     val textView = this
@@ -48,7 +47,7 @@ fun TextView.setSearchToDetailListener(
         ).setAnimationListener(object : Animation.AnimationListener {
 
             override fun onAnimationEnd(p0: Animation?) {
-                navigateOnAnimationCompleted(article, frameLayout, textView, findNavController())
+                navigateOnAnimationCompleted(articleId, frameLayout, textView, findNavController())
             }
 
             override fun onAnimationRepeat(p0: Animation?) {}
@@ -58,13 +57,13 @@ fun TextView.setSearchToDetailListener(
 }
 
 private fun navigateOnAnimationCompleted(
-    article: Article,
+    articleId: Int,
     frameLayout: FrameLayout,
     textView: TextView,
     navController: NavController
 ) {
     TransitionManager.beginDelayedTransition(frameLayout, Fade())
-    AppNavDirections(navController).searchToDetail(article, textView)
+    AppNavDirections(navController).searchToDetail(articleId, textView)
 }
 
 
