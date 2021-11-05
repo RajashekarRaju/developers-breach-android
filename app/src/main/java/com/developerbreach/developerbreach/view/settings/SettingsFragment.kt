@@ -5,39 +5,33 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.developerbreach.developerbreach.controller.AppNavDirections
 import com.developerbreach.developerbreach.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
 
     private lateinit var binding: FragmentSettingsBinding
-    private lateinit var viewModel: SettingsViewModel
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        val activity = requireActivity()
-        val application = activity.application
-        val factory = SettingsViewModelFactory(application)
-        viewModel = ViewModelProvider(this, factory).get(SettingsViewModel::class.java)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSettingsBinding.inflate(inflater)
+        binding = FragmentSettingsBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
+        binding.navController = findNavController()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val fragment: SettingsCompatFragment = SettingsCompatFragment.newInstance(
-            viewModel, this, binding
-        )
-        val fragmentManager = childFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(binding.settingsFragmentCompactContainer.id, fragment)
-        fragmentTransaction.commit()
+
+        binding.contactDevParentLayout.setOnClickListener {
+            AppNavDirections(findNavController()).settingsToCommonWebView("Contact")
+        }
+
+        binding.openSourceParentLayout.setOnClickListener {
+            AppNavDirections(findNavController()).settingsToCommonWebView("Developer")
+        }
     }
 }

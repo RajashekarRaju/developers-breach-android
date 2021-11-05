@@ -14,7 +14,7 @@ import com.google.android.material.snackbar.Snackbar
 
 @BindingAdapter("bindCollapsingBannerImage")
 fun ImageView.setImageResource(
-    urlString: String
+    urlString: String?
 ) {
     Glide.with(this.context).load(urlString).into(this)
 
@@ -26,7 +26,7 @@ fun ImageView.setImageResource(
 
 @BindingAdapter("bindButtonWebView")
 fun Button.setButtonWebView(
-    articleUrlLink: String
+    articleUrlLink: String?
 ) {
     this.text = this.context.getString(R.string.open_article_button_text)
     this.setOnClickListener {
@@ -37,9 +37,9 @@ fun Button.setButtonWebView(
 
 @BindingAdapter("bindArticleDetailDatePosted")
 fun TextView.setArticleDetailDatePosted(
-    datePosted: String
+    datePosted: String?
 ) {
-    val formatDate: String = datePosted.dropLast(9)
+    val formatDate: String? = datePosted?.dropLast(9)
     this.text = formatDate
 }
 
@@ -65,9 +65,9 @@ fun ImageView.setArticleAuthorDetailImage(
 
 @BindingAdapter("bindArticleExcerpt")
 fun TextView.setArticleExcerpt(
-    excerpt: String
+    excerpt: String?
 ) {
-    val formatExcerpt: String = excerpt.drop(3).dropLast(5)
+    val formatExcerpt: String? = excerpt?.drop(3)?.dropLast(5)
     this.text = formatExcerpt
 }
 
@@ -77,7 +77,7 @@ fun FloatingActionButton.setDetailFab(
     viewModel: ArticleDetailViewModel,
 ) {
     this.setOnClickListener { view ->
-        viewModel.insertFavorite(viewModel.article)
+        viewModel.insertFavorite()
         Snackbar.make(
             view,
             this.context.getString(R.string.snackbar_added_to_favorites_message),

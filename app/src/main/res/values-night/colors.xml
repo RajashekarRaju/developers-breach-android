@@ -13,7 +13,7 @@
     <!--    <color name="colorBrand">#236D8F</color>-->
 
     <color name="colorBackground">#09111B</color>
-    <color name="colorOnBackground">#fafafa</color>
+    <color name="colorOnBackground">#607d8b</color>
 
     <color name="colorLowWave">#2264ab</color>
     <color name="colorMidWave">#184a7e</color>

@@ -1,9 +1,6 @@
 package com.developerbreach.developerbreach.repository.network
 
-import com.developerbreach.developerbreach.model.Article
-import com.developerbreach.developerbreach.model.Authors
-import com.developerbreach.developerbreach.model.Categories
-import com.developerbreach.developerbreach.model.Search
+import com.developerbreach.developerbreach.model.*
 import com.developerbreach.developerbreach.utils.*
 import com.developerbreach.developerbreach.utils.JsonProperty.Values
 import org.json.JSONArray
@@ -54,11 +51,6 @@ object JsonRemoteData {
                 authorName = baseJsonObject.getString(Values.NAME)
             }
 
-            var description: String = ASSERT_EMPTY_ASSERTION
-            if (baseJsonObject.has(Values.DESCRIPTION)) {
-                description = baseJsonObject.getString(Values.DESCRIPTION)
-            }
-
             var authorPostsLinkUrl: String = ASSERT_EMPTY_ASSERTION
             if (baseJsonObject.has(Values.POST_URL)) {
                 authorPostsLinkUrl = baseJsonObject.getString(Values.POST_URL)
@@ -76,7 +68,6 @@ object JsonRemoteData {
                 Authors(
                     authorId,
                     authorName,
-                    description,
                     authorPostsLinkUrl,
                     authorAvatarUrl
                 )
@@ -128,18 +119,10 @@ object JsonRemoteData {
             val baseJsonObject: JSONObject = baseJsonArray.getJSONObject(i)
 
             val jsonObjectTitle = baseJsonObject.getJSONObject(JsonProperty.Objects.TITLE)
-            val jsonObjectExcerpt = baseJsonObject.getJSONObject(JsonProperty.Objects.EXCERPT)
-
-            val id: Int = baseJsonArray.length() - i
 
             var articleId = 0
             if (baseJsonObject.has(Values.ID)) {
                 articleId = baseJsonObject.getInt(Values.ID)
-            }
-
-            var authorId = 0
-            if (baseJsonObject.has(Values.AUTHOR_ID)) {
-                authorId = baseJsonObject.getInt(Values.AUTHOR_ID)
             }
 
             var banner: String = ASSERT_EMPTY_ASSERTION
@@ -152,35 +135,71 @@ object JsonRemoteData {
                 title = jsonObjectTitle.getString(Values.TITLE)
             }
 
-            var postedDate: String = ASSERT_EMPTY_ASSERTION
-            if (baseJsonObject.has(Values.POSTED_DATE)) {
-                postedDate = baseJsonObject.getString(Values.POSTED_DATE)
-            }
-
-            var urlLink: String = ASSERT_EMPTY_ASSERTION
-            if (baseJsonObject.has(Values.URL_LINK)) {
-                urlLink = baseJsonObject.getString(Values.URL_LINK)
-            }
-
-            var excerpt: String = ASSERT_EMPTY_ASSERTION
-            if (jsonObjectExcerpt.has(Values.EXCERPT)) {
-                excerpt = jsonObjectExcerpt.getString(Values.EXCERPT)
-            }
-
             val articlesNetwork = Article(
-                id,
                 articleId,
-                authorId,
                 title,
                 banner,
-                postedDate,
-                urlLink,
-                excerpt
             )
             articlesNetworkList.add(articlesNetwork)
         }
 
         return articlesNetworkList
+    }
+
+
+    fun fetchArticleJsonDataById(response: String): ArticleDetail {
+
+        val baseJsonArray = JSONArray(response)
+
+        val baseJsonObject: JSONObject = baseJsonArray.getJSONObject(0)
+
+        val jsonObjectTitle = baseJsonObject.getJSONObject(JsonProperty.Objects.TITLE)
+        val jsonObjectExcerpt = baseJsonObject.getJSONObject(JsonProperty.Objects.EXCERPT)
+
+        var articleId = 0
+        if (baseJsonObject.has(Values.ID)) {
+            articleId = baseJsonObject.getInt(Values.ID)
+        }
+
+        var authorId = 0
+        if (baseJsonObject.has(Values.AUTHOR_ID)) {
+            authorId = baseJsonObject.getInt(Values.AUTHOR_ID)
+        }
+
+        var banner: String = ASSERT_EMPTY_ASSERTION
+        if (baseJsonObject.has(Values.BANNER)) {
+            banner = baseJsonObject.getString(Values.BANNER)
+        }
+
+        var title: String = ASSERT_EMPTY_ASSERTION
+        if (jsonObjectTitle.has(Values.TITLE)) {
+            title = jsonObjectTitle.getString(Values.TITLE)
+        }
+
+        var postedDate: String = ASSERT_EMPTY_ASSERTION
+        if (baseJsonObject.has(Values.POSTED_DATE)) {
+            postedDate = baseJsonObject.getString(Values.POSTED_DATE)
+        }
+
+        var urlLink: String = ASSERT_EMPTY_ASSERTION
+        if (baseJsonObject.has(Values.URL_LINK)) {
+            urlLink = baseJsonObject.getString(Values.URL_LINK)
+        }
+
+        var excerpt: String = ASSERT_EMPTY_ASSERTION
+        if (jsonObjectExcerpt.has(Values.EXCERPT)) {
+            excerpt = jsonObjectExcerpt.getString(Values.EXCERPT)
+        }
+
+        return ArticleDetail(
+            articleId,
+            authorId,
+            title,
+            banner,
+            postedDate,
+            urlLink,
+            excerpt
+        )
     }
 
     fun fetchSearchableArticlesJsonData(response: String): List<Search> {

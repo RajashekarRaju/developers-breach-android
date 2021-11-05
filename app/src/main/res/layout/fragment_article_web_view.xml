@@ -50,7 +50,7 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_article_web_view"
-            style="@style/FloatingActionButton.Article.Common"
+            android:layout_margin="@dimen/layout_margin_16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:bindShareFabListener="@{viewModel.articleUrlLink}"

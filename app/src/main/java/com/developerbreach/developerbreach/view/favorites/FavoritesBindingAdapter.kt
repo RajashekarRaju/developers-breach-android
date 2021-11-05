@@ -21,14 +21,13 @@ import com.developerbreach.developerbreach.controller.AppNavDirections
 import com.google.android.material.card.MaterialCardView
 
 
-@BindingAdapter(
-    "bindFavoritesListData", "bindFavoritesNotFoundText"
-)
+@BindingAdapter("bindFavoritesListData", "bindFavoritesNotFoundText", "bindFavoriteViewModel")
 fun RecyclerView.setFavoritesListData(
     list: List<Article>?,
-    noFavoritesFound: ImageView
+    noFavoritesFound: ImageView,
+    viewModel: FavoritesViewModel
 ) {
-    val adapter = FavoritesAdapter()
+    val adapter = FavoritesAdapter(viewModel)
     adapter.submitList(list)
     this.adapter = adapter
     toggleRecyclerView(list, noFavoritesFound, this)
@@ -55,14 +54,14 @@ private fun toggleRecyclerView(
 
 @BindingAdapter("bindFavoriteToDetailClickListener", "bindArticleItemTitleTransition")
 fun MaterialCardView.setFavoriteToDetailClickListener(
-    article: Article,
+    articleId: Int,
     title: TextView
 ) {
     this.setOnClickListener {
         TransitionManager.beginDelayedTransition(this, Fade())
         title.visibility = View.GONE
 
-        AppNavDirections(findNavController()).favoritesToDetail(article, this)
+        AppNavDirections(findNavController()).favoritesToDetail(articleId, this)
     }
 }
 

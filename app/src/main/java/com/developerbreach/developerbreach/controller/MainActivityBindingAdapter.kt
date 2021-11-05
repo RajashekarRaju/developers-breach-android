@@ -35,7 +35,7 @@ fun MainActivity.onDestinationChanged(
 
         R.id.searchFragment, R.id.articleDetailFragment, R.id.articleWebViewFragment,
         R.id.commonWebViewFragment, R.id.favoritesFragment, R.id.authorsFragment,
-        R.id.articleListFragment -> {
+        R.id.articleListFragment, R.id.settingsFragment -> {
             showStatusBar(activity)
             navigateUpOnBackPress(activity, navController)
         }

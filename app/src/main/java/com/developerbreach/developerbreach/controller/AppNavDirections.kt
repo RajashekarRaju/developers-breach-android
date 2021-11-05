@@ -4,7 +4,6 @@ import android.widget.TextView
 import androidx.navigation.NavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import com.developerbreach.developerbreach.R
-import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.view.detail.ArticleDetailFragmentDirections
 import com.developerbreach.developerbreach.view.favorites.FavoritesFragmentDirections
 import com.developerbreach.developerbreach.view.home.HomeFragmentDirections
@@ -32,10 +31,10 @@ class AppNavDirections(
         navController.navigate(HomeFragmentDirections.homeToSearch())
     }
 
-    fun homeToDetail(article: Article, view: MaterialCardView) {
+    fun homeToDetail(articleId: Int, view: MaterialCardView) {
         navController.navigate(
-            HomeFragmentDirections.homeToDetail(article),
-            FragmentNavigatorExtras(view to article.name)
+            HomeFragmentDirections.homeToDetail(articleId),
+            FragmentNavigatorExtras(view to articleId.toString())
         )
     }
 
@@ -53,38 +52,38 @@ class AppNavDirections(
 
     /** SearchFragment **/
 
-    fun searchToDetail(article: Article, view: TextView) {
+    fun searchToDetail(articleId: Int, view: TextView) {
         navController.navigate(
-            SearchFragmentDirections.searchToDetail(article),
-            FragmentNavigatorExtras(view to article.name)
+            SearchFragmentDirections.searchToDetail(articleId),
+            FragmentNavigatorExtras(view to articleId.toString())
         )
     }
 
     /** ArticleListFragment **/
 
-    fun articlesListToDetail(article: Article, view: MaterialCardView) {
+    fun articlesListToDetail(articleId: Int, view: MaterialCardView) {
         navController.navigate(
-            ArticleListFragmentDirections.articleListToDetail(article),
-            FragmentNavigatorExtras(view to article.name)
+            ArticleListFragmentDirections.articleListToDetail(articleId),
+            FragmentNavigatorExtras(view to articleId.toString())
         )
     }
 
     /** FavoritesFragment **/
 
-    fun favoritesToDetail(article: Article, view: MaterialCardView) {
+    fun favoritesToDetail(articleId: Int, view: MaterialCardView) {
         navController.navigate(
-            FavoritesFragmentDirections.favoritesToDetail(article),
-            FragmentNavigatorExtras(view to article.name)
+            FavoritesFragmentDirections.favoritesToDetail(articleId),
+            FragmentNavigatorExtras(view to articleId.toString())
         )
     }
 
     /** DetailFragment **/
 
-    fun detailToArticleWebView(articleUrlLink: String) {
+    fun detailToArticleWebView(articleUrlLink: String?) {
         navController.navigate(ArticleDetailFragmentDirections.detailToArticleWebView(articleUrlLink))
     }
 
-    fun detailToBanner(bannerUrl: String) {
+    fun detailToBanner(bannerUrl: String?) {
         navController.navigate(ArticleDetailFragmentDirections.detailToBanner(bannerUrl))
     }
 

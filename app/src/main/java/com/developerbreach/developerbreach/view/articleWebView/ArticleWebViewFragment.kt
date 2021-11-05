@@ -33,7 +33,7 @@ class ArticleWebViewFragment : Fragment() {
         super.onCreate(savedInstanceState)
         val articleUrlLink = ArticleWebViewFragmentArgs.fromBundle(requireArguments()).articleUrlLink
         val factory = ArticleWebViewViewModelFactory(requireActivity().application, articleUrlLink)
-        viewModel = ViewModelProvider(this, factory).get(ArticleWebViewViewModel::class.java)
+        viewModel = ViewModelProvider(this, factory)[ArticleWebViewViewModel::class.java]
     }
 
     override fun onCreateView(

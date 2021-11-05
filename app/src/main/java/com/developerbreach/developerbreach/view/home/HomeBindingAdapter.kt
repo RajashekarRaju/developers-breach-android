@@ -67,7 +67,7 @@ fun ImageView.setRecentArticleItemBanner(
 
 @BindingAdapter("bindRecentArticleToDetailListener", "bindRecentArticleItemTitleTransition")
 fun MaterialCardView.setRecentArticleToDetailClickListener(
-    article: Article,
+    articleId: Int,
     title: TextView
 ) {
     this.setOnClickListener {
@@ -75,6 +75,6 @@ fun MaterialCardView.setRecentArticleToDetailClickListener(
         TransitionManager.beginDelayedTransition(this, Fade())
         title.visibility = View.GONE
 
-        AppNavDirections(findNavController()).homeToDetail(article, this)
+        AppNavDirections(findNavController()).homeToDetail(articleId, this)
     }
 }

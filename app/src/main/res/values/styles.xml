@@ -28,30 +28,8 @@
         <item name="android:visibility">invisible</item>
     </style>
 
-    <style name="TextAppearance.Article.Detail.Author" parent="TextAppearance.MaterialComponents.Headline6">
-        <item name="android:fontFamily">@font/poppins_regular</item>
-        <item name="android:textAllCaps">true</item>
-        <item name="android:textColor">?attr/colorSecondaryVariant</item>
-        <item name="android:textStyle">bold</item>
-    </style>
-
     <style name="TextAppearance.Article.Detail.Title" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="android:fontFamily">@font/poppins_medium</item>
-    </style>
-
-    <style name="TextAppearance.Article.Detail.Excerpt" parent="TextAppearance.MaterialComponents.Headline5">
-        <item name="android:fontFamily">@font/poppins_medium</item>
-        <item name="android:alpha">0.7</item>
-        <item name="android:lineSpacingExtra">2dp</item>
-    </style>
-
-    <style name="Button.Article.Detail.WebView" parent="Widget.MaterialComponents.Button.Icon">
-        <item name="android:textColor">?attr/colorOnPrimary</item>
-    </style>
-
-    <style name="FloatingActionButton.Article.Common" parent="Widget.MaterialComponents.FloatingActionButton">
-        <item name="android:layout_margin">@dimen/layout_margin_16dp</item>
-        <item name="android:backgroundTint">?attr/colorSecondaryVariant</item>
     </style>
 
     <style name="TextAppearance.Article.Item.Search" parent="TextAppearance.MaterialComponents.Headline5">

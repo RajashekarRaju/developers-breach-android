@@ -18,7 +18,7 @@ class BannerFragment : Fragment() {
         super.onCreate(savedInstanceState)
         val bannerUrlLink = BannerFragmentArgs.fromBundle(requireArguments()).bannerUrlLink
         val factory = BannerViewModelFactory(requireActivity().application, bannerUrlLink)
-        viewModel = ViewModelProvider(this, factory).get(BannerViewModel::class.java)
+        viewModel = ViewModelProvider(this, factory)[BannerViewModel::class.java]
     }
 
     override fun onCreateView(

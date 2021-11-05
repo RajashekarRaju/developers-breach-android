@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:transitionName="@{article.name}"
         app:bindArticleItemTitleTransition="@{articleTitleItemTextView}"
-        app:bindArticleToDetailListener="@{article}"
+        app:bindArticleToDetailListener="@{article.articleId}"
         app:cardBackgroundColor="?attr/colorSecondary"
         app:cardCornerRadius="8dp"
         app:cardElevation="8dp"
