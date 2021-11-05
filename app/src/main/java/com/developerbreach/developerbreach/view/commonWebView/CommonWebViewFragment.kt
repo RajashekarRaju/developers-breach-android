@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.developerbreach.developerbreach.databinding.FragmentCommonWebViewBinding
 
 /**
@@ -14,13 +16,15 @@ import com.developerbreach.developerbreach.databinding.FragmentCommonWebViewBind
 class CommonWebViewFragment : Fragment() {
 
     private lateinit var viewModel: CommonWebViewViewModel
+    private val args: CommonWebViewFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val args: Bundle = requireArguments()
-        val webUrl: String = CommonWebViewFragmentArgs.fromBundle(args).webViewFragmentArgs
-        val factory = CommonWebViewViewModelFactory(requireActivity().application, webUrl)
-        viewModel = ViewModelProvider(this, factory).get(CommonWebViewViewModel::class.java)
+        val factory = CommonWebViewViewModelFactory(
+            requireActivity().application,
+            args.webViewFragmentArgs
+        )
+        viewModel = ViewModelProvider(this, factory)[CommonWebViewViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -31,6 +35,7 @@ class CommonWebViewFragment : Fragment() {
         val binding = FragmentCommonWebViewBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+        binding.navController = findNavController()
         binding.executePendingBindings()
         return binding.root
     }
