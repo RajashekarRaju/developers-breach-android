@@ -6,5 +6,5 @@ import androidx.lifecycle.AndroidViewModel
 
 class ArticleWebViewViewModel(
     application: Application,
-    val articleUrlLink: String
+    val articleUrlLink: String?
 ) : AndroidViewModel(application)

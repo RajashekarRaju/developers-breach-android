@@ -19,7 +19,7 @@ class ArticleWebViewViewModelFactory
  */
 internal constructor(
     private val application: Application,
-    private val articleUrlLink: String
+    private val articleUrlLink: String?
 ) : ViewModelProvider.AndroidViewModelFactory(application) {
 
     /**
@@ -28,7 +28,7 @@ internal constructor(
      * @return returns the ViewModel class with passing parameters if instance is created.
      */
     @Suppress("unchecked_cast")
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ArticleWebViewViewModel::class.java)) {
             return ArticleWebViewViewModel(application, articleUrlLink) as T
         }
