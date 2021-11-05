@@ -71,7 +71,7 @@
         tools:layout="@layout/fragment_article_detail">
         <argument
             android:name="articleDetailArgs"
-            app:argType="com.developerbreach.developerbreach.model.Article" />
+            app:argType="integer" />
         <action
             android:id="@+id/detailToArticleWebView"
             app:destination="@id/articleWebViewFragment"
@@ -95,7 +95,8 @@
         tools:layout="@layout/fragment_article_web_view">
         <argument
             android:name="articleUrlLink"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 
     <fragment
@@ -111,12 +112,6 @@
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
-
-    <fragment
-        android:id="@+id/settingsCompatFragment"
-        android:name="com.developerbreach.developerbreach.view.settings.SettingsCompatFragment"
-        android:label="SettingsCompat"
-        tools:layout="@layout/fragment_settings" />
 
     <fragment
         android:id="@+id/commonWebViewFragment"
@@ -135,7 +130,8 @@
         tools:layout="@layout/fragment_banner">
         <argument
             android:name="bannerUrlLink"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 
     <dialog

@@ -5,20 +5,8 @@ import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
-import androidx.appcompat.widget.Toolbar
 import androidx.databinding.BindingAdapter
-import androidx.navigation.findNavController
 
-
-@BindingAdapter("bindCommonWebViewToolBar")
-fun Toolbar.setCommonWebViewToolBar(
-    viewModel: CommonWebViewViewModel
-) {
-    this.title = viewModel.toolBarTitle
-    this.setNavigationOnClickListener {
-        findNavController().navigateUp()
-    }
-}
 
 @BindingAdapter("bindCommonWebViewClient", "bindCommonWebViewUrl")
 fun WebView.setCommonWebViewClient(
