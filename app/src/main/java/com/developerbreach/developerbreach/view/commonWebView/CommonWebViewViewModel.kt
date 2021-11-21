@@ -11,18 +11,12 @@ class CommonWebViewViewModel(
 ) : AndroidViewModel(application) {
 
     private lateinit var _webUrl: String
-    var webUrl: String
+    val webUrl: String
         get() = _webUrl
-        set(value) {
-            _webUrl = value
-        }
 
     private lateinit var _toolBarTitle: String
-    var toolBarTitle: String
+    val toolBarTitle: String
         get() = _toolBarTitle
-        set(value) {
-            _toolBarTitle = value
-        }
 
     init {
         if (urlString == Preferences.CONTACT_KEY) {

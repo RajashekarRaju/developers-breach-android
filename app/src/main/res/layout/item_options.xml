@@ -21,6 +21,7 @@
         android:background="?selectableItemBackground"
         android:paddingVertical="8dp"
         android:paddingStart="32dp"
+        android:stateListAnimator="@animator/item_selected"
         app:bindOptionsFragmentReference="@{fragment}"
         app:bindOptionsItemClickListener="@{options.optionsId}"
         tools:ignore="RtlSymmetry">

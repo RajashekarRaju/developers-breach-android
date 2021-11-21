@@ -20,7 +20,7 @@
         android:background="?attr/background"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.HomeTheme"
-        tools:context=".view.details.ArticleDetailFragment">
+        tools:context=".view.search.SearchFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -107,7 +107,7 @@
                 android:layout_height="240dp"
                 android:layout_marginTop="60dp"
                 android:src="@drawable/ic_search_bg"
-                app:bindSearchEmptyStateImage="@{viewModel.searchableArticles.size()}"
+                app:bindSearchEmptyStateImage="@{viewModel.filteredArticles.size()}"
                 app:bindSearchRecyclerViewState="@{searchRecyclerView}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +125,7 @@
                 android:paddingBottom="@dimen/padding_12dp"
                 android:scrollbars="none"
                 android:visibility="visible"
-                app:bindSearchRecyclerViewData="@{viewModel.searchableArticles}"
+                app:bindSearchRecyclerViewData="@{viewModel.filteredArticles}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/toolbar_content_search_header"

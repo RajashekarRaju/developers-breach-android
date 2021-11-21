@@ -31,7 +31,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="ContentDescription"
-                tools:src="@drawable/ic_placeholder" />
+                tools:src="@drawable/ic_author" />
 
             <TextView
                 android:id="@+id/item_author_name_text_view"
@@ -45,7 +45,7 @@
                 app:layout_constraintStart_toEndOf="@id/item_author_avatar_image_view"
                 app:layout_constraintTop_toTopOf="@id/item_author_avatar_image_view"
                 app:layout_constraintVertical_chainStyle="packed"
-                tools:text="Rajasekhar" />
+                tools:text="Author Name" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
