@@ -33,7 +33,11 @@
     <string name="snackbar_removed_favorite_message">Removed From Favorites</string>
 
     <!--  Show no internet text  -->
-    <string name="no_internet_connection">No Internet</string>
+    <string name="no_internet_connection">No connection</string>
+    <string name="no_internet_connection_try_again">Try again</string>
+    <string name="no_internet_connection_description">
+        We couldn\'t connect to the internet. Please check you network settings and try again.
+    </string>
 
     <!--  WebView URL's in WebViewFragment  -->
     <string name="url_site_contact">https://developersbreach.com/contact/</string>
@@ -63,7 +67,6 @@
     <string name="up_button_content_description">Navigate to previous screen</string>
     <string name="article_banner_image_content_description">Banner of the article</string>
     <string name="close_banner_fragment_content_description">Button to close banner fragment</string>
-    <string name="app_brand_logo_content_description">Logo of the app</string>
     <string name="intro_pager_first_banner_content_description">App branding logo for introduction</string>
     <string name="clear_search_query_content_description">Button to clear search query</string>
 
