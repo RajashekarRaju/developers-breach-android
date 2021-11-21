@@ -114,5 +114,11 @@ class AppNavDirections(
     fun optionsToIntro() {
         navController.navigate(OptionsFragmentDirections.optionsToIntro())
     }
+
+    /** NetworkFragment **/
+
+    fun toNetworkFragment() {
+        navController.navigate(R.id.networkFragment)
+    }
 }
 
