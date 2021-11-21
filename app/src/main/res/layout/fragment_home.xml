@@ -19,6 +19,7 @@
         tools:context=".view.home.HomeFragment">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_fragment_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/background"
@@ -40,6 +41,7 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/home_content_parent_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -79,7 +81,7 @@
                 android:clipToPadding="false"
                 android:orientation="vertical"
                 android:scrollbars="none"
-                android:visibility="invisible"
+                android:visibility="visible"
                 app:bindRecentArticlesListData="@{viewModel.articles}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -87,14 +89,22 @@
                 app:layout_constraintTop_toBottomOf="@id/recent_posts_tag"
                 tools:itemCount="6"
                 tools:listitem="@layout/item_recent_articles"
+                tools:visibility="invisible" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/progress_bar_recent_articles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                android:visibility="gone"
+                app:bindCircularProgressDataState="@{viewModel.articleDataState}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:visibility="visible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <include
-            android:id="@+id/include_brand_layout"
-            layout="@layout/fragment_branding"
-            android:visibility="invisible" />
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottom_app_bar"
