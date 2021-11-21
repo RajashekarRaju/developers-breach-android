@@ -1,6 +1,5 @@
 package com.developerbreach.developerbreach.repository
 
-import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.developerbreach.developerbreach.model.*
@@ -11,7 +10,6 @@ import com.developerbreach.developerbreach.repository.network.*
 import com.developerbreach.developerbreach.repository.network.getArticles
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.io.IOException
 
 
 class AppRepository(
@@ -83,17 +81,6 @@ class AppRepository(
             favoritesEntityList.asDomainModel()
         }
 
-    suspend fun refreshArticles() {
-        withContext(Dispatchers.IO) {
-            try {
-                //val articlesList: List<Article> = getArticles()
-
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-        }
-    }
-
     suspend fun insertArticleToFavorites(
         article: Article
     ) {
@@ -108,9 +95,5 @@ class AppRepository(
         withContext(Dispatchers.IO) {
             database.favoriteDao.deleteFavoriteArticle(article.asDatabaseModel())
         }
-    }
-
-    fun optionsList(context: Context): List<Options> {
-        return Options.addOptionsData(context)
     }
 }

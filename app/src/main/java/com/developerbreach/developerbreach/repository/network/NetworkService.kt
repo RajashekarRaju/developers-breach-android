@@ -44,6 +44,7 @@ fun getAuthorById(
     return JsonRemoteData.fetchAuthorDataById(response)
 }
 
+// TODO verify Exception essentials
 object NetworkResponse {
 
     @Throws(IOException::class)

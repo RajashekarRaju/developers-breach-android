@@ -7,9 +7,7 @@
     <!--  item_article, favorite, search  -->
     <dimen name="detail_appbar_layout_height">278dp</dimen>
 
-    <dimen name="progress_bar_visible_margin">49dp</dimen>
     <dimen name="image_size_tools">200dp</dimen>
-    <dimen name="brand_logo_size">200dp</dimen>
     <dimen name="hor_guideline_width">1dp</dimen>
 
     <!--  Layout Margin, Padding  -->
@@ -24,5 +22,6 @@
     <dimen name="padding_8dp">8dp</dimen>
     <dimen name="match_constraints">0dp</dimen>
     <dimen name="bottom_sheet_corner_radius">32dp</dimen>
+    <dimen name="layout_margin_8dp">8dp</dimen>
 
 </resources>
