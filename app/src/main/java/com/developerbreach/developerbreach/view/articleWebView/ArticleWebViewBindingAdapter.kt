@@ -6,15 +6,15 @@ import android.graphics.Bitmap
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.ProgressBar
 import androidx.databinding.BindingAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.progressindicator.LinearProgressIndicator
 
 
 @SuppressLint("SetJavaScriptEnabled")
 @BindingAdapter("bindArticleWebViewClient", "bindArticleWebViewUrl")
 fun WebView.setArticleWebViewClient(
-    progressBar: ProgressBar,
+    progressBar: LinearProgressIndicator,
     selectedArticleWebUrl: String
 ) {
     this.loadUrl(selectedArticleWebUrl)

@@ -4,33 +4,40 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.developerbreach.developerbreach.model.Search
 import com.developerbreach.developerbreach.repository.AppRepository
 import com.developerbreach.developerbreach.repository.database.getDatabaseInstance
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
+import timber.log.Timber
 import java.util.*
 import kotlin.collections.ArrayList
+
 
 class SearchViewModel(
     application: Application
 ) : AndroidViewModel(application) {
 
-    private val repository = AppRepository(getDatabaseInstance(application))
-    private var viewModelJob = SupervisorJob()
-    private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.IO)
+    private val articleDatabase = getDatabaseInstance(application.applicationContext)
+    private val repository = AppRepository(articleDatabase)
 
-    private val _searchableArticles = MutableLiveData<List<Search>>()
-    val searchableArticles: LiveData<List<Search>>
-        get() = _searchableArticles
+    private val _filteredArticles = MutableLiveData<List<Search>>()
+    val filteredArticles: LiveData<List<Search>>
+        get() = _filteredArticles
 
-    private var articles = listOf<Search>()
+    private var searchableArticles = listOf<Search>()
 
     init {
+        loadSearchableArticlesToFilter()
+    }
+
+    private fun loadSearchableArticlesToFilter() {
         viewModelScope.launch {
-            articles = repository.getSearchableArticlesData()
+            try {
+                searchableArticles = repository.getSearchableArticlesData()
+            } catch (e: Exception) {
+                Timber.e("Exception caught in SearchViewModel ${e.message}")
+            }
         }
     }
 
@@ -44,18 +51,13 @@ class SearchViewModel(
     ) {
         viewModelScope.launch {
             val filteredList = ArrayList<Search>()
-            for (currentArticle in articles) {
+            for (currentArticle in searchableArticles) {
                 val formatTitle: String = currentArticle.name.lowercase(Locale.getDefault())
                 if (formatTitle.contains(query)) {
                     filteredList.add(currentArticle)
                 }
             }
-            _searchableArticles.postValue(filteredList)
+            _filteredArticles.postValue(filteredList)
         }
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
     }
 }

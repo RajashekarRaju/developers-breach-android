@@ -4,13 +4,13 @@ import android.graphics.Bitmap
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import android.widget.ProgressBar
 import androidx.databinding.BindingAdapter
+import com.google.android.material.progressindicator.LinearProgressIndicator
 
 
 @BindingAdapter("bindCommonWebViewClient", "bindCommonWebViewUrl")
 fun WebView.setCommonWebViewClient(
-    progressBar: ProgressBar,
+    progressBar: LinearProgressIndicator,
     viewModel: CommonWebViewViewModel
 ) {
     this.loadUrl(viewModel.webUrl)
