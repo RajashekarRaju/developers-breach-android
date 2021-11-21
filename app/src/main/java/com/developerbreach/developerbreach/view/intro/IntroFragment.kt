@@ -1,14 +1,13 @@
 package com.developerbreach.developerbreach.view.intro
 
-import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.databinding.FragmentIntroBinding
+import com.developerbreach.developerbreach.utils.PrefUtils
 
 
 class IntroFragment : Fragment() {
@@ -20,7 +19,7 @@ class IntroFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentIntroBinding.inflate(inflater)
+        binding = FragmentIntroBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         binding.executePendingBindings()
@@ -29,18 +28,6 @@ class IntroFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-
-        with(
-            requireContext().getSharedPreferences(
-                getString(R.string.preference_intro_result_key),
-                Context.MODE_PRIVATE
-            ).edit()
-        ) {
-            putString(
-                getString(R.string.preference_intro_status_key),
-                getString(R.string.preference_intro_fragment_shown_value)
-            )
-            commit()
-        }
+        PrefUtils(requireContext()).preferenceStateSaved()
     }
 }

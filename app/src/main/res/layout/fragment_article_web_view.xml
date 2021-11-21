@@ -32,13 +32,13 @@
 
         </androidx.core.widget.NestedScrollView>
 
-        <ProgressBar
+        <com.google.android.material.progressindicator.LinearProgressIndicator
             android:id="@+id/article_web_view_progress_bar"
-            style="@style/ProgressBar.Article.Material.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="@dimen/progress_bar_visible_margin"
+            android:layout_gravity="top"
+            android:indeterminate="true"
+            android:visibility="gone"
             tools:visibility="visible" />
 
         <com.google.android.material.bottomappbar.BottomAppBar
@@ -50,9 +50,9 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab_article_web_view"
-            android:layout_margin="@dimen/layout_margin_16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/layout_margin_16dp"
             app:bindShareFabListener="@{viewModel.articleUrlLink}"
             app:layout_anchor="@id/article_web_view_bottom_app_bar"
             app:srcCompat="@android:drawable/ic_menu_share"

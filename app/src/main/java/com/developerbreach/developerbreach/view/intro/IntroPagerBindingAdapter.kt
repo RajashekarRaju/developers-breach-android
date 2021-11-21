@@ -1,6 +1,5 @@
 package com.developerbreach.developerbreach.view.intro
 
-import android.content.Context
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -9,11 +8,11 @@ import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.developerbreach.developerbreach.R
-import com.developerbreach.developerbreach.model.Intro
-import com.developerbreach.developerbreach.utils.convertToDp
 import com.developerbreach.developerbreach.controller.AppNavDirections
+import com.developerbreach.developerbreach.model.Intro
+import com.developerbreach.developerbreach.utils.PrefUtils
+import com.developerbreach.developerbreach.utils.convertToDp
 import com.developerbreach.developerbreach.utils.startCircularEffect
-import timber.log.Timber
 
 
 @BindingAdapter("bindIntroListData")
@@ -31,12 +30,9 @@ fun ImageView.setFinishIntroVisibility(
     introId: Int,
     parent: ConstraintLayout
 ) {
-    if (introId == 4) {
-        this.visibility = View.VISIBLE
-        Timber.e("Visibility yes")
-    } else {
-        this.visibility = View.GONE
-        Timber.e("Visibility No")
+    when (introId) {
+        4 -> this.visibility = View.VISIBLE
+        else -> this.visibility = View.GONE
     }
 
     this.setOnClickListener {
@@ -57,10 +53,9 @@ fun ImageView.setNextItemClickListener(
 ) {
     val nextPageImageView = this
 
-    if (intro.id == 4) {
-        nextPageImageView.visibility = View.INVISIBLE
-    } else {
-        nextPageImageView.visibility = View.VISIBLE
+    when (intro.id) {
+        4 -> nextPageImageView.visibility = View.INVISIBLE
+        else -> nextPageImageView.visibility = View.VISIBLE
     }
 
     nextPageImageView.setOnClickListener {
@@ -122,20 +117,15 @@ private fun setCurrentViewPosition(currentView: View) {
 private fun ImageView.navigateToArticleListFragment(
     parent: ConstraintLayout
 ) {
+    /**
+     * If PrefUtils(this).preferenceStateSaved() is not called from onPause() in IntroFragment,
+     * then make sure to call it here so that user won't see [IntroFragment] again after
+     * initial state.
+     *
+     * PrefUtils(this).preferenceStateSaved()
+     */
 
-    with(
-        context.getSharedPreferences(
-            context.getString(R.string.preference_intro_result_key),
-            Context.MODE_PRIVATE
-        ).edit()
-    ) {
-        putString(
-            context.getString(R.string.preference_intro_status_key),
-            context.getString(R.string.preference_intro_fragment_shown_value)
-        )
-        commit()
-    }
-
+    PrefUtils(context).preferenceStateSaved()
     startCircularEffect(parent, parent.right, parent.top)
     AppNavDirections(findNavController()).introToHome()
 }

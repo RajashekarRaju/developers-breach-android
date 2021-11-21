@@ -162,4 +162,10 @@
         android:label="AuthorsFragment"
         tools:layout="@layout/fragment_authors" />
 
+    <fragment
+        android:id="@+id/networkFragment"
+        android:name="com.developerbreach.developerbreach.view.network.NetworkFragment"
+        android:label="Network"
+        tools:layout="@layout/fragment_network" />
+
 </navigation>

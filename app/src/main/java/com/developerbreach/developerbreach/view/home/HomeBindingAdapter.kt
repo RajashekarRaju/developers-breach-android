@@ -16,6 +16,7 @@ import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.utils.capitalizeWord
 import com.developerbreach.developerbreach.controller.AppNavDirections
+import com.developerbreach.developerbreach.utils.itemViewAnimation
 import com.developerbreach.developerbreach.view.list.ArticleAdapter
 import com.developerbreach.developerbreach.view.list.ArticleListFragment
 import com.google.android.material.card.MaterialCardView
@@ -28,6 +29,7 @@ fun RecyclerView.setRecentArticleFragmentListData(
     val adapter = RecentArticlesAdapter()
     adapter.submitList(list)
     this.adapter = adapter
+    itemViewAnimation(context, this, 1000L, R.anim.fade_enter_anim)
 }
 
 

@@ -4,14 +4,14 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.model.ArticleDetail
 import com.developerbreach.developerbreach.repository.AppRepository
 import com.developerbreach.developerbreach.repository.database.getDatabaseInstance
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.launch
+import com.developerbreach.developerbreach.utils.DataState
+import kotlinx.coroutines.*
+import timber.log.Timber
 
 
 class ArticleDetailViewModel(
@@ -20,8 +20,6 @@ class ArticleDetailViewModel(
 ) : AndroidViewModel(application) {
 
     private val repository = AppRepository(getDatabaseInstance(application))
-    private var viewModelJob = SupervisorJob()
-    private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
     private val _authorData = MutableLiveData<Pair<String, String>>()
     val authorData: LiveData<Pair<String, String>>
@@ -33,11 +31,26 @@ class ArticleDetailViewModel(
 
     private lateinit var articleData: ArticleDetail
 
+    private val _detailState = MutableLiveData<DataState>()
+    val detailState: LiveData<DataState>
+        get() = _detailState
+
     init {
+        loadSelectedArticleDetails()
+    }
+
+    private fun loadSelectedArticleDetails() {
         viewModelScope.launch {
-            articleData = repository.getArticlesDetailData(articleId)
-            _articleDetailData.postValue(articleData)
-            _authorData.postValue(repository.getAuthorDataById(articleData.authorId))
+            _detailState.value = DataState.LOADING
+            try {
+                articleData = repository.getArticlesDetailData(articleId)
+                _articleDetailData.postValue(articleData)
+                _authorData.postValue(repository.getAuthorDataById(articleData.authorId))
+                _detailState.value = DataState.DONE
+            } catch (e: Exception) {
+                Timber.e("Exception caught in ArticleDetailViewModel ${e.message}")
+                _detailState.value = DataState.ERROR
+            }
         }
     }
 
@@ -51,10 +64,5 @@ class ArticleDetailViewModel(
                 )
             )
         }
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        viewModelJob.cancel()
     }
 }

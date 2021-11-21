@@ -8,7 +8,7 @@ import com.developerbreach.developerbreach.databinding.ItemAuthorBinding
 import com.developerbreach.developerbreach.model.Authors
 import com.developerbreach.developerbreach.view.authors.AuthorsAdapter.AuthorsViewHolder
 
-class AuthorsAdapter: ListAdapter<Authors, AuthorsViewHolder>(Authors.DiffCallback) {
+class AuthorsAdapter : ListAdapter<Authors, AuthorsViewHolder>(Authors.DiffCallback) {
 
     class AuthorsViewHolder(
         private val binding: ItemAuthorBinding
@@ -30,9 +30,8 @@ class AuthorsAdapter: ListAdapter<Authors, AuthorsViewHolder>(Authors.DiffCallba
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AuthorsViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         // Allow DataBinding to inflate the layout.
-        val binding: ItemAuthorBinding = ItemAuthorBinding.inflate(
-            inflater, parent, false
+        return AuthorsViewHolder(
+            ItemAuthorBinding.inflate(inflater, parent, false)
         )
-        return AuthorsViewHolder(binding)
     }
 }
