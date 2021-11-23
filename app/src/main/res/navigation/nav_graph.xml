@@ -22,47 +22,35 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/homeToSearch"
-            app:destination="@id/searchFragment" />
-        <action
-            android:id="@+id/homeToDetail"
-            app:destination="@id/articleDetailFragment" />
-        <action
-            android:id="@+id/homeToOptions"
-            app:destination="@id/optionsFragment" />
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/fade_enter_anim"
+            app:popEnterAnim="@anim/fade_enter_anim"
+            app:popExitAnim="@anim/slide_out_left" />
         <action
             android:id="@+id/homeToArticleList"
-            app:destination="@id/articleListFragment" />
+            app:destination="@id/articleListFragment"
+            app:enterAnim="@anim/fade_enter_anim"
+            app:popEnterAnim="@anim/fade_enter_anim"
+            app:popExitAnim="@anim/slide_out_left" />
     </fragment>
 
     <fragment
         android:id="@+id/articleListFragment"
         android:name="com.developerbreach.developerbreach.view.list.ArticleListFragment"
         android:label="Articles"
-        tools:layout="@layout/fragment_article_list">
-        <action
-            android:id="@+id/articleListToDetail"
-            app:destination="@id/articleDetailFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_article_list" />
 
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.developerbreach.developerbreach.view.search.SearchFragment"
         android:label="Search"
-        tools:layout="@layout/fragment_search">
-        <action
-            android:id="@+id/searchToDetail"
-            app:destination="@id/articleDetailFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/favoritesFragment"
         android:name="com.developerbreach.developerbreach.view.favorites.FavoritesFragment"
         android:label="favorites"
-        tools:layout="@layout/fragment_favorites">
-        <action
-            android:id="@+id/favoritesToDetail"
-            app:destination="@id/articleDetailFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_favorites" />
 
     <fragment
         android:id="@+id/articleDetailFragment"
@@ -81,11 +69,7 @@
             app:popExitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/detailToBanner"
-            app:destination="@id/bannerFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            app:destination="@id/bannerFragment" />
     </fragment>
 
     <fragment
@@ -141,25 +125,34 @@
         tools:layout="@layout/fragment_options">
         <action
             android:id="@+id/optionsToAuthors"
-            app:destination="@id/authorsFragment" />
+            app:destination="@id/authorsFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:popEnterAnim="@anim/fade_enter_anim"
+            app:popExitAnim="@anim/slide_out_bottom" />
         <action
             android:id="@+id/optionsToFavorites"
-            app:destination="@id/favoritesFragment" />
+            app:destination="@id/favoritesFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:popEnterAnim="@anim/fade_enter_anim"
+            app:popExitAnim="@anim/slide_out_bottom" />
         <action
             android:id="@+id/optionsToSearch"
-            app:destination="@id/searchFragment" />
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:popEnterAnim="@anim/fade_enter_anim"
+            app:popExitAnim="@anim/slide_out_bottom" />
         <action
             android:id="@+id/optionsToSettings"
-            app:destination="@id/settingsFragment" />
-        <action
-            android:id="@+id/optionsToIntro"
-            app:destination="@id/introFragment" />
+            app:destination="@id/settingsFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:popEnterAnim="@anim/fade_enter_anim"
+            app:popExitAnim="@anim/slide_out_bottom" />
     </dialog>
 
     <fragment
         android:id="@+id/authorsFragment"
         android:name="com.developerbreach.developerbreach.view.authors.AuthorsFragment"
-        android:label="AuthorsFragment"
+        android:label="Authors"
         tools:layout="@layout/fragment_authors" />
 
     <fragment
@@ -167,5 +160,21 @@
         android:name="com.developerbreach.developerbreach.view.network.NetworkFragment"
         android:label="Network"
         tools:layout="@layout/fragment_network" />
+
+    <action
+        android:id="@+id/toDetailFragmentGlobal"
+        app:destination="@id/articleDetailFragment" />
+
+    <action
+        android:id="@+id/toIntroFragmentGlobal"
+        app:destination="@id/introFragment" />
+
+    <action
+        android:id="@+id/toOptionsFragmentGlobal"
+        app:destination="@id/optionsFragment" />
+
+    <action
+        android:id="@+id/toNetworkFragmentGlobal"
+        app:destination="@id/networkFragment" />
 
 </navigation>
