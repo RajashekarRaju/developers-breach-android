@@ -1,16 +1,21 @@
 package com.developerbreach.developerbreach.controller
 
+import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.NavController
+import androidx.navigation.NavDirections
+import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
-import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.view.detail.ArticleDetailFragmentDirections
-import com.developerbreach.developerbreach.view.favorites.FavoritesFragmentDirections
+import com.developerbreach.developerbreach.view.detail.ArticleDetailFragment
 import com.developerbreach.developerbreach.view.home.HomeFragmentDirections
+import com.developerbreach.developerbreach.view.home.HomeFragment
+import com.developerbreach.developerbreach.view.list.ArticleListFragment
+import com.developerbreach.developerbreach.view.favorites.FavoritesFragment
 import com.developerbreach.developerbreach.view.intro.IntroFragmentDirections
-import com.developerbreach.developerbreach.view.list.ArticleListFragmentDirections
+import com.developerbreach.developerbreach.view.network.NetworkFragmentDirections
 import com.developerbreach.developerbreach.view.options.OptionsFragmentDirections
-import com.developerbreach.developerbreach.view.search.SearchFragmentDirections
 import com.developerbreach.developerbreach.view.settings.SettingsFragmentDirections
 import com.google.android.material.card.MaterialCardView
 
@@ -19,106 +24,73 @@ class AppNavDirections(
     private val navController: NavController,
 ) {
 
-    /** IntroFragment **/
-
-    fun introToHome() {
-        navController.navigate(IntroFragmentDirections.introToHome())
+    private fun navigate(directions: NavDirections) {
+        navController.navigate(directions)
     }
 
-    /** HomeFragment **/
-
-    fun homeToSearch() {
-        navController.navigate(HomeFragmentDirections.homeToSearch())
+    private fun navigateWithExtras(
+        directions: NavDirections,
+        extras: FragmentNavigator.Extras
+    ) {
+        navController.navigate(directions, extras)
     }
 
-    fun homeToDetail(articleId: Int, view: MaterialCardView) {
-        navController.navigate(
-            HomeFragmentDirections.homeToDetail(articleId),
-            FragmentNavigatorExtras(view to articleId.toString())
-        )
-    }
+    /** IntroFragment */
+    fun introToHome() = navigate(IntroFragmentDirections.introToHome())
 
-    fun homeToOptions() {
-        navController.navigate(HomeFragmentDirections.homeToOptions())
-    }
+    /** HomeFragment */
+    fun homeToSearch() = navigate(HomeFragmentDirections.homeToSearch())
+    fun homeToOptions() = navigate(OptionsFragmentDirections.toOptionsFragmentGlobal())
+    fun homeToIntro() = navigate(IntroFragmentDirections.toIntroFragmentGlobal())
+    fun homeToArticleList() = navigate(HomeFragmentDirections.homeToArticleList())
 
-    fun homeToIntro() {
-        navController.navigate(R.id.introFragment)
-    }
+    /** OptionsFragment */
+    fun optionsToAuthors() = navigate(OptionsFragmentDirections.optionsToAuthors())
+    fun optionsToFavorites() = navigate(OptionsFragmentDirections.optionsToFavorites())
+    fun optionsToSearch() = navigate(OptionsFragmentDirections.optionsToSearch())
+    fun optionsToSettings() = navigate(OptionsFragmentDirections.optionsToSettings())
+    fun optionsToIntro() = navigate(IntroFragmentDirections.toIntroFragmentGlobal())
 
-    fun homeToArticleList() {
-        navController.navigate(HomeFragmentDirections.homeToArticleList())
-    }
+    /** NetworkFragment */
+    fun toNetworkFragment() = navigate(NetworkFragmentDirections.toNetworkFragmentGlobal())
 
-    /** SearchFragment **/
-
+    /** SearchFragment */
     fun searchToDetail(articleId: Int, view: TextView) {
-        navController.navigate(
-            SearchFragmentDirections.searchToDetail(articleId),
+        navigateWithExtras(
+            ArticleDetailFragmentDirections.toDetailFragmentGlobal(articleId),
             FragmentNavigatorExtras(view to articleId.toString())
         )
     }
 
-    /** ArticleListFragment **/
-
-    fun articlesListToDetail(articleId: Int, view: MaterialCardView) {
-        navController.navigate(
-            ArticleListFragmentDirections.articleListToDetail(articleId),
+    /**
+     * [HomeFragment] [FavoritesFragment] [ArticleListFragment]
+     * to
+     * [ArticleDetailFragment]
+     */
+    fun fragmentsToDetailFragment(
+        articleId: Int,
+        view: MaterialCardView
+    ) {
+        navigateWithExtras(
+            ArticleDetailFragmentDirections.toDetailFragmentGlobal(articleId),
             FragmentNavigatorExtras(view to articleId.toString())
         )
     }
 
-    /** FavoritesFragment **/
-
-    fun favoritesToDetail(articleId: Int, view: MaterialCardView) {
-        navController.navigate(
-            FavoritesFragmentDirections.favoritesToDetail(articleId),
-            FragmentNavigatorExtras(view to articleId.toString())
-        )
-    }
-
-    /** DetailFragment **/
-
+    /** DetailFragment */
     fun detailToArticleWebView(articleUrlLink: String?) {
-        navController.navigate(ArticleDetailFragmentDirections.detailToArticleWebView(articleUrlLink))
+        navigate(ArticleDetailFragmentDirections.detailToArticleWebView(articleUrlLink))
     }
 
-    fun detailToBanner(bannerUrl: String?) {
-        navController.navigate(ArticleDetailFragmentDirections.detailToBanner(bannerUrl))
+    fun detailToBanner(bannerUrl: String?, view: ImageView) {
+        navigateWithExtras(
+            ArticleDetailFragmentDirections.detailToBanner(bannerUrl),
+            FragmentNavigatorExtras(view as View to bannerUrl.toString())
+        )
     }
 
-    /** SettingsFragment **/
-
+    /** SettingsFragment */
     fun settingsToCommonWebView(webUrl: String) {
-        navController.navigate(SettingsFragmentDirections.settingsToCommonWebView(webUrl))
-    }
-
-    /** OptionsFragment **/
-
-    fun optionsToAuthors() {
-        navController.navigate(OptionsFragmentDirections.optionsToAuthors())
-    }
-
-    fun optionsToFavorites() {
-        navController.navigate(OptionsFragmentDirections.optionsToFavorites())
-    }
-
-    fun optionsToSearch() {
-        navController.navigate(OptionsFragmentDirections.optionsToSearch())
-    }
-
-    fun optionsToSettings() {
-        navController.navigate(OptionsFragmentDirections.optionsToSettings())
-    }
-
-    fun optionsToIntro() {
-        navController.navigate(OptionsFragmentDirections.optionsToIntro())
-    }
-
-    /** NetworkFragment **/
-
-    fun toNetworkFragment() {
-        navController.navigate(R.id.networkFragment)
+        navigate(SettingsFragmentDirections.settingsToCommonWebView(webUrl))
     }
 }
-

@@ -13,9 +13,9 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.developerbreach.developerbreach.R
+import com.developerbreach.developerbreach.controller.AppNavDirections
 import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.utils.capitalizeWord
-import com.developerbreach.developerbreach.controller.AppNavDirections
 import com.developerbreach.developerbreach.utils.itemViewAnimation
 import com.developerbreach.developerbreach.view.list.ArticleAdapter
 import com.developerbreach.developerbreach.view.list.ArticleListFragment
@@ -29,9 +29,8 @@ fun RecyclerView.setRecentArticleFragmentListData(
     val adapter = RecentArticlesAdapter()
     adapter.submitList(list)
     this.adapter = adapter
-    itemViewAnimation(context, this, 1000L, R.anim.fade_enter_anim)
+    itemViewAnimation(context, this, 750L, R.anim.fade_enter_anim)
 }
-
 
 /**
  * BindingAdapters for fragment class [ArticleListFragment].
@@ -77,6 +76,6 @@ fun MaterialCardView.setRecentArticleToDetailClickListener(
         TransitionManager.beginDelayedTransition(this, Fade())
         title.visibility = View.GONE
 
-        AppNavDirections(findNavController()).homeToDetail(articleId, this)
+        AppNavDirections(findNavController()).fragmentsToDetailFragment(articleId, this)
     }
 }
