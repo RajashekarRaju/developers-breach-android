@@ -19,7 +19,8 @@ class ArticleDetailViewModel(
     val articleId: Int
 ) : AndroidViewModel(application) {
 
-    private val repository = AppRepository(getDatabaseInstance(application))
+    private val articleDatabase = getDatabaseInstance(application)
+    private val repository = AppRepository(articleDatabase)
 
     private val _authorData = MutableLiveData<Pair<String, String>>()
     val authorData: LiveData<Pair<String, String>>

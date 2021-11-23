@@ -1,17 +1,28 @@
 package com.developerbreach.developerbreach.view.network
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.databinding.FragmentNetworkBinding
+import com.developerbreach.developerbreach.utils.showSnackBar
 
 
 class NetworkFragment : Fragment() {
 
     private lateinit var binding: FragmentNetworkBinding
+    private lateinit var manager: ConnectivityManager
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val systemService = requireContext().getSystemService(Context.CONNECTIVITY_SERVICE)
+        manager = systemService as ConnectivityManager
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +45,12 @@ class NetworkFragment : Fragment() {
         })
 
         binding.noInternetConnectionTryAgain.setOnClickListener {
-            // checkNetworkConnection()
+            val isAvailable = NetworkManager(requireContext()).checkForActiveNetwork()
+            if (isAvailable) {
+                findNavController().navigateUp()
+            } else {
+                showSnackBar(getString(R.string.no_internet_connection), requireActivity())
+            }
         }
     }
 }

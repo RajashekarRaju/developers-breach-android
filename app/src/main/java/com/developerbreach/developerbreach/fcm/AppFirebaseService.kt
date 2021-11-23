@@ -1,5 +1,6 @@
 package com.developerbreach.developerbreach.fcm
 
+import android.annotation.SuppressLint
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -30,6 +31,7 @@ class AppFirebaseService : FirebaseMessagingService() {
      *
      * @param body FCM message body received.
      */
+    @SuppressLint("UnspecifiedImmutableFlag")
     private fun sendNotification(title: String, body: String) {
 
         val intent = Intent(this, MainActivity::class.java)
