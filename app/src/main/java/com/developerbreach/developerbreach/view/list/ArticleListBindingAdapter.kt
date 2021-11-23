@@ -19,9 +19,13 @@ import com.developerbreach.developerbreach.utils.capitalizeWord
 import com.google.android.material.card.MaterialCardView
 
 
-@BindingAdapter("bindArticlesListDataByCategory")
+@BindingAdapter(
+    "bindArticlesListDataByCategory",
+    "bindArticleListViewModel",
+)
 fun RecyclerView.setArticleListDataByCategory(
-    list: List<Article>?
+    list: List<Article>?,
+    viewModel: ArticleListViewModel
 ) {
     val adapter = ArticleAdapter()
     // Pass list to adapter calling submitList since our adapter class extends to ListAdapter<>.
@@ -29,10 +33,34 @@ fun RecyclerView.setArticleListDataByCategory(
     // Set adapter with recyclerView.
     this.adapter = adapter
 
+    this.addOnScrollListener(articlesScrollListener(viewModel))
+
     if (list?.isNotEmpty() == true) {
         this.visibility = View.VISIBLE
     } else {
         this.visibility = View.GONE
+    }
+}
+
+private var isFirstTimeCall = true
+
+private fun articlesScrollListener(
+    viewModel: ArticleListViewModel
+): RecyclerView.OnScrollListener = object : RecyclerView.OnScrollListener() {
+
+    override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+        super.onScrollStateChanged(recyclerView, newState)
+
+        if (!recyclerView.canScrollVertically(1) && newState == RecyclerView.SCROLL_STATE_IDLE) {
+            if (isFirstTimeCall) {
+                isFirstTimeCall = false
+                viewModel.loadMoreArticles()
+            }
+        }
+
+        if (!recyclerView.canScrollVertically(1) && newState == RecyclerView.SCROLL_STATE_DRAGGING) {
+            isFirstTimeCall = true
+        }
     }
 }
 
@@ -109,7 +137,7 @@ fun MaterialCardView.setArticleToDetailClickListener(
     card.setOnClickListener {
         TransitionManager.beginDelayedTransition(card, Fade())
         title.visibility = View.GONE
-        AppNavDirections(findNavController()).articlesListToDetail(articleId, card)
+        AppNavDirections(findNavController()).fragmentsToDetailFragment(articleId, card)
     }
 }
 

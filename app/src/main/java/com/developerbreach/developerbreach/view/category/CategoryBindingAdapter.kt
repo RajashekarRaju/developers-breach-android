@@ -20,7 +20,7 @@ fun MaterialCardView.setItemCategoryParentListener(
     viewModel: ArticleListViewModel,
 ) {
     this.setOnClickListener {
-        viewModel.getArticlesBasedOnCategoryId(category)
+        viewModel.saveUserSelectedCategory(category)
     }
 }
 
