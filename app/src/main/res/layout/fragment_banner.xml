@@ -23,10 +23,13 @@
         <com.github.chrisbanes.photoview.PhotoView
             android:id="@+id/banner_full_screen_photo_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="300dp"
             android:contentDescription="@string/article_banner_image_content_description"
+            android:transitionName="@{viewModel.bannerUrl.toString()}"
             app:bindBannerWithZoom="@{viewModel.bannerUrl}"
-            tools:src="@drawable/ic_placeholder" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/hourglass" />
 
         <ImageView
             android:id="@+id/close_banner_fragment_image_view"

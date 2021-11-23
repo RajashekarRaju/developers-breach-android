@@ -1,10 +1,13 @@
 package com.developerbreach.developerbreach.view.detail
 
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
+import androidx.transition.Fade
+import androidx.transition.TransitionManager
 import com.bumptech.glide.Glide
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.controller.AppNavDirections
@@ -16,10 +19,12 @@ import com.google.android.material.snackbar.Snackbar
 fun ImageView.setImageResource(
     urlString: String?
 ) {
+    val imageView = this
     Glide.with(this.context).load(urlString).into(this)
 
     this.setOnClickListener {
-        AppNavDirections(findNavController()).detailToBanner(urlString)
+        TransitionManager.beginDelayedTransition(imageView.rootView as ViewGroup, Fade())
+        AppNavDirections(findNavController()).detailToBanner(urlString, this)
     }
 }
 
