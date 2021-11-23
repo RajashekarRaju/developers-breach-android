@@ -47,12 +47,11 @@
                     android:contentDescription="@string/article_image_content_description"
                     android:fitsSystemWindows="true"
                     android:scaleType="centerCrop"
+                    android:transitionName="@{viewModel.articleDetailData.banner.toString()}"
                     app:bindCollapsingBannerImage="@{viewModel.articleDetailData.banner}"
                     app:layout_collapseMode="parallax"
                     tools:layout_gravity="center"
-                    tools:layout_height="@dimen/image_size_tools"
-                    tools:layout_width="@dimen/image_size_tools"
-                    tools:src="@drawable/ic_placeholder" />
+                    tools:src="@drawable/hourglass" />
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/detail_fragment_toolbar"

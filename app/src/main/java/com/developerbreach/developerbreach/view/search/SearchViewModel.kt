@@ -25,6 +25,8 @@ class SearchViewModel(
     val filteredArticles: LiveData<List<Search>>
         get() = _filteredArticles
 
+    private val totalPostsToDoRunQueryOn = 100
+
     private var searchableArticles = listOf<Search>()
 
     init {
@@ -34,7 +36,7 @@ class SearchViewModel(
     private fun loadSearchableArticlesToFilter() {
         viewModelScope.launch {
             try {
-                searchableArticles = repository.getSearchableArticlesData()
+                searchableArticles = repository.getSearchableArticlesData(totalPostsToDoRunQueryOn)
             } catch (e: Exception) {
                 Timber.e("Exception caught in SearchViewModel ${e.message}")
             }

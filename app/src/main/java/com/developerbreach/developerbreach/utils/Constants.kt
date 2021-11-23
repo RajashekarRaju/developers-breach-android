@@ -45,16 +45,14 @@ object Preferences {
 
 const val SCHEME_AUTHORITY = "https://developersbreach.com"
 const val APPEND_PATH = "wp-json/wp/v2"
-const val APPEND_USERS_PATH = "users"
 
-// ?per_page=21
-const val APPEND_ENDPOINT_POSTS = "posts"
+const val APPEND_PATH_USERS = "users"
+const val APPEND_PATH_CATEGORIES = "categories"
+const val APPEND_PATH_POSTS = "posts"
+
 const val QUERY_PARAMETER_POSTS_PER_PAGE = "per_page"
+const val QUERY_PARAMETER_POSTS_PAGE = "page"
 const val QUERY_PARAMETER_POSTS_BY_CATEGORY = "categories"
 const val QUERY_PARAMETER_POST_INCLUDE_ID = "include"
-
-// Get multiple articles by id's
-// const val ARTICLES_ID = "https://developersbreach.com/wp-json/wp/v2/posts?include=8432,7787"
-
-// Get categories list
-// const val CATEGORIES = "https://developersbreach.com/wp-json/wp/v2/categories"
+const val QUERY_PARAMETER_POSTS_ORDER = "orderby"
+const val ORDER_BY_DATE = "date"

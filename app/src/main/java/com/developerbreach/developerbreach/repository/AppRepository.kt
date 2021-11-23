@@ -16,10 +16,12 @@ class AppRepository(
     private val database: ArticleDatabase
 ) {
 
-    suspend fun getArticlesData(): List<Article> {
+    suspend fun getArticlesData(
+        totalPostsToDoRunQueryOn: Int
+    ): List<Article> {
         val listData: List<Article>
         withContext(Dispatchers.IO) {
-            listData = getArticles()
+            listData = getArticles(totalPostsToDoRunQueryOn)
         }
         return listData
     }
@@ -34,10 +36,12 @@ class AppRepository(
         return data
     }
 
-    suspend fun getSearchableArticlesData(): List<Search> {
+    suspend fun getSearchableArticlesData(
+        totalPostsToDoRunQueryOn: Int
+    ): List<Search> {
         val listData: List<Search>
         withContext(Dispatchers.IO) {
-            listData = getSearchableArticles()
+            listData = getSearchableArticles(totalPostsToDoRunQueryOn)
         }
         return listData
     }
@@ -50,12 +54,13 @@ class AppRepository(
         return listData
     }
 
-    suspend fun getArticlesByCategoryId(
-        categoryId: Int
+    suspend fun getArticlesByCategory(
+        categoryId: Int,
+        postsPage: Int
     ): List<Article> {
         val listData: List<Article>
         withContext(Dispatchers.IO) {
-            listData = getArticlesByCategory(categoryId)
+            listData = getArticlesByCategoryId(categoryId, postsPage)
         }
         return listData
     }

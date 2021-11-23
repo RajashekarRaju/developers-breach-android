@@ -1,29 +1,35 @@
 package com.developerbreach.developerbreach.repository.network
 
 import com.developerbreach.developerbreach.model.*
-import java.io.IOException
 import java.net.URL
 
 
-fun getArticles(): List<Article> {
-    val response = NetworkResponse.articleResponse()
+fun getArticles(
+    totalPostsToDoRunQueryOn: Int
+): List<Article> {
+    val response = NetworkResponse.articleResponse(totalPostsToDoRunQueryOn)
     return JsonRemoteData.fetchArticleJsonData(response)
 }
 
-fun getArticleDetails(articleId: Int): ArticleDetail {
+fun getArticleDetails(
+    articleId: Int
+): ArticleDetail {
     val response = NetworkResponse.articleDetailResponse(articleId)
     return JsonRemoteData.fetchArticleJsonDataById(response)
 }
 
-fun getSearchableArticles(): List<Search> {
-    val response = NetworkResponse.searchResponse()
+fun getSearchableArticles(
+    totalPostsToDoRunQueryOn: Int
+): List<Search> {
+    val response = NetworkResponse.searchResponse(totalPostsToDoRunQueryOn)
     return JsonRemoteData.fetchSearchableArticlesJsonData(response)
 }
 
-fun getArticlesByCategory(
-    categoryId: Int
+fun getArticlesByCategoryId(
+    categoryId: Int,
+    postsPage: Int
 ): List<Article> {
-    val response = NetworkResponse.articleResponseByCategoryId(categoryId)
+    val response = NetworkResponse.articleResponseByCategoryId(categoryId, postsPage)
     return JsonRemoteData.fetchArticleJsonData(response)
 }
 
@@ -44,54 +50,53 @@ fun getAuthorById(
     return JsonRemoteData.fetchAuthorDataById(response)
 }
 
-// TODO verify Exception essentials
-object NetworkResponse {
+internal object NetworkResponse {
 
-    @Throws(IOException::class)
-    fun articleResponse(): String {
-        val uriString: String = QueryBuilder.articleBuilder(8)
+    fun articleResponse(
+        totalPostsToDoRunQueryOn: Int
+    ): String {
+        val uriString: String = QueryBuilder.articleBuilder(totalPostsToDoRunQueryOn)
         val requestUrl: URL = createUrl(uriString)
         return getResponseFromHttpUrl(requestUrl)
     }
 
-    @Throws(IOException::class)
-    fun articleDetailResponse(articleId: Int): String {
+    fun articleDetailResponse(
+        articleId: Int
+    ): String {
         val uriString: String = QueryBuilder.articleByIdBuilder(articleId)
         val requestUrl: URL = createUrl(uriString)
         return getResponseFromHttpUrl(requestUrl)
     }
 
-    @Throws(IOException::class)
-    fun searchResponse(): String {
-        val uriString: String = QueryBuilder.articleBuilder(28)
-        val requestUrl: URL = createUrl(uriString)
-        return getResponseFromHttpUrl(requestUrl)
-    }
-
-    @Throws(IOException::class)
-    fun articleResponseByCategoryId(
-        categoryId: Int
+    fun searchResponse(
+        totalPostsToDoRunQueryOn: Int
     ): String {
-        val uriString: String = QueryBuilder.articlesByCategoryBuilder(categoryId)
+        val uriString: String = QueryBuilder.articleBuilder(totalPostsToDoRunQueryOn)
         val requestUrl: URL = createUrl(uriString)
         return getResponseFromHttpUrl(requestUrl)
     }
 
-    @Throws(IOException::class)
+    fun articleResponseByCategoryId(
+        categoryId: Int,
+        postsPage: Int
+    ): String {
+        val uriString: String = QueryBuilder.articlesByCategoryBuilder(categoryId, postsPage)
+        val requestUrl: URL = createUrl(uriString)
+        return getResponseFromHttpUrl(requestUrl)
+    }
+
     fun categoryResponse(): String {
         val uriString: String = QueryBuilder.categoryBuilder()
         val requestUrl: URL = createUrl(uriString)
         return getResponseFromHttpUrl(requestUrl)
     }
 
-    @Throws(IOException::class)
     fun authorResponse(): String {
         val uriString: String = QueryBuilder.authorBuilder()
         val requestUrl: URL = createUrl(uriString)
         return getResponseFromHttpUrl(requestUrl)
     }
 
-    @Throws(IOException::class)
     fun authorResponseById(authorId: Int): String {
         val uriString: String = QueryBuilder.authorBuilderById(authorId)
         val requestUrl: URL = createUrl(uriString)

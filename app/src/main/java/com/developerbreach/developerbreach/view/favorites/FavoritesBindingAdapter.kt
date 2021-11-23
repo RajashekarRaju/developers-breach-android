@@ -61,7 +61,7 @@ fun MaterialCardView.setFavoriteToDetailClickListener(
         TransitionManager.beginDelayedTransition(this, Fade())
         title.visibility = View.GONE
 
-        AppNavDirections(findNavController()).favoritesToDetail(articleId, this)
+        AppNavDirections(findNavController()).fragmentsToDetailFragment(articleId, this)
     }
 }
 

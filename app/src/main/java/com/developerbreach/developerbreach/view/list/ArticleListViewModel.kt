@@ -41,6 +41,16 @@ class ArticleListViewModel constructor(
     val articlesState: LiveData<DataState>
         get() = _articlesState
 
+    private var loadNextPage: Int = 1
+
+    private lateinit var selectedCategory: Categories
+
+    fun saveUserSelectedCategory(category: Categories) {
+        loadNextPage = 1
+        selectedCategory = category
+        loadArticlesWithSelectedCategory()
+    }
+
     init {
         launchToLoadCategoriesData()
     }
@@ -59,14 +69,22 @@ class ArticleListViewModel constructor(
         }
     }
 
-    fun getArticlesBasedOnCategoryId(
-        category: Categories
-    ) {
+    fun loadMoreArticles() {
+        loadNextPage += 1
+        loadArticlesWithSelectedCategory()
+        Timber.e("Current page $loadNextPage")
+    }
+
+    private fun loadArticlesWithSelectedCategory() {
         viewModelScope.launch {
             _articlesState.value = DataState.LOADING
             try {
-                _articles.postValue(repository.getArticlesByCategoryId(category.categoryId))
-                _selectedCategoryName.postValue(category.categoryName)
+                val articlesById = repository.getArticlesByCategory(
+                    selectedCategory.categoryId,
+                    loadNextPage
+                )
+                _articles.postValue(articlesById)
+                _selectedCategoryName.postValue(selectedCategory.categoryName)
                 _articlesState.value = DataState.DONE
             } catch (e: Exception) {
                 Timber.e("Exception caught in ArticleListViewModel ${e.message}")
