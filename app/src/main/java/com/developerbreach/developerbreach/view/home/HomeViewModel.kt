@@ -41,6 +41,8 @@ class HomeViewModel(
     val articleDataState: LiveData<DataState>
         get() = _state
 
+    private val totalPostsToDoRunQueryOn = 5
+
     init {
         launchToLoadArticleData()
     }
@@ -53,7 +55,7 @@ class HomeViewModel(
         viewModelScope.launch {
             _state.value = DataState.LOADING
             try {
-                val articlesData: List<Article> = repository.getArticlesData()
+                val articlesData = repository.getArticlesData(totalPostsToDoRunQueryOn)
                 _articles.postValue(articlesData)
                 _state.value = DataState.DONE
             } catch (e: Exception) {
