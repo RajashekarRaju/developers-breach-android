@@ -12,7 +12,7 @@ import com.developerbreach.developerbreach.utils.DatabaseProperties
  * Let room know this is class for database by annotating with [Database] and class should be
  * an abstract class and extend to [RoomDatabase].
  *
- * Pass our two entity classes into database, version set 1 and exportSchema to false to not create
+ * Pass entity class into database, version set 1 and exportSchema to false to not create
  * a separate space folder for our app database.
  */
 @Database(
@@ -36,7 +36,9 @@ private lateinit var INSTANCE: ArticleDatabase
  * @return a new instance for database. Perform null checks and do not perform asynchronous,
  * finally return instance for database without creating multiple.
  */
-fun getDatabaseInstance(context: Context): ArticleDatabase {
+fun getDatabaseInstance(
+    context: Context
+): ArticleDatabase {
     synchronized(ArticleDatabase::class.java) {
         if (!::INSTANCE.isInitialized) {
             INSTANCE = Room.databaseBuilder(

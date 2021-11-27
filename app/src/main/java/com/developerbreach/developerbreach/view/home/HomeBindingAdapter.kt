@@ -15,10 +15,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.controller.AppNavDirections
 import com.developerbreach.developerbreach.model.Article
-import com.developerbreach.developerbreach.utils.capitalizeWord
 import com.developerbreach.developerbreach.utils.itemViewAnimation
-import com.developerbreach.developerbreach.view.list.ArticleAdapter
-import com.developerbreach.developerbreach.view.list.ArticleListFragment
 import com.google.android.material.card.MaterialCardView
 
 
@@ -30,24 +27,6 @@ fun RecyclerView.setRecentArticleFragmentListData(
     adapter.submitList(list)
     this.adapter = adapter
     itemViewAnimation(context, this, 750L, R.anim.fade_enter_anim)
-}
-
-/**
- * BindingAdapters for fragment class [ArticleListFragment].
- * This values will be called as attributes in fragment layout [R.layout.item_article].
- * Setters for binding from layout is set in adapter class [ArticleAdapter].
- *
- * When value articleItemTitle is used as attribute on TextView, the method bindArticleItemTitle
- * is called.
- *
- * TextView to set a String value to it.
- * @param title    contains String value article title to be set to TextView.
- */
-@BindingAdapter("bindRecentArticleItemName")
-fun TextView.setRecentArticleItemTitle(
-    title: String
-) {
-    this.text = capitalizeWord(title)
 }
 
 

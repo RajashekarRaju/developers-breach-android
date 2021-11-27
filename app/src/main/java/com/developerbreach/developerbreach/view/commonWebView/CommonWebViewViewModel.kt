@@ -7,7 +7,7 @@ import com.developerbreach.developerbreach.utils.Preferences
 
 class CommonWebViewViewModel(
     application: Application,
-    urlString: String
+    urlString: String?
 ) : AndroidViewModel(application) {
 
     private lateinit var _webUrl: String
