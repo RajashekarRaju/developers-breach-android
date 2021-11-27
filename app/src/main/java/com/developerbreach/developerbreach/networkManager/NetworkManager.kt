@@ -1,4 +1,4 @@
-package com.developerbreach.developerbreach.view.network
+package com.developerbreach.developerbreach.networkManager
 
 import android.content.Context
 import android.net.ConnectivityManager

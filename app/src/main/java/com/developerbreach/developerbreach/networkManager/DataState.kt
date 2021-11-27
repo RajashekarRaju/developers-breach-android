@@ -1,4 +1,4 @@
-package com.developerbreach.developerbreach.utils
+package com.developerbreach.developerbreach.networkManager
 
 import android.view.View
 import androidx.databinding.BindingAdapter
