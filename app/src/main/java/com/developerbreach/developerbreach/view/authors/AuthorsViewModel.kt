@@ -5,20 +5,18 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.developerbreach.developerbreach.DevelopersBreachApp
 import com.developerbreach.developerbreach.model.Authors
-import com.developerbreach.developerbreach.repository.AppRepository
-import com.developerbreach.developerbreach.repository.database.getDatabaseInstance
-import com.developerbreach.developerbreach.utils.DataState
+import com.developerbreach.developerbreach.networkManager.DataState
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
 
-class AuthorsViewModel constructor(
+class AuthorsViewModel(
     application: Application
 ) : AndroidViewModel(application) {
 
-    private val articleDatabase = getDatabaseInstance(application.applicationContext)
-    private val repository = AppRepository(articleDatabase)
+    private val repository = (application as DevelopersBreachApp).networkRepository
 
     private val _authors = MutableLiveData<List<Authors>>()
     val authors: LiveData<List<Authors>>

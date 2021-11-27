@@ -13,7 +13,6 @@ import java.util.concurrent.TimeUnit
 
 class SearchFragment : Fragment() {
 
-    private lateinit var binding: FragmentSearchBinding
     private val viewModel: SearchViewModel by viewModels()
 
     override fun onCreateView(
@@ -21,7 +20,7 @@ class SearchFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Get reference to binding and inflate this class layout.
-        binding = FragmentSearchBinding.inflate(inflater, container, false)
+        val binding = FragmentSearchBinding.inflate(inflater, container, false)
         // Time taken for fragment to enter with transition
         postponeEnterTransition(100L, TimeUnit.MILLISECONDS)
         binding.lifecycleOwner = this

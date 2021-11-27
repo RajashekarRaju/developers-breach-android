@@ -5,10 +5,9 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.developerbreach.developerbreach.DevelopersBreachApp
 import com.developerbreach.developerbreach.model.Article
-import com.developerbreach.developerbreach.repository.AppRepository
-import com.developerbreach.developerbreach.repository.database.getDatabaseInstance
-import com.developerbreach.developerbreach.utils.DataState
+import com.developerbreach.developerbreach.networkManager.DataState
 import kotlinx.coroutines.*
 import timber.log.Timber
 
@@ -30,8 +29,7 @@ class HomeViewModel(
      *  From v2.1.0 viewModels can launch within scope directly calling viewModelScope
      */
 
-    private val articleDatabase = getDatabaseInstance(application.applicationContext)
-    private val repository = AppRepository(articleDatabase)
+    private val networkRepository = (application as DevelopersBreachApp).networkRepository
 
     private val _articles = MutableLiveData<List<Article>>()
     val articles: LiveData<List<Article>>
@@ -55,7 +53,7 @@ class HomeViewModel(
         viewModelScope.launch {
             _state.value = DataState.LOADING
             try {
-                val articlesData = repository.getArticlesData(totalPostsToDoRunQueryOn)
+                val articlesData = networkRepository.getArticlesData(totalPostsToDoRunQueryOn)
                 _articles.postValue(articlesData)
                 _state.value = DataState.DONE
             } catch (e: Exception) {

@@ -33,7 +33,7 @@ class BannerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        val binding: FragmentBannerBinding = FragmentBannerBinding.inflate(inflater)
+        val binding = FragmentBannerBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         binding.navController = findNavController()

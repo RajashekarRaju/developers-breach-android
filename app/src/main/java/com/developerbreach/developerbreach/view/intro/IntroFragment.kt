@@ -12,14 +12,13 @@ import com.developerbreach.developerbreach.utils.PrefUtils
 
 class IntroFragment : Fragment() {
 
-    private lateinit var binding: FragmentIntroBinding
     private val viewModel: IntroViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentIntroBinding.inflate(inflater, container, false)
+        val binding = FragmentIntroBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
         binding.executePendingBindings()

@@ -5,21 +5,19 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.developerbreach.developerbreach.DevelopersBreachApp
 import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.model.Categories
-import com.developerbreach.developerbreach.repository.AppRepository
-import com.developerbreach.developerbreach.repository.database.getDatabaseInstance
-import com.developerbreach.developerbreach.utils.DataState
+import com.developerbreach.developerbreach.networkManager.DataState
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
 
-class ArticleListViewModel constructor(
+class ArticleListViewModel(
     application: Application
 ) : AndroidViewModel(application) {
 
-    private val articleDatabase = getDatabaseInstance(application.applicationContext)
-    private val repository = AppRepository(articleDatabase)
+    private val networkRepository = (application as DevelopersBreachApp).networkRepository
 
     private val _articles = MutableLiveData<List<Article>>()
     val articlesByCategory: LiveData<List<Article>>
@@ -41,9 +39,11 @@ class ArticleListViewModel constructor(
     val articlesState: LiveData<DataState>
         get() = _articlesState
 
+    private lateinit var selectedCategory: Categories
+
     private var loadNextPage: Int = 1
 
-    private lateinit var selectedCategory: Categories
+    var isFirstTimeScrolled = true
 
     fun saveUserSelectedCategory(category: Categories) {
         loadNextPage = 1
@@ -59,7 +59,7 @@ class ArticleListViewModel constructor(
         viewModelScope.launch {
             _categoriesState.value = DataState.LOADING
             try {
-                val categoriesData = repository.getCategoriesData()
+                val categoriesData = networkRepository.getCategoriesData()
                 _categories.postValue(categoriesData)
                 _categoriesState.value = DataState.DONE
             } catch (e: Exception) {
@@ -79,7 +79,7 @@ class ArticleListViewModel constructor(
         viewModelScope.launch {
             _articlesState.value = DataState.LOADING
             try {
-                val articlesById = repository.getArticlesByCategory(
+                val articlesById = networkRepository.getArticlesByCategory(
                     selectedCategory.categoryId,
                     loadNextPage
                 )

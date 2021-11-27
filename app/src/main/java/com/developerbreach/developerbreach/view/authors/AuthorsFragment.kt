@@ -13,14 +13,13 @@ import java.util.concurrent.TimeUnit
 
 class AuthorsFragment : Fragment() {
 
-    private lateinit var binding: FragmentAuthorsBinding
     private val viewModel: AuthorsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAuthorsBinding.inflate(inflater, container, false)
+        val binding = FragmentAuthorsBinding.inflate(inflater, container, false)
         RecyclerViewItemDecoration.setItemSpacing(resources, binding.authorsRecyclerView)
         // Time taken for fragment to enter with transition
         postponeEnterTransition(100L, TimeUnit.MILLISECONDS)

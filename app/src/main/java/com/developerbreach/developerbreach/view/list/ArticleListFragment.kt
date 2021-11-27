@@ -14,14 +14,13 @@ import java.util.concurrent.TimeUnit
 
 class ArticleListFragment : Fragment() {
 
-    private lateinit var binding: FragmentArticleListBinding
     private val viewModel: ArticleListViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentArticleListBinding.inflate(inflater, container, false)
+        val binding = FragmentArticleListBinding.inflate(inflater, container, false)
         setItemSpacing(resources, binding.articlesRecyclerView)
         setItemSpacing(resources, binding.categorySelectRecyclerView)
         // Time taken for fragment to enter with transition
