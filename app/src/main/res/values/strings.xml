@@ -7,7 +7,6 @@
     <string name="web_view_toolbar_title_contact">Contact</string>
     <string name="web_view_toolbar_title_github">GitHub</string>
 
-
     <!--  ArticleWebViewFragment Appbar Menu Items  -->
     <string name="bottom_appbar_menu_title_search">Search</string>
     <string name="bottom_appbar_menu_title_close">Close</string>
@@ -15,18 +14,6 @@
     <string name="bottom_appbar_menu_title_refresh">Refresh</string>
     <string name="bottom_appbar_menu_title_find_top">Top</string>
     <string name="bottom_appbar_menu_title_find_bottom">Bottom</string>
-
-    <!--  SearchFragment  -->
-    <string name="search_articles_hint">Search Articles</string>
-    <string name="no_search_results_found">No Results Found</string>
-    <string name="search_query_dialog_title">Find The Query</string>
-    <string name="enter_query_hint">Enter Query</string>
-    <string name="search_query_error_message">Please Enter Query</string>
-    <string name="search_query_dialog_positive_button">Find</string>
-    <string name="search_query_dialog_negative_button">Cancel</string>
-
-    <!--  DetailFragment  -->
-    <string name="open_article_button_text">Open Article</string>
 
     <!--  App Snackbar Message's  -->
     <string name="snackbar_added_to_favorites_message">Added to Favorites</string>
@@ -48,13 +35,20 @@
     <string name="preference_category_title_contact">Contact</string>
     <string name="preference_category_title_developer">Developer</string>
     <!--  Preference Article Summary -->
-    <string name="preference_summary_article_contact">Submit email on what article i should write next.</string>
-    <string name="preference_summary_article_developer">I have open sourced this app into github repository, take a look at it.</string>
-    <!--  Preference Article Title -->
+    <string name="preference_summary_article_contact">
+        Submit email on what article i should write next.
+    </string>
+    <string name="preference_summary_article_developer">
+        I have open sourced this app into github repository, take a look at it.
+    </string>
 
-    <!--  Dialog Article Titles  -->
+    <!--  WebViewArticle error text  -->
     <string name="no_matches_found_search_results">No matches found.</string>
-
+    <string name="search_query_dialog_title">Find The Query</string>
+    <string name="enter_query_hint">Enter Query</string>
+    <string name="search_query_error_message">Please Enter Query</string>
+    <string name="search_query_dialog_positive_button">Find</string>
+    <string name="search_query_dialog_negative_button">Cancel</string>
 
     <!--  Firebase  -->
     <string name="default_notification_channel_id">fcm_default_channel</string>
@@ -62,20 +56,12 @@
 
     <!--    Content Description-->
     <string name="article_image_content_description">Article Image</string>
-    <string name="add_favorite_button_content_description">Add Article To Favorites Button</string>
     <string name="delete_favorite_button_content_description">Delete Article From Favorites Button</string>
     <string name="up_button_content_description">Navigate to previous screen</string>
     <string name="article_banner_image_content_description">Banner of the article</string>
-    <string name="close_banner_fragment_content_description">Button to close banner fragment</string>
     <string name="intro_pager_first_banner_content_description">App branding logo for introduction</string>
     <string name="clear_search_query_content_description">Button to clear search query</string>
-
-    <!--  Text for tools visibility  -->
-    <string name="author_name_tools_text">Rajasekhar</string>
-    <string name="article_title_tools_text">Article Title</string>
-    <string name="article_excerpt_tools_text">This is excerpt of the article. Has a overview of what
-        this article about.</string>
-    <string name="open_web_view_button_tools_text">Open WebView</string>
+    <string name="image_of_an_author_content_description">Image of an author</string>
 
     <!--  Key and Values for SharedPreferences used in IntroFragment whether to shown or hide  -->
     <string name="preference_intro_result_key">Find Result Fragment</string>
@@ -83,34 +69,37 @@
     <string name="preference_intro_fragment_shown_value">Intro Fragment Shown</string>
     <string name="preference_intro_fragment_not_shown_value">Intro Fragment Not Shown</string>
 
-    <!--  IntroFragment ViewPager Subtitle's  -->
+    <!--  IntroFragment  -->
+    <!--  ViewPager Subtitle's  -->
     <string name="intro_pager_first_subtitle_text">
-        Our motive is to promote use of technology, development to solve challenges.
-    </string>
-    <string name="intro_pager_second_subtitle_text">
-        We are building small scale apps for businesses and to teach students.
-    </string>
-    <string name="intro_pager_third_subtitle_text">
-        We actively contribute to open source which creates impact for learners and developers.
-    </string>
-    <string name="intro_pager_fourth_subtitle_text">
         This app outlines all content and articles feed we actively creating on our website.
     </string>
+    <string name="intro_pager_second_subtitle_text">
+        We actively contribute to open source which creates impact for learners and developers.
+    </string>
+    <string name="intro_pager_third_subtitle_text">
+        We are building small scale apps for businesses and to teach students.
+    </string>
+    <string name="intro_pager_fourth_subtitle_text">
+        Our motive is to promote use of technology, development to solve challenges.
+    </string>
 
-    <!--  IntroFragment ViewPager clickable text's  -->
+    <!--  HomeFragment  -->
+    <string name="recent_posts_tag">Recent</string>
+    <string name="view_all_tag">View All</string>
     <string name="search_header_title">Search Articles</string>
 
+    <!--  SearchFragment  -->
+    <string name="search_articles_hint">Search Articles</string>
 
-    <string name="recent_posts_tag">Recent Posts</string>
-
-
+    <!--  OptionsFragment  -->
     <string name="item_options_favorites">Favorites</string>
     <string name="item_options_search">Search</string>
     <string name="item_options_authors">Authors</string>
     <string name="item_options_settings">Settings</string>
     <string name="item_options_about">About</string>
 
-
+    <!--  ArticleListFragment Categories  -->
     <string name="category_title_android">Android</string>
     <string name="category_title_firebase">Firebase</string>
     <string name="category_title_kotlin">Kotlin</string>
@@ -118,9 +107,23 @@
     <string name="category_title_material_design">Material Design</string>
     <string name="category_title_compose">Compose</string>
     <string name="category_title_uncategorized">Uncategorized</string>
-
-    <string name="authors_tag">Authors</string>
-    <string name="view_all_tag">View All</string>
     <string name="category_tag">Select category</string>
+
+    <!--  AuthorsFragment  -->
+    <string name="authors_tag">Authors</string>
+
+    <!--  ArticleDetailFragment  -->
+    <string name="add_article_to_favorites">Add to favorites</string>
+    <string name="article_date_tools_text">May 1st, 2021</string>
+    <string name="author_name_tools_text">Author Name</string>
+    <string name="open_article_button_text">Open Article</string>
+    <string name="article_title_tools_text">
+        Jetpack Compose Hourglass animation on canvas in Android
+    </string>
+    <string name="article_excerpt_tools_text">
+        Learn how to create hourglass animation with drawing on canvas in android with jetpack
+        compose. Scale shape and color of animate-able object drawn on canvas based on duration with
+        initial and target values.
+    </string>
 
 </resources>

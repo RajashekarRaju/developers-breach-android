@@ -1,11 +1,5 @@
 <resources>
 
-    <style name="CardView.Article.Item.List" parent="Widget.MaterialComponents.CardView">
-        <item name="cardCornerRadius">8dp</item>
-        <item name="cardElevation">8dp</item>
-        <item name="strokeWidth">0dp</item>
-    </style>
-
     <style name="MaterialDialog.Article.Settings.Button" parent="ThemeOverlay.MaterialComponents.Dialog.Alert">
         <item name="buttonBarPositiveButtonStyle">@style/Button.Article.Settings.Text</item>
         <item name="buttonBarNegativeButtonStyle">@style/Button.Article.Settings.Text</item>
@@ -15,29 +9,6 @@
         <item name="android:textColor">?attr/colorOnPrimarySurface</item>
         <item name="buttonBarButtonStyle">?attr/selectableItemBackground</item>
         <item name="rippleColor">?attr/colorAccent</item>
-    </style>
-
-    <style name="TextAppearance.Article.Result.Error" parent="TextAppearance.MaterialComponents.Headline4">
-        <item name="fontFamily">@font/poppins_medium</item>
-        <item name="android:textColor">?attr/colorOnBackground</item>
-        <item name="android:visibility">invisible</item>
-    </style>
-
-<!--    <style name="ProgressBar.Article.Material.Horizontal" parent="android:Widget.Material.Light.ProgressBar.Horizontal">-->
-<!--        <item name="android:indeterminate">true</item>-->
-<!--        <item name="android:visibility">invisible</item>-->
-<!--    </style>-->
-
-    <style name="TextAppearance.Article.Detail.Title" parent="TextAppearance.MaterialComponents.Headline4">
-        <item name="android:fontFamily">@font/poppins_medium</item>
-    </style>
-
-    <style name="TextAppearance.Article.Item.Search" parent="TextAppearance.MaterialComponents.Headline5">
-        <item name="android:background">?attr/selectableItemBackground</item>
-        <item name="android:clickable">true</item>
-        <item name="android:focusable">true</item>
-        <item name="android:fontFamily">@font/poppins_medium</item>
-        <item name="android:textColor">?attr/colorOnBackground</item>
     </style>
 
     <style name="EditText.Article.Search.SearchBox" parent="TextAppearance.MaterialComponents.Headline6">

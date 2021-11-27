@@ -13,16 +13,19 @@
     <FrameLayout
         android:id="@+id/search_item_parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        tools:theme="@style/AppTheme.Blue">
 
         <TextView
             android:id="@+id/article_name_search_item_text_view"
-            style="@style/TextAppearance.Article.Item.Search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
             android:paddingHorizontal="@dimen/padding_16dp"
             android:paddingVertical="@dimen/padding_16dp"
             android:text="@{search.name}"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            android:textColor="?attr/colorOnBackground"
             android:transitionName="@{search.name}"
             app:bindSearchItemViewGroup="@{searchItemParent}"
             app:bindSearchToDetailListener="@{search.articleId}"
