@@ -12,6 +12,7 @@ import com.developerbreach.developerbreach.utils.*
 object QueryBuilder {
 
     private const val NUMBER_OF_POSTS_PER_PAGE = 5.toString()
+    private const val NUMBER_OF_AUTHORS = 30.toString()
 
     /**
      * https://developersbreach.com/wp-json/wp/v2/posts?per_page=5
@@ -21,7 +22,7 @@ object QueryBuilder {
     ): String {
         val uriBuilder: Uri.Builder = baseUriBuilder()
         uriBuilder.appendPath(APPEND_PATH_POSTS)
-        uriBuilder.appendQueryParameter(QUERY_PARAMETER_POSTS_PER_PAGE, numberOfPosts.toString())
+        uriBuilder.appendQueryParameter(QUERY_PARAMETER_COUNT_PER_PAGE, numberOfPosts.toString())
         return uriBuilder.build().toString()
     }
 
@@ -30,7 +31,7 @@ object QueryBuilder {
      * [articleId] updates list with new content.
      */
     fun articleByIdBuilder(
-        articleId: Int
+        articleId: Int?
     ): String {
         val uriBuilder: Uri.Builder = baseUriBuilder()
         uriBuilder.appendPath(APPEND_PATH_POSTS)
@@ -51,7 +52,7 @@ object QueryBuilder {
     ): String {
         val uriBuilder: Uri.Builder = baseUriBuilder()
         uriBuilder.appendPath(APPEND_PATH_POSTS)
-        uriBuilder.appendQueryParameter(QUERY_PARAMETER_POSTS_PER_PAGE, NUMBER_OF_POSTS_PER_PAGE)
+        uriBuilder.appendQueryParameter(QUERY_PARAMETER_COUNT_PER_PAGE, NUMBER_OF_POSTS_PER_PAGE)
         uriBuilder.appendQueryParameter(QUERY_PARAMETER_POSTS_PAGE, postsPage.toString())
         uriBuilder.appendQueryParameter(QUERY_PARAMETER_POSTS_BY_CATEGORY, categoryId.toString())
         uriBuilder.appendQueryParameter(QUERY_PARAMETER_POSTS_ORDER, ORDER_BY_DATE)
@@ -68,11 +69,12 @@ object QueryBuilder {
     }
 
     /**
-     * https://developersbreach.com/wp-json/wp/v2/{users}
+     * https://developersbreach.com/wp-json/wp/v2/{users}?per_page=30
      */
     fun authorBuilder(): String {
         val uriBuilder: Uri.Builder = baseUriBuilder()
         uriBuilder.appendPath(APPEND_PATH_USERS)
+        uriBuilder.appendQueryParameter(QUERY_PARAMETER_COUNT_PER_PAGE, NUMBER_OF_AUTHORS)
         return uriBuilder.build().toString()
     }
 
