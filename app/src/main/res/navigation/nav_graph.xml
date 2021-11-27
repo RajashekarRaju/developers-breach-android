@@ -104,7 +104,8 @@
         tools:layout="@layout/fragment_common_web_view">
         <argument
             android:name="webViewFragmentArgs"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true" />
     </fragment>
 
     <fragment
