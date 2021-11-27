@@ -10,9 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.developerbreach.developerbreach.databinding.FragmentCommonWebViewBinding
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class CommonWebViewFragment : Fragment() {
 
     private lateinit var viewModel: CommonWebViewViewModel

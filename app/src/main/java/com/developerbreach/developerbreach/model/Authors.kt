@@ -8,7 +8,6 @@ import kotlinx.parcelize.Parcelize
 data class Authors(
     val authorId: Int,
     val authorName: String,
-    val authorPostsLinkUrl: String,
     val authorAvatarUrl: String
 ) : Parcelable {
 

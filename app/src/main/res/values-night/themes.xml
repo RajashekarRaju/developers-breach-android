@@ -1,49 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Base.AppTheme" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="colorPrimary">@color/primaryColor</item>
-        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
-        <item name="colorOnPrimary">@color/onPrimaryColor</item>
-
-        <item name="colorSecondary">@color/secondaryColor</item>
-        <item name="colorOnSecondary">@color/onSecondaryColor</item>
-
-        <item name="colorSurface">@color/surfaceColor</item>
-        <item name="colorOnSurface">@color/onSurfaceColor</item>
-
-        <item name="background">@color/colorBackground</item>
-        <item name="colorOnBackground">@color/colorOnBackground</item>
-        <!-- <item name="android:background">@color/colorBackground</item>-->
-
         <item name="android:statusBarColor">@color/colorBackground</item>
         <item name="android:navigationBarColor">@color/colorBackground</item>
+        <item name="android:windowLightStatusBar" tools:ignore="NewApi">false</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">false</item>
 
         <item name="fontFamily">@font/poppins_regular</item>
         <item name="android:fontFamily">@font/poppins_regular</item>
+
+        <item name="elevationOverlayEnabled">true</item>
     </style>
 
     <style name="AppTheme" parent="@style/Base.AppTheme" />
 
-    <style name="AppTheme.HomeTheme">
+    <style name="AppTheme.Blue">
         <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorOnPrimary">@color/onPrimaryColor</item>
+
         <item name="colorSurface">@color/surfaceColor</item>
         <item name="colorOnSurface">@color/onSurfaceColor</item>
-        <item name="background">@color/colorBackground</item>
-        <item name="colorOnBackground">@color/colorOnBackground</item>
-        <!-- <item name="android:background">@color/colorBackground</item>-->
-        <item name="android:navigationBarColor">@color/secondaryColor</item>
-    </style>
 
-    <style name="AppTheme.IntroTheme">
-
-    </style>
-
-    <style name="AppTheme.MainTheme">
-        <item name="colorPrimary">@color/primaryColor</item>
-        <item name="colorSurface">@color/surfaceColor</item>
-        <item name="colorOnSurface">@color/onSurfaceColor</item>
         <item name="background">@color/colorBackground</item>
         <item name="colorOnBackground">@color/colorOnBackground</item>
     </style>

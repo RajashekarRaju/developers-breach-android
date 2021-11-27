@@ -5,9 +5,8 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.developerbreach.developerbreach.DevelopersBreachApp
 import com.developerbreach.developerbreach.model.Search
-import com.developerbreach.developerbreach.repository.AppRepository
-import com.developerbreach.developerbreach.repository.database.getDatabaseInstance
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.util.*
@@ -18,8 +17,7 @@ class SearchViewModel(
     application: Application
 ) : AndroidViewModel(application) {
 
-    private val articleDatabase = getDatabaseInstance(application.applicationContext)
-    private val repository = AppRepository(articleDatabase)
+    private val networkRepository = (application as DevelopersBreachApp).networkRepository
 
     private val _filteredArticles = MutableLiveData<List<Search>>()
     val filteredArticles: LiveData<List<Search>>
@@ -36,7 +34,8 @@ class SearchViewModel(
     private fun loadSearchableArticlesToFilter() {
         viewModelScope.launch {
             try {
-                searchableArticles = repository.getSearchableArticlesData(totalPostsToDoRunQueryOn)
+                searchableArticles =
+                    networkRepository.getSearchableArticlesData(totalPostsToDoRunQueryOn)
             } catch (e: Exception) {
                 Timber.e("Exception caught in SearchViewModel ${e.message}")
             }

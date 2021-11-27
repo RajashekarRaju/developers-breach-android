@@ -11,10 +11,6 @@ data class Article(
     val banner: String
 ) : Parcelable {
 
-    /**
-     * Allows the RecyclerView to determine which items have changed when the list of [Article]
-     * has been updated.
-     */
     companion object DiffCallback : DiffUtil.ItemCallback<Article>() {
 
         override fun areItemsTheSame(

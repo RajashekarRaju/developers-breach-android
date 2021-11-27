@@ -14,7 +14,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class OptionsFragment : BottomSheetDialogFragment() {
 
-    private lateinit var binding: FragmentOptionsBinding
     private val viewModel: OptionsViewModel by viewModels()
 
     override fun getTheme(): Int {
@@ -30,7 +29,7 @@ class OptionsFragment : BottomSheetDialogFragment() {
         savedInstanceState: Bundle?,
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentOptionsBinding.inflate(inflater, container, false)
+        val binding = FragmentOptionsBinding.inflate(inflater, container, false)
         binding.navController = findNavController()
         binding.viewModel = viewModel
         binding.fragment = this

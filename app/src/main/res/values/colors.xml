@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primaryColor">#236D8F</color>
-    <color name="primaryDarkColor">#123A4C</color>
     <color name="onPrimaryColor">#ffffff</color>
 
-    <color name="secondaryColor">#DFDFDF</color>
-    <color name="onSecondaryColor">#123A4C</color>
+    <color name="surfaceColor">#BAE2FF</color>
+    <color name="onSurfaceColor">#112132</color>
 
-    <color name="surfaceColor">#112132</color>
-    <color name="onSurfaceColor">#ffffff</color>
+    <color name="colorBackground">#E3F2FD</color>
+    <color name="colorOnBackground">#141A20</color>
 
-<!--    <color name="colorBrand">#236D8F</color>-->
-
-    <color name="colorBackground">#fafafa</color>
-    <color name="colorOnBackground">#000000</color>
-
-    <color name="colorLowWave">#9A9A9A</color>
-    <color name="colorMidWave">#D6D6D6</color>
-    <color name="colorHighWave">#FFFFFF</color>
-
+    <color name="colorHighWave">#E3F2FD</color>
+    <color name="colorMidWave">#BAE2FF</color>
+    <color name="colorLowWave">#9CD4FD</color>
 </resources>

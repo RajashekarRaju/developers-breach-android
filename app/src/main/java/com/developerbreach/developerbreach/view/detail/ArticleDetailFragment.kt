@@ -15,13 +15,13 @@ import com.google.android.material.transition.MaterialContainerTransform
 
 class ArticleDetailFragment : Fragment() {
 
-    private lateinit var binding: FragmentArticleDetailBinding
     private lateinit var viewModel: ArticleDetailViewModel
     private val args: ArticleDetailFragmentArgs by navArgs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val factory = ArticleDetailViewModelFactory(requireActivity().application, args.articleDetailArgs)
+        val application = requireActivity().application
+        val factory = ArticleDetailViewModelFactory(application, args.articleDetailArgs)
         viewModel = ViewModelProvider(this, factory)[ArticleDetailViewModel::class.java]
 
         sharedElementEnterTransition = MaterialContainerTransform().apply {
@@ -34,7 +34,7 @@ class ArticleDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentArticleDetailBinding.inflate(inflater, container, false)
+        val binding = FragmentArticleDetailBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         binding.navController = findNavController()

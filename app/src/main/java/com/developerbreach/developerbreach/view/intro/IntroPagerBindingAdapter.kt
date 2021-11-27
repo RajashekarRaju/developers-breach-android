@@ -108,10 +108,12 @@ fun View.setPagerFirstPositionViewer(
     }
 }
 
-private fun setCurrentViewPosition(currentView: View) {
+private fun setCurrentViewPosition(
+    currentView: View
+) {
     currentView.setBackgroundResource(R.drawable.current_pager_background)
-    currentView.layoutParams.height = currentView.convertToDp(8.toFloat())
-    currentView.layoutParams.width = currentView.convertToDp(8.toFloat())
+    currentView.layoutParams.height = currentView.convertToDp(12.toFloat())
+    currentView.layoutParams.width = currentView.convertToDp(12.toFloat())
 }
 
 private fun ImageView.navigateToArticleListFragment(

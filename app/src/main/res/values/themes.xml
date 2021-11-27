@@ -3,45 +3,26 @@
 
     <style name="Base.AppTheme" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="colorPrimary">@color/primaryColor</item>
-        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
-        <item name="colorOnPrimary">@color/onPrimaryColor</item>
-
-        <item name="colorSurface">@color/surfaceColor</item>
-        <item name="colorOnSurface">@color/onSurfaceColor</item>
-
-        <item name="background">@color/colorBackground</item>
-        <item name="colorOnBackground">@color/colorOnBackground</item>
-        <!-- <item name="android:background">@color/colorBackground</item>-->
-
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@color/colorBackground</item>
+        <item name="android:navigationBarColor">@color/colorBackground</item>
         <item name="android:windowLightStatusBar" tools:ignore="NewApi">true</item>
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
 
         <item name="fontFamily">@font/poppins_regular</item>
         <item name="android:fontFamily">@font/poppins_regular</item>
+
+        <item name="elevationOverlayEnabled">false</item>
     </style>
 
     <style name="AppTheme" parent="@style/Base.AppTheme" />
 
-    <style name="AppTheme.HomeTheme">
+    <style name="AppTheme.Blue">
         <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorOnPrimary">@color/onPrimaryColor</item>
+
         <item name="colorSurface">@color/surfaceColor</item>
         <item name="colorOnSurface">@color/onSurfaceColor</item>
-        <item name="background">@color/colorBackground</item>
-        <item name="colorOnBackground">@color/colorOnBackground</item>
-        <!-- <item name="android:background">@color/colorBackground</item>-->
-    </style>
 
-    <style name="AppTheme.IntroTheme">
-
-    </style>
-
-    <style name="AppTheme.MainTheme">
-        <item name="colorPrimary">@color/primaryColor</item>
-        <item name="colorSurface">@color/surfaceColor</item>
-        <item name="colorOnSurface">@color/onSurfaceColor</item>
         <item name="background">@color/colorBackground</item>
         <item name="colorOnBackground">@color/colorOnBackground</item>
     </style>

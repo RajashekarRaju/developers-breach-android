@@ -81,14 +81,6 @@ fun ImageView.setFavoriteItemBanner(
 }
 
 
-@BindingAdapter("bindFavoriteItemTitle")
-fun TextView.setFavoriteItemTitle(
-    title: String
-) {
-    this.text = capitalizeWord(title)
-}
-
-
 @BindingAdapter(
     "bindFavoriteFragmentModel", "bindFavoriteViewModel", "bindItemCardView"
 )

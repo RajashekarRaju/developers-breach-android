@@ -33,7 +33,6 @@ object JsonProperty {
         const val EXCERPT = "rendered"
         const val BANNER = "jetpack_featured_media_url"
         const val NAME = "name"
-        const val POST_URL = "link"
         const val AUTHOR_AVATAR_HIGH_RES = "96"
     }
 }
@@ -50,7 +49,7 @@ const val APPEND_PATH_USERS = "users"
 const val APPEND_PATH_CATEGORIES = "categories"
 const val APPEND_PATH_POSTS = "posts"
 
-const val QUERY_PARAMETER_POSTS_PER_PAGE = "per_page"
+const val QUERY_PARAMETER_COUNT_PER_PAGE = "per_page"
 const val QUERY_PARAMETER_POSTS_PAGE = "page"
 const val QUERY_PARAMETER_POSTS_BY_CATEGORY = "categories"
 const val QUERY_PARAMETER_POST_INCLUDE_ID = "include"

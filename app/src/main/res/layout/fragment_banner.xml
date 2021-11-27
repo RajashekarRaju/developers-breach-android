@@ -14,37 +14,31 @@
             type="androidx.navigation.NavController" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/background"
         android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.Blue"
         tools:context=".view.banner.BannerFragment">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_up_button"
+            app:navigationIconTint="?attr/colorOnBackground"
+            app:setNavigationOnClickListener="@{() -> navController.navigateUp()}" />
 
         <com.github.chrisbanes.photoview.PhotoView
             android:id="@+id/banner_full_screen_photo_view"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="@dimen/banner_height_featured_image"
+            android:layout_gravity="center"
             android:contentDescription="@string/article_banner_image_content_description"
             android:transitionName="@{viewModel.bannerUrl.toString()}"
             app:bindBannerWithZoom="@{viewModel.bannerUrl}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:src="@drawable/hourglass" />
 
-        <ImageView
-            android:id="@+id/close_banner_fragment_image_view"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="16dp"
-            android:background="?selectableItemBackgroundBorderless"
-            android:contentDescription="@string/close_banner_fragment_content_description"
-            android:onClick="@{() -> navController.navigateUp()}"
-            android:padding="8dp"
-            android:src="@drawable/ic_close"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="?attr/colorOnSecondary" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

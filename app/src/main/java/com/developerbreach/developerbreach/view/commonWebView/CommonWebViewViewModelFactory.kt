@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 
 class CommonWebViewViewModelFactory(
     private val application: Application,
-    private val urlString: String
+    private val urlString: String?
 ) :
     ViewModelProvider.Factory {
 

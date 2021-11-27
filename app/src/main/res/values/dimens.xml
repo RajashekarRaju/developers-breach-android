@@ -1,26 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--  Layout Margin, Padding  -->
+    <dimen name="layout_margin_28dp">28dp</dimen>
+    <dimen name="layout_margin_24dp">24dp</dimen>
+    <dimen name="layout_margin_16dp">16dp</dimen>
+    <dimen name="layout_margin_12dp">12dp</dimen>
+    <dimen name="layout_margin_8dp">8dp</dimen>
+    <dimen name="layout_margin_6dp">6dp</dimen>
+    <dimen name="layout_margin_4dp">4dp</dimen>
+
+    <dimen name="padding_32dp">32dp</dimen>
+    <dimen name="padding_20dp">20dp</dimen>
+    <dimen name="padding_16dp">16dp</dimen>
+    <dimen name="padding_12dp">12dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
+
     <!--  RecyclerView  -->
     <dimen name="recycler_view_spacing_dimen">10dp</dimen>
 
     <!--  item_article, favorite, search  -->
     <dimen name="detail_appbar_layout_height">278dp</dimen>
 
-    <dimen name="hor_guideline_width">1dp</dimen>
-
-    <!--  Layout Margin, Padding  -->
-    <dimen name="layout_margin_12dp">12dp</dimen>
-    <dimen name="layout_margin_28dp">28dp</dimen>
-    <dimen name="layout_margin_24dp">24dp</dimen>
-    <dimen name="layout_margin_16dp">16dp</dimen>
-    <dimen name="layout_margin_4dp">4dp</dimen>
-    <dimen name="layout_margin_6dp">6dp</dimen>
-    <dimen name="padding_16dp">16dp</dimen>
-    <dimen name="padding_12dp">12dp</dimen>
-    <dimen name="padding_8dp">8dp</dimen>
-    <dimen name="match_constraints">0dp</dimen>
     <dimen name="bottom_sheet_corner_radius">32dp</dimen>
-    <dimen name="layout_margin_8dp">8dp</dimen>
-
+    <dimen name="bottom_app_bar_inset_start">0dp</dimen>
+    <dimen name="bottom_app_bar_icon_size">32dp</dimen>
+    <dimen name="author_image_view_size">40dp</dimen>
+    <dimen name="button_corner_radius">28dp</dimen>
+    <dimen name="hor_guideline_width">1dp</dimen>
+    <dimen name="horizontal_line_height">1dp</dimen>
+    <dimen name="horizontal_separator">0.1dp</dimen>
+    <dimen name="match_constraint">0dp</dimen>
+    <dimen name="placeholder_image_height">200dp</dimen>
+    <dimen name="banner_height_featured_image">300dp</dimen>
+    <dimen name="margin_layout_20dp">20dp</dimen>
+    <dimen name="card_corner_radius_default">8dp</dimen>
+    <dimen name="card_default_stroke_width">0dp</dimen>
+    <dimen name="item_author_placeholder_image_size">60dp</dimen>
+    <dimen name="default_icon_size">24dp</dimen>
+    <dimen name="main_search_box_height">48dp</dimen>
+    <dimen name="search_box_logo_size">28dp</dimen>
+    <dimen name="intro_screen_image_size">200dp</dimen>
+    <dimen name="page_indicator_view_size">6dp</dimen>
 </resources>

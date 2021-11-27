@@ -6,6 +6,7 @@ data class Search(
     val articleId: Int,
     val name: String,
 ) {
+
     companion object DiffCallback : DiffUtil.ItemCallback<Search>() {
 
         override fun areItemsTheSame(

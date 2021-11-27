@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.databinding.FragmentArticleWebViewBinding
 import com.developerbreach.developerbreach.utils.showSnackBar
@@ -22,8 +23,10 @@ import com.google.android.material.textfield.TextInputEditText
 
 class ArticleWebViewFragment : Fragment() {
 
-    private lateinit var binding: FragmentArticleWebViewBinding
     private lateinit var viewModel: ArticleWebViewViewModel
+    private val args: ArticleWebViewFragmentArgs by navArgs()
+
+    private lateinit var binding: FragmentArticleWebViewBinding
     private lateinit var webView: WebView
 
     @RequiresApi(Build.VERSION_CODES.Q)
@@ -31,24 +34,25 @@ class ArticleWebViewFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val articleUrlLink = ArticleWebViewFragmentArgs.fromBundle(requireArguments()).articleUrlLink
-        val factory = ArticleWebViewViewModelFactory(requireActivity().application, articleUrlLink)
+        val application = requireActivity().application
+        val factory = ArticleWebViewViewModelFactory(application, args.articleUrlLink)
         viewModel = ViewModelProvider(this, factory)[ArticleWebViewViewModel::class.java]
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
-        // Get reference to binding and inflate this class layout.
-        binding = FragmentArticleWebViewBinding.inflate(inflater)
-        // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment.
+        binding = FragmentArticleWebViewBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
-        webView = binding.articleWebView
         binding.viewModel = viewModel
-        setWebViewMenu()
+        webView = binding.articleWebView
         binding.executePendingBindings()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setWebViewMenu()
     }
 
     private fun setWebViewMenu() {
@@ -61,7 +65,6 @@ class ArticleWebViewFragment : Fragment() {
 
     private inner class MenuItemsChangeListener : Toolbar.OnMenuItemClickListener {
 
-        @RequiresApi(Build.VERSION_CODES.Q)
         override fun onMenuItemClick(menuItem: MenuItem): Boolean {
             when (menuItem.itemId) {
                 R.id.change_theme_detail_fragment_menu_item -> changeWebViewTheme()
@@ -76,15 +79,16 @@ class ArticleWebViewFragment : Fragment() {
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.Q)
     private fun changeWebViewTheme() {
         val webSettings = webView.settings
-        if (themeMode == WebSettings.FORCE_DARK_ON) {
-            webSettings.forceDark = WebSettings.FORCE_DARK_OFF
-            themeMode = WebSettings.FORCE_DARK_OFF
-        } else if (themeMode == WebSettings.FORCE_DARK_OFF) {
-            webSettings.forceDark = WebSettings.FORCE_DARK_ON
-            themeMode = WebSettings.FORCE_DARK_ON
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            if (themeMode == WebSettings.FORCE_DARK_ON) {
+                webSettings.forceDark = WebSettings.FORCE_DARK_OFF
+                themeMode = WebSettings.FORCE_DARK_OFF
+            } else if (themeMode == WebSettings.FORCE_DARK_OFF) {
+                webSettings.forceDark = WebSettings.FORCE_DARK_ON
+                themeMode = WebSettings.FORCE_DARK_ON
+            }
         }
     }
 

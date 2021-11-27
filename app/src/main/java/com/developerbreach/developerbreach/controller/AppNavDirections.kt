@@ -21,10 +21,12 @@ import com.google.android.material.card.MaterialCardView
 
 
 class AppNavDirections(
-    private val navController: NavController,
+    private val navController: NavController
 ) {
 
-    private fun navigate(directions: NavDirections) {
+    private fun navigate(
+        directions: NavDirections
+    ) {
         navController.navigate(directions)
     }
 
@@ -55,7 +57,10 @@ class AppNavDirections(
     fun toNetworkFragment() = navigate(NetworkFragmentDirections.toNetworkFragmentGlobal())
 
     /** SearchFragment */
-    fun searchToDetail(articleId: Int, view: TextView) {
+    fun searchToDetail(
+        articleId: Int,
+        view: TextView
+    ) {
         navigateWithExtras(
             ArticleDetailFragmentDirections.toDetailFragmentGlobal(articleId),
             FragmentNavigatorExtras(view to articleId.toString())
@@ -78,11 +83,16 @@ class AppNavDirections(
     }
 
     /** DetailFragment */
-    fun detailToArticleWebView(articleUrlLink: String?) {
+    fun detailToArticleWebView(
+        articleUrlLink: String?
+    ) {
         navigate(ArticleDetailFragmentDirections.detailToArticleWebView(articleUrlLink))
     }
 
-    fun detailToBanner(bannerUrl: String?, view: ImageView) {
+    fun detailToBanner(
+        bannerUrl: String?,
+        view: ImageView
+    ) {
         navigateWithExtras(
             ArticleDetailFragmentDirections.detailToBanner(bannerUrl),
             FragmentNavigatorExtras(view as View to bannerUrl.toString())
@@ -90,7 +100,9 @@ class AppNavDirections(
     }
 
     /** SettingsFragment */
-    fun settingsToCommonWebView(webUrl: String) {
+    fun settingsToCommonWebView(
+        webUrl: String
+    ) {
         navigate(SettingsFragmentDirections.settingsToCommonWebView(webUrl))
     }
 }

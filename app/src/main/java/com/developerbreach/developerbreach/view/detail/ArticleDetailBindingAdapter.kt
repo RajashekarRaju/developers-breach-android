@@ -1,7 +1,6 @@
 package com.developerbreach.developerbreach.view.detail
 
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -11,7 +10,7 @@ import androidx.transition.TransitionManager
 import com.bumptech.glide.Glide
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.controller.AppNavDirections
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -20,7 +19,7 @@ fun ImageView.setImageResource(
     urlString: String?
 ) {
     val imageView = this
-    Glide.with(this.context).load(urlString).into(this)
+    Glide.with(this.context).load(urlString).centerCrop().into(this)
 
     this.setOnClickListener {
         TransitionManager.beginDelayedTransition(imageView.rootView as ViewGroup, Fade())
@@ -30,10 +29,9 @@ fun ImageView.setImageResource(
 
 
 @BindingAdapter("bindButtonWebView")
-fun Button.setButtonWebView(
+fun MaterialButton.setButtonWebView(
     articleUrlLink: String?
 ) {
-    this.text = this.context.getString(R.string.open_article_button_text)
     this.setOnClickListener {
         AppNavDirections(findNavController()).detailToArticleWebView(articleUrlLink)
     }
@@ -77,8 +75,8 @@ fun TextView.setArticleExcerpt(
 }
 
 
-@BindingAdapter("bindDetailViewModel")
-fun FloatingActionButton.setDetailFab(
+@BindingAdapter("bindAddArticleToFavorites")
+fun MaterialButton.setAddArticleToFavorites(
     viewModel: ArticleDetailViewModel,
 ) {
     this.setOnClickListener { view ->
