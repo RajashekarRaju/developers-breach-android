@@ -13,15 +13,16 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/background"
         android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.Blue"
         tools:context=".view.articleWebView.ArticleWebViewFragment">
 
         <androidx.core.widget.NestedScrollView
-            android:id="@+id/nested_scroll_web_view_article"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scrollbars="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:fillViewport="true">
 
             <WebView
                 android:id="@+id/article_web_view"
@@ -39,6 +40,7 @@
             android:layout_gravity="top"
             android:indeterminate="true"
             android:visibility="gone"
+            app:trackColor="?attr/colorOnBackground"
             tools:visibility="visible" />
 
         <com.google.android.material.bottomappbar.BottomAppBar
@@ -46,16 +48,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            app:backgroundTint="?attr/background"
             tools:menu="@menu/bottom_app_bar_menu" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_article_web_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/layout_margin_16dp"
+            app:backgroundTint="?attr/colorPrimary"
             app:bindShareFabListener="@{viewModel.articleUrlLink}"
             app:layout_anchor="@id/article_web_view_bottom_app_bar"
             app:srcCompat="@android:drawable/ic_menu_share"
+            app:tint="?attr/colorOnPrimary"
             tools:ignore="ContentDescription" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

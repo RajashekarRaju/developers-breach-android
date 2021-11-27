@@ -19,68 +19,55 @@
         android:layout_height="match_parent"
         android:background="?attr/background"
         android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.MainTheme"
+        android:theme="@style/AppTheme.Blue"
         tools:context=".view.authors.AuthorsFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/background"
+            app:liftOnScroll="false"
+            app:liftOnScrollTargetViewId="@id/authors_recycler_view">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/ic_up_button"
+                app:navigationIconTint="?attr/colorOnBackground"
+                app:setNavigationOnClickListener="@{() -> navController.navigateUp()}"
+                app:title="@string/authors_tag"
+                app:titleTextColor="?attr/colorOnBackground" />
+
+        </com.google.android.material.appbar.AppBarLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/author_fragment_up_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:alpha="0.7"
-                android:background="?selectableItemBackgroundBorderless"
-                android:contentDescription="@string/up_button_content_description"
-                android:onClick="@{() -> navController.navigateUp()}"
-                android:src="@drawable/ic_up_button"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="?attr/colorOnBackground" />
-
-            <TextView
-                android:id="@+id/authors_tag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="4dp"
-                android:text="@string/authors_tag"
-                android:textAppearance="?attr/textAppearanceHeadline5"
-                android:textColor="?attr/colorOnBackground"
-                app:layout_constraintBottom_toBottomOf="@id/author_fragment_up_button"
-                app:layout_constraintStart_toEndOf="@id/author_fragment_up_button"
-                app:layout_constraintTop_toTopOf="@id/author_fragment_up_button" />
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/authors_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 android:layout_marginHorizontal="@dimen/recycler_view_spacing_dimen"
-                android:layout_marginTop="8dp"
                 android:clipToPadding="false"
                 android:orientation="vertical"
-                android:scrollbars="none"
                 app:bindAuthorsListData="@{viewModel.authors}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/authors_tag"
                 tools:itemCount="6"
                 tools:listitem="@layout/item_author" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:id="@+id/progress_bar_authors"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:indeterminate="true"
-            android:visibility="gone"
+            android:visibility="invisible"
             app:bindCircularProgressDataState="@{viewModel.authorsDataState}"
-            tools:visibility="visible" />
+            app:indicatorColor="?attr/colorOnBackground" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

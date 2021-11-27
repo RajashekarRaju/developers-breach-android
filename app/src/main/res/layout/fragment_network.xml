@@ -8,11 +8,10 @@
         android:layout_height="match_parent"
         android:background="?attr/background"
         android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.HomeTheme"
+        android:theme="@style/AppTheme.Blue"
         tools:context=".view.network.NetworkFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/home_content_parent_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -20,7 +19,7 @@
             <ImageView
                 android:id="@+id/server_image_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/placeholder_image_height"
                 android:layout_marginBottom="@dimen/layout_margin_6dp"
                 android:src="@drawable/ic_server_status"
                 app:layout_constraintBottom_toTopOf="@id/hor_guideline"
@@ -49,12 +48,12 @@
 
             <TextView
                 android:id="@+id/no_internet_connection_description_tag"
-                android:layout_width="0dp"
+                android:layout_width="@dimen/match_constraint"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/layout_margin_8dp"
                 android:alpha="0.7"
                 android:gravity="center"
-                android:paddingHorizontal="18dp"
+                android:paddingHorizontal="@dimen/padding_20dp"
                 android:text="@string/no_internet_connection_description"
                 android:textAppearance="?attr/textAppearanceSubtitle1"
                 android:textColor="?attr/colorOnBackground"
@@ -62,16 +61,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/no_internet_connection_tag" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/no_internet_connection_try_again"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/layout_margin_24dp"
                 android:layout_marginTop="@dimen/layout_margin_8dp"
-                android:backgroundTint="?attr/colorPrimary"
+                android:backgroundTint="?attr/colorSurface"
+                android:stateListAnimator="@animator/item_selected"
                 android:text="@string/no_internet_connection_try_again"
                 android:textAllCaps="false"
-                android:textAppearance="?attr/textAppearanceButton"
-                android:textColor="?attr/background"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textColor="?attr/colorOnSurface"
+                app:cornerRadius="@dimen/button_corner_radius"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/no_internet_connection_description_tag" />
