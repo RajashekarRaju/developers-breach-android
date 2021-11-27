@@ -19,13 +19,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@{intro.background}"
-        android:theme="@style/AppTheme.IntroTheme"
-        tools:background="@drawable/ic_one_pager_intro">
+        tools:background="@drawable/ic_one_pager_intro"
+        tools:theme="@style/AppTheme.Blue">
 
         <ImageView
             android:id="@+id/intro_banner_view_pager_item_image"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="@dimen/intro_screen_image_size"
+            android:layout_height="@dimen/intro_screen_image_size"
             android:layout_marginBottom="@dimen/layout_margin_16dp"
             android:contentDescription="@string/intro_pager_first_banner_content_description"
             android:src="@{intro.banner}"
@@ -55,7 +55,7 @@
             android:id="@+id/next_item_image_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/layout_margin_16dp"
             android:background="@drawable/circle_bg"
             android:backgroundTint="?attr/colorSurface"
             android:padding="@dimen/padding_8dp"
@@ -73,7 +73,7 @@
             android:id="@+id/finish_item_image_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_margin="@dimen/layout_margin_16dp"
             android:background="@drawable/circle_bg"
             android:backgroundTint="?attr/colorSurface"
             android:padding="@dimen/padding_8dp"
@@ -97,9 +97,9 @@
             app:layout_constraintTop_toTopOf="@id/next_item_image_view">
 
             <View
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:layout_margin="4dp"
+                android:layout_width="@dimen/page_indicator_view_size"
+                android:layout_height="@dimen/page_indicator_view_size"
+                android:layout_margin="@dimen/layout_margin_4dp"
                 android:background="@drawable/pager_background"
                 app:bindPagerFirstPositionViewer="@{intro.id}"
                 app:bindPagerFourthPositionViewer="@{introPagerPositionFourth}"
@@ -110,23 +110,23 @@
 
             <View
                 android:id="@+id/intro_pager_position_two"
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:layout_margin="4dp"
+                android:layout_width="@dimen/page_indicator_view_size"
+                android:layout_height="@dimen/page_indicator_view_size"
+                android:layout_margin="@dimen/layout_margin_4dp"
                 android:background="@drawable/pager_background" />
 
             <View
                 android:id="@+id/intro_pager_position_three"
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:layout_margin="4dp"
+                android:layout_width="@dimen/page_indicator_view_size"
+                android:layout_height="@dimen/page_indicator_view_size"
+                android:layout_margin="@dimen/layout_margin_4dp"
                 android:background="@drawable/pager_background" />
 
             <View
                 android:id="@+id/intro_pager_position_fourth"
-                android:layout_width="6dp"
-                android:layout_height="6dp"
-                android:layout_margin="4dp"
+                android:layout_width="@dimen/page_indicator_view_size"
+                android:layout_height="@dimen/page_indicator_view_size"
+                android:layout_margin="@dimen/layout_margin_4dp"
                 android:background="@drawable/pager_background" />
 
         </LinearLayout>

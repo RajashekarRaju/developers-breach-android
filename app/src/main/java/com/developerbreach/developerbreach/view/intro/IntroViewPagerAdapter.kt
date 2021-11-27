@@ -2,7 +2,6 @@ package com.developerbreach.developerbreach.view.intro
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
@@ -12,7 +11,7 @@ import com.developerbreach.developerbreach.view.intro.IntroViewPagerAdapter.*
 
 class IntroViewPagerAdapter(
     private val introViewPager: ViewPager2
-) : ListAdapter<Intro, IntroViewHolder>(IntroDiffCallback) {
+) : ListAdapter<Intro, IntroViewHolder>(Intro.DiffCallback) {
 
     class IntroViewHolder(
         val binding: ItemIntroViewPagerBinding
@@ -39,15 +38,5 @@ class IntroViewPagerAdapter(
     override fun onBindViewHolder(holder: IntroViewHolder, position: Int) {
         val intro = getItem(position)
         holder.bind(intro, introViewPager)
-    }
-
-    companion object IntroDiffCallback : DiffUtil.ItemCallback<Intro>() {
-        override fun areItemsTheSame(oldItem: Intro, newItem: Intro): Boolean {
-            return oldItem === newItem
-        }
-
-        override fun areContentsTheSame(oldItem: Intro, newItem: Intro): Boolean {
-            return oldItem.id == newItem.id
-        }
     }
 }

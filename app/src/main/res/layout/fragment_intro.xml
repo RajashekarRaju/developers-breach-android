@@ -10,9 +10,11 @@
             type="com.developerbreach.developerbreach.view.intro.IntroViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.Blue"
         tools:context=".view.intro.IntroFragment">
 
         <androidx.viewpager2.widget.ViewPager2
@@ -22,6 +24,6 @@
             android:orientation="horizontal"
             app:bindIntroListData="@{viewModel.introPagerListData}" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

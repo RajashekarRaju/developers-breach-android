@@ -15,12 +15,11 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/item_options_parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?selectableItemBackground"
-        android:paddingVertical="8dp"
-        android:paddingStart="32dp"
+        android:paddingVertical="@dimen/padding_8dp"
+        android:paddingStart="@dimen/padding_32dp"
         android:stateListAnimator="@animator/item_selected"
         app:bindOptionsFragmentReference="@{fragment}"
         app:bindOptionsItemClickListener="@{options.optionsId}"
@@ -42,8 +41,8 @@
             android:id="@+id/item_settings_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginStart="@dimen/layout_margin_24dp"
+            android:layout_marginTop="@dimen/layout_margin_4dp"
             android:text="@{options.optionsTitle}"
             android:textAppearance="?attr/textAppearanceHeadline6"
             android:textColor="?attr/colorOnBackground"
