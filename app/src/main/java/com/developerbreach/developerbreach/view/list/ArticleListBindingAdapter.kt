@@ -15,7 +15,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.developerbreach.developerbreach.R
 import com.developerbreach.developerbreach.controller.AppNavDirections
 import com.developerbreach.developerbreach.model.Article
-import com.developerbreach.developerbreach.utils.capitalizeWord
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.card.MaterialCardView
 
 
@@ -42,8 +42,6 @@ fun RecyclerView.setArticleListDataByCategory(
     }
 }
 
-private var isFirstTimeCall = true
-
 private fun articlesScrollListener(
     viewModel: ArticleListViewModel
 ): RecyclerView.OnScrollListener = object : RecyclerView.OnScrollListener() {
@@ -51,65 +49,35 @@ private fun articlesScrollListener(
     override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
         super.onScrollStateChanged(recyclerView, newState)
 
-        if (!recyclerView.canScrollVertically(1) && newState == RecyclerView.SCROLL_STATE_IDLE) {
-            if (isFirstTimeCall) {
-                isFirstTimeCall = false
-                viewModel.loadMoreArticles()
-            }
-        }
+        val bottomDirection = 1
+        val canScrollVertically = recyclerView.canScrollVertically(bottomDirection)
 
-        if (!recyclerView.canScrollVertically(1) && newState == RecyclerView.SCROLL_STATE_DRAGGING) {
-            isFirstTimeCall = true
+        if (!canScrollVertically) {
+            when (newState) {
+                RecyclerView.SCROLL_STATE_IDLE -> {
+                    if (viewModel.isFirstTimeScrolled) {
+                        viewModel.isFirstTimeScrolled = false
+                        viewModel.loadMoreArticles()
+                    }
+                }
+                RecyclerView.SCROLL_STATE_DRAGGING -> {
+                    viewModel.isFirstTimeScrolled = true
+                }
+            }
         }
     }
 }
 
 
 @BindingAdapter("bindSelectedCategoryText")
-fun TextView.setSelectedCategoryText(
+fun MaterialToolbar.setSelectedCategoryText(
     categoryName: String?
 ) {
     if (categoryName.isNullOrEmpty()) {
-        this.text = this.resources.getString(R.string.category_tag)
+        this.title = this.resources.getString(R.string.category_tag)
     } else {
-        this.text = categoryName
+        this.title = categoryName
     }
-}
-
-
-@BindingAdapter("bindSelectedCategoryIcon")
-fun ImageView.setSelectedCategoryIcon(
-    categoryName: String?
-) {
-    var icon = 0
-    when (categoryName) {
-        context.getString(R.string.category_title_android) -> icon = R.drawable.ic_android
-        context.getString(R.string.category_title_firebase) -> icon = R.drawable.ic_firebase
-        context.getString(R.string.category_title_kotlin) -> icon = R.drawable.ic_kotlin
-        context.getString(R.string.category_title_machine_learning) -> icon = R.drawable.ic_ml
-        context.getString(R.string.category_title_material_design) -> icon = R.drawable.ic_mdc
-        context.getString(R.string.category_title_compose) -> icon = R.drawable.ic_compose
-        context.getString(R.string.category_title_uncategorized) -> this.visibility = View.GONE
-    }
-    this.setImageResource(icon)
-}
-
-/**
- * BindingAdapters for fragment class [ArticleListFragment].
- * This values will be called as attributes in fragment layout [R.layout.item_article].
- * Setters for binding from layout is set in adapter class [ArticleAdapter].
- *
- * When value articleItemTitle is used as attribute on TextView, the method bindArticleItemTitle
- * is called.
- *
- * TextView to set a String value to it.
- * @param title    contains String value article title to be set to TextView.
- */
-@BindingAdapter("bindArticleItemName")
-fun TextView.setArticleItemTitle(
-    title: String
-) {
-    this.text = capitalizeWord(title)
 }
 
 
@@ -146,9 +114,8 @@ fun MaterialCardView.setArticleToDetailClickListener(
 fun ImageView.setArticlesEmptyStateImage(
     listSize: Int?
 ) {
-    if (listSize == 0) {
-        this.visibility = View.VISIBLE
-    } else {
-        this.visibility = View.GONE
+    when (listSize) {
+        0 -> this.visibility = View.VISIBLE
+        else -> this.visibility = View.GONE
     }
 }

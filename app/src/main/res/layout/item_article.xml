@@ -13,14 +13,16 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:stateListAnimator="@animator/item_selected"
         android:transitionName="@{article.name}"
         app:bindArticleItemTitleTransition="@{articleTitleItemTextView}"
         app:bindArticleToDetailListener="@{article.articleId}"
-        app:cardBackgroundColor="?attr/colorSecondary"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
-        app:strokeWidth="0dp"
-        tools:cardUseCompatPadding="true">
+        app:cardBackgroundColor="?attr/colorSurface"
+        app:cardCornerRadius="@dimen/card_corner_radius_default"
+        app:strokeWidth="@dimen/card_default_stroke_width"
+        tools:cardUseCompatPadding="true"
+        tools:layout_margin="@dimen/layout_margin_8dp"
+        tools:theme="@style/AppTheme.Blue">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -28,8 +30,8 @@
 
             <ImageView
                 android:id="@+id/article_thumbnail_item_image_view"
-                android:layout_width="@dimen/match_constraints"
-                android:layout_height="@dimen/match_constraints"
+                android:layout_width="@dimen/match_constraint"
+                android:layout_height="@dimen/match_constraint"
                 android:contentDescription="@string/article_banner_image_content_description"
                 android:scaleType="centerCrop"
                 app:bindArticleItemBanner="@{article.banner}"
@@ -45,9 +47,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/layout_margin_16dp"
                 android:gravity="center"
+                android:text="@{article.name}"
                 android:textAppearance="?attr/textAppearanceHeadline5"
-                android:textColor="?attr/colorOnSecondary"
-                app:bindArticleItemName="@{article.name}"
+                android:textColor="?attr/colorOnSurface"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/article_thumbnail_item_image_view"
