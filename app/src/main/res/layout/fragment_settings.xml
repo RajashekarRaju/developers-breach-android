@@ -132,6 +132,34 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <TextView
+                android:layout_width="@dimen/match_constraint"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/layout_margin_8dp"
+                android:alpha="0.8"
+                android:gravity="center"
+                android:paddingHorizontal="24dp"
+                android:text="@string/un_draw_description"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                android:textColor="#6C63FF"
+                android:textStyle="italic"
+                app:layout_constraintBottom_toTopOf="@id/un_draw_textview_tag"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/un_draw_textview_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/layout_margin_16dp"
+                android:text="@string/un_draw_tag"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                android:textColor="#6C63FF"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
