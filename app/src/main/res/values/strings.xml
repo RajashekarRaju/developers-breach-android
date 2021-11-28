@@ -28,7 +28,7 @@
 
     <!--  WebView URL's in WebViewFragment  -->
     <string name="url_site_contact">https://developersbreach.com/contact/</string>
-    <string name="url_site_developer">https://github.com/RajashekarRaju</string>
+    <string name="url_site_developer">https://github.com/RajashekarRaju/developers-breach-android</string>
 
     <!--  SettingsFragment Preferences  -->
     <!--  Category Title  -->
@@ -125,5 +125,8 @@
         compose. Scale shape and color of animate-able object drawn on canvas based on duration with
         initial and target values.
     </string>
+
+    <string name="un_draw_tag">UnDraw</string>
+    <string name="un_draw_description">Thanks to UnDraw for giving open source illustrations.</string>
 
 </resources>
