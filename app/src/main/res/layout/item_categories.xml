@@ -1,69 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        <variable
-            name="category"
-            type="com.developerbreach.developerbreach.model.Categories" />
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
 
-        <variable
-            name="viewModel"
-            type="com.developerbreach.developerbreach.view.list.ArticleListViewModel" />
-    </data>
+<!--    <data>-->
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/item_category_parent_card_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:stateListAnimator="@animator/item_selected"
-        app:bindArticleListViewModel="@{viewModel}"
-        app:bindItemCategoryParentListener="@{category}"
-        app:cardBackgroundColor="?attr/colorSurface"
-        app:cardCornerRadius="@dimen/card_corner_radius_default"
-        tools:layout_gravity="center"
-        tools:layout_marginEnd="@dimen/layout_margin_16dp"
-        tools:theme="@style/AppTheme.Blue">
+<!--        <variable-->
+<!--            name="category"-->
+<!--            type="com.developerbreach.developerbreach.model.Categories" />-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding_8dp">
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="com.developerbreach.developerbreach.ui.category.CategoryViewModel" />-->
+<!--    </data>-->
 
-            <ImageView
-                android:id="@+id/item_category_icon_image_view"
-                android:layout_width="@dimen/default_icon_size"
-                android:layout_height="@dimen/default_icon_size"
-                android:layout_marginStart="@dimen/layout_margin_12dp"
-                app:bindItemCategoryIconImageView="@{category}"
-                app:bindItemCategoryParentCardView="@{itemCategoryParentCardView}"
-                app:bindItemCategoryTitleTextView="@{itemCategoryTitleTextView}"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/item_category_title_text_view"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="ContentDescription"
-                tools:src="@drawable/ic_kotlin" />
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--        android:id="@+id/item_category_parent_card_view"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:stateListAnimator="@animator/item_selected"-->
+<!--        app:bindArticleListViewModel="@{viewModel}"-->
+<!--        app:bindItemCategoryParentListener="@{category}"-->
+<!--        app:cardBackgroundColor="?attr/colorSurface"-->
+<!--        app:cardCornerRadius="@dimen/card_corner_radius_default"-->
+<!--        tools:layout_gravity="center"-->
+<!--        tools:layout_marginEnd="@dimen/layout_margin_16dp"-->
+<!--        tools:theme="@style/AppTheme.Blue">-->
 
-            <TextView
-                android:id="@+id/item_category_title_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="@dimen/padding_12dp"
-                android:paddingEnd="@dimen/padding_16dp"
-                android:text="@{category.categoryName}"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="?attr/colorOnSurface"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/item_category_icon_image_view"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Android" />
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:padding="@dimen/padding_8dp">-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            <ImageView-->
+<!--                android:id="@+id/item_category_icon_image_view"-->
+<!--                android:layout_width="@dimen/default_icon_size"-->
+<!--                android:layout_height="@dimen/default_icon_size"-->
+<!--                android:layout_marginStart="@dimen/layout_margin_12dp"-->
+<!--                app:bindItemCategoryIconImageView="@{category}"-->
+<!--                app:bindItemCategoryParentCardView="@{itemCategoryParentCardView}"-->
+<!--                app:bindItemCategoryTitleTextView="@{itemCategoryTitleTextView}"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toStartOf="@id/item_category_title_text_view"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                tools:ignore="ContentDescription"-->
+<!--                tools:src="@drawable/ic_kotlin" />-->
 
-    </com.google.android.material.card.MaterialCardView>
+<!--            <TextView-->
+<!--                android:id="@+id/item_category_title_text_view"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingStart="@dimen/padding_12dp"-->
+<!--                android:paddingEnd="@dimen/padding_16dp"-->
+<!--                android:text="@{category.categoryName}"-->
+<!--                android:textAppearance="?attr/textAppearanceSubtitle1"-->
+<!--                android:textColor="?attr/colorOnSurface"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@id/item_category_icon_image_view"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                tools:text="Android" />-->
 
-</layout>
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--    </com.google.android.material.card.MaterialCardView>-->
+
+<!--</layout>-->

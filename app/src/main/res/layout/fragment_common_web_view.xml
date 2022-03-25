@@ -1,73 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        <variable
-            name="navController"
-            type="androidx.navigation.NavController" />
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
 
-        <variable
-            name="viewModel"
-            type="com.developerbreach.developerbreach.view.commonWebView.CommonWebViewViewModel" />
-    </data>
+<!--    <data>-->
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/background"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.Blue"
-        tools:context=".view.commonWebView.CommonWebViewFragment">
+<!--        <variable-->
+<!--            name="navController"-->
+<!--            type="androidx.navigation.NavController" />-->
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/background"
-            app:liftOnScroll="false"
-            app:liftOnScrollTargetViewId="@id/detail_view_scroll_view">
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="com.developerbreach.developerbreach.ui.commonWebView.CommonWebViewViewModel" />-->
+<!--    </data>-->
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_collapseMode="pin"
-                app:navigationIcon="@drawable/ic_close"
-                app:navigationIconTint="?attr/colorOnBackground"
-                app:setNavigationOnClickListener="@{() -> navController.navigateUp()}"
-                app:title="@{viewModel.toolBarTitle}"
-                app:titleTextColor="?attr/colorOnBackground"
-                tools:title="Title" />
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="?attr/background"-->
+<!--        android:fitsSystemWindows="true"-->
+<!--        android:theme="@style/AppTheme.Blue"-->
+<!--        tools:context=".ui.commonWebView.CommonWebViewFragment">-->
 
-        </com.google.android.material.appbar.AppBarLayout>
+<!--        <com.google.android.material.appbar.AppBarLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="?attr/background"-->
+<!--            app:liftOnScroll="false"-->
+<!--            app:liftOnScrollTargetViewId="@id/detail_view_scroll_view">-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+<!--            <com.google.android.material.appbar.MaterialToolbar-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_collapseMode="pin"-->
+<!--                app:navigationIcon="@drawable/ic_close"-->
+<!--                app:navigationIconTint="?attr/colorOnBackground"-->
+<!--                app:setNavigationOnClickListener="@{() -> navController.navigateUp()}"-->
+<!--                app:title="@{viewModel.toolBarTitle}"-->
+<!--                app:titleTextColor="?attr/colorOnBackground"-->
+<!--                tools:title="Title" />-->
 
-            <com.google.android.material.progressindicator.LinearProgressIndicator
-                android:id="@+id/fragment_common_web_view_progress_bar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:indeterminate="true"
-                android:visibility="invisible"
-                app:indicatorColor="?attr/colorOnBackground"
-                app:layout_constraintBottom_toTopOf="@id/fragment_common_web_view_content" />
+<!--        </com.google.android.material.appbar.AppBarLayout>-->
 
-            <WebView
-                android:id="@+id/fragment_common_web_view_content"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:bindCommonWebViewClient="@{fragmentCommonWebViewProgressBar}"
-                app:bindCommonWebViewUrl="@{viewModel}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            <com.google.android.material.progressindicator.LinearProgressIndicator-->
+<!--                android:id="@+id/fragment_common_web_view_progress_bar"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:indeterminate="true"-->
+<!--                android:visibility="invisible"-->
+<!--                app:indicatorColor="?attr/colorOnBackground"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/fragment_common_web_view_content" />-->
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--            <WebView-->
+<!--                android:id="@+id/fragment_common_web_view_content"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                app:bindCommonWebViewClient="@{fragmentCommonWebViewProgressBar}"-->
+<!--                app:bindCommonWebViewUrl="@{viewModel}"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-</layout>
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+<!--</layout>-->

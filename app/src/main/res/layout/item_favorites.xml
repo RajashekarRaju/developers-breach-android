@@ -1,81 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        <variable
-            name="article"
-            type="com.developerbreach.developerbreach.model.Article" />
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
 
-        <variable
-            name="viewModel"
-            type="com.developerbreach.developerbreach.view.favorites.FavoritesViewModel" />
-    </data>
+<!--    <data>-->
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/favorite_item_card_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:stateListAnimator="@animator/item_selected"
-        android:transitionName="@{article.name}"
-        app:bindArticleItemTitleTransition="@{favoriteArticleTitleItemTextView}"
-        app:bindFavoriteToDetailClickListener="@{article.articleId}"
-        app:cardBackgroundColor="?attr/colorSurface"
-        tools:cardUseCompatPadding="true"
-        tools:layout_margin="@dimen/layout_margin_8dp"
-        tools:theme="@style/AppTheme.Blue">
+<!--        <variable-->
+<!--            name="article"-->
+<!--            type="com.developerbreach.developerbreach.model.Article" />-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="com.developerbreach.developerbreach.ui.favorites.FavoritesViewModel" />-->
+<!--    </data>-->
 
-            <ImageView
-                android:id="@+id/favorite_article_thumbnail_item_image_view"
-                android:layout_width="@dimen/match_constraint"
-                android:layout_height="@dimen/match_constraint"
-                android:contentDescription="@string/article_banner_image_content_description"
-                app:bindFavoriteItemBanner="@{article.banner}"
-                app:layout_constraintDimensionRatio="3:2"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:scaleType="centerCrop"
-                tools:src="@drawable/hourglass" />
+<!--    <com.google.android.material.card.MaterialCardView-->
+<!--        android:id="@+id/favorite_item_card_view"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:stateListAnimator="@animator/item_selected"-->
+<!--        android:transitionName="@{article.name}"-->
+<!--        app:bindArticleItemTitleTransition="@{favoriteArticleTitleItemTextView}"-->
+<!--        app:bindFavoriteToDetailClickListener="@{article.articleId}"-->
+<!--        app:cardBackgroundColor="?attr/colorSurface"-->
+<!--        tools:cardUseCompatPadding="true"-->
+<!--        tools:layout_margin="@dimen/layout_margin_8dp"-->
+<!--        tools:theme="@style/AppTheme.Blue">-->
 
-            <TextView
-                android:id="@+id/favorite_article_title_item_text_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/layout_margin_16dp"
-                android:gravity="center"
-                android:text="@{article.name}"
-                android:textAppearance="?attr/textAppearanceHeadline5"
-                android:textColor="?attr/colorOnSurface"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/favorite_article_thumbnail_item_image_view"
-                tools:text="@string/article_title_tools_text" />
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content">-->
 
-            <ImageView
-                android:id="@+id/remove_favorite_article_item_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/background_ripple"
-                android:contentDescription="@string/delete_favorite_button_content_description"
-                android:padding="@dimen/padding_16dp"
-                android:src="@drawable/ic_favorite_add"
-                app:bindFavoriteFragmentModel="@{article}"
-                app:bindFavoriteViewModel="@{viewModel}"
-                app:bindItemCardView="@{favoriteItemCardView}"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="?attr/colorOnSurface" />
+<!--            <ImageView-->
+<!--                android:id="@+id/favorite_article_thumbnail_item_image_view"-->
+<!--                android:layout_width="@dimen/match_constraint"-->
+<!--                android:layout_height="@dimen/match_constraint"-->
+<!--                android:contentDescription="@string/article_banner_image_content_description"-->
+<!--                app:bindFavoriteItemBanner="@{article.banner}"-->
+<!--                app:layout_constraintDimensionRatio="3:2"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                tools:scaleType="centerCrop"-->
+<!--                tools:src="@drawable/hourglass" />-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            <TextView-->
+<!--                android:id="@+id/favorite_article_title_item_text_view"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="@dimen/layout_margin_16dp"-->
+<!--                android:gravity="center"-->
+<!--                android:text="@{article.name}"-->
+<!--                android:textAppearance="?attr/textAppearanceHeadline5"-->
+<!--                android:textColor="?attr/colorOnSurface"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/favorite_article_thumbnail_item_image_view"-->
+<!--                tools:text="@string/article_title_tools_text" />-->
 
-    </com.google.android.material.card.MaterialCardView>
+<!--            <ImageView-->
+<!--                android:id="@+id/remove_favorite_article_item_image_view"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="@drawable/background_ripple"-->
+<!--                android:contentDescription="@string/delete_favorite_button_content_description"-->
+<!--                android:padding="@dimen/padding_16dp"-->
+<!--                android:src="@drawable/ic_favorite_add"-->
+<!--                app:bindFavoriteFragmentModel="@{article}"-->
+<!--                app:bindFavoriteViewModel="@{viewModel}"-->
+<!--                app:bindItemCardView="@{favoriteItemCardView}"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:tint="?attr/colorOnSurface" />-->
 
-</layout>
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--    </com.google.android.material.card.MaterialCardView>-->
+
+<!--</layout>-->

@@ -1,167 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        <variable
-            name="navController"
-            type="androidx.navigation.NavController" />
-    </data>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/background"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.Blue"
-        tools:context=".view.settings.SettingsFragment">
+<!--    <data>-->
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/background">
+<!--        <variable-->
+<!--            name="navController"-->
+<!--            type="androidx.navigation.NavController" />-->
+<!--    </data>-->
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                app:navigationIcon="@drawable/ic_up_button"
-                app:navigationIconTint="?attr/colorOnBackground"
-                app:setNavigationOnClickListener="@{() -> navController.navigateUp()}"
-                app:title="@string/settings_toolbar_title"
-                app:titleTextColor="?attr/colorOnBackground" />
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="?attr/background"-->
+<!--        android:fitsSystemWindows="true"-->
+<!--        android:theme="@style/AppTheme.Blue"-->
+<!--        tools:context=".ui.settings.SettingsFragment">-->
 
-        </com.google.android.material.appbar.AppBarLayout>
+<!--        <com.google.android.material.appbar.AppBarLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="?attr/background">-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+<!--            <com.google.android.material.appbar.MaterialToolbar-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="?attr/actionBarSize"-->
+<!--                app:layout_collapseMode="pin"-->
+<!--                app:navigationIcon="@drawable/ic_up_button"-->
+<!--                app:navigationIconTint="?attr/colorOnBackground"-->
+<!--                app:setNavigationOnClickListener="@{() -> navController.navigateUp()}"-->
+<!--                app:title="@string/settings_toolbar_title"-->
+<!--                app:titleTextColor="?attr/colorOnBackground" />-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/contact_dev_parent_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/layout_margin_16dp"
-                android:background="?selectableItemBackgroundBorderless"
-                android:paddingVertical="@dimen/padding_16dp"
-                app:layout_constraintTop_toTopOf="parent">
+<!--        </com.google.android.material.appbar.AppBarLayout>-->
 
-                <ImageView
-                    android:id="@+id/contact_dev_image_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/layout_margin_16dp"
-                    android:src="@drawable/ic_contact"
-                    app:layout_constraintBottom_toBottomOf="@id/contact_dev_text_view_subtitle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/contact_dev_text_view_title"
-                    app:tint="?attr/colorOnBackground"
-                    tools:ignore="ContentDescription" />
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
 
-                <TextView
-                    android:id="@+id/contact_dev_text_view_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/layout_margin_24dp"
-                    android:text="@string/preference_category_title_contact"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    android:textColor="?attr/colorOnBackground"
-                    app:layout_constraintStart_toEndOf="@id/contact_dev_image_view"
-                    app:layout_constraintTop_toTopOf="parent" />
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/contact_dev_parent_layout"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/layout_margin_16dp"-->
+<!--                android:background="?selectableItemBackgroundBorderless"-->
+<!--                android:paddingVertical="@dimen/padding_16dp"-->
+<!--                app:layout_constraintTop_toTopOf="parent">-->
 
-                <TextView
-                    android:id="@+id/contact_dev_text_view_subtitle"
-                    android:layout_width="@dimen/match_constraint"
-                    android:layout_height="wrap_content"
-                    android:alpha="0.8"
-                    android:text="@string/preference_summary_article_contact"
-                    android:textAppearance="?attr/textAppearanceSubtitle1"
-                    android:textColor="?attr/colorOnBackground"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/contact_dev_text_view_title"
-                    app:layout_constraintTop_toBottomOf="@id/contact_dev_text_view_title" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/contact_dev_image_view"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="@dimen/layout_margin_16dp"-->
+<!--                    android:src="@drawable/ic_contact"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@id/contact_dev_text_view_subtitle"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="@id/contact_dev_text_view_title"-->
+<!--                    app:tint="?attr/colorOnBackground"-->
+<!--                    tools:ignore="ContentDescription" />-->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/contact_dev_text_view_title"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="@dimen/layout_margin_24dp"-->
+<!--                    android:text="@string/preference_category_title_contact"-->
+<!--                    android:textAppearance="?attr/textAppearanceHeadline6"-->
+<!--                    android:textColor="?attr/colorOnBackground"-->
+<!--                    app:layout_constraintStart_toEndOf="@id/contact_dev_image_view"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/open_source_parent_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/layout_margin_4dp"
-                android:background="?selectableItemBackgroundBorderless"
-                android:paddingVertical="@dimen/padding_16dp"
-                app:layout_constraintTop_toBottomOf="@id/contact_dev_parent_layout">
+<!--                <TextView-->
+<!--                    android:id="@+id/contact_dev_text_view_subtitle"-->
+<!--                    android:layout_width="@dimen/match_constraint"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:alpha="0.8"-->
+<!--                    android:text="@string/preference_summary_article_contact"-->
+<!--                    android:textAppearance="?attr/textAppearanceSubtitle1"-->
+<!--                    android:textColor="?attr/colorOnBackground"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/contact_dev_text_view_title"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/contact_dev_text_view_title" />-->
 
-                <ImageView
-                    android:id="@+id/open_source_image_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/layout_margin_16dp"
-                    android:src="@drawable/ic_developer"
-                    app:layout_constraintBottom_toBottomOf="@id/open_source_text_view_subtitle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/open_source_text_view_title"
-                    app:tint="?attr/colorOnBackground"
-                    tools:ignore="ContentDescription" />
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-                <TextView
-                    android:id="@+id/open_source_text_view_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/layout_margin_24dp"
-                    android:text="@string/preference_category_title_developer"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
-                    android:textColor="?attr/colorOnBackground"
-                    app:layout_constraintStart_toEndOf="@id/open_source_image_view"
-                    app:layout_constraintTop_toTopOf="parent" />
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/open_source_parent_layout"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="@dimen/layout_margin_4dp"-->
+<!--                android:background="?selectableItemBackgroundBorderless"-->
+<!--                android:paddingVertical="@dimen/padding_16dp"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/contact_dev_parent_layout">-->
 
-                <TextView
-                    android:id="@+id/open_source_text_view_subtitle"
-                    android:layout_width="@dimen/match_constraint"
-                    android:layout_height="wrap_content"
-                    android:alpha="0.8"
-                    android:text="@string/preference_summary_article_developer"
-                    android:textAppearance="?attr/textAppearanceSubtitle1"
-                    android:textColor="?attr/colorOnBackground"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@id/open_source_text_view_title"
-                    app:layout_constraintTop_toBottomOf="@id/open_source_text_view_title" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/open_source_image_view"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="@dimen/layout_margin_16dp"-->
+<!--                    android:src="@drawable/ic_developer"-->
+<!--                    app:layout_constraintBottom_toBottomOf="@id/open_source_text_view_subtitle"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="@id/open_source_text_view_title"-->
+<!--                    app:tint="?attr/colorOnBackground"-->
+<!--                    tools:ignore="ContentDescription" />-->
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                <TextView-->
+<!--                    android:id="@+id/open_source_text_view_title"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginStart="@dimen/layout_margin_24dp"-->
+<!--                    android:text="@string/preference_category_title_developer"-->
+<!--                    android:textAppearance="?attr/textAppearanceHeadline6"-->
+<!--                    android:textColor="?attr/colorOnBackground"-->
+<!--                    app:layout_constraintStart_toEndOf="@id/open_source_image_view"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
 
-            <TextView
-                android:layout_width="@dimen/match_constraint"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/layout_margin_8dp"
-                android:alpha="0.8"
-                android:gravity="center"
-                android:paddingHorizontal="24dp"
-                android:text="@string/un_draw_description"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="#6C63FF"
-                android:textStyle="italic"
-                app:layout_constraintBottom_toTopOf="@id/un_draw_textview_tag"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+<!--                <TextView-->
+<!--                    android:id="@+id/open_source_text_view_subtitle"-->
+<!--                    android:layout_width="@dimen/match_constraint"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:alpha="0.8"-->
+<!--                    android:text="@string/preference_summary_article_developer"-->
+<!--                    android:textAppearance="?attr/textAppearanceSubtitle1"-->
+<!--                    android:textColor="?attr/colorOnBackground"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="@id/open_source_text_view_title"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/open_source_text_view_title" />-->
 
-            <TextView
-                android:id="@+id/un_draw_textview_tag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/layout_margin_16dp"
-                android:text="@string/un_draw_tag"
-                android:textAppearance="?attr/textAppearanceHeadline5"
-                android:textColor="#6C63FF"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            <TextView-->
+<!--                android:layout_width="@dimen/match_constraint"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="@dimen/layout_margin_8dp"-->
+<!--                android:alpha="0.8"-->
+<!--                android:gravity="center"-->
+<!--                android:paddingHorizontal="24dp"-->
+<!--                android:text="@string/un_draw_description"-->
+<!--                android:textAppearance="?attr/textAppearanceSubtitle1"-->
+<!--                android:textColor="#6C63FF"-->
+<!--                android:textStyle="italic"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/un_draw_textview_tag"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent" />-->
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--            <TextView-->
+<!--                android:id="@+id/un_draw_textview_tag"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginBottom="@dimen/layout_margin_16dp"-->
+<!--                android:text="@string/un_draw_tag"-->
+<!--                android:textAppearance="?attr/textAppearanceHeadline5"-->
+<!--                android:textColor="#6C63FF"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent" />-->
 
-</layout>
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+<!--</layout>-->

@@ -1,74 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        <variable
-            name="navController"
-            type="androidx.navigation.NavController" />
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
 
-        <variable
-            name="viewModel"
-            type="com.developerbreach.developerbreach.view.authors.AuthorsViewModel" />
-    </data>
+<!--    <data>-->
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/background"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.Blue"
-        tools:context=".view.authors.AuthorsFragment">
+<!--        <variable-->
+<!--            name="navController"-->
+<!--            type="androidx.navigation.NavController" />-->
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/background"
-            app:liftOnScroll="false"
-            app:liftOnScrollTargetViewId="@id/authors_recycler_view">
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="com.developerbreach.developerbreach.ui.authors.AuthorsViewModel" />-->
+<!--    </data>-->
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                app:navigationIcon="@drawable/ic_up_button"
-                app:navigationIconTint="?attr/colorOnBackground"
-                app:setNavigationOnClickListener="@{() -> navController.navigateUp()}"
-                app:title="@string/authors_tag"
-                app:titleTextColor="?attr/colorOnBackground" />
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="?attr/background"-->
+<!--        android:fitsSystemWindows="true"-->
+<!--        android:theme="@style/AppTheme.Blue"-->
+<!--        tools:context=".ui.authors.AuthorsFragment">-->
 
-        </com.google.android.material.appbar.AppBarLayout>
+<!--        <com.google.android.material.appbar.AppBarLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="?attr/background"-->
+<!--            app:liftOnScroll="false"-->
+<!--            app:liftOnScrollTargetViewId="@id/authors_recycler_view">-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+<!--            <com.google.android.material.appbar.MaterialToolbar-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="?attr/actionBarSize"-->
+<!--                app:layout_collapseMode="pin"-->
+<!--                app:navigationIcon="@drawable/ic_up_button"-->
+<!--                app:navigationIconTint="?attr/colorOnBackground"-->
+<!--                app:setNavigationOnClickListener="@{() -> navController.navigateUp()}"-->
+<!--                app:title="@string/authors_tag"-->
+<!--                app:titleTextColor="?attr/colorOnBackground" />-->
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/authors_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="@dimen/recycler_view_spacing_dimen"
-                android:clipToPadding="false"
-                android:orientation="vertical"
-                app:bindAuthorsListData="@{viewModel.authors}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:itemCount="6"
-                tools:listitem="@layout/item_author" />
+<!--        </com.google.android.material.appbar.AppBarLayout>-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
 
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:indeterminate="true"
-            android:visibility="invisible"
-            app:bindCircularProgressDataState="@{viewModel.authorsDataState}"
-            app:indicatorColor="?attr/colorOnBackground" />
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/authors_recycler_view"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_marginHorizontal="@dimen/recycler_view_spacing_dimen"-->
+<!--                android:clipToPadding="false"-->
+<!--                android:orientation="vertical"-->
+<!--                app:bindAuthorsListData="@{viewModel.authors}"-->
+<!--                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--                tools:itemCount="6"-->
+<!--                tools:listitem="@layout/item_author" />-->
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-</layout>
+<!--        <com.google.android.material.progressindicator.CircularProgressIndicator-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:indeterminate="true"-->
+<!--            android:visibility="invisible"-->
+<!--            app:bindCircularProgressDataState="@{viewModel.authorsDataState}"-->
+<!--            app:indicatorColor="?attr/colorOnBackground" />-->
+
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+<!--</layout>-->

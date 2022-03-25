@@ -1,44 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        <variable
-            name="viewModel"
-            type="com.developerbreach.developerbreach.view.banner.BannerViewModel" />
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
 
-        <variable
-            name="navController"
-            type="androidx.navigation.NavController" />
-    </data>
+<!--    <data>-->
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/background"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.Blue"
-        tools:context=".view.banner.BannerFragment">
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="com.developerbreach.developerbreach.ui.banner.BannerViewModel" />-->
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:navigationIcon="@drawable/ic_up_button"
-            app:navigationIconTint="?attr/colorOnBackground"
-            app:setNavigationOnClickListener="@{() -> navController.navigateUp()}" />
+<!--        <variable-->
+<!--            name="navController"-->
+<!--            type="androidx.navigation.NavController" />-->
+<!--    </data>-->
 
-        <com.github.chrisbanes.photoview.PhotoView
-            android:id="@+id/banner_full_screen_photo_view"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/banner_height_featured_image"
-            android:layout_gravity="center"
-            android:contentDescription="@string/article_banner_image_content_description"
-            android:transitionName="@{viewModel.bannerUrl.toString()}"
-            app:bindBannerWithZoom="@{viewModel.bannerUrl}"
-            tools:src="@drawable/hourglass" />
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="?attr/background"-->
+<!--        android:fitsSystemWindows="true"-->
+<!--        android:theme="@style/AppTheme.Blue"-->
+<!--        tools:context=".ui.banner.BannerFragment">-->
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--        <com.google.android.material.appbar.MaterialToolbar-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="?attr/actionBarSize"-->
+<!--            app:navigationIcon="@drawable/ic_up_button"-->
+<!--            app:navigationIconTint="?attr/colorOnBackground"-->
+<!--            app:setNavigationOnClickListener="@{() -> navController.navigateUp()}" />-->
 
-</layout>
+<!--        <com.github.chrisbanes.photoview.PhotoView-->
+<!--            android:id="@+id/banner_full_screen_photo_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/banner_height_featured_image"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:contentDescription="@string/article_banner_image_content_description"-->
+<!--            android:transitionName="@{viewModel.bannerUrl.toString()}"-->
+<!--            app:bindBannerWithZoom="@{viewModel.bannerUrl}"-->
+<!--            tools:src="@drawable/hourglass" />-->
+
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+<!--</layout>-->
