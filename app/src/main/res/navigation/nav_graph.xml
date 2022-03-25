@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/introFragment"
-        android:name="com.developerbreach.developerbreach.view.intro.IntroFragment"
+        android:name="com.developerbreach.developerbreach.ui.intro.IntroFragment"
         android:label="Intro"
         tools:layout="@layout/item_intro_view_pager">
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.developerbreach.developerbreach.view.home.HomeFragment"
+        android:name="com.developerbreach.developerbreach.ui.home.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home">
         <action
@@ -36,25 +36,25 @@
 
     <fragment
         android:id="@+id/articleListFragment"
-        android:name="com.developerbreach.developerbreach.view.list.ArticleListFragment"
+        android:name="com.developerbreach.developerbreach.ui.list.ArticleListFragment"
         android:label="Articles"
         tools:layout="@layout/fragment_article_list" />
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.developerbreach.developerbreach.view.search.SearchFragment"
+        android:name="com.developerbreach.developerbreach.ui.search.SearchFragment"
         android:label="Search"
         tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.developerbreach.developerbreach.view.favorites.FavoritesFragment"
+        android:name="com.developerbreach.developerbreach.ui.favorites.FavoritesFragment"
         android:label="favorites"
         tools:layout="@layout/fragment_favorites" />
 
     <fragment
         android:id="@+id/articleDetailFragment"
-        android:name="com.developerbreach.developerbreach.view.detail.ArticleDetailFragment"
+        android:name="com.developerbreach.developerbreach.ui.detail.ArticleDetailFragment"
         android:label="Details"
         tools:layout="@layout/fragment_article_detail">
         <argument
@@ -74,7 +74,7 @@
 
     <fragment
         android:id="@+id/articleWebViewFragment"
-        android:name="com.developerbreach.developerbreach.view.articleWebView.ArticleWebViewFragment"
+        android:name="com.developerbreach.developerbreach.ui.articleWebView.ArticleWebViewFragment"
         android:label="ArticleWebView"
         tools:layout="@layout/fragment_article_web_view">
         <argument
@@ -85,7 +85,7 @@
 
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.developerbreach.developerbreach.view.settings.SettingsFragment"
+        android:name="com.developerbreach.developerbreach.ui.settings.SettingsFragment"
         android:label="Settings"
         tools:layout="@layout/fragment_settings">
         <action
@@ -99,7 +99,7 @@
 
     <fragment
         android:id="@+id/commonWebViewFragment"
-        android:name="com.developerbreach.developerbreach.view.commonWebView.CommonWebViewFragment"
+        android:name="com.developerbreach.developerbreach.ui.commonWebView.CommonWebViewFragment"
         android:label="Common WebView"
         tools:layout="@layout/fragment_common_web_view">
         <argument
@@ -110,7 +110,7 @@
 
     <fragment
         android:id="@+id/bannerFragment"
-        android:name="com.developerbreach.developerbreach.view.banner.BannerFragment"
+        android:name="com.developerbreach.developerbreach.ui.banner.BannerFragment"
         android:label="Banner"
         tools:layout="@layout/fragment_banner">
         <argument
@@ -152,13 +152,13 @@
 
     <fragment
         android:id="@+id/authorsFragment"
-        android:name="com.developerbreach.developerbreach.view.authors.AuthorsFragment"
+        android:name="com.developerbreach.developerbreach.ui.authors.AuthorsFragment"
         android:label="Authors"
         tools:layout="@layout/fragment_authors" />
 
     <fragment
         android:id="@+id/networkFragment"
-        android:name="com.developerbreach.developerbreach.view.network.NetworkFragment"
+        android:name="com.developerbreach.developerbreach.ui.offline.NetworkFragment"
         android:label="Network"
         tools:layout="@layout/fragment_network" />
 

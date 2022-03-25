@@ -1,67 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        <variable
-            name="viewModel"
-            type="com.developerbreach.developerbreach.view.articleWebView.ArticleWebViewViewModel" />
-    </data>
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/background"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.Blue"
-        tools:context=".view.articleWebView.ArticleWebViewFragment">
+<!--    <data>-->
 
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:fillViewport="true">
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="com.developerbreach.developerbreach.ui.articleWebView.ArticleWebViewViewModel" />-->
+<!--    </data>-->
 
-            <WebView
-                android:id="@+id/article_web_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:bindArticleWebViewClient="@{articleWebViewProgressBar}"
-                app:bindArticleWebViewUrl="@{viewModel.articleUrlLink}" />
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="?attr/background"-->
+<!--        android:fitsSystemWindows="true"-->
+<!--        android:theme="@style/AppTheme.Blue"-->
+<!--        tools:context=".ui.articleWebView.ArticleWebViewFragment">-->
 
-        </androidx.core.widget.NestedScrollView>
+<!--        <androidx.core.widget.NestedScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+<!--            tools:fillViewport="true">-->
 
-        <com.google.android.material.progressindicator.LinearProgressIndicator
-            android:id="@+id/article_web_view_progress_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:indeterminate="true"
-            android:visibility="gone"
-            app:trackColor="?attr/colorOnBackground"
-            tools:visibility="visible" />
+<!--&lt;!&ndash;            <WebView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/article_web_view"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:bindArticleWebViewClient="@{articleWebViewProgressBar}"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:bindArticleWebViewUrl="@{viewModel.articleUrlLink}" />&ndash;&gt;-->
 
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/article_web_view_bottom_app_bar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            app:backgroundTint="?attr/background"
-            tools:menu="@menu/bottom_app_bar_menu" />
+<!--        </androidx.core.widget.NestedScrollView>-->
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/layout_margin_16dp"
-            app:backgroundTint="?attr/colorPrimary"
-            app:bindShareFabListener="@{viewModel.articleUrlLink}"
-            app:layout_anchor="@id/article_web_view_bottom_app_bar"
-            app:srcCompat="@android:drawable/ic_menu_share"
-            app:tint="?attr/colorOnPrimary"
-            tools:ignore="ContentDescription" />
+<!--        <com.google.android.material.progressindicator.LinearProgressIndicator-->
+<!--            android:id="@+id/article_web_view_progress_bar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="top"-->
+<!--            android:indeterminate="true"-->
+<!--            android:visibility="gone"-->
+<!--            app:trackColor="?attr/colorOnBackground"-->
+<!--            tools:visibility="visible" />-->
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--        <com.google.android.material.bottomappbar.BottomAppBar-->
+<!--            android:id="@+id/article_web_view_bottom_app_bar"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="bottom"-->
+<!--            app:backgroundTint="?attr/background"-->
+<!--            tools:menu="@menu/bottom_app_bar_menu" />-->
 
-</layout>
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="@dimen/layout_margin_16dp"-->
+<!--            app:backgroundTint="?attr/colorPrimary"-->
+<!--            app:bindShareFabListener="@{viewModel.articleUrlLink}"-->
+<!--            app:layout_anchor="@id/article_web_view_bottom_app_bar"-->
+<!--            app:srcCompat="@android:drawable/ic_menu_share"-->
+<!--            app:tint="?attr/colorOnPrimary"-->
+<!--            tools:ignore="ContentDescription" />-->
+
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+<!--</layout>-->

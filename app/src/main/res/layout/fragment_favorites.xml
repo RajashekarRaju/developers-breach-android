@@ -1,80 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        <variable
-            name="navController"
-            type="androidx.navigation.NavController" />
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
 
-        <variable
-            name="viewModel"
-            type="com.developerbreach.developerbreach.view.favorites.FavoritesViewModel" />
-    </data>
+<!--    <data>-->
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/background"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.Blue"
-        tools:context=".view.favorites.FavoritesFragment">
+<!--        <variable-->
+<!--            name="navController"-->
+<!--            type="androidx.navigation.NavController" />-->
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/background"
-            app:liftOnScroll="false"
-            app:liftOnScrollTargetViewId="@id/favorites_recycler_view">
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="com.developerbreach.developerbreach.ui.favorites.FavoritesViewModel" />-->
+<!--    </data>-->
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin"
-                app:navigationIcon="@drawable/ic_up_button"
-                app:navigationIconTint="?attr/colorOnBackground"
-                app:setNavigationOnClickListener="@{() -> navController.navigateUp()}"
-                app:title="@string/favorites_toolbar_title"
-                app:titleTextColor="?attr/colorOnBackground" />
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="?attr/background"-->
+<!--        android:fitsSystemWindows="true"-->
+<!--        android:theme="@style/AppTheme.Blue"-->
+<!--        tools:context=".ui.favorites.FavoritesFragment">-->
 
-        </com.google.android.material.appbar.AppBarLayout>
+<!--        <com.google.android.material.appbar.AppBarLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="?attr/background"-->
+<!--            app:liftOnScroll="false"-->
+<!--            app:liftOnScrollTargetViewId="@id/favorites_recycler_view">-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+<!--            <com.google.android.material.appbar.MaterialToolbar-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="?attr/actionBarSize"-->
+<!--                app:layout_collapseMode="pin"-->
+<!--                app:navigationIcon="@drawable/ic_up_button"-->
+<!--                app:navigationIconTint="?attr/colorOnBackground"-->
+<!--                app:setNavigationOnClickListener="@{() -> navController.navigateUp()}"-->
+<!--                app:title="@string/favorites_toolbar_title"-->
+<!--                app:titleTextColor="?attr/colorOnBackground" />-->
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/favorites_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:orientation="vertical"
-                android:padding="@dimen/recycler_view_spacing_dimen"
-                android:scrollbars="none"
-                android:visibility="visible"
-                app:bindFavoriteViewModel="@{viewModel}"
-                app:bindFavoritesListData="@{viewModel.favorites}"
-                app:bindFavoritesNotFoundText="@{searchBackgroundImageView}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:reverseLayout="true"
-                app:stackFromEnd="true"
-                tools:itemCount="6"
-                tools:listitem="@layout/item_favorites"
-                tools:visibility="invisible" />
+<!--        </com.google.android.material.appbar.AppBarLayout>-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
 
-        <ImageView
-            android:id="@+id/search_background_image_view"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/placeholder_image_height"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_favorites_background"
-            tools:ignore="ContentDescription" />
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/favorites_recycler_view"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:clipToPadding="false"-->
+<!--                android:orientation="vertical"-->
+<!--                android:padding="@dimen/recycler_view_spacing_dimen"-->
+<!--                android:scrollbars="none"-->
+<!--                android:visibility="visible"-->
+<!--                app:bindFavoriteViewModel="@{viewModel}"-->
+<!--                app:bindFavoritesListData="@{viewModel.favorites}"-->
+<!--                app:bindFavoritesNotFoundText="@{searchBackgroundImageView}"-->
+<!--                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--                app:reverseLayout="true"-->
+<!--                app:stackFromEnd="true"-->
+<!--                tools:itemCount="6"-->
+<!--                tools:listitem="@layout/item_favorites"-->
+<!--                tools:visibility="invisible" />-->
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-</layout>
+<!--        <ImageView-->
+<!--            android:id="@+id/search_background_image_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/placeholder_image_height"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:src="@drawable/ic_favorites_background"-->
+<!--            tools:ignore="ContentDescription" />-->
+
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+<!--</layout>-->

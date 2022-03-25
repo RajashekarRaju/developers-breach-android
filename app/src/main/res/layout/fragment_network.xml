@@ -9,7 +9,7 @@
         android:background="?attr/background"
         android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.Blue"
-        tools:context=".view.network.NetworkFragment">
+        tools:context=".ui.offline.NetworkFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

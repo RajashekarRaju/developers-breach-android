@@ -1,138 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <data>
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-        <variable
-            name="navController"
-            type="androidx.navigation.NavController" />
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools">-->
 
-        <variable
-            name="viewModel"
-            type="com.developerbreach.developerbreach.view.list.ArticleListViewModel" />
-    </data>
+<!--    <data>-->
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/background"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.Blue"
-        tools:context=".view.list.ArticleListFragment">
+<!--        <variable-->
+<!--            name="navController"-->
+<!--            type="androidx.navigation.NavController" />-->
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/background"
-            app:liftOnScroll="false"
-            app:liftOnScrollTargetViewId="@id/detail_view_scroll_view">
+<!--        <variable-->
+<!--            name="viewModel"-->
+<!--            type="com.developerbreach.developerbreach.ui.category.CategoryViewModel" />-->
+<!--    </data>-->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+<!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="?attr/background"-->
+<!--        android:fitsSystemWindows="true"-->
+<!--        android:theme="@style/AppTheme.Blue"-->
+<!--        tools:context=".ui.list.ArticleListFragment">-->
 
-                <com.google.android.material.appbar.MaterialToolbar
-                    android:id="@+id/detail_fragment_toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:bindSelectedCategoryText="@{viewModel.selectedCategoryName}"
-                    app:layout_collapseMode="pin"
-                    app:navigationIcon="@drawable/ic_up_button"
-                    app:navigationIconTint="?attr/colorOnBackground"
-                    app:setNavigationOnClickListener="@{() -> navController.navigateUp()}"
-                    app:titleTextColor="?attr/colorOnBackground"
-                    tools:title="Kotlin" />
+<!--        <com.google.android.material.appbar.AppBarLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="?attr/background"-->
+<!--            app:liftOnScroll="false"-->
+<!--            app:liftOnScrollTargetViewId="@id/detail_view_scroll_view">-->
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/category_select_recycler_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/layout_margin_4dp"
-                    android:orientation="horizontal"
-                    android:paddingStart="@dimen/padding_12dp"
-                    android:scrollbars="none"
-                    app:bindArticleListViewModel="@{viewModel}"
-                    app:bindArticlesCategoryListData="@{viewModel.categories}"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:spanCount="1"
-                    tools:ignore="RtlSymmetry"
-                    tools:itemCount="6"
-                    tools:listitem="@layout/item_categories"
-                    tools:paddingStart="@dimen/padding_20dp" />
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical">-->
 
-                <com.google.android.material.progressindicator.LinearProgressIndicator
-                    android:id="@+id/progress_bar_category"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:indeterminate="true"
-                    android:visibility="invisible"
-                    app:bindLinearProgressDataState="@{viewModel.categoriesDataState}"
-                    app:indicatorColor="?attr/colorOnBackground"
-                    app:layout_constraintBottom_toTopOf="@id/hor_line_category"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+<!--&lt;!&ndash;                <com.google.android.material.appbar.MaterialToolbar&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:id="@+id/detail_fragment_toolbar"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="?attr/actionBarSize"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:bindSelectedCategoryText="@{viewModel.selectedCategoryName}"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_collapseMode="pin"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:navigationIcon="@drawable/ic_up_button"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:navigationIconTint="?attr/colorOnBackground"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:setNavigationOnClickListener="@{() -> navController.navigateUp()}"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:titleTextColor="?attr/colorOnBackground"&ndash;&gt;-->
+<!--&lt;!&ndash;                    tools:title="Kotlin" />&ndash;&gt;-->
 
-            </LinearLayout>
+<!--&lt;!&ndash;                <androidx.recyclerview.widget.RecyclerView&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:id="@+id/category_select_recycler_view"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginVertical="@dimen/layout_margin_4dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:paddingStart="@dimen/padding_12dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:scrollbars="none"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:bindArticleListViewModel="@{viewModel}"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:bindArticlesCategoryListData="@{viewModel.categories}"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:spanCount="1"&ndash;&gt;-->
+<!--&lt;!&ndash;                    tools:ignore="RtlSymmetry"&ndash;&gt;-->
+<!--&lt;!&ndash;                    tools:itemCount="6"&ndash;&gt;-->
+<!--&lt;!&ndash;                    tools:listitem="@layout/item_categories"&ndash;&gt;-->
+<!--&lt;!&ndash;                    tools:paddingStart="@dimen/padding_20dp" />&ndash;&gt;-->
 
-        </com.google.android.material.appbar.AppBarLayout>
+<!--&lt;!&ndash;                <com.google.android.material.progressindicator.LinearProgressIndicator&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:id="@+id/progress_bar_category"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:indeterminate="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:visibility="invisible"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:bindLinearProgressDataState="@{viewModel.categoriesDataState}"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:indicatorColor="?attr/colorOnBackground"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_constraintBottom_toTopOf="@id/hor_line_category"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_constraintEnd_toEndOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    app:layout_constraintStart_toStartOf="parent" />&ndash;&gt;-->
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+<!--            </LinearLayout>-->
 
-            <View
-                android:id="@+id/hor_line_category"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/horizontal_line_height"
-                android:alpha="0.1"
-                android:background="?attr/colorOnBackground"
-                app:layout_constraintTop_toTopOf="parent" />
+<!--        </com.google.android.material.appbar.AppBarLayout>-->
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/articles_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/match_constraint"
-                android:layout_marginHorizontal="@dimen/recycler_view_spacing_dimen"
-                android:clipToPadding="false"
-                android:orientation="vertical"
-                android:paddingTop="@dimen/padding_12dp"
-                android:scrollbars="none"
-                app:bindArticleListViewModel="@{viewModel}"
-                app:bindArticlesListDataByCategory="@{viewModel.articlesByCategory}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/hor_line_category"
-                tools:itemCount="6"
-                tools:listitem="@layout/item_article"
-                tools:visibility="invisible" />
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            <View-->
+<!--                android:id="@+id/hor_line_category"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="@dimen/horizontal_line_height"-->
+<!--                android:alpha="0.1"-->
+<!--                android:background="?attr/colorOnBackground"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
 
-        <ImageView
-            android:id="@+id/select_category_background_image_view"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/placeholder_image_height"
-            android:layout_gravity="center"
-            android:padding="@dimen/padding_20dp"
-            android:src="@drawable/ic_no_articles_state"
-            app:bindArticlesEmptyStateImage="@{viewModel.articlesByCategory.size()}"
-            tools:ignore="ContentDescription" />
+<!--&lt;!&ndash;            <androidx.recyclerview.widget.RecyclerView&ndash;&gt;-->
+<!--&lt;!&ndash;                android:id="@+id/articles_recycler_view"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="@dimen/match_constraint"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_marginHorizontal="@dimen/recycler_view_spacing_dimen"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:clipToPadding="false"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:orientation="vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:paddingTop="@dimen/padding_12dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:scrollbars="none"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:bindArticleListViewModel="@{viewModel}"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:bindArticlesListDataByCategory="@{viewModel.articlesByCategory}"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:layout_constraintBottom_toBottomOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:layout_constraintStart_toStartOf="parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                app:layout_constraintTop_toBottomOf="@id/hor_line_category"&ndash;&gt;-->
+<!--&lt;!&ndash;                tools:itemCount="6"&ndash;&gt;-->
+<!--&lt;!&ndash;                tools:listitem="@layout/item_article"&ndash;&gt;-->
+<!--&lt;!&ndash;                tools:visibility="invisible" />&ndash;&gt;-->
 
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:id="@+id/progress_bar_article_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:indeterminate="true"
-            android:visibility="invisible"
-            app:bindCircularProgressDataState="@{viewModel.articlesState}"
-            app:indicatorColor="?attr/colorOnBackground" />
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+<!--&lt;!&ndash;        <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/select_category_background_image_view"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="@dimen/placeholder_image_height"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:padding="@dimen/padding_20dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:src="@drawable/ic_no_articles_state"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:bindArticlesEmptyStateImage="@{viewModel.articlesByCategory.size()}"&ndash;&gt;-->
+<!--&lt;!&ndash;            tools:ignore="ContentDescription" />&ndash;&gt;-->
 
-</layout>
+<!--&lt;!&ndash;        <com.google.android.material.progressindicator.CircularProgressIndicator&ndash;&gt;-->
+<!--&lt;!&ndash;            android:id="@+id/progress_bar_article_list"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_gravity="center"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:indeterminate="true"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:visibility="invisible"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:bindCircularProgressDataState="@{viewModel.articlesState}"&ndash;&gt;-->
+<!--&lt;!&ndash;            app:indicatorColor="?attr/colorOnBackground" />&ndash;&gt;-->
+
+<!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+<!--</layout>-->
