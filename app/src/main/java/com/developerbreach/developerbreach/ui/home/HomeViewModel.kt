@@ -1,9 +1,11 @@
 package com.developerbreach.developerbreach.ui.home
 
 import android.app.Application
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.*
 import com.developerbreach.developerbreach.model.Article
-import com.developerbreach.developerbreach.networkManager.DataState
 import com.developerbreach.developerbreach.repository.network.NetworkRepository
 import kotlinx.coroutines.*
 import timber.log.Timber
@@ -28,13 +30,9 @@ class HomeViewModel(
      *  From v2.1.0 viewModels can launch within scope directly calling viewModelScope
      */
 
-    private val _articles = MutableLiveData<List<Article>>()
-    val articles: LiveData<List<Article>>
-        get() = _articles
-
-    private val _state = MutableLiveData<DataState>()
-    val articleDataState: LiveData<DataState>
-        get() = _state
+    // Holds the state for values in HomeUiState
+    var uiState by mutableStateOf(HomeUiState())
+        private set
 
     private val totalPostsToDoRunQueryOn = 5
 
@@ -46,16 +44,16 @@ class HomeViewModel(
      * Operation that cannot be done in the Main Thread
      */
     private fun launchToLoadArticleData() {
-
         viewModelScope.launch {
-            _state.value = DataState.LOADING
+            uiState = HomeUiState(isFetchingArticles = true)
             try {
-                val articlesData = repository.getArticlesData(totalPostsToDoRunQueryOn)
-                _articles.postValue(articlesData)
-                _state.value = DataState.DONE
+                val articlesList = repository.getArticlesData(totalPostsToDoRunQueryOn)
+                uiState = HomeUiState(
+                    articleList = articlesList,
+                    isFetchingArticles = false
+                )
             } catch (e: Exception) {
                 Timber.e("Exception caught in HomeViewModel ${e.message}")
-                _state.value = DataState.ERROR
             }
         }
     }
@@ -78,3 +76,8 @@ class HomeViewModel(
         }
     }
 }
+
+data class HomeUiState(
+    var articleList: List<Article> = emptyList(),
+    val isFetchingArticles: Boolean = false,
+)
