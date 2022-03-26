@@ -1,85 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/background"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.Blue"
-        tools:context=".ui.offline.NetworkFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-            <ImageView
-                android:id="@+id/server_image_view"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/placeholder_image_height"
-                android:layout_marginBottom="@dimen/layout_margin_6dp"
-                android:src="@drawable/ic_server_status"
-                app:layout_constraintBottom_toTopOf="@id/hor_guideline"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="ContentDescription" />
+    <!--<layout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--    xmlns:tools="http://schemas.android.com/tools">-->
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/hor_guideline"
-                android:layout_width="@dimen/hor_guideline_width"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.5" />
+    <!--    <androidx.coordinatorlayout.widget.CoordinatorLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:background="?attr/background"-->
+    <!--        android:fitsSystemWindows="true"-->
+    <!--        tools:context=".ui.offline.NetworkFragment">-->
 
-            <TextView
-                android:id="@+id/no_internet_connection_tag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/layout_margin_8dp"
-                android:text="@string/no_internet_connection"
-                android:textAppearance="?attr/textAppearanceHeadline5"
-                android:textColor="?attr/colorOnBackground"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/hor_guideline" />
+    <!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
 
-            <TextView
-                android:id="@+id/no_internet_connection_description_tag"
-                android:layout_width="@dimen/match_constraint"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/layout_margin_8dp"
-                android:alpha="0.7"
-                android:gravity="center"
-                android:paddingHorizontal="@dimen/padding_20dp"
-                android:text="@string/no_internet_connection_description"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="?attr/colorOnBackground"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/no_internet_connection_tag" />
+    <!--            <ImageView-->
+    <!--                android:id="@+id/server_image_view"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="@dimen/placeholder_image_height"-->
+    <!--                android:layout_marginBottom="@dimen/layout_margin_6dp"-->
+    <!--                android:src="@drawable/ic_server_status"-->
+    <!--                app:layout_constraintBottom_toTopOf="@id/hor_guideline"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                tools:ignore="ContentDescription" />-->
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/no_internet_connection_try_again"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/layout_margin_24dp"
-                android:layout_marginTop="@dimen/layout_margin_8dp"
-                android:backgroundTint="?attr/colorSurface"
-                android:stateListAnimator="@animator/item_selected"
-                android:text="@string/no_internet_connection_try_again"
-                android:textAllCaps="false"
-                android:textAppearance="?attr/textAppearanceSubtitle1"
-                android:textColor="?attr/colorOnSurface"
-                app:cornerRadius="@dimen/button_corner_radius"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/no_internet_connection_description_tag" />
+    <!--            <androidx.constraintlayout.widget.Guideline-->
+    <!--                android:id="@+id/hor_guideline"-->
+    <!--                android:layout_width="@dimen/hor_guideline_width"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:orientation="horizontal"-->
+    <!--                app:layout_constraintGuide_percent="0.5" />-->
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--            <TextView-->
+    <!--                android:id="@+id/no_internet_connection_tag"-->
+    <!--                android:layout_width="wrap_content"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginTop="@dimen/layout_margin_8dp"-->
+    <!--                android:text="@string/no_internet_connection"-->
+    <!--                android:textAppearance="?attr/textAppearanceHeadline5"-->
+    <!--                android:textColor="?attr/colorOnBackground"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toBottomOf="@id/hor_guideline" />-->
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <!--            <TextView-->
+    <!--                android:id="@+id/no_internet_connection_description_tag"-->
+    <!--                android:layout_width="@dimen/match_constraint"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginTop="@dimen/layout_margin_8dp"-->
+    <!--                android:alpha="0.7"-->
+    <!--                android:gravity="center"-->
+    <!--                android:paddingHorizontal="@dimen/padding_20dp"-->
+    <!--                android:text="@string/no_internet_connection_description"-->
+    <!--                android:textAppearance="?attr/textAppearanceSubtitle1"-->
+    <!--                android:textColor="?attr/colorOnBackground"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toBottomOf="@id/no_internet_connection_tag" />-->
 
-</layout>
+    <!--            <com.google.android.material.button.MaterialButton-->
+    <!--                android:id="@+id/no_internet_connection_try_again"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginHorizontal="@dimen/layout_margin_24dp"-->
+    <!--                android:layout_marginTop="@dimen/layout_margin_8dp"-->
+    <!--                android:backgroundTint="?attr/colorSurface"-->
+    <!--                android:stateListAnimator="@animator/item_selected"-->
+    <!--                android:text="@string/no_internet_connection_try_again"-->
+    <!--                android:textAllCaps="false"-->
+    <!--                android:textAppearance="?attr/textAppearanceSubtitle1"-->
+    <!--                android:textColor="?attr/colorOnSurface"-->
+    <!--                app:cornerRadius="@dimen/button_corner_radius"-->
+    <!--                app:layout_constraintEnd_toEndOf="parent"-->
+    <!--                app:layout_constraintStart_toStartOf="parent"-->
+    <!--                app:layout_constraintTop_toBottomOf="@id/no_internet_connection_description_tag" />-->
+
+    <!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+    <!--    </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
+
+    <!--</layout>-->
