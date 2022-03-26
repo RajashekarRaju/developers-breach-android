@@ -1,4 +1,4 @@
-package com.developerbreach.developerbreach.ui.theme
+package com.developerbreach.developerbreach.theme
 
 import androidx.compose.ui.graphics.Color
 

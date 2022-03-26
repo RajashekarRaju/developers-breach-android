@@ -1,4 +1,4 @@
-package com.developerbreach.developerbreach.ui.theme
+package com.developerbreach.developerbreach.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
@@ -21,18 +21,18 @@ val Typography = Typography(
 
     h4 = TextStyle(
         fontFamily = Poppins,
-        fontWeight = FontWeight.W700,
-        fontSize = 32.sp
+        fontWeight = FontWeight.Medium,
+        fontSize = 24.sp
     ),
     h5 = TextStyle(
         fontFamily = Poppins,
-        fontWeight = FontWeight.W600,
-        fontSize = 24.sp
+        fontWeight = FontWeight.Normal,
+        fontSize = 20.sp
     ),
     h6 = TextStyle(
         fontFamily = Poppins,
-        fontWeight = FontWeight.W600,
-        fontSize = 20.sp
+        fontWeight = FontWeight.Normal,
+        fontSize = 18.sp
     ),
     subtitle1 = TextStyle(
         fontFamily = Poppins,
