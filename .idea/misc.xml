@@ -91,7 +91,7 @@
         <entry key="..\:/Users/rajas/Downloads/developers-breach-android/app/src/main/res/layout/fragment_banner.xml" value="0.1" />
         <entry key="..\:/Users/rajas/Downloads/developers-breach-android/app/src/main/res/layout/fragment_common_web_view.xml" value="0.1" />
         <entry key="..\:/Users/rajas/Downloads/developers-breach-android/app/src/main/res/layout/fragment_favorites.xml" value="0.1" />
-        <entry key="..\:/Users/rajas/Downloads/developers-breach-android/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/rajas/Downloads/developers-breach-android/app/src/main/res/layout/fragment_home.xml" value="0.18" />
         <entry key="..\:/Users/rajas/Downloads/developers-breach-android/app/src/main/res/layout/fragment_intro.xml" value="0.1" />
         <entry key="..\:/Users/rajas/Downloads/developers-breach-android/app/src/main/res/layout/fragment_options.xml" value="0.1" />
         <entry key="..\:/Users/rajas/Downloads/developers-breach-android/app/src/main/res/layout/fragment_search.xml" value="0.1" />
@@ -102,6 +102,7 @@
         <entry key="..\:/Users/rajas/Downloads/developers-breach-android/app/src/main/res/layout/item_options.xml" value="0.1" />
         <entry key="..\:/Users/rajas/Downloads/developers-breach-android/app/src/main/res/layout/item_recent_articles.xml" value="0.1" />
         <entry key="..\:/Users/rajas/Downloads/developers-breach-android/app/src/main/res/layout/item_search.xml" value="0.1" />
+        <entry key="..\:/Users/rajas/Downloads/developers-breach-android/app/src/main/res/layout/static_search_header.xml" value="0.15648148148148147" />
       </map>
     </option>
   </component>

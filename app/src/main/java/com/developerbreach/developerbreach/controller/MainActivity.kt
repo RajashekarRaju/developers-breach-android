@@ -3,15 +3,12 @@ package com.developerbreach.developerbreach.controller
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.navigation.NavController
 import com.developerbreach.developerbreach.fcm.setNotificationChannel
 import com.developerbreach.developerbreach.navigation.AppNavigation
-import com.developerbreach.developerbreach.ui.theme.BlueTheme
+import com.developerbreach.developerbreach.theme.BlueTheme
 
 
 class MainActivity : ComponentActivity() {
-
-    lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

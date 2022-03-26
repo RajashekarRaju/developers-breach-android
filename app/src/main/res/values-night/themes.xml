@@ -14,22 +14,4 @@
         <item name="elevationOverlayEnabled">true</item>
     </style>
 
-    <style name="AppTheme" parent="@style/Base.AppTheme" />
-
-    <style name="AppTheme.Blue">
-        <item name="colorPrimary">@color/primaryColor</item>
-        <item name="colorOnPrimary">@color/onPrimaryColor</item>
-
-        <item name="colorSurface">@color/surfaceColor</item>
-        <item name="colorOnSurface">@color/onSurfaceColor</item>
-
-        <item name="background">@color/colorBackground</item>
-        <item name="colorOnBackground">@color/colorOnBackground</item>
-    </style>
-
-    <style name="BottomSheetDialogTheme" parent="@style/BaseBottomSheetDialog">
-        <item name="android:statusBarColor">@color/colorBackground</item>
-        <item name="android:navigationBarColor">@color/colorBackground</item>
-    </style>
-
 </resources>

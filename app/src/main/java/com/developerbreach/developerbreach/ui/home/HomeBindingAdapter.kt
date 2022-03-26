@@ -1,17 +1,17 @@
 package com.developerbreach.developerbreach.ui.home
 
-import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.navigation.findNavController
-import androidx.recyclerview.widget.RecyclerView
-import androidx.transition.Fade
-import androidx.transition.TransitionManager
-import com.developerbreach.developerbreach.R
-import com.developerbreach.developerbreach.controller.AppNavDirections
-import com.developerbreach.developerbreach.model.Article
-import com.developerbreach.developerbreach.utils.itemViewAnimation
-import com.google.android.material.card.MaterialCardView
+//import android.view.View
+//import android.widget.ImageView
+//import android.widget.TextView
+//import androidx.navigation.findNavController
+//import androidx.recyclerview.widget.RecyclerView
+//import androidx.transition.Fade
+//import androidx.transition.TransitionManager
+//import com.developerbreach.developerbreach.R
+//import com.developerbreach.developerbreach.controller.AppNavDirections
+//import com.developerbreach.developerbreach.model.Article
+//import com.developerbreach.developerbreach.utils.itemViewAnimation
+//import com.google.android.material.card.MaterialCardView
 
 
 //@BindingAdapter("bindRecentArticlesListData")
