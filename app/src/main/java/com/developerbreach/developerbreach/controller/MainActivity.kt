@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             BlueTheme {
-                AppNavigation()
+                AppNavigation(activity = this)
             }
         }
 
