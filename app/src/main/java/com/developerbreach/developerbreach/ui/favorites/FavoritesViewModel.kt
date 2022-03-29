@@ -2,7 +2,6 @@ package com.developerbreach.developerbreach.ui.favorites
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.developerbreach.developerbreach.DevelopersBreachApp
 import com.developerbreach.developerbreach.model.Article
 import com.developerbreach.developerbreach.repository.database.DatabaseRepository
 import kotlinx.coroutines.launch

@@ -99,7 +99,7 @@ class CategoryViewModel(
                 @Suppress("unchecked_cast")
                 override fun <T : ViewModel> create(modelClass: Class<T>): T {
                     if (modelClass.isAssignableFrom(CategoryViewModel::class.java)) {
-                        return CategoryViewModel(application, repository,) as T
+                        return CategoryViewModel(application, repository) as T
                     }
                     throw IllegalArgumentException("Cannot create Instance for CategoryViewModel class")
                 }

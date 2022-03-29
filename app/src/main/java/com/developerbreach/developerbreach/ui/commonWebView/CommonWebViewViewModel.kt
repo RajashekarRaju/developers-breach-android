@@ -5,8 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.developerbreach.developerbreach.R
-import com.developerbreach.developerbreach.repository.database.DatabaseRepository
-import com.developerbreach.developerbreach.ui.favorites.FavoritesViewModel
 import com.developerbreach.developerbreach.utils.Preferences
 
 class CommonWebViewViewModel(
