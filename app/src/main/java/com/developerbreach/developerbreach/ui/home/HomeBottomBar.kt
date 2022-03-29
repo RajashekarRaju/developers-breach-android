@@ -53,7 +53,7 @@ fun HomeBottomBar(
                     coroutineScope.launch {
                         modalSheetSheet.animateTo(
                             targetValue = ModalBottomSheetValue.Expanded,
-                            anim = tween(durationMillis = 500)
+                            anim = tween(durationMillis = 350)
                         )
                     }
                 },
