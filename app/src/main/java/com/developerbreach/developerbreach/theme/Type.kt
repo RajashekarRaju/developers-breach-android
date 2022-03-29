@@ -36,16 +36,16 @@ val Typography = Typography(
     ),
     subtitle1 = TextStyle(
         fontFamily = Poppins,
-        fontWeight = FontWeight.W600,
-        fontSize = 16.sp
+        fontWeight = FontWeight.Light,
+        fontSize = 14.sp
     ),
     subtitle2 = TextStyle(
         fontFamily = Poppins,
-        fontWeight = FontWeight.W500,
-        fontSize = 14.sp
+        fontWeight = FontWeight.Light,
+        fontSize = 12.sp
     ),
     body2 = TextStyle(
         fontFamily = Poppins,
-        fontSize = 14.sp
+        fontSize = 11.sp
     )
 )
