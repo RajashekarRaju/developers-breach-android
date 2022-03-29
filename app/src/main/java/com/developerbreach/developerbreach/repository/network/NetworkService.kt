@@ -1,125 +1,76 @@
 package com.developerbreach.developerbreach.repository.network
 
 import com.developerbreach.developerbreach.model.*
-import java.net.URL
+import com.developerbreach.developerbreach.utils.NetworkQueryUtils
 
+/**
+ * Class contains functions which can fetch data from network.
+ * This is the only network data source for whole app.
+ */
 class NetworkService {
 
+    // Contains all url endpoints to json data
+    private val requestUrls by lazy { RequestUrls() }
+
+    // Returns all json responses
+    private val jsonData by lazy { JsonData() }
+
+    // To make http request calls
+    private val queryUtils by lazy { NetworkQueryUtils() }
+
+    /**
+     * @return the result of latest list of articles fetched from the network.
+     */
     fun getArticles(
         totalPostsToDoRunQueryOn: Int
     ): List<Article> {
-        val response = articleResponse(totalPostsToDoRunQueryOn)
-        return JsonData.fetchArticleJsonData(response)
+        val requestUrl = requestUrls.articleBuilder(totalPostsToDoRunQueryOn)
+        val response = queryUtils.getResponseFromHttpUrl(requestUrl)
+        return jsonData.fetchArticleJsonData(response)
     }
 
     fun getArticleDetails(
         articleId: Int?
     ): ArticleDetail {
-        val response = articleDetailResponse(articleId)
-        return JsonData.fetchArticleJsonDataById(response)
+        val requestUrl = requestUrls.articleByIdBuilder(articleId)
+        val response = queryUtils.getResponseFromHttpUrl(requestUrl)
+        return jsonData.fetchArticleDetailsJsonDataById(response)
     }
 
     fun getSearchableArticles(
         totalPostsToDoRunQueryOn: Int
     ): List<Search> {
-        val response = searchResponse(totalPostsToDoRunQueryOn)
-        return JsonData.fetchSearchableArticlesJsonData(response)
+        val requestUrl = requestUrls.articleBuilder(totalPostsToDoRunQueryOn)
+        val response = queryUtils.getResponseFromHttpUrl(requestUrl)
+        return jsonData.fetchSearchableArticlesJsonData(response)
     }
 
     fun getArticlesByCategoryId(
         categoryId: Int,
-        postsPage: Int
+        currentPage: Int
     ): List<Article> {
-        val response = articleResponseByCategoryId(categoryId, postsPage)
-        return JsonData.fetchArticleJsonData(response)
+        val requestUrl = requestUrls.articlesByCategoryBuilder(categoryId, currentPage)
+        val response = queryUtils.getResponseFromHttpUrl(requestUrl)
+        return jsonData.fetchArticleJsonData(response)
     }
 
     fun getCategories(): List<Categories> {
-        val response = categoryResponse()
-        return JsonData.fetchCategoriesJsonData(response)
+        val requestUrl = requestUrls.categoryBuilder()
+        val response = queryUtils.getResponseFromHttpUrl(requestUrl)
+        return jsonData.fetchCategoriesJsonData(response)
     }
 
     fun getAuthors(): List<Authors> {
-        val response = authorResponse()
-        return JsonData.fetchAuthorsJsonData(response)
+        val requestUrl = requestUrls.authorBuilder()
+        val response = queryUtils.getResponseFromHttpUrl(requestUrl)
+        return jsonData.fetchAuthorsJsonData(response)
     }
 
     fun getAuthorById(
         authorId: Int
     ): Pair<String, String> {
-        val response = authorResponseById(authorId)
-        return JsonData.fetchAuthorDataById(response)
-    }
-
-    private companion object {
-
-        private val builder = QueryBuilder
-
-        private fun getResponse(
-            url: URL
-        ): String {
-            val queryUtils = NetworkQueryUtils()
-            return queryUtils.getResponseFromHttpUrl(url)
-        }
-
-        private fun getUrl(
-            stringUrl: String
-        ): URL {
-            val queryUtils = NetworkQueryUtils()
-            return queryUtils.createUrl(stringUrl)
-        }
-
-        fun articleResponse(
-            totalPostsToDoRunQueryOn: Int
-        ): String {
-            val uriString: String = builder.articleBuilder(totalPostsToDoRunQueryOn)
-            val requestUrl: URL = getUrl(uriString)
-            return getResponse(requestUrl)
-        }
-
-        fun articleDetailResponse(
-            articleId: Int?
-        ): String {
-            val uriString: String = builder.articleByIdBuilder(articleId)
-            val requestUrl: URL = getUrl(uriString)
-            return getResponse(requestUrl)
-        }
-
-        fun searchResponse(
-            totalPostsToDoRunQueryOn: Int
-        ): String {
-            val uriString: String = builder.articleBuilder(totalPostsToDoRunQueryOn)
-            val requestUrl: URL = getUrl(uriString)
-            return getResponse(requestUrl)
-        }
-
-        fun articleResponseByCategoryId(
-            categoryId: Int,
-            postsPage: Int
-        ): String {
-            val uriString: String = builder.articlesByCategoryBuilder(categoryId, postsPage)
-            val requestUrl: URL = getUrl(uriString)
-            return getResponse(requestUrl)
-        }
-
-        fun categoryResponse(): String {
-            val uriString: String = builder.categoryBuilder()
-            val requestUrl: URL = getUrl(uriString)
-            return getResponse(requestUrl)
-        }
-
-        fun authorResponse(): String {
-            val uriString: String = builder.authorBuilder()
-            val requestUrl: URL = getUrl(uriString)
-            return getResponse(requestUrl)
-        }
-
-        fun authorResponseById(
-            authorId: Int
-        ): String {
-            val uriString: String = builder.authorBuilderById(authorId)
-            val requestUrl: URL = getUrl(uriString)
-            return getResponse(requestUrl)
-        }
+        val requestUrl = requestUrls.authorBuilderById(authorId)
+        val response = queryUtils.getResponseFromHttpUrl(requestUrl)
+        return jsonData.fetchAuthorDataById(response)
     }
 }

@@ -41,17 +41,3 @@ object Preferences {
     const val CONTACT_KEY: String = "Contact"
     const val DEVELOPER_KEY: String = "Developer"
 }
-
-const val SCHEME_AUTHORITY = "https://developersbreach.com"
-const val APPEND_PATH = "wp-json/wp/v2"
-
-const val APPEND_PATH_USERS = "users"
-const val APPEND_PATH_CATEGORIES = "categories"
-const val APPEND_PATH_POSTS = "posts"
-
-const val QUERY_PARAMETER_COUNT_PER_PAGE = "per_page"
-const val QUERY_PARAMETER_POSTS_PAGE = "page"
-const val QUERY_PARAMETER_POSTS_BY_CATEGORY = "categories"
-const val QUERY_PARAMETER_POST_INCLUDE_ID = "include"
-const val QUERY_PARAMETER_POSTS_ORDER = "orderby"
-const val ORDER_BY_DATE = "date"

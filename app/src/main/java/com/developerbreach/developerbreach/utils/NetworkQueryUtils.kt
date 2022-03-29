@@ -1,4 +1,4 @@
-package com.developerbreach.developerbreach.repository.network
+package com.developerbreach.developerbreach.utils
 
 import java.io.IOException
 import java.io.InputStream
@@ -34,12 +34,5 @@ class NetworkQueryUtils {
         } finally {
             urlConnection.disconnect()
         }
-    }
-
-    /**
-     * Returns new URL object from the given string URL.
-     */
-    fun createUrl(stringUrl: String): URL {
-        return URL(stringUrl)
     }
 }
