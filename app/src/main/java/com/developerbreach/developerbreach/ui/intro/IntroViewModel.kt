@@ -4,9 +4,9 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.developerbreach.developerbreach.DevelopersBreachApp
 import com.developerbreach.developerbreach.model.Intro
 import com.developerbreach.developerbreach.repository.local.LocalRepository
+import com.developerbreach.developerbreach.utils.PrefUtils
 
 
 class IntroViewModel(
@@ -20,6 +20,15 @@ class IntroViewModel(
 
     init {
         _introList = repository.introPagerListData()
+    }
+
+    fun addToBackStack() {
+        PrefUtils(getApplication()).preferenceStateSaved()
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        PrefUtils(getApplication()).preferenceStateSaved()
     }
 
     companion object {
