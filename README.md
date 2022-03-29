@@ -3,7 +3,9 @@
 ## version 1.2.0 (Migration in progress)
 
 Migrating the whole app to pure compose.
-Both master & v1.2.0 branches are not tested and might be effected with current changes.
+Both master & v1.2.0 branches are not tested and might be effected with current changes.=======
+
+![JetpackComposeRepositoryPreview](https://github.com/RajashekarRaju/developers-breach-android/blob/v1.1.0/assets/banner_three.png)
 
 ## version 1.1.0 ready
 
@@ -20,6 +22,10 @@ New update almost after an year.
 * Animations all over the places. Will minimize in next release.
 * Excessive use of exceptions, WebView, companion objects, extensive functions.
 * More to mention, will update readme later.
+
+![JetpackComposeRepositoryPreview](https://github.com/RajashekarRaju/developers-breach-android/blob/v1.1.0/assets/banner_two.png)
+
+![JetpackComposeRepositoryPreview](https://github.com/RajashekarRaju/developers-breach-android/blob/v1.1.0/assets/banner_one.png)
 
 ## version 1.0.0 published
 
