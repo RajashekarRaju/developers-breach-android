@@ -87,6 +87,7 @@ dependencies {
 
     // Accompanist
     implementation "com.google.accompanist:accompanist-pager:0.24.5-alpha"
+    implementation "com.google.accompanist:accompanist-pager-indicators:0.24.5-alpha"
 
     // Preference fragment for settings
     implementation 'androidx.preference:preference-ktx:1.2.0'

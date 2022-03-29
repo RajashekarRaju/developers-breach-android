@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primaryColor">#236D8F</color>
-    <color name="onPrimaryColor">#141A20</color>
-
-    <color name="surfaceColor">#1D262E</color>
-    <color name="onSurfaceColor">#E3F2FD</color>
-
-    <color name="colorBackground">#141A20</color>
-    <color name="colorOnBackground">#E3F2FD</color>
-
     <color name="colorHighWave">#374450</color>
     <color name="colorMidWave">#232D35</color>
     <color name="colorLowWave">#141A20</color>

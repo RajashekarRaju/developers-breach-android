@@ -1,5 +1,10 @@
 # DevelopersBreach for Android
 
+## version 1.2.0 (Migration in progress)
+
+Migrating the whole app to pure compose.
+Both master & v1.2.0 branches are not tested and might be effected with current changes.=======
+
 ![JetpackComposeRepositoryPreview](https://github.com/RajashekarRaju/developers-breach-android/blob/v1.1.0/assets/banner_three.png)
 
 ## version 1.1.0 ready

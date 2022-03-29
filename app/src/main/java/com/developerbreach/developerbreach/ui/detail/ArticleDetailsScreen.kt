@@ -9,12 +9,13 @@ import com.developerbreach.developerbreach.repository.network.NetworkRepository
 
 @Composable
 fun ArticleDetailsScreen(
-    navigateToSelectedArticle: (Int) -> Unit,
+    navigateToBanner: (String) -> Unit,
     navigateUp: () -> Unit,
+    navigateToArticleWebView: (String) -> Unit,
     articleId: Int,
     networkRepository: NetworkRepository,
     databaseRepository: DatabaseRepository,
-    application: DevelopersBreachApp
+    application: DevelopersBreachApp,
 ) {
     val viewModel = viewModel(
         factory = ArticleDetailViewModel.provideFactory(

@@ -1,6 +1,8 @@
 package com.developerbreach.developerbreach.navigation
 
+import android.app.Activity
 import android.app.Application
+import androidx.activity.compose.BackHandler
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
@@ -10,6 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.developerbreach.developerbreach.DevelopersBreachApp
+import com.developerbreach.developerbreach.controller.MainActivity
 import com.developerbreach.developerbreach.ui.articleWebView.ArticleWebViewScreen
 import com.developerbreach.developerbreach.ui.authors.AuthorsScreen
 import com.developerbreach.developerbreach.ui.banner.BannerScreen
@@ -27,9 +30,9 @@ import com.developerbreach.developerbreach.ui.settings.SettingsScreen
 @Composable
 fun AppNavigation(
     startDestination: String = AppDestinations.HOME_ROUTE,
-    routes: AppDestinations = AppDestinations
+    routes: AppDestinations = AppDestinations,
+    activity: Activity = MainActivity()
 ) {
-
     // Create a NavHostController to handle navigation.
     val navController = rememberNavController()
     val actions = remember(navController) {
@@ -52,15 +55,36 @@ fun AppNavigation(
         startDestination = startDestination
     ) {
 
+        /** Intro **/
+        composable(
+            route = AppDestinations.INTRO_ROUTE
+        ) {
+            BackHandler(enabled = true) {
+                activity.finish()
+            }
+
+            IntroScreen(
+                localRepository,
+                application,
+                actions.introToHome
+            ) {
+                navController.popBackStack()
+            }
+        }
+
         /** Home **/
         composable(
             route = AppDestinations.HOME_ROUTE
         ) {
+            BackHandler(enabled = true) {
+                activity.finish()
+            }
+
             HomeScreen(
-                actions.homeToSearch,
-                actions.navigateToSelectedArticle,
                 networkRepository,
-                application
+                localRepository,
+                application,
+                actions
             )
         }
 
@@ -110,12 +134,13 @@ fun AppNavigation(
             val arguments = requireNotNull(backStackEntry.arguments)
             val articleId = arguments.getInt(routes.ARTICLE_DETAIL_ID_KEY)
             ArticleDetailsScreen(
-                actions.navigateToSelectedArticle,
+                actions.navigateToBanner,
                 actions.navigateUp,
+                actions.navigateToArticleWebView,
                 articleId,
                 networkRepository,
                 databaseRepository,
-                application
+                application,
             )
         }
 
@@ -174,16 +199,6 @@ fun AppNavigation(
             CommonWebViewScreen(
                 actions.navigateUp,
                 webViewUrl,
-                application
-            )
-        }
-
-        /** Intro **/
-        composable(
-            route = AppDestinations.INTRO_ROUTE
-        ) {
-            IntroScreen(
-                localRepository,
                 application
             )
         }

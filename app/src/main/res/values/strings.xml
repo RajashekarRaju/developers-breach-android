@@ -86,7 +86,7 @@
 
     <!--  HomeFragment  -->
     <string name="recent_posts_tag">Recent</string>
-    <string name="view_all_tag">View All</string>
+    <string name="view_all_tag">View all</string>
     <string name="search_header_title">Search Articles</string>
 
     <!--  SearchFragment  -->
